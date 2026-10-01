@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
+import bundledCampaignData from "../public/data/campaigns.json";
 
 type Audience = "new-user" | "existing-user" | "mixed" | "not-stated";
 
@@ -62,25 +63,7 @@ type IconName =
   | "check"
   | "sliders";
 
-const fallbackData: CampaignData = {
-  updatedAt: "",
-  source: {
-    name: "7-ELEVEN 官方活動 XML",
-    url: "https://www.7-11.com.tw/include/SalesPromo.xml?12",
-    officialSite: "https://www.7-11.com.tw/index.aspx",
-    counts: {},
-  },
-  payments: [
-    {
-      name: "7-ELEVEN 官方活動",
-      logo: "/logos/7-eleven.png",
-      color: "#00a651",
-      focus: "同步 7-ELEVEN 官網活動資料。",
-      freshness: "等待匯入",
-      campaigns: [],
-    },
-  ],
-};
+const fallbackData: CampaignData = bundledCampaignData as CampaignData;
 
 const paymentLogos: Record<string, string> = {
   "LINE Pay": "/logos/line-pay.svg",
