@@ -1601,6 +1601,14 @@ summary:focus-visible {
   line-height: 1.5;
 }
 
+.source-links {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
 .sync-tag {
   display: inline-flex;
   align-items: center;
@@ -1708,5 +1716,9 @@ summary:focus-visible {
     align-items: flex-start;
     flex-direction: column;
     gap: 11px;
+  }
+
+  .source-links {
+    align-items: flex-start;
   }
 }

@@ -146,7 +146,7 @@ async function main() {
         endsAt: eDate,
       };
     })
-    .filter((campaign) => campaign.title && (!campaign.endsAt || campaign.endsAt >= today))
+    .filter((campaign) => campaign.title && (!campaign.startsAt || campaign.startsAt <= today) && (!campaign.endsAt || campaign.endsAt >= today))
     .sort((a, b) => (a.category === b.category ? a.title.localeCompare(b.title, "zh-Hant") : a.category.localeCompare(b.category, "zh-Hant")));
 
   const groupedCounts = campaigns.reduce((acc, campaign) => {

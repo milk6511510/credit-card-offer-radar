@@ -36,6 +36,11 @@ type CampaignData = {
     officialSite: string;
     counts: Record<string, number>;
   };
+  sources?: Array<{
+    name: string;
+    url: string;
+    officialSite: string;
+  }>;
   payments: PaymentSource[];
 };
 
@@ -332,6 +337,7 @@ export default function Home() {
   }, [offers]);
 
   const source = data.source || fallbackData.source!;
+  const sourceLinks = data.sources?.length ? data.sources : [source];
   const updatedTime = formatUpdatedAt(data.updatedAt);
   const totalCount = offers.length;
 
@@ -378,8 +384,8 @@ export default function Home() {
               <div className="mt-5 flex items-center gap-3">
                 <BrandMark name={data.payments[0]?.name || "7-ELEVEN"} logo={data.payments[0]?.logo} color={data.payments[0]?.color} />
                 <div className="min-w-0">
-                  <p className="truncate text-sm font-semibold text-white">{data.payments[0]?.name || "7-ELEVEN"}</p>
-                  <p className="mt-1 text-xs text-white/45">{totalCount} 筆官方活動</p>
+                  <p className="truncate text-sm font-semibold text-white">多平台官方資料</p>
+                  <p className="mt-1 text-xs text-white/45">{data.payments.length} 個平台 · {totalCount} 筆活動</p>
                 </div>
               </div>
               <a className="rail-link mt-5" href={source.officialSite} target="_blank" rel="noreferrer">查看官方網站 <Icon name="external" size={14} /></a>
@@ -387,7 +393,7 @@ export default function Home() {
 
             <div className="rail-note">
               <Icon name="info" size={17} />
-              <p>只顯示已從官方活動文字讀到的條件，沒有寫明的項目會標記為待確認。</p>
+              <p>活動清單以目前日期仍有效的官方活動為主；沒有寫明的項目會標記為待確認。</p>
             </div>
           </div>
         </aside>
@@ -454,7 +460,9 @@ export default function Home() {
                 <h2>同步活動清單</h2>
                 <p>每筆活動都可以展開完整細項，並直接回到官方頁確認期限、名額與排除條件。</p>
               </div>
-              <a className="secondary-link" href={source.officialSite} target="_blank" rel="noreferrer">來源：{source.name} <Icon name="external" size={15} /></a>
+              <div className="source-links">
+                {sourceLinks.map((sourceLink) => <a className="secondary-link" href={sourceLink.officialSite || sourceLink.url} target="_blank" rel="noreferrer" key={sourceLink.url}>來源：{sourceLink.name} <Icon name="external" size={15} /></a>)}
+              </div>
             </div>
 
             <div className="activity-toolbar glass-panel">
