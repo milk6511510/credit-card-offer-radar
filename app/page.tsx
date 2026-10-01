@@ -41,7 +41,6 @@ type CampaignData = {
 
 type Offer = Campaign & {
   payment: PaymentSource;
-  rebate: number;
 };
 
 type IconName =
@@ -77,13 +76,6 @@ const fallbackData: CampaignData = {
     },
   ],
 };
-
-const quickTerms = ["明德正", "LINE Pay", "icash Pay", "OPENPOINT", "CITY CAFE", "咖啡", "飲料", "uniopen"];
-const audienceChoices: Array<{ id: "all" | Audience; label: string }> = [
-  { id: "all", label: "全部條件" },
-  { id: "new-user", label: "新戶優先" },
-  { id: "existing-user", label: "既有用戶" },
-];
 
 const paymentLogos: Record<string, string> = {
   "LINE Pay": "/logos/line-pay.svg",
@@ -166,12 +158,6 @@ function BrandMark({ name, logo, color = "#ffffff" }: { name: string; logo?: str
   );
 }
 
-function getRebate(spend: number, rate: number, cap: number) {
-  if (!rate) return 0;
-  const value = Math.round(spend * rate);
-  return cap ? Math.min(value, cap) : value;
-}
-
 function getAudience(offer: Campaign): Audience {
   if (offer.audience) return offer.audience;
   const text = `${offer.title} ${offer.rawText || ""}`;
@@ -244,28 +230,25 @@ function OfferCard({ offer }: { offer: Offer }) {
 
         <div className="mt-5 grid grid-cols-2 gap-3 border-y border-white/10 py-4 text-sm">
           <div>
-            <p className="data-label">使用者條件</p>
+            <p className="data-label">使用條件</p>
             <span className={`mt-2 inline-flex rounded-full border px-3 py-1 text-xs font-semibold ${audience.className}`} title={audience.description}>
               {audience.label}
             </span>
           </div>
           <div>
-            <p className="data-label">支付方式線索</p>
+            <p className="data-label">支付平台</p>
             <div className="mt-2 flex flex-wrap gap-1.5">
               {paymentMethods.length ? paymentMethods.map((method) => <span className="signal-pill" key={method}>{method}</span>) : <span className="text-xs text-white/45">官方未明確提及</span>}
             </div>
           </div>
         </div>
 
-        <div className="mt-5 flex items-end justify-between gap-4">
+        <div className="activity-source-row mt-5">
           <div>
-            <p className="data-label">依目前消費額試算</p>
-            <p className="mt-1 text-3xl font-semibold tracking-[-0.04em] text-[#cafa9b]">{offer.rebate ? `NT$ ${offer.rebate}` : "看活動條件"}</p>
+            <p className="data-label">官方資料來源</p>
+            <p className="activity-source-name">{offer.payment.name}</p>
           </div>
-          <div className="text-right text-xs text-white/45">
-            <p>推估比例</p>
-            <p className="mt-1 text-sm font-semibold text-white/75">{offer.rate ? `${Math.round(offer.rate * 100)}%` : "未量化"}</p>
-          </div>
+          <span className="sync-tag"><Icon name="check" size={13} />已同步</span>
         </div>
 
         {officialId ? <p className="mt-4 text-xs font-medium text-white/45">官方項目：{officialId}</p> : null}
@@ -290,9 +273,7 @@ function OfferCard({ offer }: { offer: Offer }) {
 export default function Home() {
   const [data, setData] = useState<CampaignData>(fallbackData);
   const [query, setQuery] = useState("");
-  const [spend, setSpend] = useState(300);
   const [activeCategory, setActiveCategory] = useState("全部");
-  const [activeAudience, setActiveAudience] = useState<"all" | Audience>("all");
 
   useEffect(() => {
     fetch(`/data/campaigns.json?t=${Date.now()}`)
@@ -306,10 +287,9 @@ export default function Home() {
       payment.campaigns.map((campaign) => ({
         ...campaign,
         payment,
-        rebate: getRebate(spend, campaign.rate, campaign.cap),
       })),
     );
-  }, [data, spend]);
+  }, [data]);
 
   const categories = useMemo(() => ["全部", ...Array.from(new Set(offers.map((offer) => offer.category)))], [offers]);
 
@@ -318,19 +298,13 @@ export default function Home() {
     return offers
       .filter((offer) => activeCategory === "全部" || offer.category === activeCategory)
       .filter((offer) => {
-        if (activeAudience === "all") return true;
-        const audience = getAudience(offer);
-        return audience === activeAudience || audience === "mixed";
-      })
-      .filter((offer) => {
         if (!keyword) return true;
         return [offer.title, offer.category, offer.payment.name, offer.status, ...offer.stores, ...getPaymentMethods(offer), offer.rawText || ""]
           .join(" ")
           .toLowerCase()
           .includes(keyword);
-      })
-      .sort((a, b) => b.rebate - a.rebate || b.rate - a.rate || a.title.localeCompare(b.title, "zh-Hant"));
-  }, [activeAudience, activeCategory, offers, query]);
+      });
+  }, [activeCategory, offers, query]);
 
   const groupedOffers = useMemo(() => {
     return categories
@@ -357,7 +331,6 @@ export default function Home() {
     return [...signalMap.entries()].sort((a, b) => b[1].count - a[1].count || b[1].maxRate - a[1].maxRate);
   }, [offers]);
 
-  const best = filteredOffers[0];
   const source = data.source || fallbackData.source!;
   const updatedTime = formatUpdatedAt(data.updatedAt);
   const totalCount = offers.length;
@@ -375,9 +348,8 @@ export default function Home() {
           </a>
           <nav className="topnav" aria-label="主要導覽">
             <a className="active" href="#overview">總覽</a>
-            <a href="#match">找回饋</a>
             <a href="#platforms">支付平台</a>
-            <a href="#latest">最新優惠</a>
+            <a href="#latest">活動清單</a>
           </nav>
           <div className="topbar-status">
             <span className="status-light" />
@@ -393,7 +365,6 @@ export default function Home() {
               <p className="rail-label">探索</p>
               <nav className="rail-nav" aria-label="頁面導覽">
                 <a className="active" href="#overview"><Icon name="grid" size={17} />總覽</a>
-                <a href="#match"><Icon name="search" size={17} />找回饋</a>
                 <a href="#platforms"><Icon name="layers" size={17} />平台情報</a>
                 <a href="#latest"><Icon name="database" size={17} />活動資料</a>
               </nav>
@@ -401,7 +372,7 @@ export default function Home() {
 
             <div className="source-rail-card">
               <div className="flex items-center justify-between gap-3">
-                <p className="rail-label">目前來源</p>
+                <p className="rail-label">同步資料</p>
                 <span className="source-dot" />
               </div>
               <div className="mt-5 flex items-center gap-3">
@@ -425,133 +396,79 @@ export default function Home() {
           <section id="overview" className="overview-section">
             <div className="overview-copy">
               <span className="kicker"><span className="kicker-line" />支付優惠情報站</span>
-              <h1>今天怎麼付，<br /><span>回饋比較清楚。</span></h1>
-              <p>把官方活動、使用門檻與支付方式放在同一個決策畫面。先輸入你的消費情境，再看哪一個回饋值得花時間研究。</p>
+              <h1>各平台活動，<br /><span>更新一眼看清。</span></h1>
+              <p>集中整理支付平台在官方通路公布的活動內容、使用條件與原始連結。選平台、看活動，隨時回到官方頁確認最新規則。</p>
             </div>
             <div className="overview-metrics" aria-label="資料摘要">
               <div>
-                <span>已同步來源</span>
-                <strong>{data.payments.length}</strong>
-                <small>目前以 7-ELEVEN 官方資料為第一個來源</small>
+                <span>可追蹤平台</span>
+                <strong>{paymentSignals.length}</strong>
+                <small>依官方活動內容明確標示</small>
               </div>
               <div>
-                <span>可查活動</span>
+                <span>同步活動</span>
                 <strong>{totalCount}</strong>
-                <small>保留官方活動細項與原始連結</small>
+                <small>保留活動細項與原始連結</small>
               </div>
               <div>
                 <span>最近更新</span>
                 <strong className="metric-time">{updatedTime}</strong>
-                <small>開啟官方頁確認最終名額與期限</small>
+                <small>以官方頁內容為最後依據</small>
               </div>
             </div>
           </section>
 
-          <section id="match" className="match-panel glass-panel">
+          <section id="platforms" className="platforms-section">
             <div className="section-heading-row">
               <div>
-                <span className="eyebrow"><Icon name="spark" size={14} />MATCH ENGINE</span>
-                <h2>先告訴我你的消費情境</h2>
-                <p>用店家、商品、支付工具或活動名稱搜尋，結果會依可試算回饋排序。</p>
+                <span className="eyebrow"><Icon name="wallet" size={14} />PAYMENT PLATFORMS</span>
+                <h2>先選支付平台，再看活動</h2>
+                <p>平台只在官方活動內容明確出現時列入，點選後會直接篩出相關活動。</p>
               </div>
-              <span className="control-hint"><Icon name="sliders" size={15} />條件即時重算</span>
+              <span className="result-count">{paymentSignals.length} 個平台</span>
             </div>
-
-            <div className="match-inputs">
-              <label className="field-block">
-                <span>搜尋店家、支付、商品或活動</span>
-                <div className="input-shell">
-                  <Icon name="search" size={19} />
-                  <input value={query} onChange={(event) => setQuery(event.target.value)} placeholder="例如：LINE Pay、咖啡、OPENPOINT" aria-label="搜尋店家、支付、商品或活動" />
-                </div>
-              </label>
-              <label className="field-block spend-field">
-                <span>預計消費金額</span>
-                <div className="input-shell">
-                  <span className="currency">NT$</span>
-                  <input value={spend} onChange={(event) => setSpend(Math.max(0, Number(event.target.value) || 0))} min="0" type="number" inputMode="numeric" aria-label="預計消費金額" />
-                </div>
-              </label>
-            </div>
-
-            <div className="quick-searches">
-              <span>快速搜尋</span>
-              {quickTerms.map((term) => <button key={term} onClick={() => setQuery(term)} className={query === term ? "selected" : ""}>{term}</button>)}
-            </div>
-
-            <div className="audience-row">
-              <div className="audience-label"><Icon name="user" size={16} /><span>使用者狀態</span><small>依官方文案判讀</small></div>
-              <div className="segmented-control" role="group" aria-label="使用者狀態篩選">
-                {audienceChoices.map((choice) => <button key={choice.id} className={activeAudience === choice.id ? "selected" : ""} onClick={() => setActiveAudience(choice.id)} aria-pressed={activeAudience === choice.id}>{choice.label}</button>)}
+            {paymentSignals.length ? (
+              <div className="platform-grid">
+                {paymentSignals.map(([method, signal]) => (
+                  <button key={method} className="platform-card glass-card" onClick={() => { setQuery(method); document.getElementById("latest")?.scrollIntoView({ behavior: "smooth", block: "start" }); }} title={`查看 ${method} 相關活動`}>
+                    <span className="platform-card-top">
+                      <BrandMark name={method} logo={paymentLogos[method]} color="#2e8b62" />
+                      <span className="platform-status"><span className="source-dot" />官方活動</span>
+                    </span>
+                    <strong>{method}</strong>
+                    <span className="platform-card-count">{signal.count} 筆活動明確提及</span>
+                    <span className="platform-card-cta">查看平台活動 <Icon name="search" size={15} /></span>
+                  </button>
+                ))}
               </div>
-            </div>
-          </section>
-
-          <section className="decision-grid" aria-label="回饋決策摘要">
-            <div className="best-panel glass-panel">
-              <div className="section-heading-row compact">
-                <div>
-                  <span className="eyebrow"><Icon name="check" size={14} />FIRST LOOK</span>
-                  <h2>現在最值得先看</h2>
-                </div>
-                <span className="result-count">{filteredOffers.length} 筆符合</span>
-              </div>
-              {best ? (
-                <div className="best-result">
-                  <div className="best-result-top">
-                    <div>
-                      <p className="text-sm text-white/50">{best.payment.name} · {best.category}</p>
-                      <h3>{best.title}</h3>
-                    </div>
-                    <BrandMark name={best.payment.name} logo={best.payment.logo} color={best.payment.color} />
-                  </div>
-                  <div className="best-result-divider" />
-                  <div className="best-result-bottom">
-                    <div>
-                      <span className="data-label">本次消費可試算回饋</span>
-                      <strong>{best.rebate ? `NT$ ${best.rebate}` : "需看活動條件"}</strong>
-                    </div>
-                    <div className="best-tags">
-                      <span className={`audience-chip ${audienceMeta[getAudience(best)].className}`}>{audienceMeta[getAudience(best)].label}</span>
-                      {getPaymentMethods(best).slice(0, 2).map((method) => <span className="signal-pill" key={method}>{method}</span>)}
-                    </div>
-                  </div>
-                  {best.sourceUrl ? <a className="secondary-link mt-6" href={best.sourceUrl} target="_blank" rel="noreferrer">先看官方條件 <Icon name="external" size={15} /></a> : null}
-                </div>
-              ) : <div className="empty-result"><Icon name="search" size={22} /><p>沒有符合目前條件的活動，換一個關鍵字或回到全部條件。</p></div>}
-            </div>
-
-            <div id="platforms" className="signal-panel glass-panel">
-              <div className="section-heading-row compact">
-                <div>
-                  <span className="eyebrow"><Icon name="wallet" size={14} />PAYMENT SIGNALS</span>
-                  <h2>活動裡明確提到的支付方式</h2>
-                </div>
-                <span className="result-count">{paymentSignals.length} 個</span>
-              </div>
-              {paymentSignals.length ? (
-                <div className="signal-list">
-                  {paymentSignals.map(([method, signal]) => (
-                    <button key={method} className="signal-row" onClick={() => setQuery(method)} title={`搜尋 ${method} 相關活動`}>
-                      <BrandMark name={method} logo={paymentLogos[method]} color="#8de3b1" />
-                      <span className="min-w-0 text-left"><strong>{method}</strong><small>{signal.count} 筆活動明確提及</small></span>
-                      <span className="signal-rate">{signal.maxRate ? `${Math.round(signal.maxRate * 100)}%` : "看條件"}</span>
-                    </button>
-                  ))}
-                </div>
-              ) : <div className="empty-result"><Icon name="wallet" size={22} /><p>目前官方活動文字尚未明確點名支付方式。</p></div>}
-              <p className="panel-footnote"><Icon name="info" size={14} />支付方式只在官方活動內容明確出現時列入，不把平台名稱當成活動證明。</p>
-            </div>
+            ) : (
+              <div className="empty-state glass-panel"><Icon name="wallet" size={24} /><h3>尚未讀到平台活動</h3><p>等待官方活動資料同步後，平台會顯示在這裡。</p></div>
+            )}
+            <p className="panel-footnote"><Icon name="info" size={14} />活動細項與期限請以各平台、各通路的官方頁面為準。</p>
           </section>
 
           <section id="latest" className="latest-section">
             <div className="latest-header">
               <div>
                 <span className="eyebrow"><Icon name="database" size={14} />OFFICIAL CAMPAIGNS</span>
-                <h2>最新優惠資料</h2>
-                <p>每筆活動都可以展開完整細項，並直接回到官方活動頁確認期限、名額與排除條件。</p>
+                <h2>同步活動清單</h2>
+                <p>每筆活動都可以展開完整細項，並直接回到官方頁確認期限、名額與排除條件。</p>
               </div>
               <a className="secondary-link" href={source.officialSite} target="_blank" rel="noreferrer">來源：{source.name} <Icon name="external" size={15} /></a>
+            </div>
+
+            <div className="activity-toolbar glass-panel">
+              <label className="field-block activity-search">
+                <span>搜尋平台或活動</span>
+                <div className="input-shell">
+                  <Icon name="search" size={19} />
+                  <input value={query} onChange={(event) => setQuery(event.target.value)} placeholder="例如：icash Pay、OPEN錢包、咖啡" aria-label="搜尋平台或活動" />
+                </div>
+              </label>
+              <div className="activity-toolbar-meta">
+                <span className="control-hint"><Icon name="clock" size={15} />即時篩選</span>
+                <span className="result-count">{filteredOffers.length} 筆活動</span>
+              </div>
             </div>
 
             <div className="category-tabs" role="tablist" aria-label="活動分類">
@@ -559,7 +476,7 @@ export default function Home() {
             </div>
 
             {filteredOffers.length === 0 ? (
-              <div className="empty-state glass-panel"><Icon name="search" size={24} /><h3>目前沒有符合的活動</h3><p>把使用者狀態切回「全部條件」，或換一個店家、商品與支付關鍵字。</p></div>
+              <div className="empty-state glass-panel"><Icon name="search" size={24} /><h3>目前沒有符合的活動</h3><p>換一個平台名稱或活動關鍵字，重新查看同步資料。</p></div>
             ) : activeCategory !== "全部" ? (
               <div className="offer-grid">{filteredOffers.map((offer) => <OfferCard key={`${offer.payment.name}-${offer.title}`} offer={offer} />)}</div>
             ) : (
