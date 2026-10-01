@@ -98,22 +98,22 @@ const audienceMeta: Record<Audience, { label: string; description: string; class
   "new-user": {
     label: "新戶條件",
     description: "官方文字提到新戶、新客或首次使用",
-    className: "border-[#b9f57c]/25 bg-[#b9f57c]/10 text-[#cafa9b]",
+    className: "border-[#2f8a64]/20 bg-[#e8f6ed] text-[#276d50]",
   },
   "existing-user": {
     label: "既有用戶",
     description: "官方文字提到既有持有、續卡或原卡友",
-    className: "border-[#86c9ff]/25 bg-[#86c9ff]/10 text-[#a9d9ff]",
+    className: "border-[#3b82a0]/20 bg-[#e9f2fb] text-[#2b6088]",
   },
   mixed: {
     label: "條件分流",
     description: "官方文字同時提到不同使用者條件",
-    className: "border-[#f8c77b]/25 bg-[#f8c77b]/10 text-[#ffd795]",
+    className: "border-[#b9822b]/25 bg-[#fff3df] text-[#8b6122]",
   },
   "not-stated": {
     label: "官方未標示",
     description: "活動頁未明確寫新戶或既有用戶條件",
-    className: "border-white/12 bg-white/[0.06] text-white/65",
+    className: "border-[#d5dfdc] bg-[#f3f6f5] text-[#66736f]",
   },
 };
 
@@ -363,7 +363,7 @@ export default function Home() {
   const totalCount = offers.length;
 
   return (
-    <main className="app-shell">
+    <main className="app-shell light-theme">
       <header className="topbar">
         <div className="topbar-inner">
           <a href="#overview" className="brand-lockup" aria-label="回饋雷達總覽">
