@@ -14,6 +14,9 @@ type Campaign = {
   rate: number;
   cap: number;
   status: string;
+  rewardLabel?: string;
+  startsAt?: string;
+  endsAt?: string;
   sourceUrl?: string;
   officialId?: string;
   image?: string;
@@ -29,6 +32,16 @@ type PaymentSource = {
   campaigns: Campaign[];
 };
 
+type PlatformInfo = {
+  name: string;
+  logo?: string;
+  color: string;
+  focus: string;
+  officialSite: string;
+  sourceUrl?: string;
+  checkedAt?: string;
+};
+
 type CampaignData = {
   updatedAt: string;
   source?: {
@@ -41,7 +54,10 @@ type CampaignData = {
     name: string;
     url: string;
     officialSite: string;
+    status?: string;
+    checkedAt?: string;
   }>;
+  platforms?: PlatformInfo[];
   payments: PaymentSource[];
 };
 
@@ -72,6 +88,22 @@ const paymentLogos: Record<string, string> = {
   "台灣 Pay": "/logos/taiwan-pay.png",
   "iPASS MONEY": "/logos/ipass-money.png",
   "Pi 拍錢包": "/logos/pi-wallet.svg",
+};
+
+const platformColors: Record<string, string> = {
+  "LINE Pay": "#00c300",
+  "icash Pay": "#e95e22",
+  "街口支付": "#eb6a2a",
+  "台灣 Pay": "#b22637",
+  "iPASS MONEY": "#00a6d6",
+  "Pi 拍錢包": "#ed6b31",
+  "悠遊付": "#007c70",
+  "全支付": "#5f49a6",
+  "全盈+PAY": "#ef7d32",
+  "OPEN錢包": "#ef5a24",
+  "橘子支付": "#f58220",
+  "歐付寶 O'Pay": "#1388c9",
+  "ezPay 簡單付": "#1877b9",
 };
 
 const audienceMeta: Record<Audience, { label: string; description: string; className: string }> = {
@@ -167,6 +199,12 @@ function getPaymentMethods(offer: Campaign) {
     ["台灣 Pay", /台灣\s*pay/i],
     ["iPASS MONEY", /iPASS\s*MONEY|一卡通\s*MONEY/i],
     ["Pi 拍錢包", /pi\s*拍錢包|拍錢包/i],
+    ["悠遊付", /悠遊付|easywallet/i],
+    ["全支付", /全支付|pxpay/i],
+    ["全盈+PAY", /全盈\s*\+?\s*pay|pluspay/i],
+    ["橘子支付", /橘子支付|gamapay/i],
+    ["歐付寶 O'Pay", /歐付寶|o['’]?pay|opay/i],
+    ["ezPay 簡單付", /ezpay|簡單付/i],
     ["Apple Pay", /apple\s*pay/i],
     ["Google Pay", /google\s*pay/i],
     ["OPEN錢包", /open\s*錢包/i],
@@ -184,6 +222,18 @@ function formatUpdatedAt(value: string) {
     hour: "2-digit",
     minute: "2-digit",
   });
+}
+
+function rewardLabel(offer: Campaign) {
+  if (offer.rewardLabel) return offer.rewardLabel;
+  if (offer.rate > 0 && offer.cap > 0) return `最高 ${Math.round(offer.rate * 100)}%／上限 ${offer.cap.toLocaleString("zh-TW")} 元／點`;
+  if (offer.rate > 0) return `最高 ${Math.round(offer.rate * 100)}% 回饋`;
+  if (offer.cap > 0) return `最高 ${offer.cap.toLocaleString("zh-TW")} 元／點`;
+  return "條件型回饋";
+}
+
+function compareOffers(a: Campaign, b: Campaign) {
+  return (b.rate || 0) - (a.rate || 0) || (b.cap || 0) - (a.cap || 0) || a.title.localeCompare(b.title, "zh-Hant");
 }
 
 function OfferCard({ offer }: { offer: Offer }) {
@@ -214,6 +264,11 @@ function OfferCard({ offer }: { offer: Offer }) {
         <div className="mt-5 flex items-start gap-2 border-t border-white/10 pt-4 text-sm leading-6 text-white/65">
           <Icon name="clock" size={16} />
           <span>{offer.status}</span>
+        </div>
+
+        <div className="offer-reward-row mt-4">
+          <span className="reward-highlight"><Icon name="spark" size={14} />{rewardLabel(offer)}</span>
+          <span className="offer-store-summary">{offer.stores.slice(0, 3).join(" · ")}</span>
         </div>
 
         <div className="mt-5 grid grid-cols-2 gap-3 border-y border-white/10 py-4 text-sm">
@@ -271,12 +326,14 @@ export default function Home() {
   }, []);
 
   const offers = useMemo<Offer[]>(() => {
-    return data.payments.flatMap((payment) =>
-      payment.campaigns.map((campaign) => ({
-        ...campaign,
-        payment,
-      })),
-    );
+    return data.payments
+      .flatMap((payment) =>
+        payment.campaigns.map((campaign) => ({
+          ...campaign,
+          payment,
+        })),
+      )
+      .sort(compareOffers);
   }, [data]);
 
   const categories = useMemo(() => ["全部", ...Array.from(new Set(offers.map((offer) => offer.category)))], [offers]);
@@ -291,7 +348,8 @@ export default function Home() {
           .join(" ")
           .toLowerCase()
           .includes(keyword);
-      });
+      })
+      .sort(compareOffers);
   }, [activeCategory, offers, query]);
 
   const groupedOffers = useMemo(() => {
@@ -304,23 +362,40 @@ export default function Home() {
       .filter((group) => group.offers.length > 0);
   }, [categories, filteredOffers]);
 
-  const paymentSignals = useMemo(() => {
-    const signalMap = new Map<string, { count: number; maxRate: number; bestTitle: string }>();
-    offers.forEach((offer) => {
-      getPaymentMethods(offer).forEach((method) => {
-        const current = signalMap.get(method);
-        if (!current || offer.rate > current.maxRate) {
-          signalMap.set(method, { count: (current?.count || 0) + 1, maxRate: offer.rate, bestTitle: offer.title });
-        } else {
-          signalMap.set(method, { ...current, count: current.count + 1 });
-        }
+  const platformCatalog = useMemo<PlatformInfo[]>(() => {
+    if (data.platforms?.length) return data.platforms;
+    return Array.from(new Set(offers.flatMap((offer) => getPaymentMethods(offer)))).map((name) => ({
+      name,
+      logo: paymentLogos[name],
+      color: platformColors[name] || "#2e8b62",
+      focus: "官方活動來源",
+      officialSite: "",
+    }));
+  }, [data.platforms, offers]);
+
+  const platformSummaries = useMemo(() => {
+    return platformCatalog
+      .map((platform) => {
+        const platformOffers = offers.filter((offer) => getPaymentMethods(offer).includes(platform.name));
+        const bestByCap = [...platformOffers].filter((offer) => offer.cap > 0).sort((a, b) => (b.cap || 0) - (a.cap || 0) || (b.rate || 0) - (a.rate || 0))[0];
+        return {
+          platform,
+          offers: platformOffers,
+          best: platformOffers[0],
+          bestByCap,
+        };
+      })
+      .sort((a, b) => {
+        if (a.best && b.best) return compareOffers(a.best, b.best);
+        if (a.best) return -1;
+        if (b.best) return 1;
+        return a.platform.name.localeCompare(b.platform.name, "zh-Hant");
       });
-    });
-    return [...signalMap.entries()].sort((a, b) => b[1].count - a[1].count || b[1].maxRate - a[1].maxRate);
-  }, [offers]);
+  }, [offers, platformCatalog]);
 
   const source = data.source || fallbackData.source!;
-  const sourceLinks = data.sources?.length ? data.sources : [source];
+  const sourceLinks = (data.sources?.length ? data.sources : [source]).filter((sourceLink, index, all) => all.findIndex((item) => item.name === sourceLink.name) === index);
+  const visibleSourceLinks = sourceLinks.slice(0, 6);
   const updatedTime = formatUpdatedAt(data.updatedAt);
   const totalCount = offers.length;
 
@@ -368,7 +443,7 @@ export default function Home() {
                 <BrandMark name={data.payments[0]?.name || "7-ELEVEN"} logo={data.payments[0]?.logo} color={data.payments[0]?.color} />
                 <div className="min-w-0">
                   <p className="truncate text-sm font-semibold text-white">多平台官方資料</p>
-                  <p className="mt-1 text-xs text-white/45">{data.payments.length} 個平台 · {totalCount} 筆活動</p>
+                  <p className="mt-1 text-xs text-white/45">{platformSummaries.length} 個支付平台 · {totalCount} 筆活動</p>
                 </div>
               </div>
               <a className="rail-link mt-5" href={source.officialSite} target="_blank" rel="noreferrer">查看官方網站 <Icon name="external" size={14} /></a>
@@ -391,8 +466,8 @@ export default function Home() {
             <div className="overview-metrics" aria-label="資料摘要">
               <div>
                 <span>可追蹤平台</span>
-                <strong>{paymentSignals.length}</strong>
-                <small>依官方活動內容明確標示</small>
+                <strong>{platformSummaries.length}</strong>
+                <small>主流支付平台索引</small>
               </div>
               <div>
                 <span>同步活動</span>
@@ -412,20 +487,23 @@ export default function Home() {
               <div>
                 <span className="eyebrow"><Icon name="wallet" size={14} />PAYMENT PLATFORMS</span>
                 <h2>先選支付平台，再看活動</h2>
-                <p>平台只在官方活動內容明確出現時列入，點選後會直接篩出相關活動。</p>
+                <p>每個平台都保留官方入口；有活動時按回饋高低排列，點選後直接篩出完整細項。</p>
               </div>
-              <span className="result-count">{paymentSignals.length} 個平台</span>
+              <span className="result-count">{platformSummaries.length} 個平台</span>
             </div>
-            {paymentSignals.length ? (
+            {platformSummaries.length ? (
               <div className="platform-grid">
-                {paymentSignals.map(([method, signal]) => (
-                  <button key={method} className="platform-card glass-card" onClick={() => { setQuery(method); document.getElementById("latest")?.scrollIntoView({ behavior: "smooth", block: "start" }); }} title={`查看 ${method} 相關活動`}>
+                {platformSummaries.map(({ platform, offers: platformOffers, best, bestByCap }) => (
+                  <button key={platform.name} className="platform-card glass-card" onClick={() => { setQuery(platform.name); document.getElementById("latest")?.scrollIntoView({ behavior: "smooth", block: "start" }); }} title={`查看 ${platform.name} 相關活動`}>
                     <span className="platform-card-top">
-                      <BrandMark name={method} logo={paymentLogos[method]} color="#2e8b62" />
-                      <span className="platform-status"><span className="source-dot" />官方活動</span>
+                      <BrandMark name={platform.name} logo={platform.logo || paymentLogos[platform.name]} color={platform.color || platformColors[platform.name] || "#2e8b62"} />
+                      <span className="platform-status"><span className="source-dot" />{platformOffers.length ? "有有效活動" : "已建立索引"}</span>
                     </span>
-                    <strong>{method}</strong>
-                    <span className="platform-card-count">{signal.count} 筆活動明確提及</span>
+                    <strong>{platform.name}</strong>
+                    <span className="platform-card-reward">{best ? rewardLabel(best) : "目前沒有讀到仍有效回饋"}</span>
+                    {bestByCap && bestByCap !== best ? <span className="platform-card-cap">額度最高：{rewardLabel(bestByCap)}</span> : null}
+                    <span className="platform-card-count">{platformOffers.length ? `${platformOffers.length} 筆活動，已按回饋排序` : "官方活動入口已建立，等待有效活動"}</span>
+                    {best ? <span className="platform-card-best">{best.title}</span> : null}
                     <span className="platform-card-cta">查看平台活動 <Icon name="search" size={15} /></span>
                   </button>
                 ))}
@@ -441,10 +519,11 @@ export default function Home() {
               <div>
                 <span className="eyebrow"><Icon name="database" size={14} />OFFICIAL CAMPAIGNS</span>
                 <h2>同步活動清單</h2>
-                <p>每筆活動都可以展開完整細項，並直接回到官方頁確認期限、名額與排除條件。</p>
+                <p>活動預設以回饋比例與上限排序；每筆都可以展開完整細項，並直接回到官方頁確認期限、名額與排除條件。</p>
               </div>
               <div className="source-links">
-                {sourceLinks.map((sourceLink) => <a className="secondary-link" href={sourceLink.officialSite || sourceLink.url} target="_blank" rel="noreferrer" key={sourceLink.url}>來源：{sourceLink.name} <Icon name="external" size={15} /></a>)}
+                {visibleSourceLinks.map((sourceLink) => <a className="secondary-link" href={sourceLink.officialSite || sourceLink.url} target="_blank" rel="noreferrer" key={sourceLink.url}>來源：{sourceLink.name} <Icon name="external" size={15} /></a>)}
+                {sourceLinks.length > visibleSourceLinks.length ? <span className="source-links-note">另有 {sourceLinks.length - visibleSourceLinks.length} 個官方來源</span> : null}
               </div>
             </div>
 

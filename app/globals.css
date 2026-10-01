@@ -1556,6 +1556,34 @@ summary:focus-visible {
   line-height: 1.6;
 }
 
+.platform-card-reward {
+  display: block;
+  margin-top: 8px;
+  font-size: 16px;
+  font-weight: 760;
+  line-height: 1.45;
+}
+
+.platform-card-cap {
+  display: block;
+  margin-top: 3px;
+  color: rgba(255, 255, 255, 0.55);
+  font-size: 11px;
+  font-weight: 650;
+  line-height: 1.5;
+}
+
+.platform-card-best {
+  display: block;
+  overflow: hidden;
+  margin-top: 9px;
+  color: rgba(255, 255, 255, 0.48);
+  font-size: 11px;
+  line-height: 1.55;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
 .platform-card-cta {
   gap: 7px;
   margin-top: auto;
@@ -1594,6 +1622,37 @@ summary:focus-visible {
   border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
+.offer-reward-row {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 9px;
+}
+
+.reward-highlight {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 29px;
+  padding: 0 10px;
+  border: 1px solid rgba(39, 123, 87, 0.22);
+  border-radius: 999px;
+  color: #28724f;
+  background: #edf8f0;
+  font-size: 11px;
+  font-weight: 760;
+  line-height: 1.35;
+}
+
+.offer-store-summary {
+  overflow: hidden;
+  color: #80918a;
+  font-size: 11px;
+  line-height: 1.6;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
 .activity-source-name {
   margin-top: 6px;
   font-size: 14px;
@@ -1607,6 +1666,11 @@ summary:focus-visible {
   align-items: flex-end;
   gap: 8px;
   flex-shrink: 0;
+}
+
+.source-links-note {
+  color: #81918b;
+  font-size: 11px;
 }
 
 .sync-tag {
@@ -1636,6 +1700,18 @@ summary:focus-visible {
 .light-theme .platform-status,
 .light-theme .platform-card-count {
   color: #71827b;
+}
+
+.light-theme .platform-card-reward {
+  color: #2e8b62;
+}
+
+.light-theme .platform-card-cap {
+  color: #71827b;
+}
+
+.light-theme .platform-card-best {
+  color: #80918a;
 }
 
 .light-theme .platform-card-cta {

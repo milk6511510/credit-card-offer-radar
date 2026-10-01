@@ -50,8 +50,10 @@ function inferRate(text) {
 }
 
 function inferCap(text) {
-  const match = String(text || "").match(/(?:上限|最高|回饋|贈|送|優惠券)\D{0,12}(\d{1,5})\s*(?:元|點|%|券)?/);
-  return match ? Number(match[1]) : 0;
+  const values = [...String(text || "").matchAll(/(?:上限|最高|回饋|贈|送|優惠券)\D{0,12}([\d,]{1,7})\s*(?:元|點|券)/g)]
+    .map((match) => Number(match[1].replace(/,/g, "")))
+    .filter((value) => value > 0 && value < 10000 && !(value >= 1900 && value <= 2100));
+  return values.length ? Math.max(...values) : 0;
 }
 
 function inferCategory(text) {
