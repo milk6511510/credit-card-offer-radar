@@ -1,0 +1,49 @@
+name: Update official campaign data
+
+on:
+  schedule:
+    # 00:00, 08:00, and 16:00 UTC = 08:00, 16:00, and 00:00 Asia/Taipei.
+    - cron: "0 0,8,16 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: official-campaign-refresh
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: Checkout main
+        uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Scrape official campaign pages
+        run: npm run update:campaigns
+
+      - name: Commit changed campaign data
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          if git diff --quiet -- public/data/campaigns.json; then
+            echo "No campaign data changes."
+            exit 0
+          fi
+          git add public/data/campaigns.json
+          git commit -m "chore: refresh official campaign data"
+          git push origin HEAD:main

@@ -964,6 +964,11 @@ export default function Home() {
             <a href="#sources">官方入口</a>
           </nav>
           <div className="topbar-actions">
+            <div className="topbar-status" aria-label={`官方資料同步 ${updatedTime}`} title="官方活動資料最後同步時間">
+              <span className="status-light" />
+              <span className="hidden sm:inline">官方資料同步</span>
+              <time dateTime={data.updatedAt}>{updatedTime}</time>
+            </div>
             {!isHistoryView ? (
               <button type="button" className={`topbar-filter-button${filtersOpen ? " is-open" : ""}`} onClick={() => setFiltersOpen((open) => !open)} aria-expanded={filtersOpen} aria-controls="platform-filter-panel">
                 <Icon name="sliders" size={15} />
@@ -971,11 +976,6 @@ export default function Home() {
                 {activeFilterCount ? <b>{activeFilterCount}</b> : null}
               </button>
             ) : null}
-            <div className="topbar-status">
-              <span className="status-light" />
-              <span className="hidden sm:inline">本機已保存</span>
-              <time dateTime={data.updatedAt}>{updatedTime}</time>
-            </div>
           </div>
         </div>
       </header>
