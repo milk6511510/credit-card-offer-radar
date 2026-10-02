@@ -143,7 +143,9 @@ function inferCap(text) {
 }
 
 function findStores(text) {
-  const stores = knownStores.filter((store) => text.includes(store));
+  // Do not treat a merchant/product name inside an exclusion note as a venue.
+  const primaryText = String(text || "").split(/(?:注意事項|不適用店別|不適用商品|排除項目|排除商品)/i)[0];
+  const stores = knownStores.filter((store) => primaryText.includes(store));
   return stores.length ? stores : ["指定通路"];
 }
 

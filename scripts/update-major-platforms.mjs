@@ -303,7 +303,10 @@ const storeKeywords = [
 
 function inferStores(text) {
   const value = String(text || "");
-  const stores = storeKeywords.filter((store) => value.toLowerCase().includes(store.toLowerCase()));
+  // Only infer merchants from the main offer text. Exclusion lists can contain
+  // product names such as 金門高粱酒 that are not a participating merchant.
+  const primaryText = value.split(/(?:注意事項|不適用店別|不適用商品|排除項目|排除商品)/i)[0];
+  const stores = storeKeywords.filter((store) => primaryText.toLowerCase().includes(store.toLowerCase()));
   return stores.length ? [...new Set(stores)] : [/支付|錢包|帳戶|APP|公告/i.test(value) ? "官方支付服務" : "官方指定通路"];
 }
 

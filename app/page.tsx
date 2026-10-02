@@ -110,13 +110,15 @@ type IconName =
   | "heart"
   | "bell"
   | "sliders"
-  | "arrow-right";
+  | "arrow-right"
+  | "x";
 
 const fallbackData: CampaignData = bundledCampaignData as CampaignData;
 const FAVORITES_STORAGE_KEY = "paymentrader:favorites";
 const LEGACY_FAVORITES_STORAGE_KEY = "reward-radar:favorites";
 const PREFERRED_PLATFORMS_STORAGE_KEY = "paymentrader:preferred-platforms";
 const LAST_SYNC_STORAGE_KEY = "paymentrader:last-sync";
+const INITIAL_VISIBLE_OFFERS = 24;
 type NotificationStatus = NotificationPermission | "unsupported";
 
 const paymentLogos: Record<string, string> = {
@@ -254,6 +256,8 @@ function Icon({ name, size = 18 }: { name: IconName; size?: number }) {
       return <svg {...common}><path d="M4 6h16" /><path d="M4 12h16" /><path d="M4 18h16" /><circle cx="9" cy="6" r="2" fill="currentColor" stroke="none" /><circle cx="15" cy="12" r="2" fill="currentColor" stroke="none" /><circle cx="8" cy="18" r="2" fill="currentColor" stroke="none" /></svg>;
     case "arrow-right":
       return <svg {...common}><path d="M5 12h13" /><path d="m13 6 6 6-6 6" /></svg>;
+    case "x":
+      return <svg {...common}><path d="m6 6 12 12" /><path d="m18 6-12 12" /></svg>;
   }
 }
 
@@ -372,7 +376,7 @@ function getActivityHighlights(offer: Campaign) {
     .map((fragment) => fragment.replace(/\s+/g, " ").trim())
     .map((fragment) => fragment.replace(/^(?:活動方式|活動說明|優惠內容|回饋方式)\s*[:：]?\s*/i, "").trim())
     .filter((fragment) => fragment.length >= 8 && fragment.length <= 220)
-    .filter((fragment) => !/^(?:活動期間|活動時間|詳細活動辦法|注意事項)/i.test(fragment))
+    .filter((fragment) => !/^(?:活動期間|活動時間|詳細活動辦法|注意事項|不適用|排除|商品排除)/i.test(fragment))
     .filter((fragment) => fragment.replace(/[。！？；;，,：:\s]+$/g, "") !== normalizedTitle);
 
   const usefulFragments = fragments
@@ -532,18 +536,6 @@ function CategoryScroller({
   );
 }
 
-function CampaignImage({ offer }: { offer: Offer }) {
-  const [visible, setVisible] = useState(Boolean(offer.image));
-  if (!offer.image || !visible) return null;
-
-  return (
-    <div className="offer-image">
-      <img alt={offer.title} src={offer.image} loading="lazy" onError={() => setVisible(false)} />
-      <span className="image-label"><Icon name="database" size={13} /> 官方活動素材</span>
-    </div>
-  );
-}
-
 function OfferCard({ offer, isFavorite, onToggleFavorite }: { offer: Offer; isFavorite: boolean; onToggleFavorite: (offer: Offer) => void }) {
   const isNewUser = getAudience(offer) === "new-user";
   const newUserAudience = audienceMeta["new-user"];
@@ -555,87 +547,59 @@ function OfferCard({ offer, isFavorite, onToggleFavorite }: { offer: Offer; isFa
   const storeSummary = offer.stores.length ? offer.stores.join(" · ") : "以官方活動頁列示通路為準";
 
   return (
-    <article className="offer-card glass-card overflow-hidden">
-      <CampaignImage offer={offer} />
-      <div className="offer-card-body">
-        <div className="flex items-start justify-between gap-4">
-          <div className="flex min-w-0 gap-3">
-            <BrandMark name={paymentName} logo={paymentLogo} color={paymentColor} />
-            <div className="min-w-0">
-              <div className="offer-type-row">
-                <span className="offer-type-tag">{offer.category || "一般活動"}</span>
-                <span className="offer-platform-label">{paymentName}</span>
-              </div>
-              <h3 className="offer-title">{offer.title}</h3>
-            </div>
+    <article className="offer-card offer-bar-card glass-card">
+      <div className="offer-bar-main">
+        <BrandMark name={paymentName} logo={paymentLogo} color={paymentColor} />
+        <div className="offer-bar-identity">
+          <div className="offer-type-row">
+            <span className="offer-type-tag">{offer.category || "一般活動"}</span>
+            <span className="offer-platform-label">{paymentName}</span>
           </div>
-          <div className="offer-card-actions">
-            <span className="source-badge">官方</span>
-            <button
-              type="button"
-              className={`favorite-button${isFavorite ? " is-favorite" : ""}`}
-              onClick={() => onToggleFavorite(offer)}
-              aria-pressed={isFavorite}
-              aria-label={isFavorite ? `取消收藏 ${offer.title}` : `收藏 ${offer.title}`}
-              title={isFavorite ? "取消我的最愛" : "加入我的最愛"}
-            >
-              <Icon name="heart" size={16} />
-            </button>
-          </div>
+          <h3 className="offer-title">{offer.title}</h3>
+          <p className="offer-bar-store"><Icon name="wallet" size={13} />{storeSummary}</p>
         </div>
-
-        <div className="offer-reward-row mt-5">
+        <div className="offer-bar-reward">
           <span className="reward-highlight"><Icon name="spark" size={14} />{rewardLabel(offer)}</span>
+          <span className="offer-bar-period"><Icon name="clock" size={14} />{offer.status}</span>
         </div>
-
-        <div className="activity-summary" aria-label="活動精要">
-          <p className="data-label">活動精要</p>
-          <ul className="activity-summary-list">
-            {activityHighlights.map((highlight) => <li key={highlight}>{highlight}</li>)}
-          </ul>
+        <div className="offer-card-actions">
+          <span className="source-badge">官方</span>
+          <button
+            type="button"
+            className={`favorite-button${isFavorite ? " is-favorite" : ""}`}
+            onClick={() => onToggleFavorite(offer)}
+            aria-pressed={isFavorite}
+            aria-label={isFavorite ? `取消收藏 ${offer.title}` : `收藏 ${offer.title}`}
+            title={isFavorite ? "取消我的最愛" : "加入我的最愛"}
+          >
+            <Icon name="heart" size={16} />
+          </button>
         </div>
+      </div>
 
-        <div className="offer-info-grid">
-          <div className="offer-info-item offer-info-wide">
-            <p className="data-label">適用通路</p>
-            <p className="offer-info-value">{storeSummary}</p>
-          </div>
-          <div className="offer-info-item">
-            <p className="data-label">活動期間</p>
-            <p className="offer-info-value offer-period"><Icon name="clock" size={15} />{offer.status}</p>
-          </div>
-          {isNewUser ? <div className="offer-info-item">
-            <p className="data-label">適用對象</p>
-            <span className={`offer-audience-chip ${newUserAudience.className}`} title={newUserAudience.description}>新戶優惠</span>
-          </div> : null}
-          {paymentMethods.length ? <div className="offer-info-item offer-info-wide">
-            <p className="data-label">支付工具</p>
-            <div className="offer-payment-list">
-              {paymentMethods.map((method) => <span className="signal-pill" key={method}>{method}</span>)}
-            </div>
-          </div> : null}
+      <div className="offer-bar-summary activity-summary" aria-label="活動精要">
+        <div className="offer-bar-summary-label"><span className="data-label">活動精要</span>{isNewUser ? <span className={`offer-audience-chip ${newUserAudience.className}`} title={newUserAudience.description}>新戶優惠</span> : null}</div>
+        <ul className="activity-summary-list">
+          {activityHighlights.map((highlight) => <li key={highlight}>{highlight}</li>)}
+        </ul>
+        {paymentMethods.length ? <div className="offer-payment-list offer-bar-payment-list">{paymentMethods.map((method) => <span className="signal-pill" key={method}>{method}</span>)}</div> : null}
+      </div>
+
+      <div className="offer-bar-footer">
+        <span className="offer-bar-source"><Icon name="check" size={13} />{paymentName} 官方活動，已同步</span>
+        <div className="offer-bar-actions">
+          {offer.rawText ? (
+            <details className="details-panel offer-bar-details">
+              <summary>查看完整條件</summary>
+              <p className="mt-3 whitespace-pre-wrap text-sm leading-7 text-white/70">{offer.rawText}</p>
+            </details>
+          ) : null}
+          {offer.sourceUrl ? (
+            <a className="primary-link offer-bar-link" href={offer.sourceUrl} target="_blank" rel="noreferrer">
+              官方詳情 <Icon name="external" size={15} />
+            </a>
+          ) : null}
         </div>
-
-        <div className="activity-source-row mt-5">
-          <div>
-            <p className="data-label">官方資料來源</p>
-            <p className="activity-source-name">{paymentName} 官方活動</p>
-          </div>
-          <span className="sync-tag"><Icon name="check" size={13} />已同步</span>
-        </div>
-
-        {offer.rawText ? (
-          <details className="details-panel mt-5">
-            <summary>查看完整活動條件</summary>
-            <p className="mt-3 whitespace-pre-wrap text-sm leading-7 text-white/70">{offer.rawText}</p>
-          </details>
-        ) : null}
-
-        {offer.sourceUrl ? (
-          <a className="primary-link mt-5" href={offer.sourceUrl} target="_blank" rel="noreferrer">
-            查看官方詳情 <Icon name="external" size={15} />
-          </a>
-        ) : null}
       </div>
     </article>
   );
@@ -646,6 +610,7 @@ export default function Home() {
   const [favoriteIds, setFavoriteIds] = useState<string[]>([]);
   const [preferredPlatforms, setPreferredPlatforms] = useState<string[]>([]);
   const [preferencesOpen, setPreferencesOpen] = useState(false);
+  const [filtersOpen, setFiltersOpen] = useState(false);
   const [notificationStatus, setNotificationStatus] = useState<NotificationStatus>("unsupported");
   const [query, setQuery] = useState("");
   const [activeCategory, setActiveCategory] = useState("全部");
@@ -655,6 +620,7 @@ export default function Home() {
   const [historyPlatform, setHistoryPlatform] = useState("全部平台");
   const [historyMonth, setHistoryMonth] = useState("全部月份");
   const [historyQuery, setHistoryQuery] = useState("");
+  const [visibleOfferState, setVisibleOfferState] = useState({ key: "", count: INITIAL_VISIBLE_OFFERS });
   const favoriteIdsRef = useRef<string[]>([]);
   const notificationStatusRef = useRef<NotificationStatus>("unsupported");
 
@@ -885,12 +851,19 @@ export default function Home() {
     setSelectedPlatform(platformName);
     setActiveCategory("全部");
     setQuery("");
+    setFiltersOpen(false);
     if (activeView === "history") {
       window.location.hash = "latest";
       return;
     }
     document.getElementById(activeView === "favorites" ? "favorites" : "latest")?.scrollIntoView({ behavior: "smooth", block: "start" });
   };
+
+  const filterSignature = `${activeCategory}|${isFavoritesView ? "favorites" : "all"}|${query.trim()}|${selectedPlatform}|${sortMode}|${data.updatedAt}`;
+  const visibleOfferCount = visibleOfferState.key === filterSignature ? visibleOfferState.count : INITIAL_VISIBLE_OFFERS;
+  const visibleOffers = filteredOffers.slice(0, visibleOfferCount);
+  const remainingOfferCount = Math.max(0, filteredOffers.length - visibleOffers.length);
+  const activeFilterCount = (selectedPlatform !== "全部平台" ? 1 : 0) + (activeCategory !== "全部" ? 1 : 0) + (query.trim() ? 1 : 0);
 
   const toggleFavorite = (offer: Offer) => {
     const id = getOfferId(offer);
@@ -1051,38 +1024,7 @@ export default function Home() {
             ) : null}
 
             <div className="activity-layout">
-              <aside id="platforms" className="platform-directory glass-panel" aria-label="支付平台分類">
-                <div className="directory-header">
-                  <div>
-                    <h3>支付平台</h3>
-                    <p>選擇平台，立即查看對應活動</p>
-                  </div>
-                  <span>{platformSummaries.length} 個</span>
-                </div>
-                <div className="directory-scroll">
-                  <button className={`platform-filter-button ${selectedPlatform === "全部平台" ? "selected" : ""}`} onClick={() => choosePlatform("全部平台")} aria-pressed={selectedPlatform === "全部平台"}>
-                    <span className="directory-all-icon"><Icon name="grid" size={16} /></span>
-                    <span><strong>全部平台</strong><small>{totalCount} 筆有效活動</small></span>
-                    <Icon name="arrow-right" size={15} />
-                  </button>
-                  {platformGroups.map((group) => (
-                    <div className="directory-group" key={group.segment}>
-                      <div className="directory-group-heading"><span>{group.label}</span><small>{group.items.length}</small></div>
-                      <div className="directory-list">
-                        {group.items.map(({ platform, offers: platformOffers }) => (
-                          <button key={platform.name} className={`platform-filter-button ${selectedPlatform === platform.name ? "selected" : ""}`} onClick={() => choosePlatform(platform.name)} aria-pressed={selectedPlatform === platform.name} title={`篩選 ${platform.name} 活動`}>
-                            <BrandMark name={platform.name} logo={platform.logo || paymentLogos[platform.name]} color={platform.color || platformColors[platform.name] || "#2e8b62"} />
-                            <span><strong>{platform.name}</strong><small>{platformOffers.length ? `${platformOffers.length} 筆活動` : "官方入口已建立"}</small></span>
-                            <span className={`directory-status ${platformOffers.length ? "is-active" : ""}`}>{platformOffers.length ? "有活動" : "索引"}</span>
-                          </button>
-                        ))}
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </aside>
-
-              <div className="activity-results">
+              <div id="platforms" className="activity-results">
                 <div className="activity-toolbar glass-panel">
                   <label className="field-block activity-search">
                     <span>搜尋活動、通路或平台</span>
@@ -1091,25 +1033,91 @@ export default function Home() {
                       <input value={query} onChange={(event) => setQuery(event.target.value)} placeholder="例如：咖啡、7-ELEVEN、iPASS MONEY" aria-label="搜尋活動、通路或平台" />
                     </div>
                   </label>
-                  <label className="sort-control">
-                    <span>排序方式</span>
-                    <select value={sortMode} onChange={(event) => setSortMode(event.target.value as "latest" | "reward" | "ending")} aria-label="排序方式">
-                      <option value="latest">官方更新順序</option>
-                      <option value="reward">高回饋優先</option>
-                      <option value="ending">即將截止優先</option>
-                    </select>
-                  </label>
+                  <div className="activity-toolbar-controls">
+                    <label className="sort-control">
+                      <span>排序方式</span>
+                      <select value={sortMode} onChange={(event) => setSortMode(event.target.value as "latest" | "reward" | "ending")} aria-label="排序方式">
+                        <option value="latest">官方更新順序</option>
+                        <option value="reward">高回饋優先</option>
+                        <option value="ending">即將截止優先</option>
+                      </select>
+                    </label>
+                    <button type="button" className={`filter-trigger${filtersOpen ? " is-open" : ""}`} onClick={() => setFiltersOpen((open) => !open)} aria-expanded={filtersOpen} aria-controls="platform-filter-panel">
+                      <Icon name="sliders" size={16} />
+                      <span>篩選</span>
+                      {activeFilterCount ? <strong>{activeFilterCount}</strong> : null}
+                    </button>
+                  </div>
                 </div>
 
                 <div className="active-filter-row">
-                  <CategoryScroller categories={categories} activeCategory={activeCategory} categoryCounts={categoryCounts} onSelect={setActiveCategory} />
-                  {selectedPlatform !== "全部平台" || activeCategory !== "全部" || query ? <button className="clear-filter" onClick={() => choosePlatform("全部平台")}><Icon name="check" size={14} />清除篩選</button> : null}
+                  <div className="desktop-category-filter">
+                    <CategoryScroller categories={categories} activeCategory={activeCategory} categoryCounts={categoryCounts} onSelect={setActiveCategory} />
+                  </div>
+                  <div className="active-filter-summary" aria-live="polite">
+                    <span>目前查看</span>
+                    <strong>{selectedPlatform}</strong>
+                    {activeCategory !== "全部" ? <em>{activeCategory}</em> : null}
+                    {query.trim() ? <em>搜尋：{query.trim()}</em> : null}
+                  </div>
+                  {activeFilterCount ? <button type="button" className="clear-filter" onClick={() => choosePlatform("全部平台")}><Icon name="check" size={14} />清除篩選</button> : null}
                 </div>
+
+                {filtersOpen ? (
+                  <>
+                    <button type="button" className="filter-popover-backdrop" onClick={() => setFiltersOpen(false)} aria-label="關閉篩選選單" />
+                    <section id="platform-filter-panel" className="filter-popover glass-panel" role="dialog" aria-modal="true" aria-labelledby="platform-filter-title">
+                      <div className="filter-popover-header">
+                        <div>
+                          <span className="eyebrow"><Icon name="layers" size={14} />DISCOVERY FILTER</span>
+                          <h3 id="platform-filter-title">平台與分類</h3>
+                          <p>選一個平台，活動清單會立即重新整理。</p>
+                        </div>
+                        <button type="button" className="filter-close" onClick={() => setFiltersOpen(false)} aria-label="關閉篩選選單"><Icon name="x" size={18} /></button>
+                      </div>
+                      <div className="filter-popover-section">
+                        <div className="filter-section-heading"><strong>支付平台</strong><span>{platformSummaries.length} 個平台</span></div>
+                        <div className="filter-platform-list">
+                          <button type="button" className={`platform-filter-button ${selectedPlatform === "全部平台" ? "selected" : ""}`} onClick={() => choosePlatform("全部平台")} aria-pressed={selectedPlatform === "全部平台"}>
+                            <span className="directory-all-icon"><Icon name="grid" size={16} /></span>
+                            <span><strong>全部平台</strong><small>{totalCount} 筆有效活動</small></span>
+                            <Icon name="arrow-right" size={15} />
+                          </button>
+                          {platformGroups.map((group) => (
+                            <div className="directory-group" key={group.segment}>
+                              <div className="directory-group-heading"><span>{group.label}</span><small>{group.items.length}</small></div>
+                              <div className="directory-list">
+                                {group.items.map(({ platform, offers: platformOffers }) => (
+                                  <button type="button" key={platform.name} className={`platform-filter-button ${selectedPlatform === platform.name ? "selected" : ""}`} onClick={() => choosePlatform(platform.name)} aria-pressed={selectedPlatform === platform.name} title={`篩選 ${platform.name} 活動`}>
+                                    <BrandMark name={platform.name} logo={platform.logo || paymentLogos[platform.name]} color={platform.color || platformColors[platform.name] || "#2e8b62"} />
+                                    <span><strong>{platform.name}</strong><small>{platformOffers.length ? `${platformOffers.length} 筆活動` : "官方入口已建立"}</small></span>
+                                    <span className={`directory-status ${platformOffers.length ? "is-active" : ""}`}>{platformOffers.length ? "有活動" : "索引"}</span>
+                                  </button>
+                                ))}
+                              </div>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                      <div className="filter-popover-section filter-category-section">
+                        <div className="filter-section-heading"><strong>活動分類</strong><span>{activeCategory === "全部" ? "全部活動" : activeCategory}</span></div>
+                        <CategoryScroller categories={categories} activeCategory={activeCategory} categoryCounts={categoryCounts} onSelect={setActiveCategory} />
+                      </div>
+                      <div className="filter-popover-footer">
+                        <button type="button" className="clear-filter" onClick={() => choosePlatform("全部平台")}><Icon name="check" size={14} />重設條件</button>
+                        <button type="button" className="filter-apply" onClick={() => setFiltersOpen(false)}>完成篩選 <Icon name="arrow-right" size={14} /></button>
+                      </div>
+                    </section>
+                  </>
+                ) : null}
 
                 {filteredOffers.length === 0 ? (
                   <div className="empty-state glass-panel"><Icon name={isFavoritesView ? "heart" : "search"} size={24} /><h3>{isFavoritesView ? "還沒有收藏活動" : "目前沒有符合的活動"}</h3><p>{isFavoritesView ? "回到活動總覽，點選卡片右上角的愛心開始追蹤。" : "換一個平台或關鍵字，重新查看同步資料。"}</p>{isFavoritesView ? <a className="empty-state-link" href="#latest"><Icon name="search" size={14} />瀏覽全部活動</a> : null}</div>
                 ) : (
-                  <div className="offer-grid">{filteredOffers.map((offer, index) => <OfferCard key={`${offer.payment.name}-${offer.officialId || offer.sourceUrl || offer.title}-${index}`} offer={offer} isFavorite={favoriteIds.includes(getOfferId(offer))} onToggleFavorite={toggleFavorite} />)}</div>
+                  <>
+                    <div className="offer-grid">{visibleOffers.map((offer, index) => <OfferCard key={`${offer.payment.name}-${offer.officialId || offer.sourceUrl || offer.title}-${index}`} offer={offer} isFavorite={favoriteIds.includes(getOfferId(offer))} onToggleFavorite={toggleFavorite} />)}</div>
+                    {remainingOfferCount ? <button type="button" className="load-more-offers" onClick={() => setVisibleOfferState({ key: filterSignature, count: visibleOfferCount + INITIAL_VISIBLE_OFFERS })}><span>載入更多活動</span><small>還有 {remainingOfferCount} 筆</small><Icon name="arrow-right" size={15} /></button> : null}
+                  </>
                 )}
               </div>
             </div>
