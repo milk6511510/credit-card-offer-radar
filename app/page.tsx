@@ -93,7 +93,7 @@ type Offer = Campaign & {
   payment: PaymentSource;
 };
 
-type AppView = "latest" | "history";
+type AppView = "latest" | "favorites" | "history";
 
 type IconName =
   | "search"
@@ -107,10 +107,15 @@ type IconName =
   | "user"
   | "info"
   | "check"
+  | "heart"
+  | "bell"
   | "sliders"
   | "arrow-right";
 
 const fallbackData: CampaignData = bundledCampaignData as CampaignData;
+const FAVORITES_STORAGE_KEY = "reward-radar:favorites";
+const LAST_SYNC_STORAGE_KEY = "reward-radar:last-sync";
+type NotificationStatus = NotificationPermission | "unsupported";
 
 const paymentLogos: Record<string, string> = {
   "LINE Pay": "/logos/line-pay.svg",
@@ -239,6 +244,10 @@ function Icon({ name, size = 18 }: { name: IconName; size?: number }) {
       return <svg {...common}><circle cx="12" cy="12" r="8.5" /><path d="M12 10.5v5" /><path d="M12 7.5h.01" /></svg>;
     case "check":
       return <svg {...common}><path d="m5 12.5 4.2 4.2L19 7" /></svg>;
+    case "heart":
+      return <svg {...common}><path d="M20.8 8.9c0 5.2-8.8 10.4-8.8 10.4S3.2 14.1 3.2 8.9A4.7 4.7 0 0 1 12 6.2a4.7 4.7 0 0 1 8.8 2.7Z" /></svg>;
+    case "bell":
+      return <svg {...common}><path d="M18 9a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9" /><path d="M10 21h4" /></svg>;
     case "sliders":
       return <svg {...common}><path d="M4 6h16" /><path d="M4 12h16" /><path d="M4 18h16" /><circle cx="9" cy="6" r="2" fill="currentColor" stroke="none" /><circle cx="15" cy="12" r="2" fill="currentColor" stroke="none" /><circle cx="8" cy="18" r="2" fill="currentColor" stroke="none" /></svg>;
     case "arrow-right":
@@ -271,6 +280,10 @@ function brandInitial(name: string) {
 
 function paymentDisplayName(name: string) {
   return name.replace(/\s*官方活動$/, "").trim();
+}
+
+function getOfferId(offer: Offer) {
+  return [paymentDisplayName(offer.payment.name), offer.officialId || offer.sourceUrl || offer.title, offer.status].join("::");
 }
 
 function belongsToPlatform(offer: Offer, platformName: string) {
@@ -529,7 +542,7 @@ function CampaignImage({ offer }: { offer: Offer }) {
   );
 }
 
-function OfferCard({ offer }: { offer: Offer }) {
+function OfferCard({ offer, isFavorite, onToggleFavorite }: { offer: Offer; isFavorite: boolean; onToggleFavorite: (offer: Offer) => void }) {
   const isNewUser = getAudience(offer) === "new-user";
   const newUserAudience = audienceMeta["new-user"];
   const paymentMethods = getPaymentMethods(offer);
@@ -554,7 +567,19 @@ function OfferCard({ offer }: { offer: Offer }) {
               <h3 className="offer-title">{offer.title}</h3>
             </div>
           </div>
-          <span className="source-badge">官方</span>
+          <div className="offer-card-actions">
+            <span className="source-badge">官方</span>
+            <button
+              type="button"
+              className={`favorite-button${isFavorite ? " is-favorite" : ""}`}
+              onClick={() => onToggleFavorite(offer)}
+              aria-pressed={isFavorite}
+              aria-label={isFavorite ? `取消收藏 ${offer.title}` : `收藏 ${offer.title}`}
+              title={isFavorite ? "取消我的最愛" : "加入我的最愛"}
+            >
+              <Icon name="heart" size={16} />
+            </button>
+          </div>
         </div>
 
         <div className="offer-reward-row mt-5">
@@ -616,6 +641,8 @@ function OfferCard({ offer }: { offer: Offer }) {
 
 export default function Home() {
   const [data, setData] = useState<CampaignData>(fallbackData);
+  const [favoriteIds, setFavoriteIds] = useState<string[]>([]);
+  const [notificationStatus, setNotificationStatus] = useState<NotificationStatus>("unsupported");
   const [query, setQuery] = useState("");
   const [activeCategory, setActiveCategory] = useState("全部");
   const [selectedPlatform, setSelectedPlatform] = useState("全部平台");
@@ -624,25 +651,62 @@ export default function Home() {
   const [historyPlatform, setHistoryPlatform] = useState("全部平台");
   const [historyMonth, setHistoryMonth] = useState("全部月份");
   const [historyQuery, setHistoryQuery] = useState("");
+  const favoriteIdsRef = useRef<string[]>([]);
+  const notificationStatusRef = useRef<NotificationStatus>("unsupported");
+
+  const isFavoritesView = activeView === "favorites";
+  const isHistoryView = activeView === "history";
 
   useEffect(() => {
-    const syncView = () => setActiveView(window.location.hash.toLowerCase() === "#history" ? "history" : "latest");
+    const syncView = () => {
+      const hash = window.location.hash.toLowerCase();
+      setActiveView(hash === "#history" ? "history" : hash === "#favorites" ? "favorites" : "latest");
+    };
     syncView();
     window.addEventListener("hashchange", syncView);
     return () => window.removeEventListener("hashchange", syncView);
   }, []);
 
   useEffect(() => {
-    if (activeView !== "history") return;
-    requestAnimationFrame(() => document.getElementById("history")?.scrollIntoView({ behavior: "smooth", block: "start" }));
+    if (activeView === "latest") return;
+    requestAnimationFrame(() => document.getElementById(activeView)?.scrollIntoView({ behavior: "smooth", block: "start" }));
   }, [activeView]);
 
   useEffect(() => {
-    fetch(`/data/campaigns.json?t=${Date.now()}`)
-      .then((response) => (response.ok ? response.json() : fallbackData))
-      .then(setData)
-      .catch(() => setData(fallbackData));
+    const hydratePreferences = () => {
+      try {
+        const storedFavorites = JSON.parse(window.localStorage.getItem(FAVORITES_STORAGE_KEY) || "[]");
+        setFavoriteIds(Array.isArray(storedFavorites) ? storedFavorites.filter((value): value is string => typeof value === "string") : []);
+        if ("Notification" in window) setNotificationStatus(Notification.permission);
+      } catch {
+        setFavoriteIds([]);
+      }
+    };
+    const hydrateTimer = window.setTimeout(hydratePreferences, 0);
+
+    const syncFavorites = (event: StorageEvent) => {
+      if (event.key !== FAVORITES_STORAGE_KEY) return;
+      try {
+        const next = JSON.parse(event.newValue || "[]");
+        setFavoriteIds(Array.isArray(next) ? next.filter((value): value is string => typeof value === "string") : []);
+      } catch {
+        setFavoriteIds([]);
+      }
+    };
+    window.addEventListener("storage", syncFavorites);
+    return () => {
+      window.clearTimeout(hydrateTimer);
+      window.removeEventListener("storage", syncFavorites);
+    };
   }, []);
+
+  useEffect(() => {
+    favoriteIdsRef.current = favoriteIds;
+  }, [favoriteIds]);
+
+  useEffect(() => {
+    notificationStatusRef.current = notificationStatus;
+  }, [notificationStatus]);
 
   const offers = useMemo<Offer[]>(() => {
     return data.payments
@@ -654,19 +718,43 @@ export default function Home() {
       );
   }, [data]);
 
+  const syncCampaignData = () => {
+    fetch(`/data/campaigns.json?t=${Date.now()}`)
+      .then((response) => (response.ok ? response.json() : fallbackData))
+      .then((nextData: CampaignData) => {
+        const previousSync = window.localStorage.getItem(LAST_SYNC_STORAGE_KEY);
+        const hasChanged = Boolean(previousSync && previousSync !== nextData.updatedAt);
+        setData(nextData);
+        window.localStorage.setItem(LAST_SYNC_STORAGE_KEY, nextData.updatedAt);
+        if (hasChanged && favoriteIdsRef.current.length && notificationStatusRef.current === "granted") {
+          new Notification("回饋雷達：追蹤活動有更新", { body: "你收藏的活動清單可能有新內容，點開我的最愛查看。" });
+        }
+      })
+      .catch(() => setData(fallbackData));
+  };
+
+  useEffect(() => {
+    syncCampaignData();
+    const refreshTimer = window.setInterval(syncCampaignData, 15 * 60 * 1000);
+    return () => window.clearInterval(refreshTimer);
+  }, []);
+
   const categories = useMemo(() => {
-    const platformOffers = offers.filter((offer) => selectedPlatform === "全部平台" || belongsToPlatform(offer, selectedPlatform));
+    const scopedOffers = isFavoritesView ? offers.filter((offer) => favoriteIds.includes(getOfferId(offer))) : offers;
+    const platformOffers = scopedOffers.filter((offer) => selectedPlatform === "全部平台" || belongsToPlatform(offer, selectedPlatform));
     return ["全部", ...Array.from(new Set(platformOffers.map((offer) => offer.category).filter(Boolean)))];
-  }, [offers, selectedPlatform]);
+  }, [favoriteIds, isFavoritesView, offers, selectedPlatform]);
 
   const categoryCounts = useMemo(() => {
-    const platformOffers = offers.filter((offer) => selectedPlatform === "全部平台" || belongsToPlatform(offer, selectedPlatform));
+    const scopedOffers = isFavoritesView ? offers.filter((offer) => favoriteIds.includes(getOfferId(offer))) : offers;
+    const platformOffers = scopedOffers.filter((offer) => selectedPlatform === "全部平台" || belongsToPlatform(offer, selectedPlatform));
     return Object.fromEntries(categories.map((category) => [category, category === "全部" ? platformOffers.length : platformOffers.filter((offer) => offer.category === category).length]));
-  }, [categories, offers, selectedPlatform]);
+  }, [categories, favoriteIds, isFavoritesView, offers, selectedPlatform]);
 
   const filteredOffers = useMemo(() => {
     const keyword = query.trim().toLowerCase();
-    const matchingOffers = offers
+    const scopedOffers = isFavoritesView ? offers.filter((offer) => favoriteIds.includes(getOfferId(offer))) : offers;
+    const matchingOffers = scopedOffers
       .filter((offer) => activeCategory === "全部" || offer.category === activeCategory)
       .filter((offer) => selectedPlatform === "全部平台" || belongsToPlatform(offer, selectedPlatform))
       .filter((offer) => {
@@ -684,7 +772,7 @@ export default function Home() {
       });
     }
     return [...matchingOffers].sort(sortMode === "reward" ? compareOffers : compareLatestOffers);
-  }, [activeCategory, offers, query, selectedPlatform, sortMode]);
+  }, [activeCategory, favoriteIds, isFavoritesView, offers, query, selectedPlatform, sortMode]);
 
   const platformCatalog = useMemo<PlatformInfo[]>(() => {
     if (data.platforms?.length) return data.platforms;
@@ -732,6 +820,7 @@ export default function Home() {
   const visibleSourceLinks = sourceLinks.slice(0, 6);
   const updatedTime = formatUpdatedAt(data.updatedAt);
   const totalCount = offers.length;
+  const favoriteOfferCount = offers.filter((offer) => favoriteIds.includes(getOfferId(offer))).length;
   const selectedPlatformSummary = selectedPlatform === "全部平台" ? null : platformSummaries.find(({ platform }) => platform.name === selectedPlatform);
   const historyRecords = useMemo(() => {
     return [...(data.history || [])].sort((a, b) => {
@@ -770,11 +859,50 @@ export default function Home() {
     setSelectedPlatform(platformName);
     setActiveCategory("全部");
     setQuery("");
-    if (activeView !== "latest") window.location.hash = "latest";
-    document.getElementById("latest")?.scrollIntoView({ behavior: "smooth", block: "start" });
+    if (activeView === "history") {
+      window.location.hash = "latest";
+      return;
+    }
+    document.getElementById(activeView === "favorites" ? "favorites" : "latest")?.scrollIntoView({ behavior: "smooth", block: "start" });
   };
 
-  const isHistoryView = activeView === "history";
+  const toggleFavorite = (offer: Offer) => {
+    const id = getOfferId(offer);
+    setFavoriteIds((current) => {
+      const next = current.includes(id) ? current.filter((favoriteId) => favoriteId !== id) : [...current, id];
+      try {
+        window.localStorage.setItem(FAVORITES_STORAGE_KEY, JSON.stringify(next));
+      } catch {
+        // Browser storage may be unavailable in private browsing contexts.
+      }
+      return next;
+    });
+  };
+
+  const enableNotifications = async () => {
+    if (!("Notification" in window)) {
+      setNotificationStatus("unsupported");
+      return;
+    }
+    try {
+      const permission = await Notification.requestPermission();
+      setNotificationStatus(permission);
+      if (permission === "granted") {
+        new Notification("回饋雷達通知已開啟", { body: "追蹤活動同步更新時，會在此瀏覽器提醒你。" });
+      }
+    } catch {
+      setNotificationStatus("denied");
+    }
+  };
+
+  const notificationLabel = notificationStatus === "granted"
+    ? "通知已開啟"
+    : notificationStatus === "denied"
+      ? "通知已封鎖"
+      : notificationStatus === "unsupported"
+        ? "瀏覽器不支援通知"
+        : "開啟更新通知";
+  const notificationDisabled = notificationStatus !== "default";
 
   return (
     <main className="app-shell light-theme">
@@ -790,6 +918,7 @@ export default function Home() {
           <nav className="topnav" aria-label="主要導覽">
             <a className={activeView === "latest" ? "active" : ""} href="#latest" aria-current={activeView === "latest" ? "page" : undefined}>活動總覽</a>
             <a href="#platforms">平台分類</a>
+            <a className={isFavoritesView ? "active" : ""} href="#favorites" aria-current={isFavoritesView ? "page" : undefined}>我的最愛{favoriteOfferCount ? <span className="nav-count">{favoriteOfferCount}</span> : null}</a>
             <a className={isHistoryView ? "active" : ""} href="#history" aria-current={isHistoryView ? "page" : undefined}>歷史回饋</a>
             <a href="#sources">官方入口</a>
           </nav>
@@ -806,24 +935,42 @@ export default function Home() {
           <section className="workspace-header" aria-labelledby="workspace-title">
             <div>
               <span className="kicker"><span className="kicker-line" />支付優惠情報站</span>
-              <h1 id="workspace-title">{isHistoryView ? "歷史回饋紀錄" : "有效活動總覽"}</h1>
-              <p>{isHistoryView ? "回看官方曾公告的額滿日期與時間，作為下次安排回饋的參考。" : "先看回饋，再看條件。所有平台活動集中在同一份清單，可直接搜尋與篩選。"}</p>
+              <h1 id="workspace-title">{isHistoryView ? "歷史回饋紀錄" : isFavoritesView ? "我的最愛" : "有效活動總覽"}</h1>
+              <p>{isHistoryView ? "回看官方曾公告的額滿日期與時間，作為下次安排回饋的參考。" : isFavoritesView ? "集中查看你正在追蹤的活動，資料同步後更快確認變化。" : "先看回饋，再看條件。所有平台活動集中在同一份清單，可直接搜尋與篩選。"}</p>
             </div>
             <div className="workspace-actions">
               <a className="workspace-action" href="#platforms"><Icon name="layers" size={16} />平台分類</a>
+              <a className="workspace-action" href={isFavoritesView ? "#latest" : "#favorites"}><Icon name={isFavoritesView ? "search" : "heart"} size={16} />{isFavoritesView ? "全部活動" : "我的最愛"}</a>
               <a className="workspace-action" href="#history"><Icon name="clock" size={16} />歷史耗盡</a>
               <a className="workspace-action is-primary" href="#latest"><Icon name="search" size={16} />找活動</a>
             </div>
           </section>
 
-          <section id="latest" className={`activity-workspace${isHistoryView ? " app-view-hidden" : ""}`}>
+          <section id={isFavoritesView ? "favorites" : "latest"} className={`activity-workspace${isHistoryView ? " app-view-hidden" : ""}`}>
             <div className="workspace-section-heading">
               <div>
-                <span className="eyebrow"><Icon name="database" size={14} />ACTIVE OFFERS</span>
-                <h2>{selectedPlatformSummary ? selectedPlatformSummary.platform.name : "全部有效活動"}</h2>
-                <p>按回饋高低排列，活動類型與使用條件直接寫在卡片上。</p>
+                <span className="eyebrow"><Icon name={isFavoritesView ? "heart" : "database"} size={14} />{isFavoritesView ? "TRACKED OFFERS" : "ACTIVE OFFERS"}</span>
+                <h2>{isFavoritesView ? "我的最愛" : selectedPlatformSummary ? selectedPlatformSummary.platform.name : "全部有效活動"}</h2>
+                <p>{isFavoritesView ? "你收藏的活動會留在這裡，點卡片上的愛心即可取消追蹤。" : "按回饋高低排列，活動類型與使用條件直接寫在卡片上。"}</p>
               </div>
-              <div className="workspace-count"><strong>{filteredOffers.length}</strong><span>筆活動</span></div>
+              <div className="workspace-count"><strong>{filteredOffers.length}</strong><span>{isFavoritesView ? "筆收藏" : "筆活動"}</span></div>
+            </div>
+
+            <div className={`favorites-strip glass-panel${isFavoritesView ? " is-active" : ""}`}>
+              <span className="favorites-strip-icon"><Icon name="heart" size={20} /></span>
+              <div className="favorites-strip-copy">
+                <span className="eyebrow">MY WATCHLIST</span>
+                <strong>我的最愛</strong>
+                <p>{favoriteOfferCount ? `已追蹤 ${favoriteOfferCount} 筆活動，之後可直接回來查看。` : "在活動卡片點選愛心，就能把重要活動集中在這裡。"}</p>
+              </div>
+              <div className="favorites-strip-actions">
+                <button type="button" className="favorites-notification" onClick={enableNotifications} disabled={notificationDisabled} title="允許此瀏覽器在活動資料更新時提醒你">
+                  <Icon name="bell" size={15} />{notificationLabel}
+                </button>
+                <a className="favorites-strip-link" href={isFavoritesView ? "#latest" : "#favorites"}>
+                  {isFavoritesView ? "繼續找活動" : "查看收藏"}<Icon name="arrow-right" size={14} />
+                </a>
+              </div>
             </div>
 
             <div className="activity-layout">
@@ -883,9 +1030,9 @@ export default function Home() {
                 </div>
 
                 {filteredOffers.length === 0 ? (
-                  <div className="empty-state glass-panel"><Icon name="search" size={24} /><h3>目前沒有符合的活動</h3><p>換一個平台或關鍵字，重新查看同步資料。</p></div>
+                  <div className="empty-state glass-panel"><Icon name={isFavoritesView ? "heart" : "search"} size={24} /><h3>{isFavoritesView ? "還沒有收藏活動" : "目前沒有符合的活動"}</h3><p>{isFavoritesView ? "回到活動總覽，點選卡片右上角的愛心開始追蹤。" : "換一個平台或關鍵字，重新查看同步資料。"}</p>{isFavoritesView ? <a className="empty-state-link" href="#latest"><Icon name="search" size={14} />瀏覽全部活動</a> : null}</div>
                 ) : (
-                  <div className="offer-grid">{filteredOffers.map((offer, index) => <OfferCard key={`${offer.payment.name}-${offer.officialId || offer.sourceUrl || offer.title}-${index}`} offer={offer} />)}</div>
+                  <div className="offer-grid">{filteredOffers.map((offer, index) => <OfferCard key={`${offer.payment.name}-${offer.officialId || offer.sourceUrl || offer.title}-${index}`} offer={offer} isFavorite={favoriteIds.includes(getOfferId(offer))} onToggleFavorite={toggleFavorite} />)}</div>
                 )}
               </div>
             </div>
@@ -980,7 +1127,7 @@ export default function Home() {
             <p className="panel-footnote"><Icon name="info" size={14} />「尚不能判定先後」代表官方頁面沒有公開時間，不代表活動一定沒有提前額滿；後續同步會持續補上新月份。</p>
           </section>
 
-          <section id="sources" className={`sources-section${isHistoryView ? " app-view-hidden" : ""}`}>
+          <section id="sources" className={`sources-section${isHistoryView || isFavoritesView ? " app-view-hidden" : ""}`}>
             <div className="sources-heading">
               <div>
                 <span className="eyebrow"><Icon name="external" size={14} />OFFICIAL SOURCES</span>
