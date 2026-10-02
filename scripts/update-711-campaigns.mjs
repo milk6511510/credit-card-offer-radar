@@ -1,4 +1,4 @@
-import { writeFile, mkdir } from "node:fs/promises";
+import { writeFile, mkdir, readFile } from "node:fs/promises";
 import path from "node:path";
 
 const sourceUrl = "https://www.7-11.com.tw/include/SalesPromo.xml?12";
@@ -208,6 +208,15 @@ function parsePaymentRows(html, today) {
 }
 
 async function main() {
+  const outputPath = path.join(process.cwd(), "public", "data", "campaigns.json");
+  let previousHistory = [];
+  try {
+    const previous = JSON.parse(await readFile(outputPath, "utf8"));
+    previousHistory = Array.isArray(previous.history) ? previous.history : [];
+  } catch {
+    previousHistory = [];
+  }
+
   const response = await fetch(sourceUrl, { cache: "no-store" });
   if (!response.ok) {
     throw new Error(`7-ELEVEN source failed: ${response.status}`);
@@ -265,6 +274,7 @@ async function main() {
 
   const data = {
     updatedAt: new Date().toISOString(),
+    history: previousHistory,
     source: {
       name: "7-ELEVEN 官方活動 XML",
       url: sourceUrl,
@@ -299,7 +309,6 @@ async function main() {
     ],
   };
 
-  const outputPath = path.join(process.cwd(), "public", "data", "campaigns.json");
   await mkdir(path.dirname(outputPath), { recursive: true });
   await writeFile(outputPath, `${JSON.stringify(data, null, 2)}\n`, "utf8");
   console.log(`Imported ${campaigns.length} 7-ELEVEN campaigns`);

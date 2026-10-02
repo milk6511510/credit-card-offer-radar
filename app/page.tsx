@@ -45,6 +45,28 @@ type PlatformInfo = {
   checkedAt?: string;
 };
 
+type HistoryConfidence = "exact" | "date-only" | "month-only";
+
+type HistoryRecord = {
+  id: string;
+  platform: string;
+  month: string;
+  campaignTitle: string;
+  merchant?: string;
+  bank?: string;
+  rewardLabel: string;
+  rate?: number;
+  cap?: number;
+  exhaustedAt?: string;
+  exhaustedDate?: string;
+  exhaustedTime?: string;
+  exhaustionType: "quota-full" | "ended" | "early-ended";
+  confidence: HistoryConfidence;
+  evidence: string;
+  sourceUrl: string;
+  source: "official";
+};
+
 type CampaignData = {
   updatedAt: string;
   source?: {
@@ -62,6 +84,7 @@ type CampaignData = {
   }>;
   platforms?: PlatformInfo[];
   payments: PaymentSource[];
+  history?: HistoryRecord[];
 };
 
 type Offer = Campaign & {
@@ -243,7 +266,11 @@ function brandInitial(name: string) {
 }
 
 function paymentDisplayName(name: string) {
-  return name.replace(/ 官方活動$/, "");
+  return name.replace(/\s*官方活動$/, "").trim();
+}
+
+function belongsToPlatform(offer: Offer, platformName: string) {
+  return paymentDisplayName(offer.payment.name) === platformName;
 }
 
 function getAudience(offer: Campaign): Audience {
@@ -291,6 +318,24 @@ function formatUpdatedAt(value: string) {
     hour: "2-digit",
     minute: "2-digit",
   });
+}
+
+function formatHistoryMonth(value: string) {
+  const [year, month] = String(value || "").split("-");
+  return year && month ? `${year}/${month}` : "月份未標示";
+}
+
+function formatHistoryDate(record: HistoryRecord) {
+  if (record.confidence === "month-only") return `${formatHistoryMonth(record.month)} 已額滿`;
+  if (!record.exhaustedDate) return "尚未記錄";
+  const date = record.exhaustedDate.replaceAll("-", "/");
+  return `${date}${record.exhaustedTime ? ` ${record.exhaustedTime}` : "（時間未公布）"}`;
+}
+
+function historyConfidenceLabel(confidence: HistoryConfidence) {
+  if (confidence === "exact") return "官方公告到時間";
+  if (confidence === "date-only") return "官方公告到日期";
+  return "官方只公布月份";
 }
 
 function rewardLabel(offer: Campaign) {
@@ -395,6 +440,9 @@ export default function Home() {
   const [activeCategory, setActiveCategory] = useState("全部");
   const [selectedPlatform, setSelectedPlatform] = useState("全部平台");
   const [sortMode, setSortMode] = useState<"reward" | "ending">("reward");
+  const [historyPlatform, setHistoryPlatform] = useState("全部平台");
+  const [historyMonth, setHistoryMonth] = useState("全部月份");
+  const [historyQuery, setHistoryQuery] = useState("");
 
   useEffect(() => {
     fetch(`/data/campaigns.json?t=${Date.now()}`)
@@ -420,7 +468,7 @@ export default function Home() {
     const keyword = query.trim().toLowerCase();
     const matchingOffers = offers
       .filter((offer) => activeCategory === "全部" || offer.category === activeCategory)
-      .filter((offer) => selectedPlatform === "全部平台" || offer.payment.name.replace(/ 官方活動$/, "") === selectedPlatform || getPaymentMethods(offer).includes(selectedPlatform))
+      .filter((offer) => selectedPlatform === "全部平台" || belongsToPlatform(offer, selectedPlatform))
       .filter((offer) => {
         if (!keyword) return true;
         return [offer.title, offer.category, offer.payment.name, offer.status, ...offer.stores, ...getPaymentMethods(offer), offer.rawText || ""]
@@ -452,7 +500,7 @@ export default function Home() {
   const platformSummaries = useMemo(() => {
     return platformCatalog
       .map((platform) => {
-        const platformOffers = offers.filter((offer) => getPaymentMethods(offer).includes(platform.name));
+        const platformOffers = offers.filter((offer) => belongsToPlatform(offer, platform.name));
         const bestByCap = [...platformOffers].filter((offer) => offer.cap > 0).sort((a, b) => (b.cap || 0) - (a.cap || 0) || (b.rate || 0) - (a.rate || 0))[0];
         return {
           platform,
@@ -485,6 +533,45 @@ export default function Home() {
   const updatedTime = formatUpdatedAt(data.updatedAt);
   const totalCount = offers.length;
   const selectedPlatformSummary = selectedPlatform === "全部平台" ? null : platformSummaries.find(({ platform }) => platform.name === selectedPlatform);
+  const historyRecords = useMemo(() => {
+    return [...(data.history || [])].sort((a, b) => {
+      const aKey = `${a.exhaustedDate || a.month} ${a.exhaustedTime || ""}`;
+      const bKey = `${b.exhaustedDate || b.month} ${b.exhaustedTime || ""}`;
+      return bKey.localeCompare(aKey) || a.platform.localeCompare(b.platform, "zh-Hant");
+    });
+  }, [data.history]);
+  const historyPlatforms = useMemo(() => Array.from(new Set(historyRecords.map((record) => record.platform))).sort((a, b) => a.localeCompare(b, "zh-Hant")), [historyRecords]);
+  const historyMonths = useMemo(() => Array.from(new Set(historyRecords.map((record) => record.month))).sort((a, b) => b.localeCompare(a)), [historyRecords]);
+  const filteredHistoryRecords = useMemo(() => {
+    const keyword = historyQuery.trim().toLowerCase();
+    return historyRecords.filter((record) => {
+      if (historyPlatform !== "全部平台" && record.platform !== historyPlatform) return false;
+      if (historyMonth !== "全部月份" && record.month !== historyMonth) return false;
+      if (!keyword) return true;
+      return [record.platform, record.month, record.campaignTitle, record.merchant || "", record.bank || "", record.rewardLabel, record.evidence]
+        .join(" ")
+        .toLowerCase()
+        .includes(keyword);
+    });
+  }, [historyMonth, historyPlatform, historyQuery, historyRecords]);
+  const exactHistoryCount = historyRecords.filter((record) => record.confidence === "exact").length;
+  const monthOnlyHistoryCount = historyRecords.filter((record) => record.confidence === "month-only").length;
+  const historyMonthCount = new Set(historyRecords.map((record) => record.month)).size;
+  const openWalletHistory = historyRecords.filter((record) => record.platform === "OPEN錢包" && record.merchant === "7-ELEVEN");
+  const openWalletLatestMonth = [...new Set(openWalletHistory.map((record) => record.month))].sort((a, b) => b.localeCompare(a))[0] || "";
+  const openWalletLatestRecords = openWalletHistory.filter((record) => record.month === openWalletLatestMonth);
+  const openWalletExactLatest = openWalletLatestRecords.filter((record) => record.confidence === "exact").sort((a, b) => String(a.exhaustedAt || a.exhaustedDate).localeCompare(String(b.exhaustedAt || b.exhaustedDate)));
+  const ipassFederalHistory = historyRecords.filter((record) => record.platform === "iPASS MONEY" && record.bank === "聯邦銀行");
+  const icashFourPercentHistory = historyRecords.filter((record) => record.platform === "icash Pay" && Math.abs((record.rate || 0) - 0.04) < 0.001 && record.exhaustedDate);
+  const icashFourPercentAverageDay = icashFourPercentHistory.length
+    ? Math.round(icashFourPercentHistory.reduce((sum, record) => sum + Number(record.exhaustedDate?.slice(8) || 0), 0) / icashFourPercentHistory.length)
+    : 0;
+  const choosePlatform = (platformName: string) => {
+    setSelectedPlatform(platformName);
+    setActiveCategory("全部");
+    setQuery("");
+    document.getElementById("latest")?.scrollIntoView({ behavior: "smooth", block: "start" });
+  };
 
   return (
     <main className="app-shell light-theme">
@@ -500,6 +587,7 @@ export default function Home() {
           <nav className="topnav" aria-label="主要導覽">
             <a className="active" href="#latest">活動總覽</a>
             <a href="#platforms">平台分類</a>
+            <a href="#history">歷史回饋</a>
             <a href="#sources">官方入口</a>
           </nav>
           <div className="topbar-status">
@@ -520,6 +608,7 @@ export default function Home() {
             </div>
             <div className="workspace-actions">
               <a className="workspace-action" href="#platforms"><Icon name="layers" size={16} />平台分類</a>
+              <a className="workspace-action" href="#history"><Icon name="clock" size={16} />歷史耗盡</a>
               <a className="workspace-action is-primary" href="#latest"><Icon name="search" size={16} />找活動</a>
             </div>
           </section>
@@ -544,7 +633,7 @@ export default function Home() {
                   <span>{platformSummaries.length} 個</span>
                 </div>
                 <div className="directory-scroll">
-                  <button className={`platform-filter-button ${selectedPlatform === "全部平台" ? "selected" : ""}`} onClick={() => { setSelectedPlatform("全部平台"); setActiveCategory("全部"); }}>
+                  <button className={`platform-filter-button ${selectedPlatform === "全部平台" ? "selected" : ""}`} onClick={() => choosePlatform("全部平台")} aria-pressed={selectedPlatform === "全部平台"}>
                     <span className="directory-all-icon"><Icon name="grid" size={16} /></span>
                     <span><strong>全部平台</strong><small>{totalCount} 筆有效活動</small></span>
                     <Icon name="arrow-right" size={15} />
@@ -554,7 +643,7 @@ export default function Home() {
                       <div className="directory-group-heading"><span>{group.label}</span><small>{group.items.length}</small></div>
                       <div className="directory-list">
                         {group.items.map(({ platform, offers: platformOffers }) => (
-                          <button key={platform.name} className={`platform-filter-button ${selectedPlatform === platform.name ? "selected" : ""}`} onClick={() => { setSelectedPlatform(platform.name); setActiveCategory("全部"); document.getElementById("latest")?.scrollIntoView({ behavior: "smooth", block: "start" }); }} title={`篩選 ${platform.name} 活動`}>
+                          <button key={platform.name} className={`platform-filter-button ${selectedPlatform === platform.name ? "selected" : ""}`} onClick={() => choosePlatform(platform.name)} aria-pressed={selectedPlatform === platform.name} title={`篩選 ${platform.name} 活動`}>
                             <BrandMark name={platform.name} logo={platform.logo || paymentLogos[platform.name]} color={platform.color || platformColors[platform.name] || "#2e8b62"} />
                             <span><strong>{platform.name}</strong><small>{platformOffers.length ? `${platformOffers.length} 筆活動` : "官方入口已建立"}</small></span>
                             <span className={`directory-status ${platformOffers.length ? "is-active" : ""}`}>{platformOffers.length ? "有活動" : "索引"}</span>
@@ -586,19 +675,107 @@ export default function Home() {
 
                 <div className="active-filter-row">
                   <div className="category-tabs" role="tablist" aria-label="活動分類">
-                    {categories.map((category) => <button key={category} className={activeCategory === category ? "selected" : ""} onClick={() => setActiveCategory(category)} aria-pressed={activeCategory === category}>{category}<span>{category === "全部" ? (selectedPlatform === "全部平台" ? totalCount : filteredOffers.length) : offers.filter((offer) => offer.category === category && (selectedPlatform === "全部平台" || offer.payment.name.replace(/ 官方活動$/, "") === selectedPlatform || getPaymentMethods(offer).includes(selectedPlatform))).length}</span></button>)}
+                    {categories.map((category) => <button key={category} className={activeCategory === category ? "selected" : ""} onClick={() => setActiveCategory(category)} aria-pressed={activeCategory === category}>{category}<span>{category === "全部" ? (selectedPlatform === "全部平台" ? totalCount : filteredOffers.length) : offers.filter((offer) => offer.category === category && (selectedPlatform === "全部平台" || belongsToPlatform(offer, selectedPlatform))).length}</span></button>)}
                   </div>
-                  {selectedPlatform !== "全部平台" || query ? <button className="clear-filter" onClick={() => { setSelectedPlatform("全部平台"); setQuery(""); setActiveCategory("全部"); }}><Icon name="check" size={14} />清除篩選</button> : null}
+                  {selectedPlatform !== "全部平台" || query ? <button className="clear-filter" onClick={() => choosePlatform("全部平台")}><Icon name="check" size={14} />清除篩選</button> : null}
                 </div>
 
                 {filteredOffers.length === 0 ? (
                   <div className="empty-state glass-panel"><Icon name="search" size={24} /><h3>目前沒有符合的活動</h3><p>換一個平台或關鍵字，重新查看同步資料。</p></div>
                 ) : (
-                  <div className="offer-grid">{filteredOffers.map((offer) => <OfferCard key={`${offer.payment.name}-${offer.title}`} offer={offer} />)}</div>
+                  <div className="offer-grid">{filteredOffers.map((offer, index) => <OfferCard key={`${offer.payment.name}-${offer.officialId || offer.sourceUrl || offer.title}-${index}`} offer={offer} />)}</div>
                 )}
               </div>
             </div>
             <p className="panel-footnote"><Icon name="info" size={14} />活動細項、名額與期限請以各平台、各通路的官方頁面為準。</p>
+          </section>
+
+          <section id="history" className="history-section" aria-labelledby="history-title">
+            <div className="history-heading">
+              <div>
+                <span className="eyebrow"><Icon name="clock" size={14} />EXHAUSTION HISTORY</span>
+                <h2 id="history-title">歷史回饋耗盡</h2>
+                <p>把官方曾公告的額滿時間留下來，下一次先判斷哪個月份、哪家銀行需要優先使用。</p>
+              </div>
+              <div className="history-total"><strong>{historyRecords.length}</strong><span>筆官方紀錄</span></div>
+            </div>
+
+            <div className="history-kpi-grid">
+              <div className="history-kpi glass-panel"><span>已記錄月份</span><strong>{historyMonthCount}</strong><small>跨平台累積</small></div>
+              <div className="history-kpi glass-panel"><span>精確到時間</span><strong>{exactHistoryCount}</strong><small>可用來比較先後</small></div>
+              <div className="history-kpi glass-panel"><span>待補完整時間</span><strong>{monthOnlyHistoryCount}</strong><small>官方只公布月份</small></div>
+            </div>
+
+            <div className="history-insight-grid">
+              <article className="history-insight glass-panel">
+                <div className="history-insight-top"><span className="history-topic">OPEN錢包 × 7-ELEVEN</span><span className="history-topic-status">銀行比較</span></div>
+                <h3>哪家銀行先用完？</h3>
+                {openWalletExactLatest.length ? (
+                  <>
+                    <strong className="history-insight-value">{openWalletExactLatest[0].bank || "未標示銀行"}</strong>
+                    <p>{formatHistoryMonth(openWalletLatestMonth)} 第一筆官方額滿紀錄為 {formatHistoryDate(openWalletExactLatest[0])}。</p>
+                  </>
+                ) : (
+                  <>
+                    <strong className="history-insight-value">尚不能判定先後</strong>
+                    <p>{openWalletLatestMonth ? `${formatHistoryMonth(openWalletLatestMonth)} 已觀測到 ${openWalletLatestRecords.length} 家銀行額滿，但官方只寫月份，沒有公開時分。` : "目前尚未收集到 OPEN錢包 × 7-ELEVEN 的額滿紀錄。"}</p>
+                  </>
+                )}
+                <div className="history-bank-list">
+                  {openWalletLatestRecords.map((record) => <div className="history-bank-row" key={record.id}><span>{record.bank || "未標示銀行"}</span><strong>{formatHistoryDate(record)}</strong></div>)}
+                </div>
+              </article>
+
+              <article className="history-insight glass-panel">
+                <div className="history-insight-top"><span className="history-topic">iPASS MONEY × 聯邦</span><span className="history-topic-status">已留存</span></div>
+                <h3>聯邦回饋上限</h3>
+                {ipassFederalHistory[0] ? (
+                  <>
+                    <strong className="history-insight-value">{formatHistoryDate(ipassFederalHistory[0])}</strong>
+                    <p>{formatHistoryMonth(ipassFederalHistory[0].month)} 的 {ipassFederalHistory[0].rewardLabel} 已由官方公告額滿。</p>
+                    <a className="history-source-link" href={ipassFederalHistory[0].sourceUrl} target="_blank" rel="noreferrer">查看官方公告 <Icon name="external" size={14} /></a>
+                  </>
+                ) : <p>目前尚未收集到 iPASS MONEY 聯邦銀行的明確額滿時間。</p>}
+              </article>
+
+              <article className="history-insight glass-panel">
+                <div className="history-insight-top"><span className="history-topic">icash Pay 4%</span><span className="history-topic-status">月份觀察</span></div>
+                <h3>通常每月幾號耗盡？</h3>
+                {icashFourPercentHistory.length ? (
+                  <>
+                    <strong className="history-insight-value">約每月 {icashFourPercentAverageDay} 日</strong>
+                    <p>目前有 {icashFourPercentHistory.length} 筆精確到日期的 4% 紀錄，樣本仍會隨每月更新增加。</p>
+                    <div className="history-mini-list">{icashFourPercentHistory.slice(0, 3).map((record) => <span key={record.id}>{formatHistoryMonth(record.month)} · {record.exhaustedDate?.slice(8)} 日</span>)}</div>
+                  </>
+                ) : <p>目前尚未收集到 icash Pay 4% 的精確耗盡日期，待官方公告後會加入統計。</p>}
+              </article>
+            </div>
+
+            <div className="history-toolbar glass-panel">
+              <label className="history-filter-field"><span>平台</span><select value={historyPlatform} onChange={(event) => setHistoryPlatform(event.target.value)}><option>全部平台</option>{historyPlatforms.map((platform) => <option key={platform}>{platform}</option>)}</select></label>
+              <label className="history-filter-field"><span>月份</span><select value={historyMonth} onChange={(event) => setHistoryMonth(event.target.value)}><option>全部月份</option>{historyMonths.map((month) => <option key={month} value={month}>{formatHistoryMonth(month)}</option>)}</select></label>
+              <label className="field-block history-search"><span>搜尋銀行、通路或活動</span><div className="input-shell"><Icon name="search" size={17} /><input value={historyQuery} onChange={(event) => setHistoryQuery(event.target.value)} placeholder="例如：聯邦、7-ELEVEN、4%" aria-label="搜尋歷史活動" /></div></label>
+            </div>
+
+            <div className="history-record-heading"><div><span className="eyebrow"><Icon name="database" size={14} />OFFICIAL LOG</span><h3>完整額滿紀錄</h3></div><span>{filteredHistoryRecords.length} 筆符合</span></div>
+            {filteredHistoryRecords.length ? (
+              <div className="history-record-list">
+                {filteredHistoryRecords.map((record) => (
+                  <article className="history-record-card glass-panel" key={record.id}>
+                    <div className="history-record-main">
+                      <div className="history-record-meta"><span>{formatHistoryMonth(record.month)}</span><span>{record.platform}</span>{record.bank ? <span>{record.bank}</span> : null}</div>
+                      <h4>{record.campaignTitle}</h4>
+                      <p>{[record.merchant, record.rewardLabel].filter(Boolean).join(" · ") || "官方活動回饋"}</p>
+                    </div>
+                    <div className="history-record-time"><span>官方額滿</span><strong>{formatHistoryDate(record)}</strong><small>{historyConfidenceLabel(record.confidence)}</small></div>
+                    <div className="history-record-evidence"><p>{record.evidence}</p>{record.sourceUrl ? <a href={record.sourceUrl} target="_blank" rel="noreferrer">看官方活動頁 <Icon name="external" size={13} /></a> : null}</div>
+                  </article>
+                ))}
+              </div>
+            ) : (
+              <div className="history-empty glass-panel"><Icon name="clock" size={22} /><strong>目前沒有符合的歷史紀錄</strong><p>換一個平台、月份或關鍵字。</p></div>
+            )}
+            <p className="panel-footnote"><Icon name="info" size={14} />「尚不能判定先後」代表官方頁面沒有公開時間，不代表活動一定沒有提前額滿；後續同步會持續補上新月份。</p>
           </section>
 
           <section id="sources" className="sources-section">
