@@ -60,11 +60,12 @@ function provider({
   logo = "",
   color,
   focus,
+  segment = "cross-network",
   officialSite,
   sourceUrls,
   campaigns = [],
 }) {
-  return { name, logo, color, focus, officialSite, sourceUrls, campaigns };
+  return { name, logo, color, focus, segment, officialSite, sourceUrls, campaigns };
 }
 
 const providers = [
@@ -72,6 +73,7 @@ const providers = [
     name: "LINE Pay",
     logo: "/logos/line-pay.svg",
     color: "#00c300",
+    segment: "daily",
     focus: "LINE Pay、LINE Pay Money 與官方通路優惠。",
     officialSite: "https://pay.line.me/portal/tw/customer/press",
     sourceUrls: ["https://pay.line.me/portal/tw/customer/press"],
@@ -109,6 +111,7 @@ const providers = [
     name: "街口支付",
     logo: "/logos/jkos-pay.png",
     color: "#eb6a2a",
+    segment: "daily",
     focus: "街口支付官方行銷活動、街口幣與指定通路折扣。",
     officialSite: "https://mkt.jkopay.com/zh-TW/event",
     sourceUrls: [
@@ -160,7 +163,9 @@ const providers = [
   }),
   provider({
     name: "悠遊付",
+    logo: "/logos/easywallet.png",
     color: "#007c70",
+    segment: "daily",
     focus: "悠遊付官方優惠、交通與日常採買回饋。",
     officialSite: "https://easywallet.easycard.com.tw/benefit/",
     sourceUrls: [
@@ -225,6 +230,7 @@ const providers = [
     name: "Pi 拍錢包",
     logo: "/logos/pi-wallet.svg",
     color: "#ed6b31",
+    segment: "merchant",
     focus: "Pi 拍錢包 P 幣、電商與指定通路活動。",
     officialSite: "https://web.piapp.com.tw/events/",
     sourceUrls: [
@@ -286,7 +292,9 @@ const providers = [
   }),
   provider({
     name: "全盈+PAY",
+    logo: "/logos/pluspay.png",
     color: "#ef7d32",
+    segment: "merchant",
     focus: "全盈+PAY 儲值金、Fa 點與全家通路會員日。",
     officialSite: "https://event2023.pluspay.com.tw/",
     sourceUrls: [
@@ -348,6 +356,7 @@ const providers = [
     name: "台灣 Pay",
     logo: "/logos/taiwan-pay.png",
     color: "#b22637",
+    segment: "cross-network",
     focus: "台灣 Pay、TWQR 與銀行合作通路回饋。",
     officialSite: "https://taiwanpay.firstbank.com.tw/sites/twpay/latestOffers",
     sourceUrls: [
@@ -407,7 +416,9 @@ const providers = [
   }),
   provider({
     name: "全支付",
+    logo: "/logos/pxpay.png",
     color: "#5f49a6",
+    segment: "merchant",
     focus: "全支付全點、消費回饋與指定通路活動。",
     officialSite: "https://www.pxpayplus.com.tw/",
     sourceUrls: [
@@ -434,6 +445,7 @@ const providers = [
     name: "iPASS MONEY",
     logo: "/logos/ipass-money.png",
     color: "#00a6d6",
+    segment: "daily",
     focus: "iPASS MONEY 官方活動，既有活動由專用爬蟲同步。",
     officialSite: "https://www.i-pass.com.tw/Preferential",
     sourceUrls: ["https://www.i-pass.com.tw/Preferential?page=1&type=0"],
@@ -442,34 +454,43 @@ const providers = [
     name: "icash Pay",
     logo: "/logos/icash-pay.png",
     color: "#e95e22",
+    segment: "daily",
     focus: "icash Pay 在官方合作通路公布的活動。",
     officialSite: "https://www.icashpay.com.tw/",
     sourceUrls: ["https://www.icashpay.com.tw/"],
   }),
   provider({
     name: "OPEN錢包",
+    logo: "/logos/open-wallet.png",
     color: "#ef5a24",
+    segment: "merchant",
     focus: "OPEN錢包於 7-ELEVEN 與合作通路的活動。",
     officialSite: "https://www.7-11.com.tw/index.aspx",
     sourceUrls: ["https://www.7-11.com.tw/index.aspx"],
   }),
   provider({
     name: "橘子支付",
+    logo: "/logos/gama-pay.png",
     color: "#f58220",
+    segment: "cross-network",
     focus: "橘子支付官方公告與支付優惠；目前先保留官方活動入口。",
     officialSite: "https://www.gamapay.com.tw/news_list.html",
     sourceUrls: ["https://www.gamapay.com.tw/news_list.html"],
   }),
   provider({
     name: "歐付寶 O'Pay",
+    logo: "/logos/opay-icon.png",
     color: "#1388c9",
+    segment: "cross-network",
     focus: "歐付寶 O'Pay 官方好康活動與合作通路。",
     officialSite: "https://www.opay.tw/banner/event",
     sourceUrls: ["https://www.opay.tw/banner/event"],
   }),
   provider({
     name: "ezPay 簡單付",
+    logo: "/logos/ezpay.png",
     color: "#1877b9",
+    segment: "cross-network",
     focus: "ezPay 簡單付官方服務與活動入口。",
     officialSite: "https://www.ezpay.com.tw/",
     sourceUrls: ["https://www.ezpay.com.tw/"],
@@ -551,6 +572,7 @@ for (const item of providers) {
     logo: item.logo,
     color: item.color,
     focus: item.focus,
+    segment: item.segment,
     officialSite: item.officialSite,
     sourceUrl: item.sourceUrls[0],
     checkedAt,

@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-01T09:29:14.740Z",
+  "updatedAt": "2026-10-02T01:20:23.984Z",
   "source": {
     "name": "7-ELEVEN 官方活動 XML",
     "url": "https://www.7-11.com.tw/include/SalesPromo.xml?12",
@@ -711,7 +711,7 @@
       "logo": "/logos/ipass-money.png",
       "color": "#00a6d6",
       "focus": "同步 iPASS MONEY 官方優惠活動，保留目前仍有效的活動與原始細節。",
-      "freshness": "官方優惠活動列表（截至 2026/10/01）",
+      "freshness": "官方優惠活動列表（截至 2026/10/02）",
       "campaigns": [
         {
           "title": "用 iPASS MONEY 消費，最高享 10% 回饋！",
@@ -1536,7 +1536,7 @@
       "logo": "/logos/line-pay.svg",
       "color": "#00c300",
       "focus": "LINE Pay、LINE Pay Money 與官方通路優惠。",
-      "freshness": "官方來源檢查 2026/10/01",
+      "freshness": "官方來源檢查 2026/10/02",
       "campaigns": [
         {
           "title": "LINE Pay Money 乘車碼月月最高 30% 回饋",
@@ -1588,7 +1588,7 @@
       "logo": "/logos/jkos-pay.png",
       "color": "#eb6a2a",
       "focus": "街口支付官方行銷活動、街口幣與指定通路折扣。",
-      "freshness": "官方來源檢查 2026/10/01",
+      "freshness": "官方來源檢查 2026/10/02",
       "campaigns": [
         {
           "title": "週一飲料日 30% 街口幣回饋",
@@ -1654,10 +1654,10 @@
     },
     {
       "name": "悠遊付 官方活動",
-      "logo": "",
+      "logo": "/logos/easywallet.png",
       "color": "#007c70",
       "focus": "悠遊付官方優惠、交通與日常採買回饋。",
-      "freshness": "官方來源檢查 2026/10/01",
+      "freshness": "官方來源檢查 2026/10/02",
       "campaigns": [
         {
           "title": "悠遊付暢遊金門，筆筆最高 23% 回饋",
@@ -1746,7 +1746,7 @@
       "logo": "/logos/pi-wallet.svg",
       "color": "#ed6b31",
       "focus": "Pi 拍錢包 P 幣、電商與指定通路活動。",
-      "freshness": "官方來源檢查 2026/10/01",
+      "freshness": "官方來源檢查 2026/10/02",
       "campaigns": [
         {
           "title": "Pi 拍錢包綁中信 ALL ME，指定店家最高 3%",
@@ -1830,10 +1830,10 @@
     },
     {
       "name": "全盈+PAY 官方活動",
-      "logo": "",
+      "logo": "/logos/pluspay.png",
       "color": "#ef7d32",
       "focus": "全盈+PAY 儲值金、Fa 點與全家通路會員日。",
-      "freshness": "官方來源檢查 2026/10/01",
+      "freshness": "官方來源檢查 2026/10/02",
       "campaigns": [
         {
           "title": "滿 1,111 元享 11% 全盈儲值金",
@@ -1920,7 +1920,7 @@
       "logo": "/logos/taiwan-pay.png",
       "color": "#b22637",
       "focus": "台灣 Pay、TWQR 與銀行合作通路回饋。",
-      "freshness": "官方來源檢查 2026/10/01",
+      "freshness": "官方來源檢查 2026/10/02",
       "campaigns": [
         {
           "title": "小仁泉台灣 Pay 消費最高 20%",
@@ -2004,10 +2004,10 @@
     },
     {
       "name": "全支付 官方活動",
-      "logo": "",
+      "logo": "/logos/pxpay.png",
       "color": "#5f49a6",
       "focus": "全支付全點、消費回饋與指定通路活動。",
-      "freshness": "官方來源檢查 2026/10/01",
+      "freshness": "官方來源檢查 2026/10/02",
       "campaigns": [
         {
           "title": "收益進帳全支付，消費回饋最高 600 全點",
@@ -2053,147 +2053,147 @@
       "url": "https://pay.line.me/portal/tw/customer/press",
       "officialSite": "https://pay.line.me/portal/tw/customer/press",
       "status": "ok",
-      "checkedAt": "2026-10-01T09:29:14.740Z"
+      "checkedAt": "2026-10-02T01:20:23.984Z"
     },
     {
       "name": "街口支付 官方活動",
       "url": "https://mkt.jkopay.com/zh-TW/event/jkodrink2026010",
       "officialSite": "https://mkt.jkopay.com/zh-TW/event",
       "status": "ok",
-      "checkedAt": "2026-10-01T09:29:14.740Z"
+      "checkedAt": "2026-10-02T01:20:23.984Z"
     },
     {
       "name": "街口支付 官方活動",
       "url": "https://mkt.jkopay.com/zh-TW/event/jkomall202610-plus10",
       "officialSite": "https://mkt.jkopay.com/zh-TW/event",
       "status": "ok",
-      "checkedAt": "2026-10-01T09:29:14.740Z"
+      "checkedAt": "2026-10-02T01:20:23.984Z"
     },
     {
       "name": "街口支付 官方活動",
       "url": "https://mkt.jkopay.com/zh-TW/event/appleservice26010",
       "officialSite": "https://mkt.jkopay.com/zh-TW/event",
       "status": "ok",
-      "checkedAt": "2026-10-01T09:29:14.740Z"
+      "checkedAt": "2026-10-02T01:20:23.984Z"
     },
     {
       "name": "悠遊付 官方活動",
       "url": "https://easywallet.easycard.com.tw/benefit/?page=4",
       "officialSite": "https://easywallet.easycard.com.tw/benefit/",
       "status": "ok",
-      "checkedAt": "2026-10-01T09:29:14.740Z"
+      "checkedAt": "2026-10-02T01:20:23.984Z"
     },
     {
       "name": "悠遊付 官方活動",
       "url": "https://easywallet.easycard.com.tw/benefit/content?id=1787727024",
       "officialSite": "https://easywallet.easycard.com.tw/benefit/",
       "status": "ok",
-      "checkedAt": "2026-10-01T09:29:14.740Z"
+      "checkedAt": "2026-10-02T01:20:23.984Z"
     },
     {
       "name": "Pi 拍錢包 官方活動",
       "url": "https://web.piapp.com.tw/events/",
       "officialSite": "https://web.piapp.com.tw/events/",
       "status": "ok",
-      "checkedAt": "2026-10-01T09:29:14.740Z"
+      "checkedAt": "2026-10-02T01:20:23.984Z"
     },
     {
       "name": "Pi 拍錢包 官方活動",
       "url": "https://web.piapp.com.tw/260910bonus/",
       "officialSite": "https://web.piapp.com.tw/events/",
       "status": "ok",
-      "checkedAt": "2026-10-01T09:29:14.740Z"
+      "checkedAt": "2026-10-02T01:20:23.984Z"
     },
     {
       "name": "Pi 拍錢包 官方活動",
       "url": "https://web.piapp.com.tw/allme-202605/",
       "officialSite": "https://web.piapp.com.tw/events/",
       "status": "ok",
-      "checkedAt": "2026-10-01T09:29:14.740Z"
+      "checkedAt": "2026-10-02T01:20:23.984Z"
     },
     {
       "name": "全盈+PAY 官方活動",
       "url": "https://event2023.pluspay.com.tw/",
       "officialSite": "https://event2023.pluspay.com.tw/",
       "status": "ok",
-      "checkedAt": "2026-10-01T09:29:14.740Z"
+      "checkedAt": "2026-10-02T01:20:23.984Z"
     },
     {
       "name": "全盈+PAY 官方活動",
       "url": "https://event2023.pluspay.com.tw/2026Q3?deviceModeForBot=mobile&slideIndex=0",
       "officialSite": "https://event2023.pluspay.com.tw/",
       "status": "ok",
-      "checkedAt": "2026-10-01T09:29:14.740Z"
+      "checkedAt": "2026-10-02T01:20:23.984Z"
     },
     {
       "name": "台灣 Pay 官方活動",
       "url": "https://taiwanpay.firstbank.com.tw/sites/twpay/latestOffers",
       "officialSite": "https://taiwanpay.firstbank.com.tw/sites/twpay/latestOffers",
       "status": "ok",
-      "checkedAt": "2026-10-01T09:29:14.740Z"
+      "checkedAt": "2026-10-02T01:20:23.984Z"
     },
     {
       "name": "台灣 Pay 官方活動",
       "url": "https://www.tcb-bank.com.tw/personal-banking/digital-finance/event/taiwan-pay",
       "officialSite": "https://taiwanpay.firstbank.com.tw/sites/twpay/latestOffers",
       "status": "ok",
-      "checkedAt": "2026-10-01T09:29:14.740Z"
+      "checkedAt": "2026-10-02T01:20:23.984Z"
     },
     {
       "name": "全支付 官方活動",
       "url": "https://www.pxpayplus.com.tw/",
       "officialSite": "https://www.pxpayplus.com.tw/",
       "status": "unreachable",
-      "checkedAt": "2026-10-01T09:29:14.740Z"
+      "checkedAt": "2026-10-02T01:20:23.984Z"
     },
     {
       "name": "全支付 官方活動",
       "url": "https://prod-s3.pxpayplus.com/pxplus_jpmam_mktpage2026/index.html",
       "officialSite": "https://www.pxpayplus.com.tw/",
       "status": "ok",
-      "checkedAt": "2026-10-01T09:29:14.740Z"
+      "checkedAt": "2026-10-02T01:20:23.984Z"
     },
     {
       "name": "全支付 官方活動",
       "url": "https://www.pxpayplus.com/news/%E6%96%B0%E8%81%9E%E7%99%BC%E5%B8%83/1",
       "officialSite": "https://www.pxpayplus.com.tw/",
       "status": "ok",
-      "checkedAt": "2026-10-01T09:29:14.740Z"
+      "checkedAt": "2026-10-02T01:20:23.984Z"
     },
     {
       "name": "icash Pay 官方活動",
       "url": "https://www.icashpay.com.tw/",
       "officialSite": "https://www.icashpay.com.tw/",
       "status": "ok",
-      "checkedAt": "2026-10-01T09:29:14.740Z"
+      "checkedAt": "2026-10-02T01:20:23.984Z"
     },
     {
       "name": "OPEN錢包 官方活動",
       "url": "https://www.7-11.com.tw/index.aspx",
       "officialSite": "https://www.7-11.com.tw/index.aspx",
       "status": "ok",
-      "checkedAt": "2026-10-01T09:29:14.740Z"
+      "checkedAt": "2026-10-02T01:20:23.984Z"
     },
     {
       "name": "橘子支付 官方活動",
       "url": "https://www.gamapay.com.tw/news_list.html",
       "officialSite": "https://www.gamapay.com.tw/news_list.html",
       "status": "ok",
-      "checkedAt": "2026-10-01T09:29:14.740Z"
+      "checkedAt": "2026-10-02T01:20:23.984Z"
     },
     {
       "name": "歐付寶 O'Pay 官方活動",
       "url": "https://www.opay.tw/banner/event",
       "officialSite": "https://www.opay.tw/banner/event",
       "status": "ok",
-      "checkedAt": "2026-10-01T09:29:14.740Z"
+      "checkedAt": "2026-10-02T01:20:23.984Z"
     },
     {
       "name": "ezPay 簡單付 官方活動",
       "url": "https://www.ezpay.com.tw/",
       "officialSite": "https://www.ezpay.com.tw/",
       "status": "ok",
-      "checkedAt": "2026-10-01T09:29:14.740Z"
+      "checkedAt": "2026-10-02T01:20:23.984Z"
     }
   ],
   "platforms": [
@@ -2202,117 +2202,130 @@
       "logo": "/logos/line-pay.svg",
       "color": "#00c300",
       "focus": "LINE Pay、LINE Pay Money 與官方通路優惠。",
+      "segment": "daily",
       "officialSite": "https://pay.line.me/portal/tw/customer/press",
       "sourceUrl": "https://pay.line.me/portal/tw/customer/press",
-      "checkedAt": "2026-10-01T09:29:14.740Z"
+      "checkedAt": "2026-10-02T01:20:23.984Z"
     },
     {
       "name": "街口支付",
       "logo": "/logos/jkos-pay.png",
       "color": "#eb6a2a",
       "focus": "街口支付官方行銷活動、街口幣與指定通路折扣。",
+      "segment": "daily",
       "officialSite": "https://mkt.jkopay.com/zh-TW/event",
       "sourceUrl": "https://mkt.jkopay.com/zh-TW/event/jkodrink2026010",
-      "checkedAt": "2026-10-01T09:29:14.740Z"
+      "checkedAt": "2026-10-02T01:20:23.984Z"
     },
     {
       "name": "悠遊付",
-      "logo": "",
+      "logo": "/logos/easywallet.png",
       "color": "#007c70",
       "focus": "悠遊付官方優惠、交通與日常採買回饋。",
+      "segment": "daily",
       "officialSite": "https://easywallet.easycard.com.tw/benefit/",
       "sourceUrl": "https://easywallet.easycard.com.tw/benefit/?page=4",
-      "checkedAt": "2026-10-01T09:29:14.740Z"
+      "checkedAt": "2026-10-02T01:20:23.984Z"
     },
     {
       "name": "Pi 拍錢包",
       "logo": "/logos/pi-wallet.svg",
       "color": "#ed6b31",
       "focus": "Pi 拍錢包 P 幣、電商與指定通路活動。",
+      "segment": "merchant",
       "officialSite": "https://web.piapp.com.tw/events/",
       "sourceUrl": "https://web.piapp.com.tw/events/",
-      "checkedAt": "2026-10-01T09:29:14.740Z"
+      "checkedAt": "2026-10-02T01:20:23.984Z"
     },
     {
       "name": "全盈+PAY",
-      "logo": "",
+      "logo": "/logos/pluspay.png",
       "color": "#ef7d32",
       "focus": "全盈+PAY 儲值金、Fa 點與全家通路會員日。",
+      "segment": "merchant",
       "officialSite": "https://event2023.pluspay.com.tw/",
       "sourceUrl": "https://event2023.pluspay.com.tw/",
-      "checkedAt": "2026-10-01T09:29:14.740Z"
+      "checkedAt": "2026-10-02T01:20:23.984Z"
     },
     {
       "name": "台灣 Pay",
       "logo": "/logos/taiwan-pay.png",
       "color": "#b22637",
       "focus": "台灣 Pay、TWQR 與銀行合作通路回饋。",
+      "segment": "cross-network",
       "officialSite": "https://taiwanpay.firstbank.com.tw/sites/twpay/latestOffers",
       "sourceUrl": "https://taiwanpay.firstbank.com.tw/sites/twpay/latestOffers",
-      "checkedAt": "2026-10-01T09:29:14.740Z"
+      "checkedAt": "2026-10-02T01:20:23.984Z"
     },
     {
       "name": "全支付",
-      "logo": "",
+      "logo": "/logos/pxpay.png",
       "color": "#5f49a6",
       "focus": "全支付全點、消費回饋與指定通路活動。",
+      "segment": "merchant",
       "officialSite": "https://www.pxpayplus.com.tw/",
       "sourceUrl": "https://www.pxpayplus.com.tw/",
-      "checkedAt": "2026-10-01T09:29:14.740Z"
+      "checkedAt": "2026-10-02T01:20:23.984Z"
     },
     {
       "name": "iPASS MONEY",
       "logo": "/logos/ipass-money.png",
       "color": "#00a6d6",
       "focus": "iPASS MONEY 官方活動，既有活動由專用爬蟲同步。",
+      "segment": "daily",
       "officialSite": "https://www.i-pass.com.tw/Preferential",
       "sourceUrl": "https://www.i-pass.com.tw/Preferential?page=1&type=0",
-      "checkedAt": "2026-10-01T09:29:14.740Z"
+      "checkedAt": "2026-10-02T01:20:23.984Z"
     },
     {
       "name": "icash Pay",
       "logo": "/logos/icash-pay.png",
       "color": "#e95e22",
       "focus": "icash Pay 在官方合作通路公布的活動。",
+      "segment": "daily",
       "officialSite": "https://www.icashpay.com.tw/",
       "sourceUrl": "https://www.icashpay.com.tw/",
-      "checkedAt": "2026-10-01T09:29:14.740Z"
+      "checkedAt": "2026-10-02T01:20:23.984Z"
     },
     {
       "name": "OPEN錢包",
-      "logo": "",
+      "logo": "/logos/open-wallet.png",
       "color": "#ef5a24",
       "focus": "OPEN錢包於 7-ELEVEN 與合作通路的活動。",
+      "segment": "merchant",
       "officialSite": "https://www.7-11.com.tw/index.aspx",
       "sourceUrl": "https://www.7-11.com.tw/index.aspx",
-      "checkedAt": "2026-10-01T09:29:14.740Z"
+      "checkedAt": "2026-10-02T01:20:23.984Z"
     },
     {
       "name": "橘子支付",
-      "logo": "",
+      "logo": "/logos/gama-pay.png",
       "color": "#f58220",
       "focus": "橘子支付官方公告與支付優惠；目前先保留官方活動入口。",
+      "segment": "cross-network",
       "officialSite": "https://www.gamapay.com.tw/news_list.html",
       "sourceUrl": "https://www.gamapay.com.tw/news_list.html",
-      "checkedAt": "2026-10-01T09:29:14.740Z"
+      "checkedAt": "2026-10-02T01:20:23.984Z"
     },
     {
       "name": "歐付寶 O'Pay",
-      "logo": "",
+      "logo": "/logos/opay-icon.png",
       "color": "#1388c9",
       "focus": "歐付寶 O'Pay 官方好康活動與合作通路。",
+      "segment": "cross-network",
       "officialSite": "https://www.opay.tw/banner/event",
       "sourceUrl": "https://www.opay.tw/banner/event",
-      "checkedAt": "2026-10-01T09:29:14.740Z"
+      "checkedAt": "2026-10-02T01:20:23.984Z"
     },
     {
       "name": "ezPay 簡單付",
-      "logo": "",
+      "logo": "/logos/ezpay.png",
       "color": "#1877b9",
       "focus": "ezPay 簡單付官方服務與活動入口。",
+      "segment": "cross-network",
       "officialSite": "https://www.ezpay.com.tw/",
       "sourceUrl": "https://www.ezpay.com.tw/",
-      "checkedAt": "2026-10-01T09:29:14.740Z"
+      "checkedAt": "2026-10-02T01:20:23.984Z"
     }
   ]
 }

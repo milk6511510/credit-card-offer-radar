@@ -32,11 +32,14 @@ type PaymentSource = {
   campaigns: Campaign[];
 };
 
+type PlatformSegment = "daily" | "merchant" | "cross-network";
+
 type PlatformInfo = {
   name: string;
   logo?: string;
   color: string;
   focus: string;
+  segment?: PlatformSegment;
   officialSite: string;
   sourceUrl?: string;
   checkedAt?: string;
@@ -88,6 +91,13 @@ const paymentLogos: Record<string, string> = {
   "台灣 Pay": "/logos/taiwan-pay.png",
   "iPASS MONEY": "/logos/ipass-money.png",
   "Pi 拍錢包": "/logos/pi-wallet.svg",
+  "悠遊付": "/logos/easywallet.png",
+  "全支付": "/logos/pxpay.png",
+  "全盈+PAY": "/logos/pluspay.png",
+  "OPEN錢包": "/logos/open-wallet.png",
+  "橘子支付": "/logos/gama-pay.png",
+  "歐付寶 O'Pay": "/logos/opay-icon.png",
+  "ezPay 簡單付": "/logos/ezpay.png",
 };
 
 const platformColors: Record<string, string> = {
@@ -105,6 +115,39 @@ const platformColors: Record<string, string> = {
   "歐付寶 O'Pay": "#1388c9",
   "ezPay 簡單付": "#1877b9",
 };
+
+const platformSegmentMeta: Record<PlatformSegment, { label: string; description: string }> = {
+  daily: {
+    label: "日常支付與交通",
+    description: "通勤、餐飲、繳費與日常消費最常遇到的支付工具。",
+  },
+  merchant: {
+    label: "通路與電商錢包",
+    description: "電商、便利商店與指定品牌的高額回饋集中在這裡。",
+  },
+  "cross-network": {
+    label: "銀行／跨通路支付",
+    description: "銀行合作、TWQR 與跨店家支付活動，條件通常依通路而定。",
+  },
+};
+
+const platformSegmentByName: Record<string, PlatformSegment> = {
+  "LINE Pay": "daily",
+  "街口支付": "daily",
+  "悠遊付": "daily",
+  "iPASS MONEY": "daily",
+  "icash Pay": "daily",
+  "Pi 拍錢包": "merchant",
+  "全盈+PAY": "merchant",
+  "全支付": "merchant",
+  "OPEN錢包": "merchant",
+  "台灣 Pay": "cross-network",
+  "橘子支付": "cross-network",
+  "歐付寶 O'Pay": "cross-network",
+  "ezPay 簡單付": "cross-network",
+};
+
+const platformSegmentOrder: PlatformSegment[] = ["daily", "merchant", "cross-network"];
 
 const audienceMeta: Record<Audience, { label: string; description: string; className: string }> = {
   "new-user": {
@@ -173,9 +216,28 @@ function Icon({ name, size = 18 }: { name: IconName; size?: number }) {
 function BrandMark({ name, logo, color = "#ffffff" }: { name: string; logo?: string; color?: string }) {
   return (
     <span className="brand-mark" style={{ "--brand-color": color } as React.CSSProperties}>
-      {logo ? <img src={logo} alt={`${name} logo`} /> : <Icon name="wallet" size={19} />}
+      {logo ? <img src={logo} alt={`${name} logo`} /> : <span className="brand-initial" aria-hidden="true">{brandInitial(name)}</span>}
     </span>
   );
+}
+
+function brandInitial(name: string) {
+  const initials: Record<string, string> = {
+    "LINE Pay": "LINE",
+    "街口支付": "街口",
+    "悠遊付": "悠遊",
+    "全支付": "全付",
+    "全盈+PAY": "+PAY",
+    "OPEN錢包": "OPEN",
+    "橘子支付": "橘子",
+    "歐付寶 O'Pay": "O",
+    "ezPay 簡單付": "ez",
+  };
+  return initials[name] || name.slice(0, 2);
+}
+
+function paymentDisplayName(name: string) {
+  return name.replace(/ 官方活動$/, "");
 }
 
 function getAudience(offer: Campaign): Audience {
@@ -240,6 +302,10 @@ function OfferCard({ offer }: { offer: Offer }) {
   const audience = audienceMeta[getAudience(offer)];
   const paymentMethods = getPaymentMethods(offer);
   const officialId = offer.officialId || offer.sourceUrl?.match(/[?&]item=([^&]+)/i)?.[1];
+  const paymentName = paymentDisplayName(offer.payment.name);
+  const paymentLogo = offer.payment.logo || paymentLogos[paymentName];
+  const paymentColor = offer.payment.color || platformColors[paymentName] || "#2e8b62";
+  const storeSummary = offer.stores.length ? offer.stores.join(" · ") : "以官方活動頁列示通路為準";
 
   return (
     <article className="glass-card overflow-hidden">
@@ -252,36 +318,39 @@ function OfferCard({ offer }: { offer: Offer }) {
       <div className="p-5 sm:p-6">
         <div className="flex items-start justify-between gap-4">
           <div className="flex min-w-0 gap-3">
-            <BrandMark name={offer.payment.name} logo={offer.payment.logo} color={offer.payment.color} />
+            <BrandMark name={paymentName} logo={paymentLogo} color={paymentColor} />
             <div className="min-w-0">
-              <p className="eyebrow">{offer.category}</p>
-              <h3 className="mt-1 text-xl font-semibold leading-tight tracking-[-0.02em] text-white">{offer.title}</h3>
+              <div className="offer-type-row">
+                <span className="offer-type-tag">{offer.category || "一般活動"}</span>
+                <span className="offer-platform-label">{paymentName}</span>
+              </div>
+              <h3 className="offer-title">{offer.title}</h3>
             </div>
           </div>
           <span className="source-badge">官方</span>
         </div>
 
-        <div className="mt-5 flex items-start gap-2 border-t border-white/10 pt-4 text-sm leading-6 text-white/65">
-          <Icon name="clock" size={16} />
-          <span>{offer.status}</span>
-        </div>
-
-        <div className="offer-reward-row mt-4">
+        <div className="offer-reward-row mt-5">
           <span className="reward-highlight"><Icon name="spark" size={14} />{rewardLabel(offer)}</span>
-          <span className="offer-store-summary">{offer.stores.slice(0, 3).join(" · ")}</span>
         </div>
 
-        <div className="mt-5 grid grid-cols-2 gap-3 border-y border-white/10 py-4 text-sm">
-          <div>
-            <p className="data-label">使用條件</p>
-            <span className={`mt-2 inline-flex rounded-full border px-3 py-1 text-xs font-semibold ${audience.className}`} title={audience.description}>
-              {audience.label}
-            </span>
+        <div className="offer-info-grid">
+          <div className="offer-info-item offer-info-wide">
+            <p className="data-label">適用通路</p>
+            <p className="offer-info-value">{storeSummary}</p>
           </div>
-          <div>
-            <p className="data-label">支付平台</p>
-            <div className="mt-2 flex flex-wrap gap-1.5">
-              {paymentMethods.length ? paymentMethods.map((method) => <span className="signal-pill" key={method}>{method}</span>) : <span className="text-xs text-white/45">官方未明確提及</span>}
+          <div className="offer-info-item">
+            <p className="data-label">活動期間</p>
+            <p className="offer-info-value offer-period"><Icon name="clock" size={15} />{offer.status}</p>
+          </div>
+          <div className="offer-info-item">
+            <p className="data-label">適用對象</p>
+            <span className={`offer-audience-chip ${audience.className}`} title={audience.description}>{audience.label}</span>
+          </div>
+          <div className="offer-info-item offer-info-wide">
+            <p className="data-label">支付工具</p>
+            <div className="offer-payment-list">
+              {paymentMethods.length ? paymentMethods.map((method) => <span className="signal-pill" key={method}>{method}</span>) : <span className="offer-muted">官方未明確提及</span>}
             </div>
           </div>
         </div>
@@ -289,7 +358,7 @@ function OfferCard({ offer }: { offer: Offer }) {
         <div className="activity-source-row mt-5">
           <div>
             <p className="data-label">官方資料來源</p>
-            <p className="activity-source-name">{offer.payment.name}</p>
+            <p className="activity-source-name">{paymentName} 官方活動</p>
           </div>
           <span className="sync-tag"><Icon name="check" size={13} />已同步</span>
         </div>
@@ -393,6 +462,16 @@ export default function Home() {
       });
   }, [offers, platformCatalog]);
 
+  const platformGroups = useMemo(() => {
+    return platformSegmentOrder
+      .map((segment) => ({
+        segment,
+        ...platformSegmentMeta[segment],
+        items: platformSummaries.filter(({ platform }) => (platform.segment || platformSegmentByName[platform.name] || "cross-network") === segment),
+      }))
+      .filter((group) => group.items.length > 0);
+  }, [platformSummaries]);
+
   const source = data.source || fallbackData.source!;
   const sourceLinks = (data.sources?.length ? data.sources : [source]).filter((sourceLink, index, all) => all.findIndex((item) => item.name === sourceLink.name) === index);
   const visibleSourceLinks = sourceLinks.slice(0, 6);
@@ -492,20 +571,37 @@ export default function Home() {
               <span className="result-count">{platformSummaries.length} 個平台</span>
             </div>
             {platformSummaries.length ? (
-              <div className="platform-grid">
-                {platformSummaries.map(({ platform, offers: platformOffers, best, bestByCap }) => (
-                  <button key={platform.name} className="platform-card glass-card" onClick={() => { setQuery(platform.name); document.getElementById("latest")?.scrollIntoView({ behavior: "smooth", block: "start" }); }} title={`查看 ${platform.name} 相關活動`}>
-                    <span className="platform-card-top">
-                      <BrandMark name={platform.name} logo={platform.logo || paymentLogos[platform.name]} color={platform.color || platformColors[platform.name] || "#2e8b62"} />
-                      <span className="platform-status"><span className="source-dot" />{platformOffers.length ? "有有效活動" : "已建立索引"}</span>
-                    </span>
-                    <strong>{platform.name}</strong>
-                    <span className="platform-card-reward">{best ? rewardLabel(best) : "目前沒有讀到仍有效回饋"}</span>
-                    {bestByCap && bestByCap !== best ? <span className="platform-card-cap">額度最高：{rewardLabel(bestByCap)}</span> : null}
-                    <span className="platform-card-count">{platformOffers.length ? `${platformOffers.length} 筆活動，已按回饋排序` : "官方活動入口已建立，等待有效活動"}</span>
-                    {best ? <span className="platform-card-best">{best.title}</span> : null}
-                    <span className="platform-card-cta">查看平台活動 <Icon name="search" size={15} /></span>
-                  </button>
+              <div className="platform-groups">
+                {platformGroups.map((group, index) => (
+                  <section className="platform-group" key={group.segment} aria-labelledby={`platform-group-${group.segment}`}>
+                    <div className="platform-group-header">
+                      <div className="platform-group-title-wrap">
+                        <span className="platform-group-index">{String(index + 1).padStart(2, "0")}</span>
+                        <div>
+                          <h3 id={`platform-group-${group.segment}`}>{group.label}</h3>
+                          <p>{group.description}</p>
+                        </div>
+                      </div>
+                      <span className="platform-group-count">{group.items.length} 個平台</span>
+                    </div>
+                    <div className="platform-grid">
+                      {group.items.map(({ platform, offers: platformOffers, best, bestByCap }) => (
+                        <button key={platform.name} className="platform-card glass-card" onClick={() => { setQuery(platform.name); document.getElementById("latest")?.scrollIntoView({ behavior: "smooth", block: "start" }); }} title={`查看 ${platform.name} 相關活動`}>
+                          <span className="platform-card-top">
+                            <BrandMark name={platform.name} logo={platform.logo || paymentLogos[platform.name]} color={platform.color || platformColors[platform.name] || "#2e8b62"} />
+                            <span className={`platform-status ${platformOffers.length ? "is-active" : "is-indexed"}`}><span className="source-dot" /><span>{platformOffers.length ? "有有效活動" : "已建立索引"}</span></span>
+                          </span>
+                          <strong>{platform.name}</strong>
+                          <span className="platform-card-focus">{platform.focus}</span>
+                          <span className="platform-card-reward">{best ? rewardLabel(best) : "目前沒有讀到仍有效回饋"}</span>
+                          {bestByCap && bestByCap !== best ? <span className="platform-card-cap">額度最高：{rewardLabel(bestByCap)}</span> : null}
+                          <span className="platform-card-count">{platformOffers.length ? `${platformOffers.length} 筆活動，已按回饋排序` : "官方活動入口已建立，等待有效活動"}</span>
+                          {best ? <span className="platform-card-best">優先活動：{best.title}</span> : null}
+                          <span className="platform-card-cta">查看平台活動 <Icon name="search" size={15} /></span>
+                        </button>
+                      ))}
+                    </div>
+                  </section>
                 ))}
               </div>
             ) : (

@@ -1098,6 +1098,283 @@ summary:focus-visible {
   }
 }
 
+/* Clear grouping and explicit labels keep a dense offer index easy to scan. */
+.platform-groups {
+  display: grid;
+  gap: 42px;
+  margin-top: 32px;
+}
+
+.platform-group {
+  min-width: 0;
+}
+
+.platform-group-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 20px;
+  padding-top: 22px;
+  border-top: 1px solid var(--line);
+}
+
+.platform-group-title-wrap {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  min-width: 0;
+}
+
+.platform-group-index {
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  flex: 0 0 auto;
+  border: 1px solid rgba(53, 133, 94, 0.22);
+  border-radius: 11px;
+  color: #2e8b62;
+  background: #edf8f0;
+  font-size: 11px;
+  font-weight: 800;
+}
+
+.platform-group-header h3 {
+  margin: 0;
+  color: #17332a;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1.35;
+}
+
+.platform-group-header p {
+  max-width: 620px;
+  margin: 6px 0 0;
+  color: #71827b;
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+.platform-group-count {
+  flex: 0 0 auto;
+  padding-top: 6px;
+  color: #80918a;
+  font-size: 12px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.platform-group .platform-grid {
+  margin-top: 18px;
+}
+
+.platform-card {
+  min-height: 278px;
+}
+
+.platform-card-top {
+  align-items: center;
+}
+
+.platform-status {
+  min-height: 28px;
+  padding: 0 9px;
+  border: 1px solid #d9e4df;
+  border-radius: 999px;
+  background: #f7fbf8;
+}
+
+.platform-status.is-active {
+  border-color: #b8dfc7;
+  color: #28724f;
+  background: #edf8f0;
+}
+
+.platform-status.is-indexed {
+  color: #71827b;
+  background: #f4f7f5;
+}
+
+.platform-card > strong {
+  margin-top: 18px;
+}
+
+.platform-card-focus {
+  display: -webkit-box;
+  min-height: 44px;
+  margin-top: 7px;
+  overflow: hidden;
+  color: #71827b;
+  font-size: 12px;
+  line-height: 1.7;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+.platform-card-reward {
+  margin-top: 13px;
+}
+
+.brand-initial {
+  display: block;
+  max-width: 100%;
+  overflow: hidden;
+  color: var(--brand-color);
+  font-size: 10px;
+  font-weight: 850;
+  line-height: 1;
+  text-align: center;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.offer-type-row {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 7px;
+}
+
+.offer-type-tag,
+.offer-platform-label {
+  display: inline-flex;
+  align-items: center;
+  min-height: 24px;
+  padding: 0 8px;
+  border-radius: 7px;
+  font-size: 10px;
+  font-weight: 750;
+  line-height: 1;
+}
+
+.offer-type-tag {
+  border: 1px solid #b8dfc7;
+  color: #28724f;
+  background: #edf8f0;
+}
+
+.offer-platform-label {
+  color: #80918a;
+  background: #f2f6f4;
+}
+
+.offer-title {
+  margin: 8px 0 0;
+  color: #17332a;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+.offer-info-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px 14px;
+  margin-top: 18px;
+  padding: 18px 0;
+  border-top: 1px solid #e1eae6;
+  border-bottom: 1px solid #e1eae6;
+}
+
+.offer-info-item {
+  min-width: 0;
+}
+
+.offer-info-wide {
+  grid-column: 1 / -1;
+}
+
+.offer-info-value {
+  margin: 6px 0 0;
+  color: #3e5b4f;
+  font-size: 13px;
+  font-weight: 620;
+  line-height: 1.7;
+}
+
+.offer-period {
+  display: flex;
+  align-items: flex-start;
+  gap: 6px;
+}
+
+.offer-period svg {
+  flex: 0 0 auto;
+  margin-top: 3px;
+  color: #347bb0;
+}
+
+.offer-audience-chip {
+  display: inline-flex;
+  align-items: center;
+  min-height: 28px;
+  margin-top: 6px;
+  padding: 0 10px;
+  border: 1px solid #d5dfdc;
+  border-radius: 999px;
+  color: #66736f;
+  background: #f3f6f5;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.offer-payment-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 6px;
+}
+
+.offer-muted {
+  color: #80918a;
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+@media (max-width: 640px) {
+  .platform-groups {
+    gap: 34px;
+    margin-top: 24px;
+  }
+
+  .platform-group-header {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .platform-group-header p {
+    font-size: 12px;
+  }
+
+  .platform-group-count {
+    padding-top: 0;
+  }
+
+  .platform-card {
+    min-height: 0;
+  }
+
+  .platform-card-top {
+    gap: 8px;
+  }
+
+  .platform-status {
+    font-size: 10px;
+  }
+
+  .offer-info-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .offer-info-wide {
+    grid-column: auto;
+  }
+
+  .offer-title {
+    font-size: 18px;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
