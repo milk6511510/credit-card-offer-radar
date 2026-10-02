@@ -21,6 +21,8 @@ type Campaign = {
   officialId?: string;
   image?: string;
   rawText?: string;
+  publishedAt?: string;
+  officialOrder?: number;
 };
 
 type PaymentSource = {
@@ -350,6 +352,24 @@ function compareOffers(a: Campaign, b: Campaign) {
   return (b.rate || 0) - (a.rate || 0) || (b.cap || 0) - (a.cap || 0) || a.title.localeCompare(b.title, "zh-Hant");
 }
 
+function compareLatestOffers(a: Campaign, b: Campaign) {
+  const aOrder = Number.isFinite(a.officialOrder) ? a.officialOrder! : Number.POSITIVE_INFINITY;
+  const bOrder = Number.isFinite(b.officialOrder) ? b.officialOrder! : Number.POSITIVE_INFINITY;
+  return aOrder - bOrder || String(b.publishedAt || "").localeCompare(String(a.publishedAt || "")) || a.title.localeCompare(b.title, "zh-Hant");
+}
+
+function CampaignImage({ offer }: { offer: Offer }) {
+  const [visible, setVisible] = useState(Boolean(offer.image));
+  if (!offer.image || !visible) return null;
+
+  return (
+    <div className="offer-image">
+      <img alt={offer.title} src={offer.image} loading="lazy" onError={() => setVisible(false)} />
+      <span className="image-label"><Icon name="database" size={13} /> 官方活動素材</span>
+    </div>
+  );
+}
+
 function OfferCard({ offer }: { offer: Offer }) {
   const audience = audienceMeta[getAudience(offer)];
   const paymentMethods = getPaymentMethods(offer);
@@ -361,12 +381,7 @@ function OfferCard({ offer }: { offer: Offer }) {
 
   return (
     <article className="offer-card glass-card overflow-hidden">
-      {offer.image ? (
-        <div className="offer-image">
-          <img alt={offer.title} src={offer.image} loading="lazy" />
-          <span className="image-label"><Icon name="database" size={13} /> 官方活動素材</span>
-        </div>
-      ) : null}
+      <CampaignImage offer={offer} />
       <div className="offer-card-body p-5 sm:p-6">
         <div className="flex items-start justify-between gap-4">
           <div className="flex min-w-0 gap-3">
@@ -439,7 +454,7 @@ export default function Home() {
   const [query, setQuery] = useState("");
   const [activeCategory, setActiveCategory] = useState("全部");
   const [selectedPlatform, setSelectedPlatform] = useState("全部平台");
-  const [sortMode, setSortMode] = useState<"reward" | "ending">("reward");
+  const [sortMode, setSortMode] = useState<"latest" | "reward" | "ending">("latest");
   const [historyPlatform, setHistoryPlatform] = useState("全部平台");
   const [historyMonth, setHistoryMonth] = useState("全部月份");
   const [historyQuery, setHistoryQuery] = useState("");
@@ -458,8 +473,7 @@ export default function Home() {
           ...campaign,
           payment,
         })),
-      )
-      .sort(compareOffers);
+      );
   }, [data]);
 
   const categories = useMemo(() => ["全部", ...Array.from(new Set(offers.map((offer) => offer.category)))], [offers]);
@@ -483,7 +497,7 @@ export default function Home() {
         return (Number.isNaN(aEnd) ? Number.POSITIVE_INFINITY : aEnd) - (Number.isNaN(bEnd) ? Number.POSITIVE_INFINITY : bEnd) || compareOffers(a, b);
       });
     }
-    return [...matchingOffers].sort(compareOffers);
+    return [...matchingOffers].sort(sortMode === "reward" ? compareOffers : compareLatestOffers);
   }, [activeCategory, offers, query, selectedPlatform, sortMode]);
 
   const platformCatalog = useMemo<PlatformInfo[]>(() => {
@@ -505,7 +519,7 @@ export default function Home() {
         return {
           platform,
           offers: platformOffers,
-          best: platformOffers[0],
+          best: [...platformOffers].sort(compareOffers)[0],
           bestByCap,
         };
       })
@@ -666,7 +680,8 @@ export default function Home() {
                   </label>
                   <label className="sort-control">
                     <span>排序方式</span>
-                    <select value={sortMode} onChange={(event) => setSortMode(event.target.value as "reward" | "ending")} aria-label="排序方式">
+                    <select value={sortMode} onChange={(event) => setSortMode(event.target.value as "latest" | "reward" | "ending")} aria-label="排序方式">
+                      <option value="latest">官方更新順序</option>
                       <option value="reward">高回饋優先</option>
                       <option value="ending">即將截止優先</option>
                     </select>

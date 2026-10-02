@@ -81,6 +81,13 @@ function extractMainText(html) {
   return cleanText(candidates[0] || source).slice(0, 5000);
 }
 
+function extractFirstContentImage(html, origin) {
+  const candidates = [...String(html || "").matchAll(/<img[^>]+(?:src|data-src)=["']([^"']+)["'][^>]*>/gi)]
+    .map((match) => absoluteUrl(match[1], origin))
+    .filter(Boolean);
+  return candidates.find((url) => !/logo|icon|favicon|avatar/i.test(url)) || "";
+}
+
 async function fetchText(url, options = {}) {
   const response = await fetch(url, {
     cache: "no-store",
@@ -144,6 +151,17 @@ function dateKeyFromToken(value, fallbackYear = new Date().getFullYear()) {
 
 function parseDateRange(text) {
   const value = String(text || "");
+  const chineseShortRange = value.match(/(?:(20\d{2}|1\d{2})\s*年\s*)?(\d{1,2})\s*月\s*(\d{1,2})\s*日?\s*(?:起至|起|~|～|至|到|-|–|—)\s*(?:(20\d{2}|1\d{2})\s*年\s*)?(\d{1,2})\s*月\s*(\d{1,2})\s*日?/);
+  if (chineseShortRange) {
+    const startYear = Number(chineseShortRange[1] || new Date().getFullYear());
+    const normalizedStartYear = startYear < 1911 ? startYear + 1911 : startYear;
+    const endYear = Number(chineseShortRange[4] || startYear);
+    const normalizedEndYear = endYear < 1911 ? endYear + 1911 : endYear;
+    return {
+      startsAt: `${normalizedStartYear}${chineseShortRange[2].padStart(2, "0")}${chineseShortRange[3].padStart(2, "0")}`,
+      endsAt: `${normalizedEndYear}${chineseShortRange[5].padStart(2, "0")}${chineseShortRange[6].padStart(2, "0")}`,
+    };
+  }
   const beforeDate = value.match(/((?:20\d{2}|1\d{2})\s*[./-]\s*\d{1,2}\s*[./-]\s*\d{1,2})\s*前/);
   if (beforeDate) return { startsAt: "", endsAt: dateKeyFromToken(beforeDate[1]) };
   const chineseDates = [...value.matchAll(/(?:20\d{2}|1\d{2})\s*年\s*\d{1,2}\s*月\s*\d{1,2}\s*日?/g)].map((match) => match[0]);
@@ -239,7 +257,7 @@ function rewardLabel(rate, cap, text) {
   return "官方最新資訊";
 }
 
-function campaign({ provider, title, rawText, sourceUrl, image = "", dateText = "", explicitCategory, statusText = "" }) {
+function campaign({ provider, title, rawText, sourceUrl, image = "", dateText = "", explicitCategory, statusText = "", publishedAt = "", officialOrder }) {
   const safeTitle = cleanText(title).replace(/\s+/g, " ");
   const cleanRaw = cleanText(rawText || safeTitle).slice(0, 5000);
   const combined = `${safeTitle} ${cleanRaw}`;
@@ -262,19 +280,17 @@ function campaign({ provider, title, rawText, sourceUrl, image = "", dateText = 
     rawText: cleanRaw,
     startsAt,
     endsAt,
+    publishedAt,
+    officialOrder,
   };
-}
-
-function sortCampaigns(a, b) {
-  return (b.rate || 0) - (a.rate || 0) || (b.cap || 0) - (a.cap || 0) || (b.endsAt || "99999999").localeCompare(a.endsAt || "99999999") || a.title.localeCompare(b.title, "zh-Hant");
 }
 
 function dedupeCampaigns(campaigns, today) {
   return campaigns
     .filter(Boolean)
+    .filter((item) => item.startsAt || item.endsAt)
     .filter((item) => isActive(item, today))
-    .filter((item, index, all) => all.findIndex((candidate) => `${candidate.title}|${candidate.sourceUrl}` === `${item.title}|${item.sourceUrl}`) === index)
-    .sort(sortCampaigns);
+    .filter((item, index, all) => all.findIndex((candidate) => `${candidate.title}|${candidate.sourceUrl}` === `${item.title}|${item.sourceUrl}`) === index);
 }
 
 function providerMeta(name, logo, color, focus, segment, officialSite, sourceUrls) {
@@ -303,10 +319,11 @@ async function scrapeLine(today) {
   const listResult = await safeFetchText(listUrl);
   if (!listResult.ok) return { campaigns: [], status: "unreachable", error: listResult.error, sourceUrls: [listUrl] };
   const items = [...listResult.text.matchAll(/<li[^>]+class=["'][^"']*customer-center__item[^"']*["'][\s\S]*?<\/li>/gi)].map((match) => match[0]);
-  const candidates = items.map((item) => ({
+  const candidates = items.map((item, officialOrder) => ({
     title: cleanText(item.match(/class=["'][^"']*customer-center__title[^"']*["'][\s\S]*?class=["'][^"']*\btext\b[^"']*["'][^>]*>([\s\S]*?)<\/span>/i)?.[1] || ""),
     published: cleanText(item.match(/class=["'][^"']*customer-center__date[^"']*["'][^>]*>([\s\S]*?)<\/span>/i)?.[1] || ""),
     sourceUrl: absoluteUrl(item.match(/href=["']([^"']+\/press\/[^"']+)["']/i)?.[1], "https://pay.line.me"),
+    officialOrder,
   })).filter((item) => item.title && item.sourceUrl);
   const results = await mapLimit(candidates, 5, async (candidate) => {
     const detail = await safeFetchText(candidate.sourceUrl);
@@ -317,15 +334,20 @@ async function scrapeLine(today) {
       title: candidate.title.replace(/\bnew\b/gi, ""),
       rawText: detailText || candidate.title,
       sourceUrl: candidate.sourceUrl,
-      dateText: candidate.published,
+      image: detail.ok ? extractFirstContentImage(detailContent || detail.text, "https://pay.line.me") : "",
+      dateText: `${candidate.published} ${detailText}`,
       statusText: candidate.published ? `官方發布 ${candidate.published}；詳細條件請見官方頁` : "LINE Pay 官方最新資訊",
+      publishedAt: dateKeyFromToken(candidate.published),
+      officialOrder: candidate.officialOrder,
     });
   });
-  const latest = results.map((item) => {
-    if (!item || !item.title) return item;
-    return item.endsAt && item.endsAt < today ? { ...item, startsAt: "", endsAt: "", status: "官方最新資訊；活動細節請以官方頁為準" } : item;
-  });
-  return { campaigns: dedupeCampaigns(latest, today), status: "ok", sourceUrls: [listUrl] };
+  // LINE Pay 的官方新聞頁也會列出財報、服務公告等內容；只有能從詳情頁
+  // 確認活動截止日的項目才列入優惠清單，避免把已無法確認仍有效的新聞當成活動。
+  return {
+    campaigns: dedupeCampaigns(results, today).filter((item) => item.endsAt && item.endsAt >= today),
+    status: "ok",
+    sourceUrls: [listUrl],
+  };
 }
 
 async function scrapeJko(today) {
@@ -574,13 +596,9 @@ for (const item of catalog) {
   if (!scraper) continue;
   try {
     const result = await scraper(today);
-    if (!result.campaigns.length && previousCampaigns(data, item.name).length) {
-      scraped.set(item.name, { ...result, campaigns: previousCampaigns(data, item.name), status: "fallback", error: result.error || "官方頁未解析到活動卡，沿用上次官方入口資料" });
-    } else {
-      scraped.set(item.name, result);
-    }
+    scraped.set(item.name, result);
   } catch (error) {
-    scraped.set(item.name, { campaigns: previousCampaigns(data, item.name), status: "unreachable", error: error instanceof Error ? error.message : String(error), sourceUrls: item.sourceUrls });
+    scraped.set(item.name, { campaigns: [], status: "unreachable", error: error instanceof Error ? error.message : String(error), sourceUrls: item.sourceUrls });
   }
 }
 
@@ -595,17 +613,21 @@ for (const item of catalog) {
     result = { campaigns: existing, status: "ok", sourceUrls: item.sourceUrls };
   }
   if (item.name === "ezPay 簡單付") {
-    result = { campaigns: previousCampaigns(data, item.name), status: "blocked", error: "官方首頁拒絕自動讀取，保留官方入口", sourceUrls: item.sourceUrls };
+    result = { campaigns: [], status: "blocked", error: "官方首頁拒絕自動讀取，暫不列入目前有效活動", sourceUrls: item.sourceUrls };
   }
   if (!result) continue;
-  const campaigns = dedupeCampaigns(result.campaigns, today).map((entry) => ({ ...entry, paymentMethods: entry.paymentMethods?.length ? entry.paymentMethods : [item.name] }));
+  const campaigns = dedupeCampaigns(result.campaigns, today).map((entry, index) => ({
+    ...entry,
+    officialOrder: Number.isFinite(entry.officialOrder) ? entry.officialOrder : index,
+    paymentMethods: entry.paymentMethods?.length ? entry.paymentMethods : [item.name],
+  }));
   if (campaigns.length) {
     generatedPayments.push({
       name: `${item.name} 官方活動`,
       logo: item.logo,
       color: item.color,
       focus: item.focus,
-      freshness: `官方來源檢查 ${formatDateKey(today)}；依回饋高低排列`,
+      freshness: `官方來源檢查 ${formatDateKey(today)}；依官方更新順序排列`,
       campaigns,
     });
   }

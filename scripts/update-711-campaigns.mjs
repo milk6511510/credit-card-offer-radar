@@ -165,7 +165,7 @@ function rowLink(row) {
 function parsePaymentRows(html, today) {
   const activeHtml = stripComments(html);
   const rows = [...activeHtml.matchAll(/<tr\b[\s\S]*?<\/tr>/gi)].map((match) => match[0]);
-  return rows.map((row) => {
+  return rows.map((row, officialOrder) => {
     const paymentTool = rowCell(row, "支付工具");
     const bank = rowCell(row, "銀行卡別");
     const period = rowCell(row, "活動期間");
@@ -203,6 +203,7 @@ function parsePaymentRows(html, today) {
       rawText: `支付工具：${paymentTool}${bank ? `；銀行／卡別：${bank}` : ""}；活動期間：${period || "依官方公告"}；7-ELEVEN 消費：${detail}`,
       startsAt,
       endsAt,
+      officialOrder,
     };
   }).filter(Boolean);
 }
@@ -227,7 +228,7 @@ async function main() {
   const items = [...xml.matchAll(/<Item\b[^>]*>[\s\S]*?<\/Item>/gi)].map((match) => match[0]);
 
   const xmlCampaigns = items
-    .map((item) => {
+    .map((item, officialOrder) => {
       const type = textOf(item, "IType") || item.match(/IType="([^"]+)"/)?.[1] || "Event";
       const category = typeMap[type]?.label || "其他活動";
       const title = textOf(item, "APP_BannerTitle") || textOf(item, "Mobile_APP_BigBannerTitle");
@@ -255,17 +256,17 @@ async function main() {
         rawText: content || period || "詳細活動條件請以 7-ELEVEN 官方頁面為準。",
         startsAt: sDate,
         endsAt: eDate,
+        officialOrder,
       };
     })
-    .filter((campaign) => campaign.title && (!campaign.startsAt || campaign.startsAt <= today) && (!campaign.endsAt || campaign.endsAt >= today))
-    .sort((a, b) => (a.category === b.category ? a.title.localeCompare(b.title, "zh-Hant") : a.category.localeCompare(b.category, "zh-Hant")));
+    .filter((campaign) => campaign.title && (campaign.startsAt || campaign.endsAt) && (!campaign.startsAt || campaign.startsAt <= today) && (!campaign.endsAt || campaign.endsAt >= today));
 
   const paymentResponse = await fetch(paymentSourceUrl, { cache: "no-store" });
   const paymentHtml = paymentResponse.ok ? await paymentResponse.text() : "";
   const paymentCampaigns = paymentHtml ? parsePaymentRows(paymentHtml, today) : [];
-  const campaigns = [...xmlCampaigns, ...paymentCampaigns]
+  const campaigns = [...xmlCampaigns, ...paymentCampaigns.map((campaign, index) => ({ ...campaign, officialOrder: xmlCampaigns.length + index }))]
     .filter((campaign, index, all) => all.findIndex((item) => `${item.title}|${item.sourceUrl}|${item.rawText}` === `${campaign.title}|${campaign.sourceUrl}|${campaign.rawText}`) === index)
-    .sort((a, b) => (b.rate || 0) - (a.rate || 0) || (b.cap || 0) - (a.cap || 0) || a.title.localeCompare(b.title, "zh-Hant"));
+    .map((campaign, index) => ({ ...campaign, officialOrder: campaign.officialOrder ?? index }));
 
   const groupedCounts = campaigns.reduce((acc, campaign) => {
     acc[campaign.category] = (acc[campaign.category] || 0) + 1;
