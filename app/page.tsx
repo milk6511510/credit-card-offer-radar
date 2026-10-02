@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import bundledCampaignData from "../public/data/campaigns.json";
 
 type Audience = "new-user" | "existing-user" | "mixed" | "not-stated";
@@ -358,6 +358,114 @@ function compareLatestOffers(a: Campaign, b: Campaign) {
   return aOrder - bOrder || String(b.publishedAt || "").localeCompare(String(a.publishedAt || "")) || a.title.localeCompare(b.title, "zh-Hant");
 }
 
+function CategoryScroller({
+  categories,
+  activeCategory,
+  categoryCounts,
+  onSelect,
+}: {
+  categories: string[];
+  activeCategory: string;
+  categoryCounts: Record<string, number>;
+  onSelect: (category: string) => void;
+}) {
+  const tabsRef = useRef<HTMLDivElement>(null);
+  const dragRef = useRef<{ startX: number; startScrollLeft: number; moved: boolean } | null>(null);
+  const suppressClickRef = useRef(false);
+  const [canScrollLeft, setCanScrollLeft] = useState(false);
+  const [canScrollRight, setCanScrollRight] = useState(false);
+  const [isDragging, setIsDragging] = useState(false);
+
+  const updateScrollState = () => {
+    const element = tabsRef.current;
+    if (!element) return;
+    setCanScrollLeft(element.scrollLeft > 4);
+    setCanScrollRight(element.scrollLeft + element.clientWidth < element.scrollWidth - 4);
+  };
+
+  useEffect(() => {
+    updateScrollState();
+    const element = tabsRef.current;
+    if (!element) return;
+    element.addEventListener("scroll", updateScrollState, { passive: true });
+    window.addEventListener("resize", updateScrollState);
+    return () => {
+      element.removeEventListener("scroll", updateScrollState);
+      window.removeEventListener("resize", updateScrollState);
+    };
+  }, [categories.length]);
+
+  const moveTabs = (direction: number) => {
+    tabsRef.current?.scrollBy({ left: direction * Math.max(180, tabsRef.current.clientWidth * 0.7), behavior: "smooth" });
+  };
+
+  const beginDrag = (event: React.PointerEvent<HTMLDivElement>) => {
+    if (event.pointerType === "mouse" && event.button !== 0) return;
+    dragRef.current = { startX: event.clientX, startScrollLeft: event.currentTarget.scrollLeft, moved: false };
+    suppressClickRef.current = false;
+    event.currentTarget.setPointerCapture(event.pointerId);
+  };
+
+  const continueDrag = (event: React.PointerEvent<HTMLDivElement>) => {
+    const drag = dragRef.current;
+    if (!drag) return;
+    const distance = event.clientX - drag.startX;
+    if (Math.abs(distance) > 5) {
+      drag.moved = true;
+      setIsDragging(true);
+    }
+    if (drag.moved) event.currentTarget.scrollLeft = drag.startScrollLeft - distance;
+  };
+
+  const finishDrag = (event: React.PointerEvent<HTMLDivElement>) => {
+    const drag = dragRef.current;
+    if (!drag) return;
+    if (event.currentTarget.hasPointerCapture(event.pointerId)) event.currentTarget.releasePointerCapture(event.pointerId);
+    suppressClickRef.current = drag.moved;
+    dragRef.current = null;
+    setIsDragging(false);
+  };
+
+  return (
+    <div className="category-strip">
+      <button type="button" className="category-scroll-control" onClick={() => moveTabs(-1)} disabled={!canScrollLeft} aria-label="向左滑動活動分類" title="向左滑動活動分類">
+        <Icon name="arrow-right" size={14} />
+      </button>
+      <div
+        ref={tabsRef}
+        className={`category-tabs${isDragging ? " is-dragging" : ""}`}
+        role="tablist"
+        aria-label="活動分類"
+        onPointerDown={beginDrag}
+        onPointerMove={continueDrag}
+        onPointerUp={finishDrag}
+        onPointerCancel={finishDrag}
+      >
+        {categories.map((category) => (
+          <button
+            type="button"
+            key={category}
+            className={activeCategory === category ? "selected" : ""}
+            onClick={() => {
+              if (suppressClickRef.current) {
+                suppressClickRef.current = false;
+                return;
+              }
+              onSelect(category);
+            }}
+            aria-pressed={activeCategory === category}
+          >
+            {category}<span>{categoryCounts[category] || 0}</span>
+          </button>
+        ))}
+      </div>
+      <button type="button" className="category-scroll-control is-forward" onClick={() => moveTabs(1)} disabled={!canScrollRight} aria-label="向右滑動活動分類" title="向右滑動活動分類">
+        <Icon name="arrow-right" size={14} />
+      </button>
+    </div>
+  );
+}
+
 function CampaignImage({ offer }: { offer: Offer }) {
   const [visible, setVisible] = useState(Boolean(offer.image));
   if (!offer.image || !visible) return null;
@@ -477,6 +585,11 @@ export default function Home() {
   }, [data]);
 
   const categories = useMemo(() => ["全部", ...Array.from(new Set(offers.map((offer) => offer.category)))], [offers]);
+
+  const categoryCounts = useMemo(() => {
+    const platformOffers = offers.filter((offer) => selectedPlatform === "全部平台" || belongsToPlatform(offer, selectedPlatform));
+    return Object.fromEntries(categories.map((category) => [category, category === "全部" ? platformOffers.length : platformOffers.filter((offer) => offer.category === category).length]));
+  }, [categories, offers, selectedPlatform]);
 
   const filteredOffers = useMemo(() => {
     const keyword = query.trim().toLowerCase();
@@ -689,9 +802,7 @@ export default function Home() {
                 </div>
 
                 <div className="active-filter-row">
-                  <div className="category-tabs" role="tablist" aria-label="活動分類">
-                    {categories.map((category) => <button key={category} className={activeCategory === category ? "selected" : ""} onClick={() => setActiveCategory(category)} aria-pressed={activeCategory === category}>{category}<span>{category === "全部" ? (selectedPlatform === "全部平台" ? totalCount : filteredOffers.length) : offers.filter((offer) => offer.category === category && (selectedPlatform === "全部平台" || belongsToPlatform(offer, selectedPlatform))).length}</span></button>)}
-                  </div>
+                  <CategoryScroller categories={categories} activeCategory={activeCategory} categoryCounts={categoryCounts} onSelect={setActiveCategory} />
                   {selectedPlatform !== "全部平台" || query ? <button className="clear-filter" onClick={() => choosePlatform("全部平台")}><Icon name="check" size={14} />清除篩選</button> : null}
                 </div>
 

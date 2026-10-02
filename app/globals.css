@@ -758,9 +758,13 @@ summary:focus-visible {
 .category-tabs {
   display: flex;
   gap: 7px;
+  min-width: 0;
   overflow-x: auto;
   margin-top: 28px;
   padding-bottom: 4px;
+  cursor: grab;
+  user-select: none;
+  touch-action: pan-x;
   scrollbar-width: none;
 }
 
@@ -768,8 +772,14 @@ summary:focus-visible {
   display: none;
 }
 
+.category-tabs.is-dragging {
+  cursor: grabbing;
+  scroll-behavior: auto;
+}
+
 .category-tabs button {
   display: inline-flex;
+  flex: 0 0 auto;
   align-items: center;
   gap: 7px;
   min-height: 40px;
@@ -780,6 +790,41 @@ summary:focus-visible {
   color: inherit;
   opacity: 0.55;
   font-size: 10px;
+}
+
+.category-strip {
+  display: grid;
+  grid-template-columns: 30px minmax(0, 1fr) 30px;
+  align-items: center;
+  gap: 6px;
+  min-width: 0;
+  flex: 1 1 auto;
+}
+
+.category-scroll-control {
+  display: grid;
+  place-items: center;
+  width: 30px;
+  height: 34px;
+  border: 1px solid #d7e4de;
+  border-radius: 9px;
+  color: #6d8278;
+  background: #fff;
+}
+
+.category-scroll-control:first-child svg {
+  transform: rotate(180deg);
+}
+
+.category-scroll-control:hover:not(:disabled) {
+  border-color: #a8ceb7;
+  color: #277652;
+  background: #f1faf4;
+}
+
+.category-scroll-control:disabled {
+  cursor: default;
+  opacity: 0.34;
 }
 
 .category-groups {
@@ -1588,6 +1633,10 @@ summary:focus-visible {
   margin-top: 0;
 }
 
+.active-filter-row .category-strip .category-tabs {
+  margin-top: 0;
+}
+
 .clear-filter {
   display: inline-flex;
   align-items: center;
@@ -1949,6 +1998,10 @@ summary:focus-visible {
   .active-filter-row {
     align-items: flex-start;
     flex-direction: column;
+  }
+
+  .active-filter-row .category-strip {
+    width: 100%;
   }
 
   .active-filter-row .category-tabs {

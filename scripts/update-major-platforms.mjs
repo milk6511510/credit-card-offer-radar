@@ -84,7 +84,8 @@ function extractMainText(html) {
 function extractFirstContentImage(html, origin) {
   const candidates = [...String(html || "").matchAll(/<img[^>]+(?:src|data-src)=["']([^"']+)["'][^>]*>/gi)]
     .map((match) => absoluteUrl(match[1], origin))
-    .filter(Boolean);
+    .filter(Boolean)
+    .filter((url) => !/facebook\.com\/tr|doubleclick|pixel|tracking|analytics/i.test(url));
   return candidates.find((url) => !/logo|icon|favicon|avatar/i.test(url)) || "";
 }
 
@@ -151,7 +152,11 @@ function dateKeyFromToken(value, fallbackYear = new Date().getFullYear()) {
 
 function parseDateRange(text) {
   const value = String(text || "");
-  const chineseShortRange = value.match(/(?:(20\d{2}|1\d{2})\s*年\s*)?(\d{1,2})\s*月\s*(\d{1,2})\s*日?\s*(?:起至|起|~|～|至|到|-|–|—)\s*(?:(20\d{2}|1\d{2})\s*年\s*)?(\d{1,2})\s*月\s*(\d{1,2})\s*日?/);
+  // Prefer the explicit activity-period field over later dates such as
+  // point-credit deadlines or refund windows in the terms.
+  const activityPeriod = value.match(/活動期間[^。\n]{0,180}/i)?.[0] || value;
+  const periodValue = activityPeriod === value ? value : activityPeriod;
+  const chineseShortRange = periodValue.match(/(?:(20\d{2}|1\d{2})\s*年\s*)?(\d{1,2})\s*月\s*(\d{1,2})\s*日?\s*(?:起至|起|~|～|至|到|-|–|—)\s*(?:(20\d{2}|1\d{2})\s*年\s*)?(\d{1,2})\s*月\s*(\d{1,2})\s*日?/);
   if (chineseShortRange) {
     const startYear = Number(chineseShortRange[1] || new Date().getFullYear());
     const normalizedStartYear = startYear < 1911 ? startYear + 1911 : startYear;
@@ -162,20 +167,20 @@ function parseDateRange(text) {
       endsAt: `${normalizedEndYear}${chineseShortRange[5].padStart(2, "0")}${chineseShortRange[6].padStart(2, "0")}`,
     };
   }
-  const beforeDate = value.match(/((?:20\d{2}|1\d{2})\s*[./-]\s*\d{1,2}\s*[./-]\s*\d{1,2})\s*前/);
+  const beforeDate = periodValue.match(/((?:20\d{2}|1\d{2})\s*[./-]\s*\d{1,2}\s*[./-]\s*\d{1,2})\s*前/);
   if (beforeDate) return { startsAt: "", endsAt: dateKeyFromToken(beforeDate[1]) };
-  const chineseDates = [...value.matchAll(/(?:20\d{2}|1\d{2})\s*年\s*\d{1,2}\s*月\s*\d{1,2}\s*日?/g)].map((match) => match[0]);
+  const chineseDates = [...periodValue.matchAll(/(?:20\d{2}|1\d{2})\s*年\s*\d{1,2}\s*月\s*\d{1,2}\s*日?/g)].map((match) => match[0]);
   if (chineseDates.length >= 2) return { startsAt: dateKeyFromToken(chineseDates[0]), endsAt: dateKeyFromToken(chineseDates[1]) };
-  const fullDates = [...value.matchAll(/(?:20\d{2}|1\d{2})\s*[./-]\s*\d{1,2}\s*[./-]\s*\d{1,2}/g)].map((match) => match[0]);
+  const fullDates = [...periodValue.matchAll(/(?:20\d{2}|1\d{2})\s*[./-]\s*\d{1,2}\s*[./-]\s*\d{1,2}/g)].map((match) => match[0]);
   if (fullDates.length >= 2) {
     return { startsAt: dateKeyFromToken(fullDates[0]), endsAt: dateKeyFromToken(fullDates[1]) };
   }
-  const shortened = value.match(/((?:20\d{2}|1\d{2})\s*[./-]\s*\d{1,2}\s*[./-]\s*\d{1,2})\s*(?:起至|~|～|至|到|-|–|—)\s*(\d{1,2})\s*[./-]\s*(\d{1,2})/);
+  const shortened = periodValue.match(/((?:20\d{2}|1\d{2})\s*[./-]\s*\d{1,2}\s*[./-]\s*\d{1,2})\s*(?:起至|~|～|至|到|-|–|—)\s*(\d{1,2})\s*[./-]\s*(\d{1,2})/);
   if (shortened) {
     const startsAt = dateKeyFromToken(shortened[1]);
     return { startsAt, endsAt: `${startsAt.slice(0, 4)}${shortened[2].padStart(2, "0")}${shortened[3].padStart(2, "0")}` };
   }
-  const shortRange = value.match(/(?:^|[^\d])(\d{1,2})\s*[./-]\s*(\d{1,2})\s*(?:~|～|至|到|-|–|—)\s*(\d{1,2})\s*[./-]\s*(\d{1,2})/);
+  const shortRange = periodValue.match(/(?:^|[^\d])(\d{1,2})\s*[./-]\s*(\d{1,2})\s*(?:~|～|至|到|-|–|—)\s*(\d{1,2})\s*[./-]\s*(\d{1,2})/);
   if (shortRange) {
     const year = String(new Date().getFullYear());
     return {
@@ -239,7 +244,7 @@ function inferCategory(text) {
 
 const storeKeywords = [
   "7-ELEVEN", "全家便利商店", "全家", "萊爾富", "OKmart", "PChome24h購物", "PChome", "momo", "蝦皮購物", "Apple", "App Store",
-  "CITYLINK", "新光三越", "遠東百貨", "大樹藥局", "Mister Donut", "Cold Stone", "星巴克", "康是美", "麥當勞", "小仁泉", "金門",
+  "全通路", "CITYLINK", "新光三越", "遠東百貨", "大樹藥局", "Mister Donut", "Cold Stone", "星巴克", "康是美", "麥當勞", "小仁泉", "金門",
   "馬祖", "宜蘭", "南投", "台亞石油", "福懋", "全聯", "家樂福", "誠品", "KLOOK", "Trip.com", "JUJI", "指定通路",
 ];
 
@@ -512,7 +517,14 @@ async function scrapeIcash(today) {
     const article = detail.text.match(/<article\b[\s\S]*?<\/article>/i)?.[0] || "";
     const rawText = cleanText(article || extractClassText(detail.text, "mid-content") || title);
     if (!title) return null;
-    return campaign({ provider: "icash Pay", title, rawText, sourceUrl: candidate.sourceUrl, image: metaContent(detail.text, "og:image"), dateText: rawText });
+    return campaign({
+      provider: "icash Pay",
+      title,
+      rawText,
+      sourceUrl: candidate.sourceUrl,
+      image: extractFirstContentImage(article || detail.text, origin) || metaContent(detail.text, "og:image"),
+      dateText: rawText,
+    });
   });
 
   const monthlyUrl = `${origin}/advertMessage/view/id/2540`;
