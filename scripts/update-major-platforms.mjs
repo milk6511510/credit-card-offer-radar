@@ -358,7 +358,7 @@ function providerMeta(name, logo, color, focus, segment, officialSite, sourceUrl
 }
 
 const catalog = [
-  providerMeta("LINE Pay", "/logos/line-pay.svg", "#00c300", "LINE Pay、LINE Pay Money 與官方通路優惠。", "daily", "https://web-tw-pay.line.me/svc/event/display2/ce715b92-8150-406b-bf42-c71cb56eb427", ["https://web-tw-pay.line.me/svc/event/display2/ce715b92-8150-406b-bf42-c71cb56eb427", "https://pay.line.me/portal/tw/about/promotions?progressType=ONGOING", "https://pay.line.me/portal/tw/customer/press"]),
+  providerMeta("LINE Pay", "/logos/line-pay.svg", "#00c300", "LINE Pay、LINE Pay Money 與官方通路優惠。", "daily", "https://web-tw-pay.line.me/cms/event", ["https://web-tw-pay.line.me/cms/event", "https://web-tw-pay.line.me/svc/event/display2/ce715b92-8150-406b-bf42-c71cb56eb427", "https://pay.line.me/portal/tw/about/promotions?progressType=ONGOING", "https://pay.line.me/portal/tw/customer/press"]),
   providerMeta("街口支付", "/logos/jkos-pay.png", "#eb6a2a", "街口支付官方行銷活動、街口幣與指定通路折扣。", "daily", "https://mkt.jkopay.com/zh-TW/event", ["https://mkt.jkopay.com/sitemap.xml"]),
   providerMeta("悠遊付", "/logos/easywallet.png", "#007c70", "悠遊付官方優惠、交通與日常採買回饋。", "daily", "https://easywallet.easycard.com.tw/benefit/", ["https://easywallet.easycard.com.tw/benefit/?page=1"]),
   providerMeta("iPASS MONEY", "/logos/ipass-money.png", "#00a6d6", "iPASS MONEY 官方優惠活動與使用條件。", "daily", "https://www.i-pass.com.tw/Preferential", ["https://www.i-pass.com.tw/Preferential?page=1&type=0"]),
@@ -425,6 +425,72 @@ async function scrapeLinePress(today) {
   };
 }
 
+async function fetchLineCmsEventIndex(today) {
+  const eventListUrl = "https://web-tw-pay.line.me/cms/event";
+  const apiUrl = "https://web-tw-pay.line.me/cms-api/v1/events";
+  const limit = 30;
+  const candidates = [];
+  const seenUrls = new Set();
+  let offset = 0;
+  let pageCount = 0;
+  let firstError = "";
+
+  while (pageCount < 20) {
+    const listUrl = `${apiUrl}?runningStatusList=PROGRESSING&projectCode=CMS&limit=${limit}&offset=${offset}`;
+    const result = await safeFetchText(listUrl, {
+      accept: "application/json,text/plain;q=0.9,*/*;q=0.7",
+      headers: { referer: eventListUrl },
+    });
+    if (!result.ok) {
+      firstError ||= result.error;
+      break;
+    }
+
+    let payload;
+    try {
+      payload = JSON.parse(result.text);
+    } catch (error) {
+      firstError ||= error instanceof Error ? error.message : String(error);
+      break;
+    }
+    const rows = payload?.info?.data || [];
+    for (const [index, item] of rows.entries()) {
+      const sourceUrl = absoluteUrl(item.externalUrl, eventListUrl);
+      const startsAt = dateKeyFromIso(item.startDate);
+      const endsAt = dateKeyFromIso(item.endDate);
+      if (!sourceUrl || seenUrls.has(sourceUrl) || (endsAt && endsAt < today)) continue;
+      seenUrls.add(sourceUrl);
+      const tags = (item.tags || []).map((tag) => cleanText(tag.text || tag.key)).filter(Boolean);
+      const summary = [
+        item.ogDesc || item.listTitle || item.title,
+        item.periodNotice,
+        item.targetDescription,
+        tags.length ? `官方分類：${tags.join("、")}` : "",
+      ].filter(Boolean).join("\n");
+      candidates.push({
+        sourceUrl,
+        image: absoluteUrl(item.ogImg || item.iconUrl, eventListUrl),
+        title: cleanText(item.listTitle || item.title || item.name || item.ogDesc),
+        summary: cleanText(summary),
+        startsAt,
+        endsAt,
+        publishedAt: dateKeyFromIso(item.updateDate),
+        officialOrder: offset + index,
+      });
+    }
+    pageCount += 1;
+    if (rows.length < limit) break;
+    offset += limit;
+  }
+
+  return {
+    candidates,
+    status: candidates.length || !firstError ? "ok" : "unreachable",
+    ...(firstError ? { error: firstError } : {}),
+    sourceUrl: eventListUrl,
+  };
+}
+
 async function scrapeLine(today) {
   const eventUrl = "https://web-tw-pay.line.me/svc/event/display2/ce715b92-8150-406b-bf42-c71cb56eb427";
   const eventResult = await safeFetchText(eventUrl);
@@ -436,6 +502,10 @@ async function scrapeLine(today) {
     eventCandidateByUrl.set(candidate.sourceUrl, candidate);
     eventCandidates.push(candidate);
   };
+  // CMS 是 LINE Pay 的主活動清單；刻意不抓 MKT_PFM 特店清單，
+  // 避免把「好康特報」這類單店合作活動混進主要優惠。
+  const cmsIndex = await fetchLineCmsEventIndex(today);
+  for (const candidate of cmsIndex.candidates) pushEventCandidate(candidate);
   const collectEventCandidates = (node, context = {}) => {
     if (!node || typeof node !== "object") return;
     const range = {
@@ -497,8 +567,8 @@ async function scrapeLine(today) {
       sourceUrl: candidate.sourceUrl,
       image: detail.ok ? metaContent(detail.text, "og:image") || extractFirstContentImage(detail.text, "https://web-tw-pay.line.me") || candidate.image : candidate.image,
       dateText: detailDateText,
-      statusText: [periodLabel, publishedText ? `官方發布 ${cleanText(publishedText)}` : "LINE Pay 官方活動"].filter(Boolean).join("；"),
-      publishedAt: dateKeyFromToken(publishedText),
+      statusText: [periodLabel, publishedText ? `官方發布 ${cleanText(publishedText)}` : candidate.publishedAt ? `官方更新 ${formatDateKey(candidate.publishedAt)}` : "LINE Pay 官方活動"].filter(Boolean).join("；"),
+      publishedAt: dateKeyFromToken(publishedText) || candidate.publishedAt,
       officialOrder: candidate.officialOrder,
       startsAtOverride: startsAt || "",
       endsAtOverride: endsAt || "",
@@ -530,6 +600,7 @@ async function scrapeLine(today) {
   // 再用官方新聞補上集合頁沒有拆出的 LINE Pay Money 活動。
   const combined = [overview, ...eventResults, ...(pressResult.campaigns || [])].filter(Boolean);
   const activeCampaigns = combined
+    .filter((item) => item.title && item.sourceUrl)
     .filter((item) => item.startsAt || item.endsAt)
     .filter((item) => !item.endsAt || item.endsAt >= today)
     .filter((item, index, all) => all.findIndex((candidate) => `${candidate.title}|${candidate.sourceUrl}` === `${item.title}|${item.sourceUrl}`) === index)
@@ -544,7 +615,7 @@ async function scrapeLine(today) {
   return {
     campaigns: activeCampaigns,
     status: "ok",
-    sourceUrls: [eventUrl, ...pressResult.sourceUrls],
+    sourceUrls: ["https://web-tw-pay.line.me/cms/event", eventUrl, ...pressResult.sourceUrls],
   };
 }
 
