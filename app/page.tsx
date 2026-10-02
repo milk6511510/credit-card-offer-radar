@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useLayoutEffect, useMemo, useRef, useState } from "react";
 import bundledCampaignData from "../public/data/campaigns.json";
 
 type Audience = "new-user" | "existing-user" | "mixed" | "not-stated";
@@ -409,6 +409,7 @@ function CategoryScroller({
   const [canScrollLeft, setCanScrollLeft] = useState(false);
   const [canScrollRight, setCanScrollRight] = useState(false);
   const [isDragging, setIsDragging] = useState(false);
+  const categoryKey = categories.join("|");
 
   const updateScrollState = () => {
     const element = tabsRef.current;
@@ -417,17 +418,23 @@ function CategoryScroller({
     setCanScrollRight(element.scrollLeft + element.clientWidth < element.scrollWidth - 4);
   };
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     updateScrollState();
     const element = tabsRef.current;
     if (!element) return;
+    const refreshFrames = [requestAnimationFrame(updateScrollState), requestAnimationFrame(() => requestAnimationFrame(updateScrollState))];
+    const resizeObserver = new ResizeObserver(updateScrollState);
+    resizeObserver.observe(element);
     element.addEventListener("scroll", updateScrollState, { passive: true });
     window.addEventListener("resize", updateScrollState);
+    document.fonts?.ready.then(updateScrollState);
     return () => {
+      refreshFrames.forEach((frame) => cancelAnimationFrame(frame));
+      resizeObserver.disconnect();
       element.removeEventListener("scroll", updateScrollState);
       window.removeEventListener("resize", updateScrollState);
     };
-  }, [categories.length]);
+  }, [categories.length, categoryKey]);
 
   const moveTabs = (direction: number) => {
     tabsRef.current?.scrollBy({ left: direction * Math.max(180, tabsRef.current.clientWidth * 0.7), behavior: "smooth" });
@@ -472,7 +479,7 @@ function CategoryScroller({
         <span>全部活動</span>
         <small>{categoryCounts[allCategory] || 0}</small>
       </button>
-      <button type="button" className="category-scroll-control" onClick={() => moveTabs(-1)} disabled={!canScrollLeft} aria-label="向左滑動活動分類" title="向左滑動活動分類">
+      <button type="button" className="category-scroll-control is-backward" onClick={() => moveTabs(-1)} disabled={!canScrollLeft} aria-label="向左滑動活動分類" title="向左滑動活動分類">
         <Icon name="arrow-right" size={14} />
       </button>
       <div

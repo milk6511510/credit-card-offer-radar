@@ -757,11 +757,14 @@ summary:focus-visible {
 
 .category-tabs {
   display: flex;
+  align-items: center;
   gap: 7px;
   min-width: 0;
+  height: 36px;
   overflow-x: auto;
-  margin-top: 28px;
-  padding-bottom: 4px;
+  overflow-y: hidden;
+  margin-top: 0;
+  padding: 0;
   cursor: grab;
   user-select: none;
   touch-action: pan-x;
@@ -782,6 +785,7 @@ summary:focus-visible {
   flex: 0 0 auto;
   align-items: center;
   gap: 7px;
+  height: 36px;
   min-height: 36px;
   white-space: nowrap;
 }
@@ -807,6 +811,7 @@ summary:focus-visible {
   justify-content: space-between;
   gap: 10px;
   min-width: 104px;
+  height: 36px;
   min-height: 36px;
   padding: 0 11px;
   border: 1px solid #b8dfc7;
@@ -836,14 +841,14 @@ summary:focus-visible {
   display: grid;
   place-items: center;
   width: 30px;
-  height: 34px;
+  height: 36px;
   border: 1px solid #d7e4de;
   border-radius: 9px;
   color: #6d8278;
   background: #fff;
 }
 
-.category-scroll-control:first-child svg {
+.category-scroll-control.is-backward svg {
   transform: rotate(180deg);
 }
 
@@ -1694,11 +1699,13 @@ summary:focus-visible {
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 14px;
   margin-top: 18px;
+  align-items: start;
 }
 
 .light-theme .offer-card {
   min-width: 0;
   border-radius: 16px;
+  align-self: start;
 }
 
 .light-theme .offer-card:hover {
@@ -1706,7 +1713,7 @@ summary:focus-visible {
 }
 
 .light-theme .offer-card-body {
-  padding: 14px !important;
+  padding: 11px !important;
 }
 
 .light-theme .offer-card .offer-image {
@@ -1714,14 +1721,14 @@ summary:focus-visible {
 }
 
 .light-theme .offer-card .brand-mark {
-  width: 32px;
-  height: 32px;
-  border-radius: 10px;
+  width: 30px;
+  height: 30px;
+  border-radius: 9px;
 }
 
 .light-theme .offer-card .brand-mark img {
-  width: 23px;
-  height: 23px;
+  width: 21px;
+  height: 21px;
 }
 
 .light-theme .offer-card .offer-type-row {
@@ -1736,33 +1743,46 @@ summary:focus-visible {
 }
 
 .light-theme .offer-card .offer-title {
-  margin-top: 6px;
-  font-size: 16px;
-  line-height: 1.38 !important;
+  display: -webkit-box;
+  margin-top: 5px;
+  overflow: hidden;
+  font-size: 15px;
+  line-height: 1.32 !important;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
 }
 
 .light-theme .offer-card .offer-reward-row {
-  margin-top: 9px !important;
+  margin-top: 7px !important;
+  padding: 7px 9px;
+  border-left: 3px solid #4e9b72;
+  border-radius: 8px;
+  background: #eef8f1;
 }
 
 .light-theme .offer-card .reward-highlight {
-  min-height: 25px;
-  padding-inline: 8px;
+  min-height: 20px;
+  padding: 0;
+  border: 0;
+  color: #1f704d;
+  background: transparent;
   font-size: 10px;
+  line-height: 1.35;
 }
 
 .activity-summary {
-  margin-top: 11px;
-  padding: 9px 10px 10px;
-  border: 1px solid #e1eae6;
-  border-radius: 11px;
-  background: #fbfdfc;
+  margin-top: 8px;
+  padding: 7px 9px 8px;
+  border: 0;
+  border-left: 3px solid #6f9fbd;
+  border-radius: 8px;
+  background: #f3f8fb;
 }
 
 .activity-summary-list {
   display: grid;
-  gap: 4px;
-  margin: 6px 0 0;
+  gap: 2px;
+  margin: 4px 0 0;
   padding: 0;
   list-style: none;
 }
@@ -1771,11 +1791,11 @@ summary:focus-visible {
   position: relative;
   display: -webkit-box;
   overflow: hidden;
-  padding-left: 11px;
-  color: #3e5b4f;
-  font-size: 11px;
+  padding-left: 10px;
+  color: #36586a;
+  font-size: 10px;
   font-weight: 600;
-  line-height: 1.58;
+  line-height: 1.45;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 2;
 }
@@ -1784,26 +1804,26 @@ summary:focus-visible {
   position: absolute;
   top: 0.65em;
   left: 1px;
-  width: 4px;
-  height: 4px;
+  width: 3px;
+  height: 3px;
   border-radius: 50%;
-  background: #4e9b72;
+  background: #5d91b0;
   content: "";
 }
 
 .light-theme .activity-summary {
-  border-color: #e1eae6;
-  background: #fbfdfc;
+  border-left-color: #6f9fbd;
+  background: #f3f8fb;
 }
 
 .light-theme .activity-summary-list li {
-  color: #3e5b4f;
+  color: #36586a;
 }
 
 .light-theme .offer-card .offer-info-grid {
-  gap: 10px 10px;
-  margin-top: 11px;
-  padding: 11px 0;
+  gap: 7px 9px;
+  margin-top: 8px;
+  padding: 8px 0;
 }
 
 .light-theme .offer-card .data-label {
@@ -1811,31 +1831,43 @@ summary:focus-visible {
 }
 
 .light-theme .offer-card .offer-info-value {
-  margin-top: 3px;
-  font-size: 12px;
-  line-height: 1.5;
+  margin-top: 2px;
+  font-size: 11px;
+  line-height: 1.35;
 }
 
 .light-theme .offer-card .activity-source-row {
-  margin-top: 11px !important;
-  padding-top: 10px;
+  margin-top: 8px !important;
+  padding-top: 8px;
 }
 
 .light-theme .offer-card .activity-source-name {
-  margin-top: 4px;
-  font-size: 12px;
+  margin-top: 3px;
+  font-size: 11px;
 }
 
 .light-theme .offer-card .details-panel {
-  margin-top: 11px !important;
+  margin-top: 8px !important;
+  padding-top: 8px;
+}
+
+.light-theme .offer-card .details-panel summary {
+  font-size: 10px;
+}
+
+.light-theme .offer-card .details-panel p {
+  margin-top: 7px !important;
+  color: #5b7067 !important;
+  font-size: 11px !important;
+  line-height: 1.55 !important;
 }
 
 .light-theme .offer-card .primary-link {
-  min-height: 35px;
-  margin-top: 11px !important;
-  padding-inline: 12px;
+  min-height: 32px;
+  margin-top: 8px !important;
+  padding-inline: 10px;
   border-radius: 9px;
-  font-size: 11px;
+  font-size: 10px;
 }
 
 .sources-section {
