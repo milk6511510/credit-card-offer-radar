@@ -2,6 +2,7 @@ import { writeFile, mkdir } from "node:fs/promises";
 import path from "node:path";
 
 const sourceUrl = "https://www.7-11.com.tw/include/SalesPromo.xml?12";
+const paymentSourceUrl = "https://www.7-11.com.tw/service/Pay.aspx";
 const siteOrigin = "https://www.7-11.com.tw";
 
 const typeMap = {
@@ -30,24 +31,65 @@ function cleanText(value) {
     .trim();
 }
 
+function stripComments(value) {
+  return String(value || "").replace(/<!--[\s\S]*?-->/g, " ");
+}
+
 function resolveUrl(value) {
   if (!value || value === "No" || value.includes("[Disable]")) return "";
   if (/^https?:\/\//i.test(value)) return value;
   return new URL(value, siteOrigin).toString();
 }
 
+function parseDateToken(value, fallbackYear = new Date().getFullYear()) {
+  const match = String(value || "").match(/(20\d{2}|1\d{2})\s*[./-]\s*(\d{1,2})\s*[./-]\s*(\d{1,2})/);
+  if (!match) {
+    const shortMatch = String(value || "").match(/(\d{1,2})\s*[./-]\s*(\d{1,2})/);
+    if (!shortMatch) return "";
+    return `${fallbackYear}${shortMatch[1].padStart(2, "0")}${shortMatch[2].padStart(2, "0")}`;
+  }
+  const year = Number(match[1]) < 1911 ? Number(match[1]) + 1911 : Number(match[1]);
+  return `${year}${match[2].padStart(2, "0")}${match[3].padStart(2, "0")}`;
+}
+
+function parsePayPeriod(value) {
+  const text = cleanText(value).replace(/即日起/gi, "");
+  const fullDates = [...text.matchAll(/(?:20\d{2}|1\d{2})\s*[./-]\s*\d{1,2}\s*[./-]\s*\d{1,2}/g)].map((match) => match[0]);
+  if (fullDates.length >= 2) {
+    return { startsAt: parseDateToken(fullDates[0]), endsAt: parseDateToken(fullDates[1]) };
+  }
+  const shortened = text.match(/((?:20\d{2}|1\d{2})\s*[./-]\s*\d{1,2}\s*[./-]\s*\d{1,2})\s*(?:~|～|-|–|—|至|到)\s*(\d{1,2})\s*[./-]\s*(\d{1,2})/);
+  if (shortened) {
+    const startsAt = parseDateToken(shortened[1]);
+    const year = startsAt.slice(0, 4);
+    return { startsAt, endsAt: `${year}${shortened[2].padStart(2, "0")}${shortened[3].padStart(2, "0")}` };
+  }
+  const shortRange = text.match(/(\d{1,2})\s*[./-]\s*(\d{1,2})\s*(?:~|～|-|–|—|至|到)\s*(\d{1,2})\s*[./-]\s*(\d{1,2})/);
+  if (shortRange) {
+    const year = String(new Date().getFullYear());
+    return {
+      startsAt: `${year}${shortRange[1].padStart(2, "0")}${shortRange[2].padStart(2, "0")}`,
+      endsAt: `${year}${shortRange[3].padStart(2, "0")}${shortRange[4].padStart(2, "0")}`,
+    };
+  }
+  return { startsAt: parseDateToken(fullDates[0] || text), endsAt: "" };
+}
+
 function inferRate(text) {
-  const rateMatches = [...text.matchAll(/(\d+(?:\.\d+)?)\s*%/g)]
-    .map((match) => Number(match[1]) / 100)
-    .filter((value) => Number.isFinite(value) && value > 0 && value <= 1);
-  return rateMatches.length ? Math.max(...rateMatches) : 0;
+  const rates = [...String(text || "").matchAll(/(\d+(?:\.\d+)?)\s*%/g)]
+    .map((match) => Number(match[1]))
+    .filter((value) => value > 0 && value <= 100);
+  const discountRates = [...String(text || "").matchAll(/([2-9])\s*折/g)]
+    .map((match) => (10 - Number(match[1])))
+    .filter((value) => value > 0 && value < 10);
+  return Math.max(...rates, ...discountRates, 0) / 100;
 }
 
 function inferCap(text) {
-  const capMatches = [...text.matchAll(/(?:上限|最高|限得|回饋上限|折抵上限|贈|送|折)\D{0,8}(\d{1,5})\s*(?:元|點|P|OPENPOINT)/g)]
-    .map((match) => Number(match[1]))
+  const values = [...String(text || "").matchAll(/(?:上限|最高|限得|回饋上限|每月最高|每筆最高|折抵上限|贈|送|折)\D{0,14}([\d,]{1,8})\s*(?:元|點|P幣|OPENPOINT|OP點)/gi)]
+    .map((match) => Number(match[1].replace(/,/g, "")))
     .filter((value) => Number.isFinite(value) && value > 0);
-  return capMatches.length ? Math.max(...capMatches) : 0;
+  return values.length ? Math.max(...values) : 0;
 }
 
 function inferTags(text, category) {
@@ -105,6 +147,61 @@ function twStatus(sDate, eDate, period) {
   return "活動期間依官方公告";
 }
 
+function rowCell(row, title) {
+  const match = row.match(new RegExp(`<td[^>]*data-title=["']${title}["'][^>]*>([\\s\\S]*?)<\\/td>`, "i"));
+  return cleanText(match?.[1] || "");
+}
+
+function rowLink(row) {
+  const match = row.match(/<td[^>]*data-title=["']活動網址["'][^>]*>[\s\S]*?<a[^>]+href=["']([^"']+)["']/i);
+  return resolveUrl((match?.[1] || "").trim());
+}
+
+function parsePaymentRows(html, today) {
+  const activeHtml = stripComments(html);
+  const rows = [...activeHtml.matchAll(/<tr\b[\s\S]*?<\/tr>/gi)].map((match) => match[0]);
+  return rows.map((row) => {
+    const paymentTool = rowCell(row, "支付工具");
+    const bank = rowCell(row, "銀行卡別");
+    const period = rowCell(row, "活動期間");
+    const detail = rowCell(row, "於7-ELEVEN消費");
+    const sourceUrl = rowLink(row) || paymentSourceUrl;
+    const text = [paymentTool, bank, period, detail].filter(Boolean).join(" ");
+    const { startsAt, endsAt } = parsePayPeriod(period);
+    if (!paymentTool || !detail || (endsAt && endsAt < today) || (startsAt && startsAt > today)) return null;
+    const methods = inferPaymentMethods(text);
+    const category = /OPEN錢包/i.test(text)
+      ? "OPEN錢包回饋"
+      : /icash/i.test(text)
+        ? "icash Pay／icash 回饋"
+        : /Pi\s*拍錢包/i.test(text)
+          ? "Pi 拍錢包回饋"
+          : /悠遊付/i.test(text)
+            ? "悠遊付回饋"
+            : /LINE\s*Pay/i.test(text)
+              ? "LINE Pay 回饋"
+              : /街口支付/i.test(text)
+                ? "街口支付回饋"
+                : "7-ELEVEN 支付回饋";
+    return {
+      title: `${paymentTool.replace(/\s+/g, " ")}｜7-ELEVEN 回饋`,
+      category,
+      stores: ["7-ELEVEN", bank].filter(Boolean),
+      paymentMethods: ["7-ELEVEN", ...methods.filter((method) => method !== "7-ELEVEN")],
+      audience: inferAudience(text),
+      rate: inferRate(text),
+      cap: inferCap(text),
+      rewardLabel: inferRate(text) ? `最高 ${Math.round(inferRate(text) * 100)}% 回饋` : inferCap(text) ? `最高 ${inferCap(text).toLocaleString("zh-TW")} 點／元` : "依官方條件回饋",
+      status: period || "活動期間依官方公告",
+      sourceUrl,
+      officialId: sourceUrl.match(/[?&]item=([^&]+)/i)?.[1] || "",
+      rawText: `支付工具：${paymentTool}${bank ? `；銀行／卡別：${bank}` : ""}；活動期間：${period || "依官方公告"}；7-ELEVEN 消費：${detail}`,
+      startsAt,
+      endsAt,
+    };
+  }).filter(Boolean);
+}
+
 async function main() {
   const response = await fetch(sourceUrl, { cache: "no-store" });
   if (!response.ok) {
@@ -115,7 +212,7 @@ async function main() {
   const today = new Date().toISOString().slice(0, 10).replaceAll("-", "");
   const items = [...xml.matchAll(/<Item\b[^>]*>[\s\S]*?<\/Item>/gi)].map((match) => match[0]);
 
-  const campaigns = items
+  const xmlCampaigns = items
     .map((item) => {
       const type = textOf(item, "IType") || item.match(/IType="([^"]+)"/)?.[1] || "Event";
       const category = typeMap[type]?.label || "其他活動";
@@ -127,7 +224,7 @@ async function main() {
       const link = resolveUrl(textOf(item, "Link"));
       const image = resolveUrl(textOf(item, "Image"));
       const searchableText = [title, period, content].join(" ");
-      const paymentMethods = inferPaymentMethods(searchableText);
+      const paymentMethods = ["7-ELEVEN", ...inferPaymentMethods(searchableText).filter((method) => method !== "7-ELEVEN")];
 
       return {
         title,
@@ -149,6 +246,13 @@ async function main() {
     .filter((campaign) => campaign.title && (!campaign.startsAt || campaign.startsAt <= today) && (!campaign.endsAt || campaign.endsAt >= today))
     .sort((a, b) => (a.category === b.category ? a.title.localeCompare(b.title, "zh-Hant") : a.category.localeCompare(b.category, "zh-Hant")));
 
+  const paymentResponse = await fetch(paymentSourceUrl, { cache: "no-store" });
+  const paymentHtml = paymentResponse.ok ? await paymentResponse.text() : "";
+  const paymentCampaigns = paymentHtml ? parsePaymentRows(paymentHtml, today) : [];
+  const campaigns = [...xmlCampaigns, ...paymentCampaigns]
+    .filter((campaign, index, all) => all.findIndex((item) => `${item.title}|${item.sourceUrl}|${item.rawText}` === `${campaign.title}|${campaign.sourceUrl}|${campaign.rawText}`) === index)
+    .sort((a, b) => (b.rate || 0) - (a.rate || 0) || (b.cap || 0) - (a.cap || 0) || a.title.localeCompare(b.title, "zh-Hant"));
+
   const groupedCounts = campaigns.reduce((acc, campaign) => {
     acc[campaign.category] = (acc[campaign.category] || 0) + 1;
     return acc;
@@ -162,6 +266,22 @@ async function main() {
       officialSite: "https://www.7-11.com.tw/index.aspx",
       counts: groupedCounts,
     },
+    sources: [
+      {
+        name: "7-ELEVEN 官方活動 XML",
+        url: sourceUrl,
+        officialSite: "https://www.7-11.com.tw/index.aspx",
+        status: "ok",
+        checkedAt: new Date().toISOString(),
+      },
+      {
+        name: "7-ELEVEN 支付工具優惠活動",
+        url: paymentSourceUrl,
+        officialSite: "https://www.7-11.com.tw/index.aspx",
+        status: paymentResponse.ok ? "ok" : `http-${paymentResponse.status}`,
+        checkedAt: new Date().toISOString(),
+      },
+    ],
     payments: [
       {
         name: "7-ELEVEN 官方活動",

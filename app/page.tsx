@@ -99,6 +99,7 @@ const paymentLogos: Record<string, string> = {
   "橘子支付": "/logos/gama-pay.png",
   "歐付寶 O'Pay": "/logos/opay-icon.png",
   "ezPay 簡單付": "/logos/ezpay.png",
+  "7-ELEVEN": "/logos/7-eleven.png",
 };
 
 const platformColors: Record<string, string> = {
@@ -115,6 +116,7 @@ const platformColors: Record<string, string> = {
   "橘子支付": "#f58220",
   "歐付寶 O'Pay": "#1388c9",
   "ezPay 簡單付": "#1877b9",
+  "7-ELEVEN": "#00a651",
 };
 
 const platformSegmentMeta: Record<PlatformSegment, { label: string; description: string }> = {
@@ -146,6 +148,7 @@ const platformSegmentByName: Record<string, PlatformSegment> = {
   "橘子支付": "cross-network",
   "歐付寶 O'Pay": "cross-network",
   "ezPay 簡單付": "cross-network",
+  "7-ELEVEN": "merchant",
 };
 
 const platformSegmentOrder: PlatformSegment[] = ["daily", "merchant", "cross-network"];
@@ -270,6 +273,7 @@ function getPaymentMethods(offer: Campaign) {
     ["橘子支付", /橘子支付|gamapay/i],
     ["歐付寶 O'Pay", /歐付寶|o['’]?pay|opay/i],
     ["ezPay 簡單付", /ezpay|簡單付/i],
+    ["7-ELEVEN", /7[-\s]?eleven|統一超商/i],
     ["Apple Pay", /apple\s*pay/i],
     ["Google Pay", /google\s*pay/i],
     ["OPEN錢包", /open\s*錢包/i],
