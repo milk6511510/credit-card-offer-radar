@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 96" role="img" aria-labelledby="title desc">
+  <title id="title">paymentrader pixel logo</title>
+  <desc id="desc">A restrained pixel-inspired PAY monogram for a digital payment brand.</desc>
+  <rect width="320" height="96" fill="#ffffff"/>
+  <path d="M18 18h20v20H18zM42 18h20v20H42zM18 42h20v20H18zM42 42h20v20H42zM66 66H46V46h20z" fill="#17332a"/>
+  <path d="M25 25h6v6h-6zM49 25h6v6h-6zM25 49h6v6h-6z" fill="#d8ffad"/>
+  <text x="108" y="57" fill="#17332a" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="700" letter-spacing="1">paymentrader</text>
+</svg>

@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 96" role="img" aria-labelledby="title desc">
+  <title id="title">paymentrader stamp logo</title>
+  <desc id="desc">A compact premium stamp with a stacked PAY signature.</desc>
+  <rect width="320" height="96" fill="#ffffff"/>
+  <rect x="16" y="16" width="64" height="64" rx="16" fill="#2e8b62"/>
+  <path d="M29 67V29h14c9 0 14 4 14 11s-5 11-14 11h-5M47 29l10 38M42 67l10-18 11 18" fill="none" stroke="#ffffff" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M25 73h46" stroke="#d8ffad" stroke-width="3" stroke-linecap="round"/>
+  <text x="106" y="51" fill="#17332a" font-family="Arial, Helvetica, sans-serif" font-size="27" font-weight="700" letter-spacing="1">paymentrader</text>
+  <text x="108" y="70" fill="#7a9186" font-family="Arial, Helvetica, sans-serif" font-size="9" font-weight="700" letter-spacing="3">PAYMENT INTELLIGENCE</text>
+</svg>

@@ -113,8 +113,10 @@ type IconName =
   | "arrow-right";
 
 const fallbackData: CampaignData = bundledCampaignData as CampaignData;
-const FAVORITES_STORAGE_KEY = "reward-radar:favorites";
-const LAST_SYNC_STORAGE_KEY = "reward-radar:last-sync";
+const FAVORITES_STORAGE_KEY = "paymentrader:favorites";
+const LEGACY_FAVORITES_STORAGE_KEY = "reward-radar:favorites";
+const PREFERRED_PLATFORMS_STORAGE_KEY = "paymentrader:preferred-platforms";
+const LAST_SYNC_STORAGE_KEY = "paymentrader:last-sync";
 type NotificationStatus = NotificationPermission | "unsupported";
 
 const paymentLogos: Record<string, string> = {
@@ -642,6 +644,8 @@ function OfferCard({ offer, isFavorite, onToggleFavorite }: { offer: Offer; isFa
 export default function Home() {
   const [data, setData] = useState<CampaignData>(fallbackData);
   const [favoriteIds, setFavoriteIds] = useState<string[]>([]);
+  const [preferredPlatforms, setPreferredPlatforms] = useState<string[]>([]);
+  const [preferencesOpen, setPreferencesOpen] = useState(false);
   const [notificationStatus, setNotificationStatus] = useState<NotificationStatus>("unsupported");
   const [query, setQuery] = useState("");
   const [activeCategory, setActiveCategory] = useState("全部");
@@ -675,17 +679,20 @@ export default function Home() {
   useEffect(() => {
     const hydratePreferences = () => {
       try {
-        const storedFavorites = JSON.parse(window.localStorage.getItem(FAVORITES_STORAGE_KEY) || "[]");
+        const storedFavorites = JSON.parse(window.localStorage.getItem(FAVORITES_STORAGE_KEY) || window.localStorage.getItem(LEGACY_FAVORITES_STORAGE_KEY) || "[]");
+        const storedPreferredPlatforms = JSON.parse(window.localStorage.getItem(PREFERRED_PLATFORMS_STORAGE_KEY) || "[]");
         setFavoriteIds(Array.isArray(storedFavorites) ? storedFavorites.filter((value): value is string => typeof value === "string") : []);
+        setPreferredPlatforms(Array.isArray(storedPreferredPlatforms) ? storedPreferredPlatforms.filter((value): value is string => typeof value === "string") : []);
         if ("Notification" in window) setNotificationStatus(Notification.permission);
       } catch {
         setFavoriteIds([]);
+        setPreferredPlatforms([]);
       }
     };
     const hydrateTimer = window.setTimeout(hydratePreferences, 0);
 
     const syncFavorites = (event: StorageEvent) => {
-      if (event.key !== FAVORITES_STORAGE_KEY) return;
+      if (event.key !== FAVORITES_STORAGE_KEY && event.key !== LEGACY_FAVORITES_STORAGE_KEY) return;
       try {
         const next = JSON.parse(event.newValue || "[]");
         setFavoriteIds(Array.isArray(next) ? next.filter((value): value is string => typeof value === "string") : []);
@@ -693,10 +700,21 @@ export default function Home() {
         setFavoriteIds([]);
       }
     };
+    const syncPreferredPlatforms = (event: StorageEvent) => {
+      if (event.key !== PREFERRED_PLATFORMS_STORAGE_KEY) return;
+      try {
+        const next = JSON.parse(event.newValue || "[]");
+        setPreferredPlatforms(Array.isArray(next) ? next.filter((value): value is string => typeof value === "string") : []);
+      } catch {
+        setPreferredPlatforms([]);
+      }
+    };
     window.addEventListener("storage", syncFavorites);
+    window.addEventListener("storage", syncPreferredPlatforms);
     return () => {
       window.clearTimeout(hydrateTimer);
       window.removeEventListener("storage", syncFavorites);
+      window.removeEventListener("storage", syncPreferredPlatforms);
     };
   }, []);
 
@@ -764,15 +782,23 @@ export default function Home() {
           .toLowerCase()
           .includes(keyword);
       });
+    const preferenceRank = (offer: Offer) => {
+      const rank = preferredPlatforms.indexOf(paymentDisplayName(offer.payment.name));
+      return rank === -1 ? preferredPlatforms.length : rank;
+    };
+    const comparePersonalized = (a: Offer, b: Offer) => preferenceRank(a) - preferenceRank(b);
+
     if (sortMode === "ending") {
       return [...matchingOffers].sort((a, b) => {
+        const preferenceComparison = comparePersonalized(a, b);
+        if (preferenceComparison) return preferenceComparison;
         const aEnd = a.endsAt ? Date.parse(a.endsAt) : Number.POSITIVE_INFINITY;
         const bEnd = b.endsAt ? Date.parse(b.endsAt) : Number.POSITIVE_INFINITY;
         return (Number.isNaN(aEnd) ? Number.POSITIVE_INFINITY : aEnd) - (Number.isNaN(bEnd) ? Number.POSITIVE_INFINITY : bEnd) || compareOffers(a, b);
       });
     }
-    return [...matchingOffers].sort(sortMode === "reward" ? compareOffers : compareLatestOffers);
-  }, [activeCategory, favoriteIds, isFavoritesView, offers, query, selectedPlatform, sortMode]);
+    return [...matchingOffers].sort((a, b) => comparePersonalized(a, b) || (sortMode === "reward" ? compareOffers(a, b) : compareLatestOffers(a, b)));
+  }, [activeCategory, favoriteIds, isFavoritesView, offers, preferredPlatforms, query, selectedPlatform, sortMode]);
 
   const platformCatalog = useMemo<PlatformInfo[]>(() => {
     if (data.platforms?.length) return data.platforms;
@@ -879,6 +905,29 @@ export default function Home() {
     });
   };
 
+  const togglePreferredPlatform = (platformName: string) => {
+    setPreferredPlatforms((current) => {
+      const next = current.includes(platformName)
+        ? current.filter((name) => name !== platformName)
+        : [...current, platformName];
+      try {
+        window.localStorage.setItem(PREFERRED_PLATFORMS_STORAGE_KEY, JSON.stringify(next));
+      } catch {
+        // Browser storage may be unavailable in private browsing contexts.
+      }
+      return next;
+    });
+  };
+
+  const clearPreferredPlatforms = () => {
+    setPreferredPlatforms([]);
+    try {
+      window.localStorage.removeItem(PREFERRED_PLATFORMS_STORAGE_KEY);
+    } catch {
+      // Browser storage may be unavailable in private browsing contexts.
+    }
+  };
+
   const enableNotifications = async () => {
     if (!("Notification" in window)) {
       setNotificationStatus("unsupported");
@@ -908,12 +957,9 @@ export default function Home() {
     <main className="app-shell light-theme">
       <header className="topbar">
         <div className="topbar-inner">
-          <a href="#latest" className="brand-lockup" aria-label="回饋雷達活動總覽">
-            <span className="brand-orb"><Icon name="spark" size={19} /></span>
-            <span>
-              <strong>回饋雷達</strong>
-              <small>PAYMENT OFFERS</small>
-            </span>
+          <a href="#latest" className="brand-lockup" aria-label="paymentrader 活動總覽">
+            <img className="paymentrader-mark" src="/branding/paymentrader/logo-01-mark.svg" alt="" />
+            <span className="paymentrader-wordmark"><strong>paymentrader</strong><small>PAYMENT INTELLIGENCE</small></span>
           </a>
           <nav className="topnav" aria-label="主要導覽">
             <a className={activeView === "latest" ? "active" : ""} href="#latest" aria-current={activeView === "latest" ? "page" : undefined}>活動總覽</a>
@@ -924,7 +970,7 @@ export default function Home() {
           </nav>
           <div className="topbar-status">
             <span className="status-light" />
-            <span className="hidden sm:inline">已同步</span>
+            <span className="hidden sm:inline">本機已保存</span>
             <time dateTime={data.updatedAt}>{updatedTime}</time>
           </div>
         </div>
@@ -934,7 +980,7 @@ export default function Home() {
         <div className="content-column">
           <section className="workspace-header" aria-labelledby="workspace-title">
             <div>
-              <span className="kicker"><span className="kicker-line" />支付優惠情報站</span>
+              <span className="kicker"><span className="kicker-line" />paymentrader / 支付優惠情報站</span>
               <h1 id="workspace-title">{isHistoryView ? "歷史回饋紀錄" : isFavoritesView ? "我的最愛" : "有效活動總覽"}</h1>
               <p>{isHistoryView ? "回看官方曾公告的額滿日期與時間，作為下次安排回饋的參考。" : isFavoritesView ? "集中查看你正在追蹤的活動，資料同步後更快確認變化。" : "先看回饋，再看條件。所有平台活動集中在同一份清單，可直接搜尋與篩選。"}</p>
             </div>
@@ -942,6 +988,7 @@ export default function Home() {
               <a className="workspace-action" href="#platforms"><Icon name="layers" size={16} />平台分類</a>
               <a className="workspace-action" href={isFavoritesView ? "#latest" : "#favorites"}><Icon name={isFavoritesView ? "search" : "heart"} size={16} />{isFavoritesView ? "全部活動" : "我的最愛"}</a>
               <a className="workspace-action" href="#history"><Icon name="clock" size={16} />歷史耗盡</a>
+              <button type="button" className={`workspace-action${preferencesOpen ? " is-selected" : ""}`} onClick={() => setPreferencesOpen((open) => !open)} aria-expanded={preferencesOpen} aria-controls="local-preferences"><Icon name="sliders" size={16} />偏好平台</button>
               <a className="workspace-action is-primary" href="#latest"><Icon name="search" size={16} />找活動</a>
             </div>
           </section>
@@ -951,7 +998,7 @@ export default function Home() {
               <div>
                 <span className="eyebrow"><Icon name={isFavoritesView ? "heart" : "database"} size={14} />{isFavoritesView ? "TRACKED OFFERS" : "ACTIVE OFFERS"}</span>
                 <h2>{isFavoritesView ? "我的最愛" : selectedPlatformSummary ? selectedPlatformSummary.platform.name : "全部有效活動"}</h2>
-                <p>{isFavoritesView ? "你收藏的活動會留在這裡，點卡片上的愛心即可取消追蹤。" : "按回饋高低排列，活動類型與使用條件直接寫在卡片上。"}</p>
+                <p>{isFavoritesView ? "你收藏的活動會留在這裡，點卡片上的愛心即可取消追蹤。" : preferredPlatforms.length ? `優先顯示 ${preferredPlatforms.join("、")}，再依官方更新順序排列。` : "按回饋高低排列，活動類型與使用條件直接寫在卡片上。"}</p>
               </div>
               <div className="workspace-count"><strong>{filteredOffers.length}</strong><span>{isFavoritesView ? "筆收藏" : "筆活動"}</span></div>
             </div>
@@ -961,7 +1008,7 @@ export default function Home() {
               <div className="favorites-strip-copy">
                 <span className="eyebrow">MY WATCHLIST</span>
                 <strong>我的最愛</strong>
-                <p>{favoriteOfferCount ? `已追蹤 ${favoriteOfferCount} 筆活動，之後可直接回來查看。` : "在活動卡片點選愛心，就能把重要活動集中在這裡。"}</p>
+                <p>{favoriteOfferCount ? `已追蹤 ${favoriteOfferCount} 筆活動，資料會保留在這部裝置。` : "在活動卡片點選愛心，就能把重要活動集中在這裡。"}</p>
               </div>
               <div className="favorites-strip-actions">
                 <button type="button" className="favorites-notification" onClick={enableNotifications} disabled={notificationDisabled} title="允許此瀏覽器在活動資料更新時提醒你">
@@ -972,6 +1019,36 @@ export default function Home() {
                 </a>
               </div>
             </div>
+
+            {preferencesOpen ? (
+              <section id="local-preferences" className="local-preferences glass-panel" aria-labelledby="local-preferences-title">
+                <div className="local-preferences-heading">
+                  <div>
+                    <span className="eyebrow"><Icon name="sliders" size={14} />DEVICE PROFILE</span>
+                    <h3 id="local-preferences-title">本機偏好</h3>
+                    <p>選定平台後，新的活動會優先出現在清單前段。資料只保存在這部裝置的瀏覽器。</p>
+                  </div>
+                  <span className="local-save-badge"><Icon name="check" size={13} />僅本機</span>
+                </div>
+                <div className="preference-platforms">
+                  {platformCatalog.map((platform) => {
+                    const platformName = paymentDisplayName(platform.name);
+                    const selected = preferredPlatforms.includes(platformName);
+                    return (
+                      <button type="button" key={platformName} className={`preference-platform${selected ? " selected" : ""}`} onClick={() => togglePreferredPlatform(platformName)} aria-pressed={selected}>
+                        <BrandMark name={platformName} logo={platform.logo || paymentLogos[platformName]} color={platform.color || platformColors[platformName] || "#2e8b62"} />
+                        <span>{platformName}</span>
+                        {selected ? <Icon name="check" size={14} /> : null}
+                      </button>
+                    );
+                  })}
+                </div>
+                <div className="local-preferences-footer">
+                  <span>{preferredPlatforms.length ? `已優先顯示 ${preferredPlatforms.join("、")}` : "尚未指定平台，依官方更新順序顯示"}</span>
+                  {preferredPlatforms.length ? <button type="button" className="clear-preferences" onClick={clearPreferredPlatforms}>清除偏好</button> : null}
+                </div>
+              </section>
+            ) : null}
 
             <div className="activity-layout">
               <aside id="platforms" className="platform-directory glass-panel" aria-label="支付平台分類">

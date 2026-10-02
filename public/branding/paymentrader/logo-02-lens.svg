@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 96" role="img" aria-labelledby="title desc">
+  <title id="title">paymentrader lens logo</title>
+  <desc id="desc">A refined lens symbol containing the letters PAY.</desc>
+  <rect width="320" height="96" fill="#ffffff"/>
+  <circle cx="48" cy="48" r="35" fill="none" stroke="#17332a" stroke-width="3"/>
+  <circle cx="48" cy="48" r="25" fill="#eef8f0" stroke="#2e8b62" stroke-width="2"/>
+  <path d="M31 65V31h12c9 0 14 4 14 11s-5 11-14 11h-5M48 31l10 34M43 65l10-18 10 18" fill="none" stroke="#17332a" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M76 48h27" stroke="#d6e9dc" stroke-width="2"/>
+  <text x="113" y="57" fill="#17332a" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="700" letter-spacing="1">paymentrader</text>
+</svg>

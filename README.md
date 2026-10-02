@@ -1,6 +1,6 @@
-# vinext-starter
+# paymentrader
 
-A clean full-stack starter running on
+paymentrader is a responsive payment-offer radar running on
 [vinext](https://github.com/cloudflare/vinext), with optional Cloudflare D1 and
 Drizzle support.
 
@@ -26,6 +26,20 @@ This starter does not use `wrangler.jsonc`.
 - `db/schema.ts` starts intentionally empty
 - `examples/d1/` contains an optional D1 example surface
 - `drizzle.config.ts` supports local migration generation when needed
+
+## paymentrader Device Profile
+
+The first release keeps personal state on the current device only:
+
+- saved campaigns are stored in `localStorage` under `paymentrader:favorites`
+- preferred payment platforms are stored under `paymentrader:preferred-platforms`
+- preferred platforms are ranked first after every campaign refresh
+
+Cross-device sync is intentionally not enabled yet. The future account version
+can add Google OAuth or email verification, then move these two records into a
+user-scoped table with row-level access control. The current local keys keep the
+front-end contract small so that migration can happen without changing the
+activity data model.
 
 ## Workspace Auth Headers
 

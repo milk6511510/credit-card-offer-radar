@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 96" role="img" aria-labelledby="title desc">
+  <title id="title">paymentrader radar logo</title>
+  <desc id="desc">A radar arc focused on a minimal PAY monogram.</desc>
+  <rect width="320" height="96" fill="#ffffff"/>
+  <path d="M15 70a35 35 0 0 1 70 0M24 70a26 26 0 0 1 52 0M35 70a15 15 0 0 1 30 0" fill="none" stroke="#d3e8d9" stroke-width="3"/>
+  <path d="M50 70 74 34" stroke="#2e8b62" stroke-width="4" stroke-linecap="round"/>
+  <circle cx="50" cy="70" r="5" fill="#17332a"/>
+  <text x="106" y="57" fill="#17332a" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="700" letter-spacing="1">paymentrader</text>
+</svg>

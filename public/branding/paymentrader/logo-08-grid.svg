@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 96" role="img" aria-labelledby="title desc">
+  <title id="title">paymentrader grid logo</title>
+  <desc id="desc">A precise three-column grid encoding the letters PAY.</desc>
+  <rect width="320" height="96" fill="#ffffff"/>
+  <rect x="14" y="14" width="70" height="68" rx="12" fill="#f0f8f2" stroke="#17332a" stroke-width="2"/>
+  <path d="M27 28v40M48 28v40M69 28v40" stroke="#b6e77f" stroke-width="3"/>
+  <path d="M26 29h22c5 0 9 4 9 9s-4 9-9 9H34M48 29l12 39M42 68l12-21 12 21" fill="none" stroke="#17332a" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="108" y="57" fill="#17332a" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="700" letter-spacing="1">paymentrader</text>
+</svg>

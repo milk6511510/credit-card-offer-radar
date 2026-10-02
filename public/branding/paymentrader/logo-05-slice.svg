@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 96" role="img" aria-labelledby="title desc">
+  <title id="title">paymentrader slice logo</title>
+  <desc id="desc">A high-contrast PAY wordmark divided by a precise diagonal slice.</desc>
+  <rect width="320" height="96" fill="#ffffff"/>
+  <rect x="12" y="12" width="72" height="72" rx="8" fill="#17332a"/>
+  <path d="M28 67V29h17c10 0 16 5 16 14s-6 14-16 14H39M48 29l11 38M42 67l11-20 12 20" fill="none" stroke="#ffffff" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="m18 76 58-58" stroke="#b6e77f" stroke-width="6"/>
+  <text x="107" y="57" fill="#17332a" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="700" letter-spacing="1">paymentrader</text>
+</svg>

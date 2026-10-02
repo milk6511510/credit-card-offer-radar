@@ -13,8 +13,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "回饋雷達｜支付優惠比較",
-  description: "整合官方活動、支付方式與新戶／既有用戶條件，快速比較最值得先看的回饋。",
+  title: "paymentrader｜支付優惠情報",
+  description: "paymentrader 集中整理各大支付平台官方活動，依回饋與個人偏好快速找到值得先看的優惠。",
   icons: {
     icon: "/favicon.svg",
     shortcut: "/favicon.svg",
