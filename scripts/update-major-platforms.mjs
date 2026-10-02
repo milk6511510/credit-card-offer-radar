@@ -174,10 +174,15 @@ function isActive(campaign, today) {
 }
 
 function inferRate(text) {
-  if (/貸款|利率/i.test(text) && !/回饋[^。\n]{0,20}\d+(?:\.\d+)?\s*%|最高[^。\n]{0,20}\d+(?:\.\d+)?\s*%/i.test(text)) return 0;
-  const rates = [...String(text || "").matchAll(/(\d+(?:\.\d+)?)\s*%/g)]
+  const value = String(text || "");
+  if (/貸款|利率/i.test(value) && !/回饋[^。\n]{0,20}\d+(?:\.\d+)?\s*%|最高[^。\n]{0,20}\d+(?:\.\d+)?\s*%/i.test(value)) return 0;
+  const rates = [...value.matchAll(/(\d+(?:\.\d+)?)\s*%/g)]
+    .filter((match) => {
+      const context = value.slice(Math.max(0, match.index - 28), Math.min(value.length, match.index + match[0].length + 28));
+      return /回饋|點數|OPENPOINT|折抵|優惠|贈|加碼|最高|享|支付|錢包|累積|P幣|街口幣|Fa點|全點|幣/i.test(context);
+    })
     .map((match) => Number(match[1]))
-    .filter((value) => value > 0 && value <= 100);
+    .filter((rate) => rate > 0 && rate <= 100);
   const discounts = [...String(text || "").matchAll(/([2-9])\s*折/g)]
     .map((match) => 10 - Number(match[1]))
     .filter((value) => value > 0 && value < 10);
