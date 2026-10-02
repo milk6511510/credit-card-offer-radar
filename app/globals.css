@@ -1696,16 +1696,18 @@ summary:focus-visible {
 }
 
 .light-theme .offer-grid {
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 14px;
   margin-top: 18px;
-  align-items: start;
+  align-items: stretch;
 }
 
 .light-theme .offer-card {
+  display: flex;
   min-width: 0;
+  height: 100%;
+  flex-direction: column;
   border-radius: 16px;
-  align-self: start;
 }
 
 .light-theme .offer-card:hover {
@@ -1713,6 +1715,9 @@ summary:focus-visible {
 }
 
 .light-theme .offer-card-body {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
   padding: 11px !important;
 }
 
@@ -1864,7 +1869,9 @@ summary:focus-visible {
 
 .light-theme .offer-card .primary-link {
   min-height: 32px;
-  margin-top: 8px !important;
+  margin-top: auto !important;
+  padding-top: 8px;
+  padding-bottom: 8px;
   padding-inline: 10px;
   border-radius: 9px;
   font-size: 10px;
@@ -1978,6 +1985,7 @@ summary:focus-visible {
   }
 
   .light-theme .offer-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 12px;
   }
 }
