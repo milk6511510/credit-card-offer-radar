@@ -1,8 +1,10 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 96" role="img" aria-labelledby="title desc">
-  <title id="title">paymentrader editorial logo</title>
-  <desc id="desc">A calm editorial paymentrader wordmark with a minimal PAY underline.</desc>
-  <rect width="320" height="96" fill="#ffffff"/>
-  <text x="17" y="58" fill="#17332a" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="700" letter-spacing="1">paymentrader</text>
-  <path d="M18 72h62M92 72h42M146 72h55" stroke="#2e8b62" stroke-width="4" stroke-linecap="round"/>
-  <path d="m207 72 12-20 12 20" fill="none" stroke="#b6e77f" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 260" role="img" aria-labelledby="title desc">
+  <title id="title">paymentrader Editorial P logo</title>
+  <desc id="desc">A light mint-green editorial P logo with a folded negative-space cut and paymentrader wordmark.</desc>
+  <rect width="520" height="260" fill="#ffffff"/>
+  <g transform="translate(205 10) scale(1.7)">
+    <path fill="#65c89a" d="M13 8h28.5C53.6 8 61 15.3 61 25.2c0 10.9-7.4 18.8-19.5 18.8H32v9.5c0 6.2-3.7 10.5-9.5 10.5S13 59.8 13 53.5V8Z"/>
+    <path fill="#ffffff" d="M31.4 19.8h9.5c6.4 0 10.4 2.3 10.4 6.4 0 4.2-4 6.5-10.4 6.5h-8.7v8.4h-4.5c-4.5 0-8.4 1.1-11.7 3.5 2.3-9.7 8.2-17.9 17.2-17.9v-6.9Z"/>
+  </g>
+  <text x="74" y="234" fill="#65c89a" font-family="Arial, Helvetica, sans-serif" font-size="38" font-weight="700" letter-spacing="1">paymentrader</text>
 </svg>
