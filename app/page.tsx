@@ -80,7 +80,8 @@ type IconName =
   | "user"
   | "info"
   | "check"
-  | "sliders";
+  | "sliders"
+  | "arrow-right";
 
 const fallbackData: CampaignData = bundledCampaignData as CampaignData;
 
@@ -210,6 +211,8 @@ function Icon({ name, size = 18 }: { name: IconName; size?: number }) {
       return <svg {...common}><path d="m5 12.5 4.2 4.2L19 7" /></svg>;
     case "sliders":
       return <svg {...common}><path d="M4 6h16" /><path d="M4 12h16" /><path d="M4 18h16" /><circle cx="9" cy="6" r="2" fill="currentColor" stroke="none" /><circle cx="15" cy="12" r="2" fill="currentColor" stroke="none" /><circle cx="8" cy="18" r="2" fill="currentColor" stroke="none" /></svg>;
+    case "arrow-right":
+      return <svg {...common}><path d="M5 12h13" /><path d="m13 6 6 6-6 6" /></svg>;
   }
 }
 
@@ -308,14 +311,14 @@ function OfferCard({ offer }: { offer: Offer }) {
   const storeSummary = offer.stores.length ? offer.stores.join(" · ") : "以官方活動頁列示通路為準";
 
   return (
-    <article className="glass-card overflow-hidden">
+    <article className="offer-card glass-card overflow-hidden">
       {offer.image ? (
         <div className="offer-image">
           <img alt={offer.title} src={offer.image} loading="lazy" />
           <span className="image-label"><Icon name="database" size={13} /> 官方活動素材</span>
         </div>
       ) : null}
-      <div className="p-5 sm:p-6">
+      <div className="offer-card-body p-5 sm:p-6">
         <div className="flex items-start justify-between gap-4">
           <div className="flex min-w-0 gap-3">
             <BrandMark name={paymentName} logo={paymentLogo} color={paymentColor} />
@@ -386,6 +389,8 @@ export default function Home() {
   const [data, setData] = useState<CampaignData>(fallbackData);
   const [query, setQuery] = useState("");
   const [activeCategory, setActiveCategory] = useState("全部");
+  const [selectedPlatform, setSelectedPlatform] = useState("全部平台");
+  const [sortMode, setSortMode] = useState<"reward" | "ending">("reward");
 
   useEffect(() => {
     fetch(`/data/campaigns.json?t=${Date.now()}`)
@@ -409,27 +414,25 @@ export default function Home() {
 
   const filteredOffers = useMemo(() => {
     const keyword = query.trim().toLowerCase();
-    return offers
+    const matchingOffers = offers
       .filter((offer) => activeCategory === "全部" || offer.category === activeCategory)
+      .filter((offer) => selectedPlatform === "全部平台" || offer.payment.name.replace(/ 官方活動$/, "") === selectedPlatform || getPaymentMethods(offer).includes(selectedPlatform))
       .filter((offer) => {
         if (!keyword) return true;
         return [offer.title, offer.category, offer.payment.name, offer.status, ...offer.stores, ...getPaymentMethods(offer), offer.rawText || ""]
           .join(" ")
           .toLowerCase()
           .includes(keyword);
-      })
-      .sort(compareOffers);
-  }, [activeCategory, offers, query]);
-
-  const groupedOffers = useMemo(() => {
-    return categories
-      .filter((category) => category !== "全部")
-      .map((category) => ({
-        category,
-        offers: filteredOffers.filter((offer) => offer.category === category),
-      }))
-      .filter((group) => group.offers.length > 0);
-  }, [categories, filteredOffers]);
+      });
+    if (sortMode === "ending") {
+      return [...matchingOffers].sort((a, b) => {
+        const aEnd = a.endsAt ? Date.parse(a.endsAt) : Number.POSITIVE_INFINITY;
+        const bEnd = b.endsAt ? Date.parse(b.endsAt) : Number.POSITIVE_INFINITY;
+        return (Number.isNaN(aEnd) ? Number.POSITIVE_INFINITY : aEnd) - (Number.isNaN(bEnd) ? Number.POSITIVE_INFINITY : bEnd) || compareOffers(a, b);
+      });
+    }
+    return [...matchingOffers].sort(compareOffers);
+  }, [activeCategory, offers, query, selectedPlatform, sortMode]);
 
   const platformCatalog = useMemo<PlatformInfo[]>(() => {
     if (data.platforms?.length) return data.platforms;
@@ -477,26 +480,28 @@ export default function Home() {
   const visibleSourceLinks = sourceLinks.slice(0, 6);
   const updatedTime = formatUpdatedAt(data.updatedAt);
   const totalCount = offers.length;
+  const selectedPlatformSummary = selectedPlatform === "全部平台" ? null : platformSummaries.find(({ platform }) => platform.name === selectedPlatform);
 
   return (
     <main className="app-shell light-theme">
       <header className="topbar">
         <div className="topbar-inner">
-          <a href="#overview" className="brand-lockup" aria-label="回饋雷達總覽">
+          <a href="#latest" className="brand-lockup" aria-label="回饋雷達活動總覽">
             <span className="brand-orb"><Icon name="spark" size={19} /></span>
             <span>
               <strong>回饋雷達</strong>
-              <small>PAYMENT INTELLIGENCE</small>
+              <small>PAYMENT OFFERS</small>
             </span>
           </a>
           <nav className="topnav" aria-label="主要導覽">
-            <a className="active" href="#overview">總覽</a>
-            <a href="#platforms">支付平台</a>
-            <a href="#latest">活動清單</a>
+            <a className="active" href="#latest">活動總覽</a>
+            <a href="#platforms">平台分類</a>
+            <a href="#sources">官方入口</a>
           </nav>
           <div className="topbar-status">
             <span className="status-light" />
-            <span className="hidden sm:inline">官方資料同步</span>
+            <span className="hidden sm:inline">已同步</span>
+            <time dateTime={data.updatedAt}>{updatedTime}</time>
           </div>
         </div>
       </header>
@@ -505,151 +510,137 @@ export default function Home() {
         <aside className="side-rail">
           <div className="side-rail-inner">
             <div>
-              <p className="rail-label">探索</p>
+              <p className="rail-label">工作區</p>
               <nav className="rail-nav" aria-label="頁面導覽">
-                <a className="active" href="#overview"><Icon name="grid" size={17} />總覽</a>
-                <a href="#platforms"><Icon name="layers" size={17} />平台情報</a>
-                <a href="#latest"><Icon name="database" size={17} />活動資料</a>
+                <a className="active" href="#latest"><Icon name="grid" size={17} />活動總覽<span>{totalCount}</span></a>
+                <a href="#platforms"><Icon name="layers" size={17} />平台分類<span>{platformSummaries.length}</span></a>
+                <a href="#sources"><Icon name="external" size={17} />官方入口<span>{sourceLinks.length}</span></a>
               </nav>
             </div>
 
             <div className="source-rail-card">
               <div className="flex items-center justify-between gap-3">
-                <p className="rail-label">同步資料</p>
+                <p className="rail-label">資料狀態</p>
                 <span className="source-dot" />
               </div>
               <div className="mt-5 flex items-center gap-3">
-                <BrandMark name={data.payments[0]?.name || "7-ELEVEN"} logo={data.payments[0]?.logo} color={data.payments[0]?.color} />
+                <span className="rail-status-icon"><Icon name="check" size={15} /></span>
                 <div className="min-w-0">
-                  <p className="truncate text-sm font-semibold text-white">多平台官方資料</p>
-                  <p className="mt-1 text-xs text-white/45">{platformSummaries.length} 個支付平台 · {totalCount} 筆活動</p>
+                  <p className="truncate text-sm font-semibold text-white">官方資料已同步</p>
+                  <p className="mt-1 text-xs text-white/45">{platformSummaries.length} 個平台 · {totalCount} 筆有效活動</p>
                 </div>
               </div>
-              <a className="rail-link mt-5" href={source.officialSite} target="_blank" rel="noreferrer">查看官方網站 <Icon name="external" size={14} /></a>
+              <p className="rail-sync-time">最近更新 {updatedTime}</p>
             </div>
 
             <div className="rail-note">
               <Icon name="info" size={17} />
-              <p>活動清單以目前日期仍有效的官方活動為主；沒有寫明的項目會標記為待確認。</p>
+              <p>點選平台即可篩選；每張活動卡都保留官方連結與完整條件。</p>
             </div>
           </div>
         </aside>
 
         <div className="content-column">
-          <section id="overview" className="overview-section">
-            <div className="overview-copy">
+          <section className="workspace-header" aria-labelledby="workspace-title">
+            <div>
               <span className="kicker"><span className="kicker-line" />支付優惠情報站</span>
-              <h1>各平台活動，<br /><span>更新一眼看清。</span></h1>
-              <p>集中整理支付平台在官方通路公布的活動內容、使用條件與原始連結。選平台、看活動，隨時回到官方頁確認最新規則。</p>
+              <h1 id="workspace-title">有效活動總覽</h1>
+              <p>先看回饋，再看條件。所有平台活動集中在同一個可搜尋、可篩選的工作區。</p>
             </div>
-            <div className="overview-metrics" aria-label="資料摘要">
-              <div>
-                <span>可追蹤平台</span>
-                <strong>{platformSummaries.length}</strong>
-                <small>主流支付平台索引</small>
-              </div>
-              <div>
-                <span>同步活動</span>
-                <strong>{totalCount}</strong>
-                <small>保留活動細項與原始連結</small>
-              </div>
-              <div>
-                <span>最近更新</span>
-                <strong className="metric-time">{updatedTime}</strong>
-                <small>以官方頁內容為最後依據</small>
-              </div>
+            <div className="workspace-actions">
+              <a className="workspace-action" href="#platforms"><Icon name="layers" size={16} />平台分類</a>
+              <a className="workspace-action is-primary" href="#latest"><Icon name="search" size={16} />找活動</a>
             </div>
           </section>
 
-          <section id="platforms" className="platforms-section">
-            <div className="section-heading-row">
+          <section id="latest" className="activity-workspace">
+            <div className="workspace-section-heading">
               <div>
-                <span className="eyebrow"><Icon name="wallet" size={14} />PAYMENT PLATFORMS</span>
-                <h2>先選支付平台，再看活動</h2>
-                <p>每個平台都保留官方入口；有活動時按回饋高低排列，點選後直接篩出完整細項。</p>
+                <span className="eyebrow"><Icon name="database" size={14} />ACTIVE OFFERS</span>
+                <h2>{selectedPlatformSummary ? selectedPlatformSummary.platform.name : "全部有效活動"}</h2>
+                <p>按回饋高低排列，活動類型與使用條件直接寫在卡片上。</p>
               </div>
-              <span className="result-count">{platformSummaries.length} 個平台</span>
+              <div className="workspace-count"><strong>{filteredOffers.length}</strong><span>筆活動</span></div>
             </div>
-            {platformSummaries.length ? (
-              <div className="platform-groups">
-                {platformGroups.map((group, index) => (
-                  <section className="platform-group" key={group.segment} aria-labelledby={`platform-group-${group.segment}`}>
-                    <div className="platform-group-header">
-                      <div className="platform-group-title-wrap">
-                        <span className="platform-group-index">{String(index + 1).padStart(2, "0")}</span>
-                        <div>
-                          <h3 id={`platform-group-${group.segment}`}>{group.label}</h3>
-                          <p>{group.description}</p>
-                        </div>
-                      </div>
-                      <span className="platform-group-count">{group.items.length} 個平台</span>
-                    </div>
-                    <div className="platform-grid">
-                      {group.items.map(({ platform, offers: platformOffers, best, bestByCap }) => (
-                        <button key={platform.name} className="platform-card glass-card" onClick={() => { setQuery(platform.name); document.getElementById("latest")?.scrollIntoView({ behavior: "smooth", block: "start" }); }} title={`查看 ${platform.name} 相關活動`}>
-                          <span className="platform-card-top">
-                            <BrandMark name={platform.name} logo={platform.logo || paymentLogos[platform.name]} color={platform.color || platformColors[platform.name] || "#2e8b62"} />
-                            <span className={`platform-status ${platformOffers.length ? "is-active" : "is-indexed"}`}><span className="source-dot" /><span>{platformOffers.length ? "有有效活動" : "已建立索引"}</span></span>
-                          </span>
-                          <strong>{platform.name}</strong>
-                          <span className="platform-card-focus">{platform.focus}</span>
-                          <span className="platform-card-reward">{best ? rewardLabel(best) : "目前沒有讀到仍有效回饋"}</span>
-                          {bestByCap && bestByCap !== best ? <span className="platform-card-cap">額度最高：{rewardLabel(bestByCap)}</span> : null}
-                          <span className="platform-card-count">{platformOffers.length ? `${platformOffers.length} 筆活動，已按回饋排序` : "官方活動入口已建立，等待有效活動"}</span>
-                          {best ? <span className="platform-card-best">優先活動：{best.title}</span> : null}
-                          <span className="platform-card-cta">查看平台活動 <Icon name="search" size={15} /></span>
+
+            <div className="activity-layout">
+              <aside id="platforms" className="platform-directory glass-panel" aria-label="支付平台分類">
+                <div className="directory-header">
+                  <div>
+                    <span className="eyebrow"><Icon name="wallet" size={14} />PLATFORMS</span>
+                    <h3>支付平台</h3>
+                  </div>
+                  <span>{platformSummaries.length}</span>
+                </div>
+                <p className="directory-caption">依使用場景分類，點選平台直接篩活動。</p>
+                <button className={`platform-filter-button ${selectedPlatform === "全部平台" ? "selected" : ""}`} onClick={() => { setSelectedPlatform("全部平台"); setActiveCategory("全部"); }}>
+                  <span className="directory-all-icon"><Icon name="grid" size={16} /></span>
+                  <span><strong>全部平台</strong><small>{totalCount} 筆有效活動</small></span>
+                  <Icon name="arrow-right" size={15} />
+                </button>
+                {platformGroups.map((group) => (
+                  <div className="directory-group" key={group.segment}>
+                    <div className="directory-group-heading"><span>{group.label}</span><small>{group.items.length}</small></div>
+                    <div className="directory-list">
+                      {group.items.map(({ platform, offers: platformOffers }) => (
+                        <button key={platform.name} className={`platform-filter-button ${selectedPlatform === platform.name ? "selected" : ""}`} onClick={() => { setSelectedPlatform(platform.name); setActiveCategory("全部"); document.getElementById("latest")?.scrollIntoView({ behavior: "smooth", block: "start" }); }} title={`篩選 ${platform.name} 活動`}>
+                          <BrandMark name={platform.name} logo={platform.logo || paymentLogos[platform.name]} color={platform.color || platformColors[platform.name] || "#2e8b62"} />
+                          <span><strong>{platform.name}</strong><small>{platformOffers.length ? `${platformOffers.length} 筆活動` : "官方入口已建立"}</small></span>
+                          <span className={`directory-status ${platformOffers.length ? "is-active" : ""}`}>{platformOffers.length ? "有活動" : "索引"}</span>
                         </button>
                       ))}
                     </div>
-                  </section>
+                  </div>
                 ))}
+              </aside>
+
+              <div className="activity-results">
+                <div className="activity-toolbar glass-panel">
+                  <label className="field-block activity-search">
+                    <span>搜尋活動、通路或平台</span>
+                    <div className="input-shell">
+                      <Icon name="search" size={19} />
+                      <input value={query} onChange={(event) => setQuery(event.target.value)} placeholder="例如：咖啡、7-ELEVEN、iPASS MONEY" aria-label="搜尋活動、通路或平台" />
+                    </div>
+                  </label>
+                  <label className="sort-control">
+                    <span>排序方式</span>
+                    <select value={sortMode} onChange={(event) => setSortMode(event.target.value as "reward" | "ending")} aria-label="排序方式">
+                      <option value="reward">高回饋優先</option>
+                      <option value="ending">即將截止優先</option>
+                    </select>
+                  </label>
+                </div>
+
+                <div className="active-filter-row">
+                  <div className="category-tabs" role="tablist" aria-label="活動分類">
+                    {categories.map((category) => <button key={category} className={activeCategory === category ? "selected" : ""} onClick={() => setActiveCategory(category)} aria-pressed={activeCategory === category}>{category}<span>{category === "全部" ? (selectedPlatform === "全部平台" ? totalCount : filteredOffers.length) : offers.filter((offer) => offer.category === category && (selectedPlatform === "全部平台" || offer.payment.name.replace(/ 官方活動$/, "") === selectedPlatform || getPaymentMethods(offer).includes(selectedPlatform))).length}</span></button>)}
+                  </div>
+                  {selectedPlatform !== "全部平台" || query ? <button className="clear-filter" onClick={() => { setSelectedPlatform("全部平台"); setQuery(""); setActiveCategory("全部"); }}><Icon name="check" size={14} />清除篩選</button> : null}
+                </div>
+
+                {filteredOffers.length === 0 ? (
+                  <div className="empty-state glass-panel"><Icon name="search" size={24} /><h3>目前沒有符合的活動</h3><p>換一個平台或關鍵字，重新查看同步資料。</p></div>
+                ) : (
+                  <div className="offer-grid">{filteredOffers.map((offer) => <OfferCard key={`${offer.payment.name}-${offer.title}`} offer={offer} />)}</div>
+                )}
               </div>
-            ) : (
-              <div className="empty-state glass-panel"><Icon name="wallet" size={24} /><h3>尚未讀到平台活動</h3><p>等待官方活動資料同步後，平台會顯示在這裡。</p></div>
-            )}
-            <p className="panel-footnote"><Icon name="info" size={14} />活動細項與期限請以各平台、各通路的官方頁面為準。</p>
+            </div>
+            <p className="panel-footnote"><Icon name="info" size={14} />活動細項、名額與期限請以各平台、各通路的官方頁面為準。</p>
           </section>
 
-          <section id="latest" className="latest-section">
-            <div className="latest-header">
+          <section id="sources" className="sources-section">
+            <div className="sources-heading">
               <div>
-                <span className="eyebrow"><Icon name="database" size={14} />OFFICIAL CAMPAIGNS</span>
-                <h2>同步活動清單</h2>
-                <p>活動預設以回饋比例與上限排序；每筆都可以展開完整細項，並直接回到官方頁確認期限、名額與排除條件。</p>
+                <span className="eyebrow"><Icon name="external" size={14} />OFFICIAL SOURCES</span>
+                <h2>官方入口</h2>
               </div>
-              <div className="source-links">
-                {visibleSourceLinks.map((sourceLink) => <a className="secondary-link" href={sourceLink.officialSite || sourceLink.url} target="_blank" rel="noreferrer" key={sourceLink.url}>來源：{sourceLink.name} <Icon name="external" size={15} /></a>)}
-                {sourceLinks.length > visibleSourceLinks.length ? <span className="source-links-note">另有 {sourceLinks.length - visibleSourceLinks.length} 個官方來源</span> : null}
-              </div>
+              <p>資料由官方活動頁整理；點擊後可回到原頁確認最新規則。</p>
             </div>
-
-            <div className="activity-toolbar glass-panel">
-              <label className="field-block activity-search">
-                <span>搜尋平台或活動</span>
-                <div className="input-shell">
-                  <Icon name="search" size={19} />
-                  <input value={query} onChange={(event) => setQuery(event.target.value)} placeholder="例如：icash Pay、OPEN錢包、咖啡" aria-label="搜尋平台或活動" />
-                </div>
-              </label>
-              <div className="activity-toolbar-meta">
-                <span className="control-hint"><Icon name="clock" size={15} />即時篩選</span>
-                <span className="result-count">{filteredOffers.length} 筆活動</span>
-              </div>
+            <div className="source-link-grid">
+              {visibleSourceLinks.map((sourceLink) => <a className="source-link-card" href={sourceLink.officialSite || sourceLink.url} target="_blank" rel="noreferrer" key={sourceLink.url}><span><strong>{sourceLink.name}</strong><small>開啟官方活動入口</small></span><Icon name="external" size={16} /></a>)}
+              {sourceLinks.length > visibleSourceLinks.length ? <span className="source-links-note">另有 {sourceLinks.length - visibleSourceLinks.length} 個官方來源</span> : null}
             </div>
-
-            <div className="category-tabs" role="tablist" aria-label="活動分類">
-              {categories.map((category) => <button key={category} className={activeCategory === category ? "selected" : ""} onClick={() => setActiveCategory(category)} aria-pressed={activeCategory === category}>{category}<span>{category === "全部" ? totalCount : offers.filter((offer) => offer.category === category).length}</span></button>)}
-            </div>
-
-            {filteredOffers.length === 0 ? (
-              <div className="empty-state glass-panel"><Icon name="search" size={24} /><h3>目前沒有符合的活動</h3><p>換一個平台名稱或活動關鍵字，重新查看同步資料。</p></div>
-            ) : activeCategory !== "全部" ? (
-              <div className="offer-grid">{filteredOffers.map((offer) => <OfferCard key={`${offer.payment.name}-${offer.title}`} offer={offer} />)}</div>
-            ) : (
-              <div className="category-groups">
-                {groupedOffers.map((group) => <div key={group.category} className="category-group"><div className="category-heading"><h3>{group.category}</h3><span>{group.offers.length} 筆</span></div><div className="offer-grid">{group.offers.map((offer) => <OfferCard key={`${offer.payment.name}-${offer.title}`} offer={offer} />)}</div></div>)}
-              </div>
-            )}
           </section>
 
           <footer className="site-footer">
