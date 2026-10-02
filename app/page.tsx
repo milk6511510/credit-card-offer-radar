@@ -289,7 +289,17 @@ function paymentDisplayName(name: string) {
 }
 
 function getOfferId(offer: Offer) {
-  return [paymentDisplayName(offer.payment.name), offer.officialId || offer.sourceUrl || offer.title, offer.status].join("::");
+  return [paymentDisplayName(offer.payment.name), offer.officialId || offer.sourceUrl || offer.title].join("::");
+}
+
+function getLegacyOfferIdPrefix(offer: Offer) {
+  return `${paymentDisplayName(offer.payment.name)}::${offer.officialId || offer.sourceUrl || offer.title}::`;
+}
+
+function isOfferFavorite(offer: Offer, favoriteIds: string[]) {
+  const stableId = getOfferId(offer);
+  const legacyPrefix = getLegacyOfferIdPrefix(offer);
+  return favoriteIds.some((favoriteId) => favoriteId === stableId || favoriteId.startsWith(legacyPrefix));
 }
 
 function belongsToPlatform(offer: Offer, platformName: string) {
@@ -645,9 +655,17 @@ export default function Home() {
   useEffect(() => {
     const hydratePreferences = () => {
       try {
-        const storedFavorites = JSON.parse(window.localStorage.getItem(FAVORITES_STORAGE_KEY) || window.localStorage.getItem(LEGACY_FAVORITES_STORAGE_KEY) || "[]");
+        const readStoredIds = (key: string) => {
+          try {
+            const parsed = JSON.parse(window.localStorage.getItem(key) || "[]");
+            return Array.isArray(parsed) ? parsed.filter((value): value is string => typeof value === "string") : [];
+          } catch {
+            return [];
+          }
+        };
+        const storedFavorites = Array.from(new Set([...readStoredIds(FAVORITES_STORAGE_KEY), ...readStoredIds(LEGACY_FAVORITES_STORAGE_KEY)]));
         const storedPreferredPlatforms = JSON.parse(window.localStorage.getItem(PREFERRED_PLATFORMS_STORAGE_KEY) || "[]");
-        setFavoriteIds(Array.isArray(storedFavorites) ? storedFavorites.filter((value): value is string => typeof value === "string") : []);
+        setFavoriteIds(storedFavorites);
         setPreferredPlatforms(Array.isArray(storedPreferredPlatforms) ? storedPreferredPlatforms.filter((value): value is string => typeof value === "string") : []);
         if ("Notification" in window) setNotificationStatus(Notification.permission);
       } catch {
@@ -724,20 +742,20 @@ export default function Home() {
   }, []);
 
   const categories = useMemo(() => {
-    const scopedOffers = isFavoritesView ? offers.filter((offer) => favoriteIds.includes(getOfferId(offer))) : offers;
+    const scopedOffers = isFavoritesView ? offers.filter((offer) => isOfferFavorite(offer, favoriteIds)) : offers;
     const platformOffers = scopedOffers.filter((offer) => selectedPlatform === "全部平台" || belongsToPlatform(offer, selectedPlatform));
     return ["全部", ...Array.from(new Set(platformOffers.map((offer) => offer.category).filter(Boolean)))];
   }, [favoriteIds, isFavoritesView, offers, selectedPlatform]);
 
   const categoryCounts = useMemo(() => {
-    const scopedOffers = isFavoritesView ? offers.filter((offer) => favoriteIds.includes(getOfferId(offer))) : offers;
+    const scopedOffers = isFavoritesView ? offers.filter((offer) => isOfferFavorite(offer, favoriteIds)) : offers;
     const platformOffers = scopedOffers.filter((offer) => selectedPlatform === "全部平台" || belongsToPlatform(offer, selectedPlatform));
     return Object.fromEntries(categories.map((category) => [category, category === "全部" ? platformOffers.length : platformOffers.filter((offer) => offer.category === category).length]));
   }, [categories, favoriteIds, isFavoritesView, offers, selectedPlatform]);
 
   const filteredOffers = useMemo(() => {
     const keyword = query.trim().toLowerCase();
-    const scopedOffers = isFavoritesView ? offers.filter((offer) => favoriteIds.includes(getOfferId(offer))) : offers;
+    const scopedOffers = isFavoritesView ? offers.filter((offer) => isOfferFavorite(offer, favoriteIds)) : offers;
     const matchingOffers = scopedOffers
       .filter((offer) => activeCategory === "全部" || offer.category === activeCategory)
       .filter((offer) => selectedPlatform === "全部平台" || belongsToPlatform(offer, selectedPlatform))
@@ -812,7 +830,7 @@ export default function Home() {
   const visibleSourceLinks = sourceLinks.slice(0, 6);
   const updatedTime = formatUpdatedAt(data.updatedAt);
   const totalCount = offers.length;
-  const favoriteOfferCount = offers.filter((offer) => favoriteIds.includes(getOfferId(offer))).length;
+  const favoriteOfferCount = offers.filter((offer) => isOfferFavorite(offer, favoriteIds)).length;
   const selectedPlatformSummary = selectedPlatform === "全部平台" ? null : platformSummaries.find(({ platform }) => platform.name === selectedPlatform);
   const historyRecords = useMemo(() => {
     return [...(data.history || [])].sort((a, b) => {
@@ -868,7 +886,9 @@ export default function Home() {
   const toggleFavorite = (offer: Offer) => {
     const id = getOfferId(offer);
     setFavoriteIds((current) => {
-      const next = current.includes(id) ? current.filter((favoriteId) => favoriteId !== id) : [...current, id];
+      const next = isOfferFavorite(offer, current)
+        ? current.filter((favoriteId) => favoriteId !== id && !favoriteId.startsWith(getLegacyOfferIdPrefix(offer)))
+        : [...current, id];
       try {
         window.localStorage.setItem(FAVORITES_STORAGE_KEY, JSON.stringify(next));
       } catch {
@@ -1044,7 +1064,7 @@ export default function Home() {
                     </label>
                     <button type="button" className={`filter-trigger${filtersOpen ? " is-open" : ""}`} onClick={() => setFiltersOpen((open) => !open)} aria-expanded={filtersOpen} aria-controls="platform-filter-panel">
                       <Icon name="sliders" size={16} />
-                      <span>篩選</span>
+                      <span>平台／分類</span>
                       {activeFilterCount ? <strong>{activeFilterCount}</strong> : null}
                     </button>
                   </div>
@@ -1115,7 +1135,7 @@ export default function Home() {
                   <div className="empty-state glass-panel"><Icon name={isFavoritesView ? "heart" : "search"} size={24} /><h3>{isFavoritesView ? "還沒有收藏活動" : "目前沒有符合的活動"}</h3><p>{isFavoritesView ? "回到活動總覽，點選卡片右上角的愛心開始追蹤。" : "換一個平台或關鍵字，重新查看同步資料。"}</p>{isFavoritesView ? <a className="empty-state-link" href="#latest"><Icon name="search" size={14} />瀏覽全部活動</a> : null}</div>
                 ) : (
                   <>
-                    <div className="offer-grid">{visibleOffers.map((offer, index) => <OfferCard key={`${offer.payment.name}-${offer.officialId || offer.sourceUrl || offer.title}-${index}`} offer={offer} isFavorite={favoriteIds.includes(getOfferId(offer))} onToggleFavorite={toggleFavorite} />)}</div>
+                    <div className="offer-grid">{visibleOffers.map((offer, index) => <OfferCard key={`${offer.payment.name}-${offer.officialId || offer.sourceUrl || offer.title}-${index}`} offer={offer} isFavorite={isOfferFavorite(offer, favoriteIds)} onToggleFavorite={toggleFavorite} />)}</div>
                     {remainingOfferCount ? <button type="button" className="load-more-offers" onClick={() => setVisibleOfferState({ key: filterSignature, count: visibleOfferCount + INITIAL_VISIBLE_OFFERS })}><span>載入更多活動</span><small>還有 {remainingOfferCount} 筆</small><Icon name="arrow-right" size={15} /></button> : null}
                   </>
                 )}
@@ -1232,6 +1252,12 @@ export default function Home() {
           </footer>
         </div>
       </div>
+      <nav className="mobile-tabbar" aria-label="手機版快速導覽">
+        <a className={activeView === "latest" ? "active" : ""} href="#latest"><Icon name="database" size={18} /><span>活動</span></a>
+        <button type="button" className={filtersOpen ? "active" : ""} onClick={() => { setFiltersOpen(true); document.getElementById("platforms")?.scrollIntoView({ behavior: "smooth", block: "start" }); }}><Icon name="sliders" size={18} /><span>篩選</span></button>
+        <a className={isFavoritesView ? "active" : ""} href="#favorites"><Icon name="heart" size={18} /><span>最愛{favoriteOfferCount ? ` ${favoriteOfferCount}` : ""}</span></a>
+        <a className={isHistoryView ? "active" : ""} href="#history"><Icon name="clock" size={18} /><span>歷史</span></a>
+      </nav>
     </main>
   );
 }
