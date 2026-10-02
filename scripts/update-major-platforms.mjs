@@ -509,7 +509,12 @@ async function scrapeIcash(today) {
   const listUrls = Array.from({ length: 6 }, (_, index) => `${origin}/advertMessage/index?page=${index + 1}`);
   const pages = await mapLimit(listUrls, 3, async (url) => safeFetchText(url));
   const candidates = pages.flatMap((page) => page?.ok ? extractIcashCandidates(page.text, origin) : []);
-  const unique = [...new Map(candidates.filter((item) => item.id !== "2540").map((item) => [item.id, item])).values()];
+  const unique = [...new Map(
+    candidates
+      // 109 is a long-lived fee schedule notice, not a customer promotion.
+      .filter((item) => !["109", "2540"].includes(item.id))
+      .map((item) => [item.id, item]),
+  ).values()];
   const detailResults = await mapLimit(unique, 6, async (candidate) => {
     const detail = await safeFetchText(candidate.sourceUrl);
     if (!detail.ok) return null;
