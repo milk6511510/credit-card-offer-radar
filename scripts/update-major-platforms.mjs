@@ -150,6 +150,30 @@ function dateKeyFromToken(value, fallbackYear = new Date().getFullYear()) {
   return short ? `${fallbackYear}${short[1].padStart(2, "0")}${short[2].padStart(2, "0")}` : "";
 }
 
+function dateKeyFromIso(value) {
+  if (!value) return "";
+  const date = new Date(value);
+  if (Number.isNaN(date.getTime())) return "";
+  const parts = new Intl.DateTimeFormat("en-US", {
+    timeZone: "Asia/Taipei",
+    year: "numeric",
+    month: "2-digit",
+    day: "2-digit",
+  }).formatToParts(date);
+  const values = Object.fromEntries(parts.map((part) => [part.type, part.value]));
+  return `${values.year}${values.month}${values.day}`;
+}
+
+function extractNextData(html) {
+  const match = String(html || "").match(/<script[^>]+id=["']__NEXT_DATA__["'][^>]*>([\s\S]*?)<\/script>/i);
+  if (!match) return null;
+  try {
+    return JSON.parse(match[1]);
+  } catch {
+    return null;
+  }
+}
+
 function parseDateRange(text) {
   const value = String(text || "");
   // Prefer the explicit activity-period field over later dates such as
@@ -334,7 +358,7 @@ function providerMeta(name, logo, color, focus, segment, officialSite, sourceUrl
 }
 
 const catalog = [
-  providerMeta("LINE Pay", "/logos/line-pay.svg", "#00c300", "LINE Pay、LINE Pay Money 與官方通路優惠。", "daily", "https://pay.line.me/portal/tw/about/promotions?progressType=ONGOING", ["https://pay.line.me/portal/tw/about/promotions?progressType=ONGOING", "https://pay.line.me/portal/tw/customer/press"]),
+  providerMeta("LINE Pay", "/logos/line-pay.svg", "#00c300", "LINE Pay、LINE Pay Money 與官方通路優惠。", "daily", "https://web-tw-pay.line.me/svc/event/display2/ce715b92-8150-406b-bf42-c71cb56eb427", ["https://web-tw-pay.line.me/svc/event/display2/ce715b92-8150-406b-bf42-c71cb56eb427", "https://pay.line.me/portal/tw/about/promotions?progressType=ONGOING", "https://pay.line.me/portal/tw/customer/press"]),
   providerMeta("街口支付", "/logos/jkos-pay.png", "#eb6a2a", "街口支付官方行銷活動、街口幣與指定通路折扣。", "daily", "https://mkt.jkopay.com/zh-TW/event", ["https://mkt.jkopay.com/sitemap.xml"]),
   providerMeta("悠遊付", "/logos/easywallet.png", "#007c70", "悠遊付官方優惠、交通與日常採買回饋。", "daily", "https://easywallet.easycard.com.tw/benefit/", ["https://easywallet.easycard.com.tw/benefit/?page=1"]),
   providerMeta("iPASS MONEY", "/logos/ipass-money.png", "#00a6d6", "iPASS MONEY 官方優惠活動與使用條件。", "daily", "https://www.i-pass.com.tw/Preferential", ["https://www.i-pass.com.tw/Preferential?page=1&type=0"]),
@@ -350,7 +374,7 @@ const catalog = [
   providerMeta("ezPay 簡單付", "/logos/ezpay.png", "#1877b9", "ezPay 簡單付官方服務與活動入口。", "cross-network", "https://www.ezpay.com.tw/", ["https://www.ezpay.com.tw/"]),
 ];
 
-async function scrapeLine(today) {
+async function scrapeLinePress(today) {
   const listUrl = "https://pay.line.me/portal/tw/customer/press";
   const promotionUrl = "https://pay.line.me/portal/tw/about/promotions?progressType=ONGOING";
   const listResult = await safeFetchText(listUrl);
@@ -398,6 +422,129 @@ async function scrapeLine(today) {
     campaigns: activeCampaigns,
     status: "ok",
     sourceUrls: [promotionUrl, listUrl],
+  };
+}
+
+async function scrapeLine(today) {
+  const eventUrl = "https://web-tw-pay.line.me/svc/event/display2/ce715b92-8150-406b-bf42-c71cb56eb427";
+  const eventResult = await safeFetchText(eventUrl);
+  const eventData = eventResult.ok ? extractNextData(eventResult.text)?.props?.pageProps?.data : null;
+  const eventCandidates = [];
+  const eventCandidateByUrl = new Map();
+  const pushEventCandidate = (candidate) => {
+    if (!candidate.sourceUrl || eventCandidateByUrl.has(candidate.sourceUrl)) return;
+    eventCandidateByUrl.set(candidate.sourceUrl, candidate);
+    eventCandidates.push(candidate);
+  };
+  const collectEventCandidates = (node, context = {}) => {
+    if (!node || typeof node !== "object") return;
+    const range = {
+      startsAt: dateKeyFromIso(node.startDate) || context.startsAt || "",
+      endsAt: dateKeyFromIso(node.endDate) || context.endsAt || "",
+      sectionTitle: cleanText(node.title || context.sectionTitle || ""),
+    };
+    if (range.endsAt && range.endsAt < today) return;
+    if (node.type === "file" && /web-tw-pay\.line\.me\/cms\/event\/template1\.3\//i.test(node.link || "")) {
+      pushEventCandidate({
+        sourceUrl: node.link,
+        image: absoluteUrl(node.src, "https://web-tw-pay.line.me"),
+        title: cleanText(node.subtitle || node.title || range.sectionTitle),
+        summary: cleanText(node.subtitle || range.sectionTitle),
+        startsAt: range.startsAt,
+        endsAt: range.endsAt,
+        officialOrder: eventCandidates.length,
+      });
+    }
+    if (typeof node.data === "string") {
+      const markdownItems = /[-•]\s*【([^】]+)】\s*([^\n]+?)\s*\[活動詳情[^\]]*\]\((https?:\/\/[^)]+)\)/g;
+      for (const match of node.data.matchAll(markdownItems)) {
+        pushEventCandidate({
+          sourceUrl: match[3],
+          image: "",
+          title: cleanText(`${match[1]}｜${match[2]}`),
+          summary: cleanText(match[2]),
+          startsAt: range.startsAt,
+          endsAt: range.endsAt,
+          officialOrder: eventCandidates.length,
+        });
+      }
+    }
+    for (const [key, value] of Object.entries(node)) {
+      if (key === "data") continue;
+      if (value && typeof value === "object") collectEventCandidates(value, range);
+    }
+  };
+  for (const block of eventData?.meta?.detail?.contents || []) collectEventCandidates(block);
+
+  const eventResults = await mapLimit(eventCandidates, 6, async (candidate) => {
+    const detail = await safeFetchText(candidate.sourceUrl);
+    const detailText = detail.ok ? extractMainText(detail.text) : candidate.summary;
+    const detailTitle = detail.ok
+      ? cleanText(detail.text.match(/<h1\b[^>]*>([\s\S]*?)<\/h1>/i)?.[1] || metaContent(detail.text, "og:title"))
+      : "";
+    const detailDateText = detailText.match(/活動(?:日期|期間)[\s\S]{0,260}/i)?.[0] || detailText;
+    const parsedDates = parseDateRange(detailDateText);
+    const startsAt = parsedDates.startsAt || candidate.startsAt;
+    const endsAt = parsedDates.endsAt || candidate.endsAt;
+    const periodLabel = startsAt || endsAt
+      ? `活動期間 ${formatDateKey(startsAt) || "即日起"}–${formatDateKey(endsAt) || "依官方公告"}`
+      : "";
+    const publishedText = detail.ok ? detail.text.match(/發布日期[^\d]*(20\d{2}[^<\n]*)/i)?.[1] || "" : "";
+    return campaign({
+      provider: "LINE Pay",
+      title: detailTitle || candidate.title,
+      rawText: detailText || candidate.summary || candidate.title,
+      sourceUrl: candidate.sourceUrl,
+      image: detail.ok ? metaContent(detail.text, "og:image") || extractFirstContentImage(detail.text, "https://web-tw-pay.line.me") || candidate.image : candidate.image,
+      dateText: detailDateText,
+      statusText: [periodLabel, publishedText ? `官方發布 ${cleanText(publishedText)}` : "LINE Pay 官方活動"].filter(Boolean).join("；"),
+      publishedAt: dateKeyFromToken(publishedText),
+      officialOrder: candidate.officialOrder,
+      startsAtOverride: startsAt || "",
+      endsAtOverride: endsAt || "",
+    });
+  });
+
+  const pressResult = await scrapeLinePress(today);
+  const overviewRange = (eventData?.meta?.detail?.contents || []).find((item) => {
+    const end = dateKeyFromIso(item.endDate);
+    return end && end >= today;
+  });
+  const overview = eventData
+    ? campaign({
+      provider: "LINE Pay",
+      title: eventData.ogTitle || "LINE Pay 官方活動總覽",
+      rawText: eventData.ogDesc || "LINE Pay 官方活動總覽，請依各子活動條件使用。",
+      sourceUrl: eventUrl,
+      image: eventData.ogImg || "",
+      statusText: overviewRange
+        ? `活動期間 ${formatDateKey(dateKeyFromIso(overviewRange.startDate))}–${formatDateKey(dateKeyFromIso(overviewRange.endDate))}；官方總覽頁`
+        : "LINE Pay 官方活動總覽",
+      officialOrder: -1,
+      startsAtOverride: dateKeyFromIso(overviewRange?.startDate) || "",
+      endsAtOverride: dateKeyFromIso(overviewRange?.endDate) || "",
+    })
+    : null;
+
+  // LINE Pay 集合頁會同時保留上一檔與目前檔期；只收目前仍有效或即將開始的區塊，
+  // 再用官方新聞補上集合頁沒有拆出的 LINE Pay Money 活動。
+  const combined = [overview, ...eventResults, ...(pressResult.campaigns || [])].filter(Boolean);
+  const activeCampaigns = combined
+    .filter((item) => item.startsAt || item.endsAt)
+    .filter((item) => !item.endsAt || item.endsAt >= today)
+    .filter((item, index, all) => all.findIndex((candidate) => `${candidate.title}|${candidate.sourceUrl}` === `${item.title}|${item.sourceUrl}`) === index)
+    .filter((item) => {
+      if (item.endsAt) return true;
+      const text = `${item.title} ${item.rawText}`;
+      return /回饋|優惠|活動|贈|券|點數/i.test(text) && !/財報|營收|EPS|董事會|交易量|獎項肯定/i.test(text);
+    });
+  if (!activeCampaigns.length && !eventResult.ok && pressResult.status === "unreachable") {
+    return { campaigns: [], status: "unreachable", error: `${eventResult.error || "集合頁無法讀取"}; ${pressResult.error || "新聞頁無法讀取"}`, sourceUrls: [eventUrl, ...pressResult.sourceUrls] };
+  }
+  return {
+    campaigns: activeCampaigns,
+    status: "ok",
+    sourceUrls: [eventUrl, ...pressResult.sourceUrls],
   };
 }
 
