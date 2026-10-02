@@ -93,6 +93,8 @@ type Offer = Campaign & {
   payment: PaymentSource;
 };
 
+type AppView = "latest" | "history";
+
 type IconName =
   | "search"
   | "grid"
@@ -349,21 +351,23 @@ function rewardLabel(offer: Campaign) {
 }
 
 function getActivityHighlights(offer: Campaign) {
-  const source = `${offer.title}。${offer.rawText || ""}`;
-  const fragments = source
+  const normalizedTitle = offer.title.replace(/[。！？；;，,：:\s]+$/g, "");
+  const fragments = (offer.rawText || "")
     .split(/(?<=[。！？；])|\n+/)
     .map((fragment) => fragment.replace(/\s+/g, " ").trim())
     .map((fragment) => fragment.replace(/^(?:活動方式|活動說明|優惠內容|回饋方式)\s*[:：]?\s*/i, "").trim())
     .filter((fragment) => fragment.length >= 8 && fragment.length <= 220)
-    .filter((fragment) => !/^(?:活動期間|活動時間|詳細活動辦法|注意事項)/i.test(fragment));
+    .filter((fragment) => !/^(?:活動期間|活動時間|詳細活動辦法|注意事項)/i.test(fragment))
+    .filter((fragment) => fragment.replace(/[。！？；;，,：:\s]+$/g, "") !== normalizedTitle);
 
   const usefulFragments = fragments
     .filter((fragment) => /滿\s*[\d,]+|\d+\s*%|回饋|贈|送|折|券|每月|每筆|週[一二三四五六日]|前\s*\d+|綁定|登錄|首筆|首次|指定/i.test(fragment))
     .map((fragment, index) => {
       const score =
-        (/(?:滿\s*[\d,]+|\d+\s*%)/i.test(fragment) ? 4 : 0) +
+        (/(?:單筆|單次|每筆)?\s*滿\s*[\d,]+\s*(?:元|點)?/i.test(fragment) ? 6 : 0) +
+        (/(?:\d+(?:\.\d+)?\s*%|回饋)/i.test(fragment) ? 4 : 0) +
         (/(?:每月|每筆|週[一二三四五六日]|前\s*\d+)/i.test(fragment) ? 3 : 0) +
-        (/(?:綁定|登錄|首筆|首次|新戶|新客|指定)/i.test(fragment) ? 2 : 0) +
+        (/(?:上限|送完|額滿|綁定|登錄|首筆|首次|新戶|新客|指定)/i.test(fragment) ? 2 : 0) +
         (/(?:回饋|贈|送|折|券)/i.test(fragment) ? 2 : 0) -
         (/(?:客服|系統|不得|保留|資格認定|詳細活動辦法)/i.test(fragment) ? 3 : 0);
       return { fragment, index, score };
@@ -609,9 +613,22 @@ export default function Home() {
   const [activeCategory, setActiveCategory] = useState("全部");
   const [selectedPlatform, setSelectedPlatform] = useState("全部平台");
   const [sortMode, setSortMode] = useState<"latest" | "reward" | "ending">("latest");
+  const [activeView, setActiveView] = useState<AppView>("latest");
   const [historyPlatform, setHistoryPlatform] = useState("全部平台");
   const [historyMonth, setHistoryMonth] = useState("全部月份");
   const [historyQuery, setHistoryQuery] = useState("");
+
+  useEffect(() => {
+    const syncView = () => setActiveView(window.location.hash.toLowerCase() === "#history" ? "history" : "latest");
+    syncView();
+    window.addEventListener("hashchange", syncView);
+    return () => window.removeEventListener("hashchange", syncView);
+  }, []);
+
+  useEffect(() => {
+    if (activeView !== "history") return;
+    requestAnimationFrame(() => document.getElementById("history")?.scrollIntoView({ behavior: "smooth", block: "start" }));
+  }, [activeView]);
 
   useEffect(() => {
     fetch(`/data/campaigns.json?t=${Date.now()}`)
@@ -746,8 +763,11 @@ export default function Home() {
     setSelectedPlatform(platformName);
     setActiveCategory("全部");
     setQuery("");
+    if (activeView !== "latest") window.location.hash = "latest";
     document.getElementById("latest")?.scrollIntoView({ behavior: "smooth", block: "start" });
   };
+
+  const isHistoryView = activeView === "history";
 
   return (
     <main className="app-shell light-theme">
@@ -761,9 +781,9 @@ export default function Home() {
             </span>
           </a>
           <nav className="topnav" aria-label="主要導覽">
-            <a className="active" href="#latest">活動總覽</a>
+            <a className={activeView === "latest" ? "active" : ""} href="#latest" aria-current={activeView === "latest" ? "page" : undefined}>活動總覽</a>
             <a href="#platforms">平台分類</a>
-            <a href="#history">歷史回饋</a>
+            <a className={isHistoryView ? "active" : ""} href="#history" aria-current={isHistoryView ? "page" : undefined}>歷史回饋</a>
             <a href="#sources">官方入口</a>
           </nav>
           <div className="topbar-status">
@@ -779,8 +799,8 @@ export default function Home() {
           <section className="workspace-header" aria-labelledby="workspace-title">
             <div>
               <span className="kicker"><span className="kicker-line" />支付優惠情報站</span>
-              <h1 id="workspace-title">有效活動總覽</h1>
-              <p>先看回饋，再看條件。所有平台活動集中在同一份清單，可直接搜尋與篩選。</p>
+              <h1 id="workspace-title">{isHistoryView ? "歷史回饋紀錄" : "有效活動總覽"}</h1>
+              <p>{isHistoryView ? "回看官方曾公告的額滿日期與時間，作為下次安排回饋的參考。" : "先看回饋，再看條件。所有平台活動集中在同一份清單，可直接搜尋與篩選。"}</p>
             </div>
             <div className="workspace-actions">
               <a className="workspace-action" href="#platforms"><Icon name="layers" size={16} />平台分類</a>
@@ -789,7 +809,7 @@ export default function Home() {
             </div>
           </section>
 
-          <section id="latest" className="activity-workspace">
+          <section id="latest" className={`activity-workspace${isHistoryView ? " app-view-hidden" : ""}`}>
             <div className="workspace-section-heading">
               <div>
                 <span className="eyebrow"><Icon name="database" size={14} />ACTIVE OFFERS</span>
@@ -865,7 +885,7 @@ export default function Home() {
             <p className="panel-footnote"><Icon name="info" size={14} />活動細項、名額與期限請以各平台、各通路的官方頁面為準。</p>
           </section>
 
-          <section id="history" className="history-section" aria-labelledby="history-title">
+          <section id="history" className={`history-section${isHistoryView ? " is-standalone" : " app-view-hidden"}`} aria-labelledby="history-title">
             <div className="history-heading">
               <div>
                 <span className="eyebrow"><Icon name="clock" size={14} />EXHAUSTION HISTORY</span>
@@ -953,7 +973,7 @@ export default function Home() {
             <p className="panel-footnote"><Icon name="info" size={14} />「尚不能判定先後」代表官方頁面沒有公開時間，不代表活動一定沒有提前額滿；後續同步會持續補上新月份。</p>
           </section>
 
-          <section id="sources" className="sources-section">
+          <section id="sources" className={`sources-section${isHistoryView ? " app-view-hidden" : ""}`}>
             <div className="sources-heading">
               <div>
                 <span className="eyebrow"><Icon name="external" size={14} />OFFICIAL SOURCES</span>

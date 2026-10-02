@@ -3128,6 +3128,16 @@ summary:focus-visible {
   border-top: 1px solid #dfe7e4;
 }
 
+.app-view-hidden {
+  display: none !important;
+}
+
+.history-section.is-standalone {
+  margin-top: 0;
+  padding-top: 24px;
+  border-top: 0;
+}
+
 .history-heading,
 .history-record-heading {
   display: flex;
@@ -3548,6 +3558,11 @@ summary:focus-visible {
   .history-section {
     margin-top: 45px;
     padding-top: 23px;
+  }
+
+  .history-section.is-standalone {
+    margin-top: 0;
+    padding-top: 21px;
   }
 
   .history-heading,

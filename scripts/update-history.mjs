@@ -99,29 +99,73 @@ function buildDateParts(match) {
   const month = Number(match[2]);
   const day = Number(match[3]);
   const date = `${year}-${String(month).padStart(2, "0")}-${String(day).padStart(2, "0")}`;
-  const hour = match[4] ? normalizeHour(match[4], match[6]) : null;
-  const time = hour === null ? "" : `${String(hour).padStart(2, "0")}:${match[5]}`;
+  const hour = match[4] ? normalizeHour(match[4], match[7]) : null;
+  const time = hour === null ? "" : `${String(hour).padStart(2, "0")}:${match[5]}${match[6] ? `:${match[6]}` : ""}`;
   return {
     month: `${year}-${String(month).padStart(2, "0")}`,
     date,
     time,
-    exhaustedAt: time ? `${date}T${time}:00+08:00` : "",
+    exhaustedAt: time ? `${date}T${time}${match[6] ? "" : ":00"}+08:00` : "",
   };
 }
 
 function addRecord(records, record) {
-  const id = [record.platform, record.sourceUrl, record.month, record.bank || "", record.exhaustedDate || "", record.exhaustedTime || ""].join("|");
-  if (!records.some((item) => item.id === id)) records.push({ ...record, id });
+  const baseKey = [record.platform, record.sourceUrl, record.month, record.bank || "", record.exhaustedDate || ""].join("|");
+  const nextTime = String(record.exhaustedTime || "");
+  const existingIndex = records.findIndex((item) => {
+    const sameBase = [item.platform, item.sourceUrl, item.month, item.bank || "", item.exhaustedDate || ""].join("|") === baseKey;
+    if (!sameBase) return false;
+    const existingTime = String(item.exhaustedTime || "");
+    return !existingTime || !nextTime || existingTime === nextTime || existingTime.startsWith(nextTime) || nextTime.startsWith(existingTime);
+  });
+  if (existingIndex < 0) {
+    records.push({ ...record, id: `${baseKey}|${record.exhaustedTime || ""}` });
+    return;
+  }
+
+  const existing = records[existingIndex];
+  const existingTime = String(existing.exhaustedTime || "");
+  if (!existingTime || !nextTime || existingTime === nextTime) return;
+  if (nextTime.startsWith(existingTime)) {
+    records[existingIndex] = { ...existing, ...record, id: `${baseKey}|${nextTime}` };
+  }
+}
+
+function dedupeHistoryRecords(records) {
+  const unique = [];
+  for (const record of records) {
+    const baseKey = [record.platform, record.sourceUrl, record.month, record.bank || "", record.exhaustedDate || ""].join("|");
+    const nextTime = String(record.exhaustedTime || "");
+    const existingIndex = unique.findIndex((item) => {
+      const sameBase = [item.platform, item.sourceUrl, item.month, item.bank || "", item.exhaustedDate || ""].join("|") === baseKey;
+      if (!sameBase) return false;
+      const existingTime = String(item.exhaustedTime || "");
+      return !existingTime || !nextTime || existingTime === nextTime || existingTime.startsWith(nextTime) || nextTime.startsWith(existingTime);
+    });
+    if (existingIndex < 0) {
+      unique.push(record);
+      continue;
+    }
+
+    const existing = unique[existingIndex];
+    const existingTime = String(existing.exhaustedTime || "");
+    if (existingTime === nextTime) continue;
+    if (!existingTime || (nextTime && nextTime.startsWith(existingTime))) unique[existingIndex] = record;
+    else if (existingTime && nextTime && existingTime.startsWith(nextTime)) continue;
+    else unique.push(record);
+  }
+  return unique;
 }
 
 function extractDateRecords(platform, campaign, records) {
   const text = `${campaign.title || ""}\n${campaign.rawText || ""}`;
   if (platform === "iPASS MONEY" && !/額滿/.test(campaign.title || "")) return;
-  const pattern = /(20\d{2})\s*[/.\-]\s*(\d{1,2})\s*[/.\-]\s*(\d{1,2})(?:\s+(\d{1,2}):(\d{2})\s*(a\.?m\.?|p\.?m\.?|am|pm)?)?[\s\S]{0,28}?(額滿|用罄|售完|送完)/gi;
+  const pattern = /(20\d{2})\s*[/.\-]\s*(\d{1,2})\s*[/.\-]\s*(\d{1,2})(?:\s+(\d{1,2}):(\d{2})(?::(\d{2}))?\s*(a\.?m\.?|p\.?m\.?|am|pm)?)?[\s\S]{0,28}?(額滿|用罄|售完|送完)/gi;
   for (const match of text.matchAll(pattern)) {
     const index = Number(match.index || 0);
     const before = text.slice(Math.max(0, index - 72), index);
-    if (!/(已於|回饋上限|贈點|名額)/.test(before) || /例如|範例|舉例/.test(before)) continue;
+    const contextBeforeMatch = `${before} ${match[0]}`;
+    if (!/(已於|已額滿|提前額滿|回饋上限|贈點|名額|額滿)/.test(contextBeforeMatch) || /例如|範例|舉例/.test(before)) continue;
     const parts = buildDateParts(match);
     const context = cleanText(text.slice(Math.max(0, index - 115), index + match[0].length + 80));
     const lineStart = text.lastIndexOf("\n", Math.max(0, index - 1));
@@ -188,7 +232,7 @@ for (const payment of data.payments || []) {
   }
 }
 
-data.history = records.sort((a, b) => {
+data.history = dedupeHistoryRecords(records).sort((a, b) => {
   const monthOrder = String(b.month || "").localeCompare(String(a.month || ""));
   if (monthOrder) return monthOrder;
   return String(a.exhaustedAt || a.exhaustedDate || "").localeCompare(String(b.exhaustedAt || b.exhaustedDate || ""));
