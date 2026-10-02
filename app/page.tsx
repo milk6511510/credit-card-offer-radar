@@ -348,6 +348,34 @@ function rewardLabel(offer: Campaign) {
   return "條件型回饋";
 }
 
+function getActivityHighlights(offer: Campaign) {
+  const source = `${offer.title}。${offer.rawText || ""}`;
+  const fragments = source
+    .split(/(?<=[。！？；])|\n+/)
+    .map((fragment) => fragment.replace(/\s+/g, " ").trim())
+    .map((fragment) => fragment.replace(/^(?:活動方式|活動說明|優惠內容|回饋方式)\s*[:：]?\s*/i, "").trim())
+    .filter((fragment) => fragment.length >= 8 && fragment.length <= 220)
+    .filter((fragment) => !/^(?:活動期間|活動時間|詳細活動辦法|注意事項)/i.test(fragment));
+
+  const usefulFragments = fragments
+    .filter((fragment) => /滿\s*[\d,]+|\d+\s*%|回饋|贈|送|折|券|每月|每筆|週[一二三四五六日]|前\s*\d+|綁定|登錄|首筆|首次|指定/i.test(fragment))
+    .map((fragment, index) => {
+      const score =
+        (/(?:滿\s*[\d,]+|\d+\s*%)/i.test(fragment) ? 4 : 0) +
+        (/(?:每月|每筆|週[一二三四五六日]|前\s*\d+)/i.test(fragment) ? 3 : 0) +
+        (/(?:綁定|登錄|首筆|首次|新戶|新客|指定)/i.test(fragment) ? 2 : 0) +
+        (/(?:回饋|贈|送|折|券)/i.test(fragment) ? 2 : 0) -
+        (/(?:客服|系統|不得|保留|資格認定|詳細活動辦法)/i.test(fragment) ? 3 : 0);
+      return { fragment, index, score };
+    })
+    .sort((a, b) => b.score - a.score || a.index - b.index)
+    .map(({ fragment }) => fragment.replace(/^[，,；;：:\s]+|[，,；;：:\s]+$/g, ""));
+
+  const unique = Array.from(new Set(usefulFragments));
+  if (unique.length) return unique.slice(0, 2).map((fragment) => (fragment.length > 108 ? `${fragment.slice(0, 108)}…` : fragment));
+  return [`${rewardLabel(offer)}；詳細條件請見官方活動頁`];
+}
+
 function compareOffers(a: Campaign, b: Campaign) {
   return (b.rate || 0) - (a.rate || 0) || (b.cap || 0) - (a.cap || 0) || a.title.localeCompare(b.title, "zh-Hant");
 }
@@ -369,6 +397,8 @@ function CategoryScroller({
   categoryCounts: Record<string, number>;
   onSelect: (category: string) => void;
 }) {
+  const allCategory = categories[0] === "全部" ? categories[0] : "全部";
+  const scrollCategories = categories.filter((category) => category !== allCategory);
   const tabsRef = useRef<HTMLDivElement>(null);
   const dragRef = useRef<{ startX: number; startScrollLeft: number; moved: boolean } | null>(null);
   const suppressClickRef = useRef(false);
@@ -401,6 +431,7 @@ function CategoryScroller({
 
   const beginDrag = (event: React.PointerEvent<HTMLDivElement>) => {
     if (event.pointerType === "mouse" && event.button !== 0) return;
+    if (event.target instanceof Element && event.target.closest("button")) return;
     dragRef.current = { startX: event.clientX, startScrollLeft: event.currentTarget.scrollLeft, moved: false };
     suppressClickRef.current = false;
     event.currentTarget.setPointerCapture(event.pointerId);
@@ -428,6 +459,15 @@ function CategoryScroller({
 
   return (
     <div className="category-strip">
+      <button
+        type="button"
+        className={`category-all-button ${activeCategory === allCategory ? "selected" : ""}`}
+        onClick={() => onSelect(allCategory)}
+        aria-pressed={activeCategory === allCategory}
+      >
+        <span>全部活動</span>
+        <small>{categoryCounts[allCategory] || 0}</small>
+      </button>
       <button type="button" className="category-scroll-control" onClick={() => moveTabs(-1)} disabled={!canScrollLeft} aria-label="向左滑動活動分類" title="向左滑動活動分類">
         <Icon name="arrow-right" size={14} />
       </button>
@@ -441,7 +481,7 @@ function CategoryScroller({
         onPointerUp={finishDrag}
         onPointerCancel={finishDrag}
       >
-        {categories.map((category) => (
+        {scrollCategories.map((category) => (
           <button
             type="button"
             key={category}
@@ -479,9 +519,10 @@ function CampaignImage({ offer }: { offer: Offer }) {
 }
 
 function OfferCard({ offer }: { offer: Offer }) {
-  const audience = audienceMeta[getAudience(offer)];
+  const isNewUser = getAudience(offer) === "new-user";
+  const newUserAudience = audienceMeta["new-user"];
   const paymentMethods = getPaymentMethods(offer);
-  const officialId = offer.officialId || offer.sourceUrl?.match(/[?&]item=([^&]+)/i)?.[1];
+  const activityHighlights = getActivityHighlights(offer);
   const paymentName = paymentDisplayName(offer.payment.name);
   const paymentLogo = offer.payment.logo || paymentLogos[paymentName];
   const paymentColor = offer.payment.color || platformColors[paymentName] || "#2e8b62";
@@ -490,7 +531,7 @@ function OfferCard({ offer }: { offer: Offer }) {
   return (
     <article className="offer-card glass-card overflow-hidden">
       <CampaignImage offer={offer} />
-      <div className="offer-card-body p-5 sm:p-6">
+      <div className="offer-card-body">
         <div className="flex items-start justify-between gap-4">
           <div className="flex min-w-0 gap-3">
             <BrandMark name={paymentName} logo={paymentLogo} color={paymentColor} />
@@ -509,6 +550,13 @@ function OfferCard({ offer }: { offer: Offer }) {
           <span className="reward-highlight"><Icon name="spark" size={14} />{rewardLabel(offer)}</span>
         </div>
 
+        <div className="activity-summary" aria-label="活動精要">
+          <p className="data-label">活動精要</p>
+          <ul className="activity-summary-list">
+            {activityHighlights.map((highlight) => <li key={highlight}>{highlight}</li>)}
+          </ul>
+        </div>
+
         <div className="offer-info-grid">
           <div className="offer-info-item offer-info-wide">
             <p className="data-label">適用通路</p>
@@ -518,16 +566,16 @@ function OfferCard({ offer }: { offer: Offer }) {
             <p className="data-label">活動期間</p>
             <p className="offer-info-value offer-period"><Icon name="clock" size={15} />{offer.status}</p>
           </div>
-          <div className="offer-info-item">
+          {isNewUser ? <div className="offer-info-item">
             <p className="data-label">適用對象</p>
-            <span className={`offer-audience-chip ${audience.className}`} title={audience.description}>{audience.label}</span>
-          </div>
-          <div className="offer-info-item offer-info-wide">
+            <span className={`offer-audience-chip ${newUserAudience.className}`} title={newUserAudience.description}>新戶優惠</span>
+          </div> : null}
+          {paymentMethods.length ? <div className="offer-info-item offer-info-wide">
             <p className="data-label">支付工具</p>
             <div className="offer-payment-list">
-              {paymentMethods.length ? paymentMethods.map((method) => <span className="signal-pill" key={method}>{method}</span>) : <span className="offer-muted">官方未明確提及</span>}
+              {paymentMethods.map((method) => <span className="signal-pill" key={method}>{method}</span>)}
             </div>
-          </div>
+          </div> : null}
         </div>
 
         <div className="activity-source-row mt-5">
@@ -538,8 +586,6 @@ function OfferCard({ offer }: { offer: Offer }) {
           <span className="sync-tag"><Icon name="check" size={13} />已同步</span>
         </div>
 
-        {officialId ? <p className="mt-4 text-xs font-medium text-white/45">官方項目：{officialId}</p> : null}
-
         {offer.rawText ? (
           <details className="details-panel mt-5">
             <summary>查看完整活動條件</summary>
@@ -549,7 +595,7 @@ function OfferCard({ offer }: { offer: Offer }) {
 
         {offer.sourceUrl ? (
           <a className="primary-link mt-5" href={offer.sourceUrl} target="_blank" rel="noreferrer">
-            開啟官方活動頁 <Icon name="external" size={15} />
+            查看官方詳情 <Icon name="external" size={15} />
           </a>
         ) : null}
       </div>
@@ -584,7 +630,10 @@ export default function Home() {
       );
   }, [data]);
 
-  const categories = useMemo(() => ["全部", ...Array.from(new Set(offers.map((offer) => offer.category)))], [offers]);
+  const categories = useMemo(() => {
+    const platformOffers = offers.filter((offer) => selectedPlatform === "全部平台" || belongsToPlatform(offer, selectedPlatform));
+    return ["全部", ...Array.from(new Set(platformOffers.map((offer) => offer.category).filter(Boolean)))];
+  }, [offers, selectedPlatform]);
 
   const categoryCounts = useMemo(() => {
     const platformOffers = offers.filter((offer) => selectedPlatform === "全部平台" || belongsToPlatform(offer, selectedPlatform));
@@ -803,7 +852,7 @@ export default function Home() {
 
                 <div className="active-filter-row">
                   <CategoryScroller categories={categories} activeCategory={activeCategory} categoryCounts={categoryCounts} onSelect={setActiveCategory} />
-                  {selectedPlatform !== "全部平台" || query ? <button className="clear-filter" onClick={() => choosePlatform("全部平台")}><Icon name="check" size={14} />清除篩選</button> : null}
+                  {selectedPlatform !== "全部平台" || activeCategory !== "全部" || query ? <button className="clear-filter" onClick={() => choosePlatform("全部平台")}><Icon name="check" size={14} />清除篩選</button> : null}
                 </div>
 
                 {filteredOffers.length === 0 ? (

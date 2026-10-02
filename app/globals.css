@@ -782,7 +782,7 @@ summary:focus-visible {
   flex: 0 0 auto;
   align-items: center;
   gap: 7px;
-  min-height: 40px;
+  min-height: 36px;
   white-space: nowrap;
 }
 
@@ -794,11 +794,42 @@ summary:focus-visible {
 
 .category-strip {
   display: grid;
-  grid-template-columns: 30px minmax(0, 1fr) 30px;
+  grid-template-columns: auto 30px minmax(0, 1fr) 30px;
   align-items: center;
   gap: 6px;
   min-width: 0;
   flex: 1 1 auto;
+}
+
+.category-all-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  min-width: 104px;
+  min-height: 36px;
+  padding: 0 11px;
+  border: 1px solid #b8dfc7;
+  border-radius: 11px;
+  color: #28724f;
+  background: #edf8f0;
+  font-size: 11px;
+  font-weight: 760;
+  white-space: nowrap;
+}
+
+.category-all-button small {
+  color: inherit;
+  opacity: 0.68;
+  font-size: 10px;
+  font-weight: 750;
+}
+
+.category-all-button:hover,
+.category-all-button.selected {
+  border-color: #267b57;
+  color: #fff;
+  background: #267b57;
 }
 
 .category-scroll-control {
@@ -1675,32 +1706,104 @@ summary:focus-visible {
 }
 
 .light-theme .offer-card-body {
-  padding: 17px !important;
+  padding: 14px !important;
 }
 
 .light-theme .offer-card .offer-image {
-  max-height: 136px;
+  max-height: 118px;
+}
+
+.light-theme .offer-card .brand-mark {
+  width: 32px;
+  height: 32px;
+  border-radius: 10px;
+}
+
+.light-theme .offer-card .brand-mark img {
+  width: 23px;
+  height: 23px;
+}
+
+.light-theme .offer-card .offer-type-row {
+  gap: 5px;
+}
+
+.light-theme .offer-card .offer-type-tag,
+.light-theme .offer-card .offer-platform-label {
+  min-height: 21px;
+  padding-inline: 7px;
+  font-size: 9px;
 }
 
 .light-theme .offer-card .offer-title {
-  font-size: 17px;
-  line-height: 1.4 !important;
+  margin-top: 6px;
+  font-size: 16px;
+  line-height: 1.38 !important;
 }
 
 .light-theme .offer-card .offer-reward-row {
-  margin-top: 12px !important;
+  margin-top: 9px !important;
 }
 
 .light-theme .offer-card .reward-highlight {
-  min-height: 27px;
-  padding-inline: 9px;
+  min-height: 25px;
+  padding-inline: 8px;
   font-size: 10px;
 }
 
+.activity-summary {
+  margin-top: 11px;
+  padding: 9px 10px 10px;
+  border: 1px solid #e1eae6;
+  border-radius: 11px;
+  background: #fbfdfc;
+}
+
+.activity-summary-list {
+  display: grid;
+  gap: 4px;
+  margin: 6px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.activity-summary-list li {
+  position: relative;
+  display: -webkit-box;
+  overflow: hidden;
+  padding-left: 11px;
+  color: #3e5b4f;
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 1.58;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+.activity-summary-list li::before {
+  position: absolute;
+  top: 0.65em;
+  left: 1px;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: #4e9b72;
+  content: "";
+}
+
+.light-theme .activity-summary {
+  border-color: #e1eae6;
+  background: #fbfdfc;
+}
+
+.light-theme .activity-summary-list li {
+  color: #3e5b4f;
+}
+
 .light-theme .offer-card .offer-info-grid {
-  gap: 12px 10px;
-  margin-top: 14px;
-  padding: 14px 0;
+  gap: 10px 10px;
+  margin-top: 11px;
+  padding: 11px 0;
 }
 
 .light-theme .offer-card .data-label {
@@ -1708,14 +1811,14 @@ summary:focus-visible {
 }
 
 .light-theme .offer-card .offer-info-value {
-  margin-top: 4px;
+  margin-top: 3px;
   font-size: 12px;
-  line-height: 1.55;
+  line-height: 1.5;
 }
 
 .light-theme .offer-card .activity-source-row {
-  margin-top: 14px !important;
-  padding-top: 13px;
+  margin-top: 11px !important;
+  padding-top: 10px;
 }
 
 .light-theme .offer-card .activity-source-name {
@@ -1724,14 +1827,14 @@ summary:focus-visible {
 }
 
 .light-theme .offer-card .details-panel {
-  margin-top: 13px !important;
+  margin-top: 11px !important;
 }
 
 .light-theme .offer-card .primary-link {
-  min-height: 38px;
-  margin-top: 13px !important;
+  min-height: 35px;
+  margin-top: 11px !important;
   padding-inline: 12px;
-  border-radius: 10px;
+  border-radius: 9px;
   font-size: 11px;
 }
 
@@ -2001,11 +2104,23 @@ summary:focus-visible {
   }
 
   .active-filter-row .category-strip {
+    grid-template-columns: auto 28px minmax(0, 1fr) 28px;
+    gap: 4px;
     width: 100%;
   }
 
   .active-filter-row .category-tabs {
     width: 100%;
+  }
+
+  .category-all-button {
+    min-width: 94px;
+    padding-inline: 9px;
+    font-size: 10px;
+  }
+
+  .category-scroll-control {
+    width: 28px;
   }
 
   .clear-filter {
