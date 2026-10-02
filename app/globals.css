@@ -5593,3 +5593,488 @@ body {
     max-width: 38vw;
   }
 }
+
+/* paymentrader v4: make filtering a visible primary action and keep mobile scans calm. */
+.workspace-header-copy,
+.workspace-header-tools {
+  min-width: 0;
+}
+
+.light-theme .workspace-header {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 18px 24px;
+}
+
+.workspace-header-tools {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 9px;
+  min-width: 0;
+}
+
+.workspace-header-tools .workspace-actions {
+  gap: 6px;
+}
+
+.workspace-filter-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 48px;
+  padding: 0 12px 0 8px;
+  border: 1px solid #2f8a64;
+  border-radius: 12px;
+  color: #1f6b48;
+  background: #edf8f1;
+  box-shadow: 0 8px 20px rgba(47, 138, 100, 0.12);
+  font-size: 11px;
+  font-weight: 760;
+  white-space: nowrap;
+}
+
+.workspace-filter-button:hover,
+.workspace-filter-button.is-open {
+  border-color: #236b49;
+  color: #fff;
+  background: #2f8a64;
+  box-shadow: 0 10px 26px rgba(47, 138, 100, 0.2);
+}
+
+.workspace-filter-icon {
+  display: grid;
+  width: 31px;
+  height: 31px;
+  place-items: center;
+  border-radius: 9px;
+  color: #2f8a64;
+  background: #fff;
+}
+
+.workspace-filter-button:hover .workspace-filter-icon,
+.workspace-filter-button.is-open .workspace-filter-icon {
+  color: #236b49;
+}
+
+.workspace-filter-copy {
+  display: grid;
+  justify-items: start;
+  gap: 1px;
+  line-height: 1.1;
+}
+
+.workspace-filter-copy small {
+  color: #709080;
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+
+.workspace-filter-copy strong {
+  font-size: 11px;
+}
+
+.workspace-filter-button:hover .workspace-filter-copy small,
+.workspace-filter-button.is-open .workspace-filter-copy small {
+  color: rgba(255, 255, 255, 0.76);
+}
+
+.workspace-filter-count,
+.mobile-filter-shortcut b {
+  display: grid;
+  min-width: 19px;
+  height: 19px;
+  place-items: center;
+  border-radius: 999px;
+  color: #fff;
+  background: #236b49;
+  font-size: 10px;
+  line-height: 1;
+}
+
+.workspace-filter-button:hover .workspace-filter-count,
+.workspace-filter-button.is-open .workspace-filter-count {
+  color: #236b49;
+  background: #fff;
+}
+
+.activity-toolbar-controls {
+  justify-content: flex-end;
+}
+
+.details-short-label {
+  display: none;
+}
+
+@media (max-width: 1180px) {
+  .workspace-header-tools .workspace-actions {
+    display: none;
+  }
+}
+
+@media (max-width: 760px) {
+  .light-theme .workspace-header {
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: start;
+    gap: 0 10px;
+    padding-top: 20px;
+  }
+
+  .workspace-header-copy {
+    grid-column: 1;
+    min-width: 0;
+  }
+
+  .workspace-header-tools {
+    grid-column: 2;
+    grid-row: 1;
+    align-items: flex-start;
+  }
+
+  .workspace-filter-button {
+    min-height: 42px;
+    padding: 0 8px 0 6px;
+    gap: 5px;
+    border-radius: 11px;
+    box-shadow: 0 6px 16px rgba(47, 138, 100, 0.1);
+  }
+
+  .workspace-filter-icon {
+    width: 28px;
+    height: 28px;
+    border-radius: 8px;
+  }
+
+  .workspace-filter-copy small {
+    display: none;
+  }
+
+  .workspace-filter-copy strong {
+    font-size: 10px;
+  }
+
+  .workspace-filter-button > svg {
+    width: 13px;
+    height: 13px;
+  }
+
+  .light-theme .workspace-header h1 {
+    max-width: 100%;
+    font-size: clamp(24px, 7vw, 28px);
+  }
+
+  .light-theme .workspace-header p {
+    max-width: 100%;
+    font-size: 10px;
+    line-height: 1.55;
+  }
+
+  .light-theme .activity-toolbar {
+    gap: 7px;
+  }
+
+  .activity-toolbar-controls {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .activity-toolbar-controls .sort-control {
+    width: 100%;
+    max-width: 176px;
+  }
+
+  .light-theme .offer-grid {
+    gap: 8px;
+    margin-top: 8px;
+  }
+
+  .light-theme .offer-bar-card {
+    border-radius: 12px;
+    box-shadow: 0 5px 16px rgba(35, 75, 56, 0.06);
+  }
+
+  .offer-bar-main {
+    grid-template-columns: 30px minmax(0, 1fr) 40px;
+    gap: 7px;
+    padding: 9px;
+  }
+
+  .offer-bar-main > .brand-mark {
+    width: 30px;
+    height: 30px;
+  }
+
+  .offer-bar-main > .brand-mark img {
+    width: 20px;
+    height: 20px;
+  }
+
+  .offer-bar-identity .offer-title {
+    margin-top: 3px;
+    font-size: 12px;
+    line-height: 1.32 !important;
+  }
+
+  .offer-bar-store {
+    max-width: 100%;
+    margin-top: 3px;
+    font-size: 8.5px;
+  }
+
+  .offer-bar-reward {
+    gap: 5px;
+    margin-top: 3px;
+  }
+
+  .offer-bar-reward .reward-highlight {
+    min-height: 22px;
+    padding-inline: 7px;
+    font-size: 9px;
+  }
+
+  .offer-bar-period {
+    font-size: 8.5px;
+  }
+
+  .offer-bar-card .favorite-button {
+    width: 40px;
+    height: 40px;
+    border-radius: 11px;
+  }
+
+  .offer-bar-summary {
+    gap: 4px;
+    min-height: 0;
+    padding: 7px 9px 7px;
+    border-left-width: 3px;
+  }
+
+  .offer-bar-summary-label {
+    min-height: 16px;
+  }
+
+  .offer-bar-summary .data-label {
+    font-size: 8px;
+    letter-spacing: 0.04em;
+  }
+
+  .offer-bar-summary .offer-audience-chip {
+    min-height: 18px;
+    padding-inline: 6px;
+    font-size: 8px;
+  }
+
+  .offer-bar-summary .activity-summary-list {
+    display: block;
+    min-width: 0;
+  }
+
+  .offer-bar-summary .activity-summary-list li {
+    display: -webkit-box;
+    font-size: 9px;
+    line-height: 1.42;
+    -webkit-line-clamp: 1;
+  }
+
+  .offer-bar-summary .activity-summary-list li:not(:first-child) {
+    display: none;
+  }
+
+  .offer-bar-payment-list {
+    max-width: 48vw;
+    max-height: 20px;
+    margin-top: 0;
+    overflow: hidden;
+  }
+
+  .offer-bar-payment-list .signal-pill {
+    min-height: 19px;
+    padding-inline: 6px;
+    font-size: 8px;
+  }
+
+  .offer-bar-payment-list .signal-pill:nth-child(n + 2) {
+    display: none;
+  }
+
+  .offer-bar-footer {
+    align-items: center;
+    flex-direction: row;
+    gap: 6px;
+    padding: 7px 9px 8px;
+  }
+
+  .offer-bar-source {
+    max-width: 36%;
+    font-size: 8px;
+  }
+
+  .offer-bar-actions {
+    flex: 1 1 auto;
+    width: auto;
+    gap: 5px;
+  }
+
+  .offer-bar-details,
+  .offer-bar-link {
+    min-width: 0;
+    flex: 1 1 0;
+  }
+
+  .offer-bar-details summary,
+  .offer-bar-link {
+    width: 100%;
+    min-height: 34px;
+    justify-content: center;
+    padding-inline: 5px;
+    overflow: hidden;
+    font-size: 8.5px;
+    text-overflow: ellipsis;
+  }
+
+  .details-long-label {
+    display: none;
+  }
+
+  .details-short-label {
+    display: inline;
+  }
+
+  .offer-bar-details p {
+    right: -5px;
+    bottom: calc(100% + 6px);
+    left: auto;
+    width: min(330px, calc(100vw - 24px));
+    max-height: 48vh;
+    padding: 10px;
+    font-size: 10px !important;
+    line-height: 1.55 !important;
+  }
+
+  .mobile-filter-shortcut {
+    position: relative;
+  }
+
+  .mobile-filter-shortcut b {
+    position: absolute;
+    top: 3px;
+    right: calc(50% - 25px);
+    min-width: 16px;
+    height: 16px;
+    font-size: 8px;
+  }
+}
+
+@media (max-width: 380px) {
+  .workspace-filter-button {
+    padding-right: 6px;
+  }
+
+  .workspace-filter-copy strong {
+    font-size: 9px;
+  }
+
+  .offer-bar-source {
+    max-width: 31%;
+  }
+}
+
+/* Keep the primary filter reachable while the activity list is scrolled. */
+.topbar-actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 9px;
+  min-width: 0;
+}
+
+.topbar-filter-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 36px;
+  padding: 0 10px;
+  border: 1px solid #b8d8c5;
+  border-radius: 10px;
+  color: #236b49;
+  background: #edf8f1;
+  font-size: 10px;
+  font-weight: 760;
+  white-space: nowrap;
+}
+
+.topbar-filter-button:hover,
+.topbar-filter-button.is-open {
+  border-color: #236b49;
+  color: #fff;
+  background: #2f8a64;
+  box-shadow: 0 7px 18px rgba(47, 138, 100, 0.18);
+}
+
+.topbar-filter-button b {
+  display: grid;
+  min-width: 17px;
+  height: 17px;
+  place-items: center;
+  border-radius: 999px;
+  color: #fff;
+  background: #236b49;
+  font-size: 9px;
+  line-height: 1;
+}
+
+.topbar-filter-button:hover b,
+.topbar-filter-button.is-open b {
+  color: #236b49;
+  background: #fff;
+}
+
+.mobile-filter-shortcut {
+  position: relative;
+}
+
+@media (max-width: 760px) {
+  .topbar-actions {
+    gap: 5px;
+  }
+
+  .topbar-filter-button {
+    width: 37px;
+    min-width: 37px;
+    height: 36px;
+    min-height: 36px;
+    justify-content: center;
+    padding: 0;
+    border-radius: 10px;
+  }
+
+  .topbar-filter-button span {
+    display: none;
+  }
+
+  .topbar-filter-button b {
+    position: absolute;
+    top: 5px;
+    right: 8px;
+    min-width: 14px;
+    height: 14px;
+    font-size: 8px;
+  }
+
+  .topbar-filter-button {
+    position: relative;
+  }
+
+  .light-theme .topbar-status {
+    min-width: 0;
+    max-width: 76px;
+  }
+}
+
+@media (max-width: 380px) {
+  .light-theme .topbar-status {
+    max-width: 68px;
+  }
+}

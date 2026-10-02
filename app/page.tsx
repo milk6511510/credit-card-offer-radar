@@ -600,7 +600,7 @@ function OfferCard({ offer, isFavorite, onToggleFavorite }: { offer: Offer; isFa
         <div className="offer-bar-actions">
           {offer.rawText ? (
             <details className="details-panel offer-bar-details">
-              <summary>查看完整條件</summary>
+              <summary><span className="details-long-label">查看完整條件</span><span className="details-short-label">完整條件</span></summary>
               <p className="mt-3 whitespace-pre-wrap text-sm leading-7 text-white/70">{offer.rawText}</p>
             </details>
           ) : null}
@@ -961,10 +961,19 @@ export default function Home() {
             <a className={isHistoryView ? "active" : ""} href="#history" aria-current={isHistoryView ? "page" : undefined}>歷史回饋</a>
             <a href="#sources">官方入口</a>
           </nav>
-          <div className="topbar-status">
-            <span className="status-light" />
-            <span className="hidden sm:inline">本機已保存</span>
-            <time dateTime={data.updatedAt}>{updatedTime}</time>
+          <div className="topbar-actions">
+            {!isHistoryView ? (
+              <button type="button" className={`topbar-filter-button${filtersOpen ? " is-open" : ""}`} onClick={() => setFiltersOpen((open) => !open)} aria-expanded={filtersOpen} aria-controls="platform-filter-panel">
+                <Icon name="sliders" size={15} />
+                <span>平台／分類</span>
+                {activeFilterCount ? <b>{activeFilterCount}</b> : null}
+              </button>
+            ) : null}
+            <div className="topbar-status">
+              <span className="status-light" />
+              <span className="hidden sm:inline">本機已保存</span>
+              <time dateTime={data.updatedAt}>{updatedTime}</time>
+            </div>
           </div>
         </div>
       </header>
@@ -972,17 +981,17 @@ export default function Home() {
       <div className="app-layout">
         <div className="content-column">
           <section className="workspace-header" aria-labelledby="workspace-title">
-            <div>
+            <div className="workspace-header-copy">
               <span className="kicker"><span className="kicker-line" />paymentrader / 支付優惠情報站</span>
               <h1 id="workspace-title">{isHistoryView ? "歷史回饋紀錄" : isFavoritesView ? "我的最愛" : "有效活動總覽"}</h1>
               <p>{isHistoryView ? "回看官方曾公告的額滿日期與時間，作為下次安排回饋的參考。" : isFavoritesView ? "集中查看你正在追蹤的活動，資料同步後更快確認變化。" : "先看回饋，再看條件。所有平台活動集中在同一份清單，可直接搜尋與篩選。"}</p>
             </div>
-            <div className="workspace-actions">
-              <a className="workspace-action" href="#platforms"><Icon name="layers" size={16} />平台分類</a>
-              <a className="workspace-action" href={isFavoritesView ? "#latest" : "#favorites"}><Icon name={isFavoritesView ? "search" : "heart"} size={16} />{isFavoritesView ? "全部活動" : "我的最愛"}</a>
-              <a className="workspace-action" href="#history"><Icon name="clock" size={16} />歷史耗盡</a>
-              <button type="button" className={`workspace-action${preferencesOpen ? " is-selected" : ""}`} onClick={() => setPreferencesOpen((open) => !open)} aria-expanded={preferencesOpen} aria-controls="local-preferences"><Icon name="sliders" size={16} />偏好平台</button>
-              <a className="workspace-action is-primary" href="#latest"><Icon name="search" size={16} />找活動</a>
+            <div className="workspace-header-tools">
+              <div className="workspace-actions">
+                <a className="workspace-action" href={isFavoritesView ? "#latest" : "#favorites"}><Icon name={isFavoritesView ? "search" : "heart"} size={16} />{isFavoritesView ? "全部活動" : "我的最愛"}</a>
+                <a className="workspace-action" href="#history"><Icon name="clock" size={16} />歷史耗盡</a>
+                <button type="button" className={`workspace-action${preferencesOpen ? " is-selected" : ""}`} onClick={() => setPreferencesOpen((open) => !open)} aria-expanded={preferencesOpen} aria-controls="local-preferences"><Icon name="sliders" size={16} />偏好平台</button>
+              </div>
             </div>
           </section>
 
@@ -1062,11 +1071,6 @@ export default function Home() {
                         <option value="ending">即將截止優先</option>
                       </select>
                     </label>
-                    <button type="button" className={`filter-trigger${filtersOpen ? " is-open" : ""}`} onClick={() => setFiltersOpen((open) => !open)} aria-expanded={filtersOpen} aria-controls="platform-filter-panel">
-                      <Icon name="sliders" size={16} />
-                      <span>平台／分類</span>
-                      {activeFilterCount ? <strong>{activeFilterCount}</strong> : null}
-                    </button>
                   </div>
                 </div>
 
@@ -1254,7 +1258,7 @@ export default function Home() {
       </div>
       <nav className="mobile-tabbar" aria-label="手機版快速導覽">
         <a className={activeView === "latest" ? "active" : ""} href="#latest"><Icon name="database" size={18} /><span>活動</span></a>
-        <button type="button" className={filtersOpen ? "active" : ""} onClick={() => { setFiltersOpen(true); document.getElementById("platforms")?.scrollIntoView({ behavior: "smooth", block: "start" }); }}><Icon name="sliders" size={18} /><span>篩選</span></button>
+        <button type="button" className={`mobile-filter-shortcut${filtersOpen ? " active" : ""}`} onClick={() => { setFiltersOpen(true); document.getElementById("platforms")?.scrollIntoView({ behavior: "smooth", block: "start" }); }} aria-label={activeFilterCount ? `篩選，已套用 ${activeFilterCount} 個條件` : "開啟平台與分類篩選"}><Icon name="sliders" size={18} /><span>篩選</span>{activeFilterCount ? <b>{activeFilterCount}</b> : null}</button>
         <a className={isFavoritesView ? "active" : ""} href="#favorites"><Icon name="heart" size={18} /><span>最愛{favoriteOfferCount ? ` ${favoriteOfferCount}` : ""}</span></a>
         <a className={isHistoryView ? "active" : ""} href="#history"><Icon name="clock" size={18} /><span>歷史</span></a>
       </nav>
