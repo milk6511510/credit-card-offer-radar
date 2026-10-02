@@ -1,0 +1,641 @@
+$ vinext dev "--host" "127.0.0.1"
+[2m下午12:19:14[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m [2m[console.error] [22m[vinext] RSC HMR error: Error: Connection closed.
+    at close (http://localhost:3000/node_modules/.vite/deps/react-server-dom-webpack_client__browser.js?v=d664c735:2364:36)
+    at progress (http://localhost:3000/node_modules/.vite/deps/react-server-dom-webpack_client__browser.js?v=d664c735:2437:28)
+[2m下午12:19:17[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m [2m[console.error] [22m[vinext] RSC HMR error: Error: Connection closed.
+    at close (http://localhost:3000/node_modules/.vite/deps/react-server-dom-webpack_client__browser.js?v=d664c735:2364:36)
+    at progress (http://localhost:3000/node_modules/.vite/deps/react-server-dom-webpack_client__browser.js?v=d664c735:2437:28)
+[2m下午12:20:50[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m [2m[console.error] [22m[vinext] RSC HMR error: Error: Connection closed.
+    at close (http://localhost:3000/node_modules/.vite/deps/react-server-dom-webpack_client__browser.js?v=d664c735:2364:36)
+    at progress (http://localhost:3000/node_modules/.vite/deps/react-server-dom-webpack_client__browser.js?v=d664c735:2437:28)
+[2m下午12:25:29[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m [2m[console.error] [22m[vite] Failed to reload /app/page.tsx. This could be due to syntax errors or importing non-existent modules. (see errors above)
+[2m下午12:25:29[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m [2m[console.error] [22m[vite] Failed to reload /app/page.tsx. This could be due to syntax errors or importing non-existent modules. (see errors above)
+[2m下午12:25:32[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m [2m[console.error] [22m[vinext] RSC HMR error: Error: Connection closed.
+    at close (http://localhost:3000/node_modules/.vite/deps/react-server-dom-webpack_client__browser.js?v=d664c735:2364:36)
+    at progress (http://localhost:3000/node_modules/.vite/deps/react-server-dom-webpack_client__browser.js?v=d664c735:2437:28)
+[2m下午12:25:32[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m [2m[console.error] [22m[vinext] RSC HMR error: Error: Connection closed.
+    at close (http://localhost:3000/node_modules/.vite/deps/react-server-dom-webpack_client__browser.js?v=d664c735:2364:36)
+    at progress (http://localhost:3000/node_modules/.vite/deps/react-server-dom-webpack_client__browser.js?v=d664c735:2437:28)
+Detected multiple renderers concurrently rendering the same context provider. This is currently unsupported.
+Detected multiple renderers concurrently rendering the same context provider. This is currently unsupported.
+[2m下午12:36:22[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m [2m[console.error] [22mA tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+https://react.dev/link/hydration-mismatch
+
+  ...
+    <DevRecoveryBoundary resetKey={0} onCatch={function handleDevRecoveryBoundaryCatch}>
+      <RedirectBoundary>
+        <RedirectErrorBoundary>
+          <NavigationCommitSignal renderId={0}>
+            <Slot id="route:/">
+              <meta>
+              <title>
+              <meta>
+              <link>
+              <link>
+              <meta>
+              <LayoutSegmentProvider segmentMap={{children:[...]}}>
+                <Slot id="layout:/">
+                  <default>
+                    <link>
+                    <RemoveDuplicateServerCss>
+                    <default>
+                      <RootLayout>
+                        <html lang="zh-Hant">
+                          <body
+                            className="__variable_geist_0xralfk __variable_geist_mono_1h7ebsl"
+-                           cz-shortcut-listen="true"
+                          >
+
+[2m下午12:37:30[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m [2m[console.error] [22m[vite] Failed to reload /app/page.tsx. This could be due to syntax errors or importing non-existent modules. (see errors above)
+[2m下午12:37:30[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m [2m[console.error] [22m[vite] Failed to reload /app/page.tsx. This could be due to syntax errors or importing non-existent modules. (see errors above)
+[2m下午12:53:16[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m [2m[console.error] [22m[vite] Failed to reload /app/page.tsx. This could be due to syntax errors or importing non-existent modules. (see errors above)
+[2m下午12:53:16[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m [2m[console.error] [22m[vite] Failed to reload /app/page.tsx. This could be due to syntax errors or importing non-existent modules. (see errors above)
+[2m下午1:12:17[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m [2m[console.error] [22m[vite] Failed to reload /app/page.tsx. This could be due to syntax errors or importing non-existent modules. (see errors above)
+[2m下午1:12:17[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m [2m[console.error] [22m[vite] Failed to reload /app/page.tsx. This could be due to syntax errors or importing non-existent modules. (see errors above)
+Detected multiple renderers concurrently rendering the same context provider. This is currently unsupported.
+Detected multiple renderers concurrently rendering the same context provider. This is currently unsupported.
+[2m下午1:15:45[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m [2m[console.error] [22mA tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+https://react.dev/link/hydration-mismatch
+
+  ...
+    <DevRecoveryBoundary resetKey={0} onCatch={function handleDevRecoveryBoundaryCatch}>
+      <RedirectBoundary>
+        <RedirectErrorBoundary>
+          <NavigationCommitSignal renderId={0}>
+            <Slot id="route:/">
+              <meta>
+              <title>
+              <meta>
+              <link>
+              <link>
+              <meta>
+              <LayoutSegmentProvider segmentMap={{children:[...]}}>
+                <Slot id="layout:/">
+                  <default>
+                    <link>
+                    <RemoveDuplicateServerCss>
+                    <default>
+                      <RootLayout>
+                        <html lang="zh-Hant">
+                          <body
+                            className="__variable_geist_0xralfk __variable_geist_mono_1h7ebsl"
+-                           cz-shortcut-listen="true"
+                          >
+
+[2m下午1:19:14[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m [2m[console.error] [22m[vite] Failed to reload /app/page.tsx. This could be due to syntax errors or importing non-existent modules. (see errors above)
+[2m下午1:19:14[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m [2m[console.error] [22m[vite] Failed to reload /app/page.tsx. This could be due to syntax errors or importing non-existent modules. (see errors above)
+[2m下午1:19:14[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m [2m[console.error] [22m[vite] Failed to reload /app/page.tsx. This could be due to syntax errors or importing non-existent modules. (see errors above)
+Detected multiple renderers concurrently rendering the same context provider. This is currently unsupported.
+Detected multiple renderers concurrently rendering the same context provider. This is currently unsupported.
+[2m下午1:26:39[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m [2m[console.error] [22mA tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+https://react.dev/link/hydration-mismatch
+
+  ...
+    <DevRecoveryBoundary resetKey={0} onCatch={function handleDevRecoveryBoundaryCatch}>
+      <RedirectBoundary>
+        <RedirectErrorBoundary>
+          <NavigationCommitSignal renderId={0}>
+            <Slot id="route:/">
+              <meta>
+              <title>
+              <meta>
+              <link>
+              <link>
+              <meta>
+              <LayoutSegmentProvider segmentMap={{children:[...]}}>
+                <Slot id="layout:/">
+                  <default>
+                    <link>
+                    <RemoveDuplicateServerCss>
+                    <default>
+                      <RootLayout>
+                        <html lang="zh-Hant">
+                          <body
+                            className="__variable_geist_0xralfk __variable_geist_mono_1h7ebsl"
+-                           cz-shortcut-listen="true"
+                          >
+
+[2m下午1:30:20[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m [2m[console.error] [22m[vite] Failed to reload /app/page.tsx. This could be due to syntax errors or importing non-existent modules. (see errors above)
+[2m下午1:30:20[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m [2m[console.error] [22m[vite] Failed to reload /app/page.tsx. This could be due to syntax errors or importing non-existent modules. (see errors above)
+[2m下午1:30:20[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m [2m[console.error] [22m[vite] Failed to reload /app/page.tsx. This could be due to syntax errors or importing non-existent modules. (see errors above)
+Detected multiple renderers concurrently rendering the same context provider. This is currently unsupported.
+Detected multiple renderers concurrently rendering the same context provider. This is currently unsupported.
+[2m下午1:34:12[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m [2m[console.error] [22mA tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+https://react.dev/link/hydration-mismatch
+
+  ...
+    <DevRecoveryBoundary resetKey={0} onCatch={function handleDevRecoveryBoundaryCatch}>
+      <RedirectBoundary>
+        <RedirectErrorBoundary>
+          <NavigationCommitSignal renderId={0}>
+            <Slot id="route:/">
+              <meta>
+              <title>
+              <meta>
+              <link>
+              <link>
+              <meta>
+              <LayoutSegmentProvider segmentMap={{children:[...]}}>
+                <Slot id="layout:/">
+                  <default>
+                    <link>
+                    <RemoveDuplicateServerCss>
+                    <default>
+                      <RootLayout>
+                        <html lang="zh-Hant">
+                          <body
+                            className="__variable_geist_0xralfk __variable_geist_mono_1h7ebsl"
+-                           cz-shortcut-listen="true"
+                          >
+
+[2m下午1:42:57[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m [2m[console.error] [22mA tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+https://react.dev/link/hydration-mismatch
+
+  ...
+    <DevRecoveryBoundary resetKey={0} onCatch={function handleDevRecoveryBoundaryCatch}>
+      <RedirectBoundary>
+        <RedirectErrorBoundary>
+          <NavigationCommitSignal renderId={0}>
+            <Slot id="route:/">
+              <meta>
+              <title>
+              <meta>
+              <link>
+              <link>
+              <meta>
+              <LayoutSegmentProvider segmentMap={{children:[...]}}>
+                <Slot id="layout:/">
+                  <default>
+                    <link>
+                    <RemoveDuplicateServerCss>
+                    <default>
+                      <RootLayout>
+                        <html lang="zh-Hant">
+                          <body
+                            className="__variable_geist_0xralfk __variable_geist_mono_1h7ebsl"
+-                           cz-shortcut-listen="true"
+                          >
+
+[2m下午2:20:21[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m [2m[console.error] [22m[vite] Failed to reload /app/page.tsx. This could be due to syntax errors or importing non-existent modules. (see errors above)
+[2m下午2:20:21[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m [2m[console.error] [22m[vite] Failed to reload /app/page.tsx. This could be due to syntax errors or importing non-existent modules. (see errors above)
+[2m下午2:20:21[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m [2m[console.error] [22m[vite] Failed to reload /app/page.tsx. This could be due to syntax errors or importing non-existent modules. (see errors above)
+Detected multiple renderers concurrently rendering the same context provider. This is currently unsupported.
+Detected multiple renderers concurrently rendering the same context provider. This is currently unsupported.
+Detected multiple renderers concurrently rendering the same context provider. This is currently unsupported.
+Detected multiple renderers concurrently rendering the same context provider. This is currently unsupported.
+[2m下午3:14:25[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m [2m[console.error] [22mA tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+https://react.dev/link/hydration-mismatch
+
+  ...
+    <DevRecoveryBoundary resetKey={0} onCatch={function handleDevRecoveryBoundaryCatch}>
+      <RedirectBoundary>
+        <RedirectErrorBoundary>
+          <NavigationCommitSignal renderId={0}>
+            <Slot id="route:/">
+              <meta>
+              <title>
+              <meta>
+              <link>
+              <link>
+              <meta>
+              <LayoutSegmentProvider segmentMap={{children:[...]}}>
+                <Slot id="layout:/">
+                  <default>
+                    <link>
+                    <RemoveDuplicateServerCss>
+                    <default>
+                      <RootLayout>
+                        <html lang="zh-Hant">
+                          <body
+                            className="__variable_geist_0xralfk __variable_geist_mono_1h7ebsl"
+-                           cz-shortcut-listen="true"
+                          >
+
+[2m上午8:34:45[22m [31m[1m[vite][22m[39m [31mInternal server error: Network connection lost.[39m
+      at runInRunnerObject (workers/runner-worker/index.js:107:3)
+      at Object.renderHtmlStream (D:/信用卡活動優惠網站/node_modules/.pnpm/vinext@0.0.50_@vitejs+plugi_6e29d3c1e221dce46ffd79bec19b99c1/node_modules/vinext/src/server/app-page-render.ts:439:26)
+      at renderAppPageHtmlStreamWithRecovery (D:/信用卡活動優惠網站/node_modules/.pnpm/vinext@0.0.50_@vitejs+plugi_6e29d3c1e221dce46ffd79bec19b99c1/node_modules/vinext/src/server/app-page-stream.ts:203:24)
+      at renderAppPageLifecycle (D:/信用卡活動優惠網站/node_modules/.pnpm/vinext@0.0.50_@vitejs+plugi_6e29d3c1e221dce46ffd79bec19b99c1/node_modules/vinext/src/server/app-page-render.ts:429:22)
+      at dispatchAppPage (D:/信用卡活動優惠網站/node_modules/.pnpm/vinext@0.0.50_@vitejs+plugi_6e29d3c1e221dce46ffd79bec19b99c1/node_modules/vinext/src/server/app-page-dispatch.ts:309:10)
+      at route (D:/信用卡活動優惠網站/node_modules/.pnpm/vinext@0.0.50_@vitejs+plugi_6e29d3c1e221dce46ffd79bec19b99c1/node_modules/vinext/src/server/app-rsc-handler.ts:582:24)
+      at handleRequest (D:/信用卡活動優惠網站/node_modules/.pnpm/vinext@0.0.50_@vitejs+plugi_6e29d3c1e221dce46ffd79bec19b99c1/node_modules/vinext/src/server/app-router-entry.ts:85:18)
+      at maybeCaptureError (workers/runner-worker/index.js:51:10)
+[2m上午8:34:56[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m [31m[Unhandled error] [1mError[22m: Hydration failed because the server rendered text didn't match the client. As a result this tree will be regenerated on the client. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+https://react.dev/link/hydration-mismatch
+
+  ...
+    <body className="__variable...">
+      <Children>
+        <RedirectBoundary>
+          <RedirectErrorBoundary>
+            <LayoutSegmentProvider segmentMap={{children:[...]}}>
+              <Slot id="page:/">
+                <AwaitAppRenderDependencies>
+                  <Home params={Promise} searchParams={Promise}>
+                    <main className="min-h-scre...">
+                      <nav>
+                      <section className="relative o...">
+                        <div>
+                        <div className="relative m...">
+                          <div className="flex flex-...">
+                            <p>
+                            <h1>
+                            <p>
+                            <div>
+                            <p className="mt-5 text-...">
++                             08/03 08:34
+-                             07/31 15:14
+                              ...
+                          ...
+                      ...
+
+[39m > throwOnHydrationMismatch node_modules/.pnpm/react-dom@19.2.6_react@19.2.6/node_modules/react-dom/cjs/react-dom-client.development.js:5238:10
+ > completeWork node_modules/.pnpm/react-dom@19.2.6_react@19.2.6/node_modules/react-dom/cjs/react-dom-client.development.js:12743:25
+ > runWithFiberInDEV node_modules/.pnpm/react-dom@19.2.6_react@19.2.6/node_modules/react-dom/cjs/react-dom-client.development.js:871:29
+ > completeUnitOfWork node_modules/.pnpm/react-dom@19.2.6_react@19.2.6/node_modules/react-dom/cjs/react-dom-client.development.js:17777:18
+ > performUnitOfWork node_modules/.pnpm/react-dom@19.2.6_react@19.2.6/node_modules/react-dom/cjs/react-dom-client.development.js:17658:10
+ > workLoopSync node_modules/.pnpm/react-dom@19.2.6_react@19.2.6/node_modules/react-dom/cjs/react-dom-client.development.js:17469:40
+ > renderRootSync node_modules/.pnpm/react-dom@19.2.6_react@19.2.6/node_modules/react-dom/cjs/react-dom-client.development.js:17450:10
+ > performWorkOnRoot node_modules/.pnpm/react-dom@19.2.6_react@19.2.6/node_modules/react-dom/cjs/react-dom-client.development.js:16504:10
+ > performWorkOnRootViaSchedulerTask node_modules/.pnpm/react-dom@19.2.6_react@19.2.6/node_modules/react-dom/cjs/react-dom-client.development.js:18957:6
+ > MessagePort.performWorkUntilDeadline node_modules/.pnpm/scheduler@0.27.0/node_modules/scheduler/cjs/scheduler.development.js:45:47
+
+[2m上午8:34:57[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m [31m[Unhandled error] [1mError[22m: Hydration failed because the server rendered text didn't match the client. As a result this tree will be regenerated on the client. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+https://react.dev/link/hydration-mismatch
+
+  ...
+    <body className="__variable...">
+      <Children>
+        <RedirectBoundary>
+          <RedirectErrorBoundary>
+            <LayoutSegmentProvider segmentMap={{children:[...]}}>
+              <Slot id="page:/">
+                <AwaitAppRenderDependencies>
+                  <Home params={Promise} searchParams={Promise}>
+                    <main className="min-h-scre...">
+                      <nav>
+                      <section className="relative o...">
+                        <div>
+                        <div className="relative m...">
+                          <div className="flex flex-...">
+                            <p>
+                            <h1>
+                            <p>
+                            <div>
+                            <p className="mt-5 text-...">
++                             08/03 08:34
+-                             07/31 15:14
+                              ...
+                          ...
+                      ...
+
+[39m > throwOnHydrationMismatch node_modules/.pnpm/react-dom@19.2.6_react@19.2.6/node_modules/react-dom/cjs/react-dom-client.development.js:5238:10
+ > completeWork node_modules/.pnpm/react-dom@19.2.6_react@19.2.6/node_modules/react-dom/cjs/react-dom-client.development.js:12743:25
+ > runWithFiberInDEV node_modules/.pnpm/react-dom@19.2.6_react@19.2.6/node_modules/react-dom/cjs/react-dom-client.development.js:871:29
+ > completeUnitOfWork node_modules/.pnpm/react-dom@19.2.6_react@19.2.6/node_modules/react-dom/cjs/react-dom-client.development.js:17777:18
+ > performUnitOfWork node_modules/.pnpm/react-dom@19.2.6_react@19.2.6/node_modules/react-dom/cjs/react-dom-client.development.js:17658:10
+ > workLoopSync node_modules/.pnpm/react-dom@19.2.6_react@19.2.6/node_modules/react-dom/cjs/react-dom-client.development.js:17469:40
+ > renderRootSync node_modules/.pnpm/react-dom@19.2.6_react@19.2.6/node_modules/react-dom/cjs/react-dom-client.development.js:17450:10
+ > performWorkOnRoot node_modules/.pnpm/react-dom@19.2.6_react@19.2.6/node_modules/react-dom/cjs/react-dom-client.development.js:16504:10
+ > performWorkOnRootViaSchedulerTask node_modules/.pnpm/react-dom@19.2.6_react@19.2.6/node_modules/react-dom/cjs/react-dom-client.development.js:18957:6
+ > MessagePort.performWorkUntilDeadline node_modules/.pnpm/scheduler@0.27.0/node_modules/scheduler/cjs/scheduler.development.js:45:47
+
+[2m下午3:20:05[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m [31m[Unhandled error] [1mError[22m: Hydration failed because the server rendered text didn't match the client. As a result this tree will be regenerated on the client. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+https://react.dev/link/hydration-mismatch
+
+  ...
+    <DevRecoveryBoundary resetKey={0} onCatch={function handleDevRecoveryBoundaryCatch}>
+      <RedirectBoundary>
+        <RedirectErrorBoundary>
+          <NavigationCommitSignal renderId={0}>
+            <Slot id="route:/">
+              <meta>
+              <title>
+              <meta>
+              <link>
+              <link>
+              <meta>
+              <LayoutSegmentProvider segmentMap={{children:[...]}}>
+                <Slot id="layout:/">
+                  <default>
+                    <link>
+                    <RemoveDuplicateServerCss>
+                    <default>
+                      <RootLayout>
+                        <html lang="zh-Hant">
+                          <body
+                            className="__variable_geist_0xralfk __variable_geist_mono_1h7ebsl"
+-                           cz-shortcut-listen="true"
+                          >
+                            ...
+                              <div className="relative m...">
+                                <div className="flex flex-...">
+                                  <p>
+                                  <h1>
+                                  <p>
+                                  <div>
+                                  <p className="mt-5 text-...">
++                                   08/03 15:20
+-                                   07/31 15:14
+                                    ...
+                                ...
+
+[39m > throwOnHydrationMismatch node_modules/.pnpm/react-dom@19.2.6_react@19.2.6/node_modules/react-dom/cjs/react-dom-client.development.js:5238:10
+ > completeWork node_modules/.pnpm/react-dom@19.2.6_react@19.2.6/node_modules/react-dom/cjs/react-dom-client.development.js:12743:25
+ > runWithFiberInDEV node_modules/.pnpm/react-dom@19.2.6_react@19.2.6/node_modules/react-dom/cjs/react-dom-client.development.js:871:29
+ > completeUnitOfWork node_modules/.pnpm/react-dom@19.2.6_react@19.2.6/node_modules/react-dom/cjs/react-dom-client.development.js:17777:18
+ > performUnitOfWork node_modules/.pnpm/react-dom@19.2.6_react@19.2.6/node_modules/react-dom/cjs/react-dom-client.development.js:17658:10
+ > workLoopSync node_modules/.pnpm/react-dom@19.2.6_react@19.2.6/node_modules/react-dom/cjs/react-dom-client.development.js:17469:40
+ > renderRootSync node_modules/.pnpm/react-dom@19.2.6_react@19.2.6/node_modules/react-dom/cjs/react-dom-client.development.js:17450:10
+ > performWorkOnRoot node_modules/.pnpm/react-dom@19.2.6_react@19.2.6/node_modules/react-dom/cjs/react-dom-client.development.js:16504:10
+ > performWorkOnRootViaSchedulerTask node_modules/.pnpm/react-dom@19.2.6_react@19.2.6/node_modules/react-dom/cjs/react-dom-client.development.js:18957:6
+ > MessagePort.performWorkUntilDeadline node_modules/.pnpm/scheduler@0.27.0/node_modules/scheduler/cjs/scheduler.development.js:45:47
+
+[2m上午9:10:37[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m [31m[Unhandled error] [1mError[22m: Hydration failed because the server rendered text didn't match the client. As a result this tree will be regenerated on the client. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+https://react.dev/link/hydration-mismatch
+
+  ...
+    <DevRecoveryBoundary resetKey={0} onCatch={function handleDevRecoveryBoundaryCatch}>
+      <RedirectBoundary>
+        <RedirectErrorBoundary>
+          <NavigationCommitSignal renderId={0}>
+            <Slot id="route:/">
+              <meta>
+              <title>
+              <meta>
+              <link>
+              <link>
+              <meta>
+              <LayoutSegmentProvider segmentMap={{children:[...]}}>
+                <Slot id="layout:/">
+                  <default>
+                    <link>
+                    <RemoveDuplicateServerCss>
+                    <default>
+                      <RootLayout>
+                        <html lang="zh-Hant">
+                          <body
+                            className="__variable_geist_0xralfk __variable_geist_mono_1h7ebsl"
+-                           cz-shortcut-listen="true"
+                          >
+                            ...
+                              <div className="relative m...">
+                                <div className="flex flex-...">
+                                  <p>
+                                  <h1>
+                                  <p>
+                                  <div>
+                                  <p className="mt-5 text-...">
++                                   08/04 09:10
+-                                   07/31 15:14
+                                    ...
+                                ...
+
+[39m > throwOnHydrationMismatch node_modules/.pnpm/react-dom@19.2.6_react@19.2.6/node_modules/react-dom/cjs/react-dom-client.development.js:5238:10
+ > completeWork node_modules/.pnpm/react-dom@19.2.6_react@19.2.6/node_modules/react-dom/cjs/react-dom-client.development.js:12743:25
+ > runWithFiberInDEV node_modules/.pnpm/react-dom@19.2.6_react@19.2.6/node_modules/react-dom/cjs/react-dom-client.development.js:871:29
+ > completeUnitOfWork node_modules/.pnpm/react-dom@19.2.6_react@19.2.6/node_modules/react-dom/cjs/react-dom-client.development.js:17777:18
+ > performUnitOfWork node_modules/.pnpm/react-dom@19.2.6_react@19.2.6/node_modules/react-dom/cjs/react-dom-client.development.js:17658:10
+ > workLoopSync node_modules/.pnpm/react-dom@19.2.6_react@19.2.6/node_modules/react-dom/cjs/react-dom-client.development.js:17469:40
+ > renderRootSync node_modules/.pnpm/react-dom@19.2.6_react@19.2.6/node_modules/react-dom/cjs/react-dom-client.development.js:17450:10
+ > performWorkOnRoot node_modules/.pnpm/react-dom@19.2.6_react@19.2.6/node_modules/react-dom/cjs/react-dom-client.development.js:16504:10
+ > performWorkOnRootViaSchedulerTask node_modules/.pnpm/react-dom@19.2.6_react@19.2.6/node_modules/react-dom/cjs/react-dom-client.development.js:18957:6
+ > MessagePort.performWorkUntilDeadline node_modules/.pnpm/scheduler@0.27.0/node_modules/scheduler/cjs/scheduler.development.js:45:47
+
+[2m上午5:33:32[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m [31m[Unhandled error] [1mError[22m: Hydration failed because the server rendered text didn't match the client. As a result this tree will be regenerated on the client. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+https://react.dev/link/hydration-mismatch
+
+  ...
+    <body className="__variable...">
+      <Children>
+        <RedirectBoundary>
+          <RedirectErrorBoundary>
+            <LayoutSegmentProvider segmentMap={{children:[...]}}>
+              <Slot id="page:/">
+                <AwaitAppRenderDependencies>
+                  <Home params={Promise} searchParams={Promise}>
+                    <main className="min-h-scre...">
+                      <nav>
+                      <section className="relative o...">
+                        <div>
+                        <div className="relative m...">
+                          <div className="flex flex-...">
+                            <p>
+                            <h1>
+                            <p>
+                            <div>
+                            <p className="mt-5 text-...">
++                             08/07 05:33
+-                             07/31 15:14
+                              ...
+                          ...
+                      ...
+
+[39m > throwOnHydrationMismatch node_modules/.pnpm/react-dom@19.2.6_react@19.2.6/node_modules/react-dom/cjs/react-dom-client.development.js:5238:10
+ > completeWork node_modules/.pnpm/react-dom@19.2.6_react@19.2.6/node_modules/react-dom/cjs/react-dom-client.development.js:12743:25
+ > runWithFiberInDEV node_modules/.pnpm/react-dom@19.2.6_react@19.2.6/node_modules/react-dom/cjs/react-dom-client.development.js:871:29
+ > completeUnitOfWork node_modules/.pnpm/react-dom@19.2.6_react@19.2.6/node_modules/react-dom/cjs/react-dom-client.development.js:17777:18
+ > performUnitOfWork node_modules/.pnpm/react-dom@19.2.6_react@19.2.6/node_modules/react-dom/cjs/react-dom-client.development.js:17658:10
+ > workLoopSync node_modules/.pnpm/react-dom@19.2.6_react@19.2.6/node_modules/react-dom/cjs/react-dom-client.development.js:17469:40
+ > renderRootSync node_modules/.pnpm/react-dom@19.2.6_react@19.2.6/node_modules/react-dom/cjs/react-dom-client.development.js:17450:10
+ > performWorkOnRoot node_modules/.pnpm/react-dom@19.2.6_react@19.2.6/node_modules/react-dom/cjs/react-dom-client.development.js:16504:10
+ > performWorkOnRootViaSchedulerTask node_modules/.pnpm/react-dom@19.2.6_react@19.2.6/node_modules/react-dom/cjs/react-dom-client.development.js:18957:6
+ > MessagePort.performWorkUntilDeadline node_modules/.pnpm/scheduler@0.27.0/node_modules/scheduler/cjs/scheduler.development.js:45:47
+
+[2m上午7:39:38[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m [31m[Unhandled error] [1mError[22m: Hydration failed because the server rendered text didn't match the client. As a result this tree will be regenerated on the client. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+https://react.dev/link/hydration-mismatch
+
+  ...
+    <body className="__variable...">
+      <Children>
+        <RedirectBoundary>
+          <RedirectErrorBoundary>
+            <LayoutSegmentProvider segmentMap={{children:[...]}}>
+              <Slot id="page:/">
+                <AwaitAppRenderDependencies>
+                  <Home params={Promise} searchParams={Promise}>
+                    <main className="min-h-scre...">
+                      <nav>
+                      <section className="relative o...">
+                        <div>
+                        <div className="relative m...">
+                          <div className="flex flex-...">
+                            <p>
+                            <h1>
+                            <p>
+                            <div>
+                            <p className="mt-5 text-...">
++                             08/07 07:39
+-                             07/31 15:14
+                              ...
+                          ...
+                      ...
+
+[39m > throwOnHydrationMismatch node_modules/.pnpm/react-dom@19.2.6_react@19.2.6/node_modules/react-dom/cjs/react-dom-client.development.js:5238:10
+ > completeWork node_modules/.pnpm/react-dom@19.2.6_react@19.2.6/node_modules/react-dom/cjs/react-dom-client.development.js:12743:25
+ > runWithFiberInDEV node_modules/.pnpm/react-dom@19.2.6_react@19.2.6/node_modules/react-dom/cjs/react-dom-client.development.js:871:29
+ > completeUnitOfWork node_modules/.pnpm/react-dom@19.2.6_react@19.2.6/node_modules/react-dom/cjs/react-dom-client.development.js:17777:18
+ > performUnitOfWork node_modules/.pnpm/react-dom@19.2.6_react@19.2.6/node_modules/react-dom/cjs/react-dom-client.development.js:17658:10
+ > workLoopSync node_modules/.pnpm/react-dom@19.2.6_react@19.2.6/node_modules/react-dom/cjs/react-dom-client.development.js:17469:40
+ > renderRootSync node_modules/.pnpm/react-dom@19.2.6_react@19.2.6/node_modules/react-dom/cjs/react-dom-client.development.js:17450:10
+ > performWorkOnRoot node_modules/.pnpm/react-dom@19.2.6_react@19.2.6/node_modules/react-dom/cjs/react-dom-client.development.js:16504:10
+ > performWorkOnRootViaSchedulerTask node_modules/.pnpm/react-dom@19.2.6_react@19.2.6/node_modules/react-dom/cjs/react-dom-client.development.js:18957:6
+ > MessagePort.performWorkUntilDeadline node_modules/.pnpm/scheduler@0.27.0/node_modules/scheduler/cjs/scheduler.development.js:45:47
+
+[2m上午9:29:46[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m [31m[Unhandled error] [1mError[22m: Hydration failed because the server rendered text didn't match the client. As a result this tree will be regenerated on the client. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+https://react.dev/link/hydration-mismatch
+
+  ...
+    <body className="__variable...">
+      <Children>
+        <RedirectBoundary>
+          <RedirectErrorBoundary>
+            <LayoutSegmentProvider segmentMap={{children:[...]}}>
+              <Slot id="page:/">
+                <AwaitAppRenderDependencies>
+                  <Home params={Promise} searchParams={Promise}>
+                    <main className="min-h-scre...">
+                      <nav>
+                      <section className="relative o...">
+                        <div>
+                        <div className="relative m...">
+                          <div className="flex flex-...">
+                            <p>
+                            <h1>
+                            <p>
+                            <div>
+                            <p className="mt-5 text-...">
++                             09/09 09:29
+-                             07/31 15:14
+                              ...
+                          ...
+                      ...
+
+[39m > throwOnHydrationMismatch node_modules/.pnpm/react-dom@19.2.6_react@19.2.6/node_modules/react-dom/cjs/react-dom-client.development.js:5238:10
+ > completeWork node_modules/.pnpm/react-dom@19.2.6_react@19.2.6/node_modules/react-dom/cjs/react-dom-client.development.js:12743:25
+ > runWithFiberInDEV node_modules/.pnpm/react-dom@19.2.6_react@19.2.6/node_modules/react-dom/cjs/react-dom-client.development.js:871:29
+ > completeUnitOfWork node_modules/.pnpm/react-dom@19.2.6_react@19.2.6/node_modules/react-dom/cjs/react-dom-client.development.js:17777:18
+ > performUnitOfWork node_modules/.pnpm/react-dom@19.2.6_react@19.2.6/node_modules/react-dom/cjs/react-dom-client.development.js:17658:10
+ > workLoopSync node_modules/.pnpm/react-dom@19.2.6_react@19.2.6/node_modules/react-dom/cjs/react-dom-client.development.js:17469:40
+ > renderRootSync node_modules/.pnpm/react-dom@19.2.6_react@19.2.6/node_modules/react-dom/cjs/react-dom-client.development.js:17450:10
+ > performWorkOnRoot node_modules/.pnpm/react-dom@19.2.6_react@19.2.6/node_modules/react-dom/cjs/react-dom-client.development.js:16504:10
+ > performWorkOnRootViaSchedulerTask node_modules/.pnpm/react-dom@19.2.6_react@19.2.6/node_modules/react-dom/cjs/react-dom-client.development.js:18957:6
+ > MessagePort.performWorkUntilDeadline node_modules/.pnpm/scheduler@0.27.0/node_modules/scheduler/cjs/scheduler.development.js:45:47
+

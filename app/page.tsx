@@ -507,45 +507,12 @@ export default function Home() {
       </header>
 
       <div className="app-layout">
-        <aside className="side-rail">
-          <div className="side-rail-inner">
-            <div>
-              <p className="rail-label">工作區</p>
-              <nav className="rail-nav" aria-label="頁面導覽">
-                <a className="active" href="#latest"><Icon name="grid" size={17} />活動總覽<span>{totalCount}</span></a>
-                <a href="#platforms"><Icon name="layers" size={17} />平台分類<span>{platformSummaries.length}</span></a>
-                <a href="#sources"><Icon name="external" size={17} />官方入口<span>{sourceLinks.length}</span></a>
-              </nav>
-            </div>
-
-            <div className="source-rail-card">
-              <div className="flex items-center justify-between gap-3">
-                <p className="rail-label">資料狀態</p>
-                <span className="source-dot" />
-              </div>
-              <div className="mt-5 flex items-center gap-3">
-                <span className="rail-status-icon"><Icon name="check" size={15} /></span>
-                <div className="min-w-0">
-                  <p className="truncate text-sm font-semibold text-white">官方資料已同步</p>
-                  <p className="mt-1 text-xs text-white/45">{platformSummaries.length} 個平台 · {totalCount} 筆有效活動</p>
-                </div>
-              </div>
-              <p className="rail-sync-time">最近更新 {updatedTime}</p>
-            </div>
-
-            <div className="rail-note">
-              <Icon name="info" size={17} />
-              <p>點選平台即可篩選；每張活動卡都保留官方連結與完整條件。</p>
-            </div>
-          </div>
-        </aside>
-
         <div className="content-column">
           <section className="workspace-header" aria-labelledby="workspace-title">
             <div>
               <span className="kicker"><span className="kicker-line" />支付優惠情報站</span>
               <h1 id="workspace-title">有效活動總覽</h1>
-              <p>先看回饋，再看條件。所有平台活動集中在同一個可搜尋、可篩選的工作區。</p>
+              <p>先看回饋，再看條件。所有平台活動集中在同一份清單，可直接搜尋與篩選。</p>
             </div>
             <div className="workspace-actions">
               <a className="workspace-action" href="#platforms"><Icon name="layers" size={16} />平台分類</a>
@@ -567,31 +534,32 @@ export default function Home() {
               <aside id="platforms" className="platform-directory glass-panel" aria-label="支付平台分類">
                 <div className="directory-header">
                   <div>
-                    <span className="eyebrow"><Icon name="wallet" size={14} />PLATFORMS</span>
                     <h3>支付平台</h3>
+                    <p>選擇平台，立即查看對應活動</p>
                   </div>
-                  <span>{platformSummaries.length}</span>
+                  <span>{platformSummaries.length} 個</span>
                 </div>
-                <p className="directory-caption">依使用場景分類，點選平台直接篩活動。</p>
-                <button className={`platform-filter-button ${selectedPlatform === "全部平台" ? "selected" : ""}`} onClick={() => { setSelectedPlatform("全部平台"); setActiveCategory("全部"); }}>
-                  <span className="directory-all-icon"><Icon name="grid" size={16} /></span>
-                  <span><strong>全部平台</strong><small>{totalCount} 筆有效活動</small></span>
-                  <Icon name="arrow-right" size={15} />
-                </button>
-                {platformGroups.map((group) => (
-                  <div className="directory-group" key={group.segment}>
-                    <div className="directory-group-heading"><span>{group.label}</span><small>{group.items.length}</small></div>
-                    <div className="directory-list">
-                      {group.items.map(({ platform, offers: platformOffers }) => (
-                        <button key={platform.name} className={`platform-filter-button ${selectedPlatform === platform.name ? "selected" : ""}`} onClick={() => { setSelectedPlatform(platform.name); setActiveCategory("全部"); document.getElementById("latest")?.scrollIntoView({ behavior: "smooth", block: "start" }); }} title={`篩選 ${platform.name} 活動`}>
-                          <BrandMark name={platform.name} logo={platform.logo || paymentLogos[platform.name]} color={platform.color || platformColors[platform.name] || "#2e8b62"} />
-                          <span><strong>{platform.name}</strong><small>{platformOffers.length ? `${platformOffers.length} 筆活動` : "官方入口已建立"}</small></span>
-                          <span className={`directory-status ${platformOffers.length ? "is-active" : ""}`}>{platformOffers.length ? "有活動" : "索引"}</span>
-                        </button>
-                      ))}
+                <div className="directory-scroll">
+                  <button className={`platform-filter-button ${selectedPlatform === "全部平台" ? "selected" : ""}`} onClick={() => { setSelectedPlatform("全部平台"); setActiveCategory("全部"); }}>
+                    <span className="directory-all-icon"><Icon name="grid" size={16} /></span>
+                    <span><strong>全部平台</strong><small>{totalCount} 筆有效活動</small></span>
+                    <Icon name="arrow-right" size={15} />
+                  </button>
+                  {platformGroups.map((group) => (
+                    <div className="directory-group" key={group.segment}>
+                      <div className="directory-group-heading"><span>{group.label}</span><small>{group.items.length}</small></div>
+                      <div className="directory-list">
+                        {group.items.map(({ platform, offers: platformOffers }) => (
+                          <button key={platform.name} className={`platform-filter-button ${selectedPlatform === platform.name ? "selected" : ""}`} onClick={() => { setSelectedPlatform(platform.name); setActiveCategory("全部"); document.getElementById("latest")?.scrollIntoView({ behavior: "smooth", block: "start" }); }} title={`篩選 ${platform.name} 活動`}>
+                            <BrandMark name={platform.name} logo={platform.logo || paymentLogos[platform.name]} color={platform.color || platformColors[platform.name] || "#2e8b62"} />
+                            <span><strong>{platform.name}</strong><small>{platformOffers.length ? `${platformOffers.length} 筆活動` : "官方入口已建立"}</small></span>
+                            <span className={`directory-status ${platformOffers.length ? "is-active" : ""}`}>{platformOffers.length ? "有活動" : "索引"}</span>
+                          </button>
+                        ))}
+                      </div>
                     </div>
-                  </div>
-                ))}
+                  ))}
+                </div>
               </aside>
 
               <div className="activity-results">
