@@ -6079,6 +6079,54 @@ body {
   }
 }
 
+/* Make the primary platform filter unmistakable without enlarging the header. */
+.topbar-filter-button {
+  border-color: #79cf58;
+  color: #123c24;
+  background: linear-gradient(135deg, #efff9a 0%, #b9ff70 45%, #75f5b4 100%);
+  box-shadow: 0 7px 18px rgba(106, 218, 92, 0.24), inset 0 1px 0 rgba(255, 255, 255, 0.72);
+}
+
+.topbar-filter-button:hover,
+.topbar-filter-button.is-open {
+  border-color: #51ae3f;
+  color: #0d321e;
+  background: linear-gradient(135deg, #f6ffad 0%, #c5ff74 45%, #6bffb4 100%);
+  box-shadow: 0 9px 23px rgba(79, 185, 69, 0.32), inset 0 1px 0 rgba(255, 255, 255, 0.82);
+}
+
+.topbar-filter-button b {
+  color: #efffb5;
+  background: #16492a;
+}
+
+.topbar-filter-button:hover b,
+.topbar-filter-button.is-open b {
+  color: #173d25;
+  background: #f6ffbd;
+}
+
+@media (max-width: 760px) {
+  .topbar-filter-button {
+    width: auto;
+    min-width: 78px;
+    height: 36px;
+    min-height: 36px;
+    padding: 0 9px;
+    gap: 5px;
+  }
+
+  .topbar-filter-button span {
+    display: inline;
+    font-size: 9px;
+  }
+
+  .topbar-filter-button b {
+    top: 3px;
+    right: 4px;
+  }
+}
+
 /* Keep dense activity lists scannable, with details available on demand. */
 .activity-toolbar-controls {
   display: flex;

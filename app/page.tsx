@@ -972,7 +972,7 @@ export default function Home() {
             {!isHistoryView ? (
               <button type="button" className={`topbar-filter-button${filtersOpen ? " is-open" : ""}`} onClick={() => setFiltersOpen((open) => !open)} aria-expanded={filtersOpen} aria-controls="platform-filter-panel">
                 <Icon name="sliders" size={15} />
-                <span>平台／分類</span>
+                <span>平台分類</span>
                 {activeFilterCount ? <b>{activeFilterCount}</b> : null}
               </button>
             ) : null}
