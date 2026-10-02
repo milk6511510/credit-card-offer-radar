@@ -94,6 +94,7 @@ type Offer = Campaign & {
 };
 
 type AppView = "latest" | "favorites" | "history";
+type ActivityViewMode = "scan" | "detail";
 
 type IconName =
   | "search"
@@ -546,7 +547,7 @@ function CategoryScroller({
   );
 }
 
-function OfferCard({ offer, isFavorite, onToggleFavorite }: { offer: Offer; isFavorite: boolean; onToggleFavorite: (offer: Offer) => void }) {
+function OfferCard({ offer, isFavorite, onToggleFavorite, viewMode }: { offer: Offer; isFavorite: boolean; onToggleFavorite: (offer: Offer) => void; viewMode: ActivityViewMode }) {
   const isNewUser = getAudience(offer) === "new-user";
   const newUserAudience = audienceMeta["new-user"];
   const paymentMethods = getPaymentMethods(offer);
@@ -557,7 +558,7 @@ function OfferCard({ offer, isFavorite, onToggleFavorite }: { offer: Offer; isFa
   const storeSummary = offer.stores.length ? offer.stores.join(" · ") : "以官方活動頁列示通路為準";
 
   return (
-    <article className="offer-card offer-bar-card glass-card">
+    <article className={`offer-card offer-bar-card glass-card is-${viewMode}`}>
       <div className="offer-bar-main">
         <BrandMark name={paymentName} logo={paymentLogo} color={paymentColor} />
         <div className="offer-bar-identity">
@@ -626,6 +627,7 @@ export default function Home() {
   const [activeCategory, setActiveCategory] = useState("全部");
   const [selectedPlatform, setSelectedPlatform] = useState("全部平台");
   const [sortMode, setSortMode] = useState<"latest" | "reward" | "ending">("latest");
+  const [activityViewMode, setActivityViewMode] = useState<ActivityViewMode>("scan");
   const [activeView, setActiveView] = useState<AppView>("latest");
   const [historyPlatform, setHistoryPlatform] = useState("全部平台");
   const [historyMonth, setHistoryMonth] = useState("全部月份");
@@ -1063,6 +1065,16 @@ export default function Home() {
                     </div>
                   </label>
                   <div className="activity-toolbar-controls">
+                    <div className="activity-view-switch" role="group" aria-label="活動資訊顯示方式">
+                      <button type="button" className={activityViewMode === "scan" ? "selected" : ""} onClick={() => setActivityViewMode("scan")} aria-pressed={activityViewMode === "scan"} title="只顯示回饋、期限與一行活動精要">
+                        <Icon name="layers" size={14} />
+                        <span>快速瀏覽</span>
+                      </button>
+                      <button type="button" className={activityViewMode === "detail" ? "selected" : ""} onClick={() => setActivityViewMode("detail")} aria-pressed={activityViewMode === "detail"} title="顯示更多活動摘要與支付方式">
+                        <Icon name="database" size={14} />
+                        <span>完整資訊</span>
+                      </button>
+                    </div>
                     <label className="sort-control">
                       <span>排序方式</span>
                       <select value={sortMode} onChange={(event) => setSortMode(event.target.value as "latest" | "reward" | "ending")} aria-label="排序方式">
@@ -1079,7 +1091,7 @@ export default function Home() {
                     <CategoryScroller categories={categories} activeCategory={activeCategory} categoryCounts={categoryCounts} onSelect={setActiveCategory} />
                   </div>
                   <div className="active-filter-summary" aria-live="polite">
-                    <span>目前查看</span>
+                    <span>顯示 {Math.min(visibleOfferCount, filteredOffers.length)} / {filteredOffers.length} 筆</span>
                     <strong>{selectedPlatform}</strong>
                     {activeCategory !== "全部" ? <em>{activeCategory}</em> : null}
                     {query.trim() ? <em>搜尋：{query.trim()}</em> : null}
@@ -1139,7 +1151,7 @@ export default function Home() {
                   <div className="empty-state glass-panel"><Icon name={isFavoritesView ? "heart" : "search"} size={24} /><h3>{isFavoritesView ? "還沒有收藏活動" : "目前沒有符合的活動"}</h3><p>{isFavoritesView ? "回到活動總覽，點選卡片右上角的愛心開始追蹤。" : "換一個平台或關鍵字，重新查看同步資料。"}</p>{isFavoritesView ? <a className="empty-state-link" href="#latest"><Icon name="search" size={14} />瀏覽全部活動</a> : null}</div>
                 ) : (
                   <>
-                    <div className="offer-grid">{visibleOffers.map((offer, index) => <OfferCard key={`${offer.payment.name}-${offer.officialId || offer.sourceUrl || offer.title}-${index}`} offer={offer} isFavorite={isOfferFavorite(offer, favoriteIds)} onToggleFavorite={toggleFavorite} />)}</div>
+                    <div className={`offer-grid is-${activityViewMode}`}>{visibleOffers.map((offer, index) => <OfferCard key={`${offer.payment.name}-${offer.officialId || offer.sourceUrl || offer.title}-${index}`} offer={offer} isFavorite={isOfferFavorite(offer, favoriteIds)} onToggleFavorite={toggleFavorite} viewMode={activityViewMode} />)}</div>
                     {remainingOfferCount ? <button type="button" className="load-more-offers" onClick={() => setVisibleOfferState({ key: filterSignature, count: visibleOfferCount + INITIAL_VISIBLE_OFFERS })}><span>載入更多活動</span><small>還有 {remainingOfferCount} 筆</small><Icon name="arrow-right" size={15} /></button> : null}
                   </>
                 )}

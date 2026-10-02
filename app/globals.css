@@ -6078,3 +6078,141 @@ body {
     max-width: 68px;
   }
 }
+
+/* Keep dense activity lists scannable, with details available on demand. */
+.activity-toolbar-controls {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 8px;
+  min-width: 0;
+}
+
+.desktop-category-filter {
+  display: block;
+  min-width: 0;
+  flex: 1 1 auto;
+}
+
+.activity-view-switch {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  min-height: 42px;
+  padding: 3px;
+  border: 1px solid #d4e4db;
+  border-radius: 10px;
+  background: #f6faf8;
+}
+
+.activity-view-switch button {
+  display: inline-flex;
+  min-width: 0;
+  min-height: 34px;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  padding: 0 8px;
+  border: 1px solid transparent;
+  border-radius: 7px;
+  color: #72877d;
+  background: transparent;
+  font-size: 9px;
+  font-weight: 740;
+  white-space: nowrap;
+}
+
+.activity-view-switch button:hover,
+.activity-view-switch button.selected {
+  border-color: #c5e0cf;
+  color: #236b49;
+  background: #fff;
+  box-shadow: 0 2px 8px rgba(35, 107, 73, 0.08);
+}
+
+.activity-view-switch button svg {
+  flex: 0 0 auto;
+}
+
+.offer-bar-card.is-scan .offer-bar-summary {
+  min-height: 70px;
+}
+
+.offer-bar-card.is-scan .offer-bar-summary .activity-summary-list li:not(:first-child),
+.offer-bar-card.is-scan .offer-bar-payment-list .signal-pill:nth-child(n + 2) {
+  display: none;
+}
+
+.offer-bar-card.is-detail .offer-bar-summary {
+  min-height: 92px;
+}
+
+.offer-bar-card.is-detail .offer-bar-summary .activity-summary-list li {
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+@media (max-width: 760px) {
+  .desktop-category-filter {
+    display: none;
+  }
+
+  .activity-toolbar-controls {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 142px);
+    align-items: center;
+    gap: 7px;
+  }
+
+  .activity-view-switch {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .activity-view-switch button {
+    flex: 1 1 0;
+    padding-inline: 5px;
+    font-size: 8px;
+  }
+
+  .activity-toolbar-controls .sort-control {
+    width: 100%;
+    max-width: none;
+  }
+
+  .offer-bar-card.is-scan .offer-bar-summary {
+    min-height: 0;
+  }
+
+  .offer-bar-card.is-detail .offer-bar-summary {
+    min-height: 0;
+  }
+
+  .offer-bar-card.is-scan .offer-bar-summary .activity-summary-list li:not(:first-child),
+  .offer-bar-card.is-scan .offer-bar-payment-list .signal-pill:nth-child(n + 2) {
+    display: none;
+  }
+
+  .offer-bar-card.is-detail .offer-bar-summary .activity-summary-list li:not(:first-child) {
+    display: -webkit-box;
+  }
+
+  .offer-bar-card.is-detail .offer-bar-payment-list .signal-pill:nth-child(n + 2) {
+    display: inline-flex;
+  }
+}
+
+@media (max-width: 380px) {
+  .activity-toolbar-controls {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 126px);
+    gap: 5px;
+  }
+
+  .activity-view-switch button {
+    gap: 3px;
+    padding-inline: 3px;
+    font-size: 7.5px;
+  }
+}
