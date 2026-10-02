@@ -1817,14 +1817,15 @@ summary:focus-visible {
 
   .platform-directory {
     position: static;
-    max-height: none;
-    overflow: visible;
+    max-height: 420px;
+    overflow: hidden;
   }
 
   .directory-scroll {
-    max-height: none;
-    overflow: visible;
-    padding-right: 0;
+    max-height: 340px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    padding-right: 4px;
   }
 
   .directory-list {
@@ -1928,6 +1929,11 @@ summary:focus-visible {
   .platform-directory {
     padding: 13px;
     border-radius: 14px;
+    max-height: 380px;
+  }
+
+  .directory-scroll {
+    max-height: 295px;
   }
 
   .directory-list {
