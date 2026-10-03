@@ -1,0 +1,17 @@
+{
+  "name": "paymentrader｜支付優惠情報",
+  "short_name": "paymentrader",
+  "description": "集中整理各大支付平台官方活動與回饋資訊。",
+  "start_url": "/?source=app",
+  "display": "standalone",
+  "background_color": "#f7fbf6",
+  "theme_color": "#65c89a",
+  "icons": [
+    {
+      "src": "/branding/paymentrader/logo-10-editorial-light-mark.svg",
+      "sizes": "64x64",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
