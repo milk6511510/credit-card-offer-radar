@@ -166,7 +166,8 @@ function extractDateRecords(platform, campaign, records) {
     const index = Number(match.index || 0);
     const before = text.slice(Math.max(0, index - 72), index);
     const contextBeforeMatch = `${before} ${match[0]}`;
-    if (!/(已於|已額滿|提前額滿|回饋上限|贈點|名額|額滿)/.test(contextBeforeMatch) || /例如|範例|舉例/.test(before)) continue;
+    if (!/(?:已(?:於|額滿)|提前額滿|回饋上限|贈點.*(?:額滿|用罄|送完)|名額.*(?:額滿|用罄|送完))/.test(contextBeforeMatch) || /例如|範例|舉例/.test(before)) continue;
+    if (/(?:額滿後(?:無論|均|一律)|額滿公告(?:以|為)|額滿活動即提前結束)/.test(contextBeforeMatch) && !/已(?:於[^。；\n]{0,60})?(?:額滿|滿額|兌換完畢|用罄|送完)/.test(contextBeforeMatch)) continue;
     const parts = buildDateParts(match);
     const context = cleanText(text.slice(Math.max(0, index - 115), index + match[0].length + 80));
     const lineStart = text.lastIndexOf("\n", Math.max(0, index - 1));
@@ -225,9 +226,10 @@ function extractOpenMonthRecords(platform, campaign, records) {
 }
 
 function keepHistoryRecord(record) {
+  const evidence = String(record.evidence || "");
+  if (/(?:額滿後(?:無論|均|一律)|額滿公告(?:以|為)|額滿活動即提前結束)/.test(evidence) && !/已(?:於[^。；\n]{0,60})?(?:額滿|滿額|兌換完畢|用罄|送完)/.test(evidence)) return false;
   if (record.platform !== "OPEN錢包") return true;
   const title = String(record.campaignTitle || "");
-  const evidence = String(record.evidence || "");
   if (!title.startsWith("OPEN錢包綁")) return false;
   return !/(家居分期|1010購物節|店內活動|一般權益)/i.test(evidence);
 }
