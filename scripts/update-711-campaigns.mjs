@@ -2,7 +2,7 @@ import { writeFile, mkdir, readFile } from "node:fs/promises";
 import path from "node:path";
 
 const sourceUrl = "https://www.7-11.com.tw/include/SalesPromo.xml?12";
-const paymentSourceUrl = "https://www.7-11.com.tw/service/Pay.aspx";
+const paymentSourceUrl = "https://www.7-11.com.tw/service/Pay.aspx#tab1";
 const siteOrigin = "https://www.7-11.com.tw";
 
 const typeMap = {
