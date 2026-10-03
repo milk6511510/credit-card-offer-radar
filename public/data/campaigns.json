@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-03T13:11:04.437Z",
+  "updatedAt": "2026-10-03T18:54:47.827Z",
   "history": [
     {
       "platform": "悠遊付",
@@ -956,15 +956,15 @@
     "url": "https://www.7-11.com.tw/service/Pay.aspx#tab1",
     "officialSite": "https://www.7-11.com.tw/index.aspx",
     "counts": {
-      "一般回饋": 19,
-      "交通／旅遊回饋": 24,
-      "超商回饋": 33,
-      "新戶優惠": 32,
+      "一般回饋": 18,
       "金融／綁卡回饋": 67,
+      "交通／旅遊回饋": 23,
       "餐飲回饋": 17,
       "購物回饋": 32,
+      "超商回饋": 33,
+      "新戶優惠": 32,
       "加油回饋": 6,
-      "最新資訊": 21,
+      "最新資訊": 4,
       "iPASS MONEY 活動": 1,
       "生活服務": 2,
       "金融回饋": 17,
@@ -988,70 +988,70 @@
       "url": "https://web-tw-pay.line.me/cms/event",
       "officialSite": "https://web-tw-pay.line.me/cms/event",
       "status": "ok",
-      "checkedAt": "2026-10-03T13:11:04.437Z"
+      "checkedAt": "2026-10-03T18:54:47.827Z"
     },
     {
       "name": "LINE Pay 官方活動",
       "url": "https://web-tw-pay.line.me/svc/event/display2/ce715b92-8150-406b-bf42-c71cb56eb427",
       "officialSite": "https://web-tw-pay.line.me/cms/event",
       "status": "ok",
-      "checkedAt": "2026-10-03T13:11:04.437Z"
+      "checkedAt": "2026-10-03T18:54:47.827Z"
     },
     {
       "name": "LINE Pay 官方活動",
       "url": "https://pay.line.me/portal/tw/about/promotions?progressType=ONGOING",
       "officialSite": "https://web-tw-pay.line.me/cms/event",
       "status": "ok",
-      "checkedAt": "2026-10-03T13:11:04.437Z"
+      "checkedAt": "2026-10-03T18:54:47.827Z"
     },
     {
       "name": "LINE Pay 官方活動",
       "url": "https://pay.line.me/portal/tw/customer/press",
       "officialSite": "https://web-tw-pay.line.me/cms/event",
       "status": "ok",
-      "checkedAt": "2026-10-03T13:11:04.437Z"
+      "checkedAt": "2026-10-03T18:54:47.827Z"
     },
     {
       "name": "街口支付 官方活動",
       "url": "https://mkt.jkopay.com/sitemap.xml",
       "officialSite": "https://mkt.jkopay.com/zh-TW/event",
       "status": "ok",
-      "checkedAt": "2026-10-03T13:11:04.437Z"
+      "checkedAt": "2026-10-03T18:54:47.827Z"
     },
     {
       "name": "悠遊付 官方活動",
       "url": "https://easywallet.easycard.com.tw/benefit/?page=1",
       "officialSite": "https://easywallet.easycard.com.tw/benefit/",
       "status": "ok",
-      "checkedAt": "2026-10-03T13:11:04.437Z"
+      "checkedAt": "2026-10-03T18:54:47.827Z"
     },
     {
       "name": "iPASS MONEY 官方活動",
       "url": "https://www.i-pass.com.tw/Preferential?page=1&type=0",
       "officialSite": "https://www.i-pass.com.tw/Preferential",
       "status": "ok",
-      "checkedAt": "2026-10-03T13:11:04.437Z"
+      "checkedAt": "2026-10-03T18:54:47.827Z"
     },
     {
       "name": "icash Pay 官方活動",
       "url": "https://www.icashpay.com.tw/advertMessage/index?page=1",
       "officialSite": "https://www.icashpay.com.tw/",
       "status": "ok",
-      "checkedAt": "2026-10-03T13:11:04.437Z"
+      "checkedAt": "2026-10-03T18:54:47.827Z"
     },
     {
       "name": "icash Pay 官方活動",
       "url": "https://www.icashpay.com.tw/advertMessage/view/id/2540",
       "officialSite": "https://www.icashpay.com.tw/",
       "status": "ok",
-      "checkedAt": "2026-10-03T13:11:04.437Z"
+      "checkedAt": "2026-10-03T18:54:47.827Z"
     },
     {
       "name": "Pi 拍錢包 官方活動",
       "url": "https://web.piapp.com.tw/events/",
       "officialSite": "https://web.piapp.com.tw/events/",
       "status": "ok",
-      "checkedAt": "2026-10-03T13:11:04.437Z"
+      "checkedAt": "2026-10-03T18:54:47.827Z"
     },
     {
       "name": "全盈+PAY 官方活動",
@@ -1059,70 +1059,72 @@
       "officialSite": "https://event2023.pluspay.com.tw/",
       "status": "fallback",
       "note": "官方頁為 JavaScript 應用程式，未取得活動內容",
-      "checkedAt": "2026-10-03T13:11:04.437Z"
+      "checkedAt": "2026-10-03T18:54:47.827Z"
     },
     {
       "name": "OPEN錢包 官方活動",
       "url": "https://www.7-11.com.tw/service/Pay.aspx#tab1",
       "officialSite": "https://www.7-11.com.tw/service/Pay.aspx#tab1",
       "status": "ok",
-      "checkedAt": "2026-10-03T13:11:04.437Z"
+      "checkedAt": "2026-10-03T18:54:47.827Z"
     },
     {
       "name": "7-ELEVEN 官方活動",
       "url": "https://www.7-11.com.tw/index.aspx",
       "officialSite": "https://www.7-11.com.tw/index.aspx",
       "status": "ok",
-      "checkedAt": "2026-10-03T13:11:04.437Z"
+      "checkedAt": "2026-10-03T18:54:47.827Z"
     },
     {
       "name": "7-ELEVEN 官方活動",
       "url": "https://www.7-11.com.tw/include/SalesPromo.xml?12",
       "officialSite": "https://www.7-11.com.tw/index.aspx",
       "status": "ok",
-      "checkedAt": "2026-10-03T13:11:04.437Z"
+      "checkedAt": "2026-10-03T18:54:47.827Z"
     },
     {
       "name": "台灣 Pay 官方活動",
       "url": "https://taiwanpay.firstbank.com.tw/sites/twpay/latestOffers",
       "officialSite": "https://taiwanpay.firstbank.com.tw/sites/twpay/latestOffers",
       "status": "ok",
-      "checkedAt": "2026-10-03T13:11:04.437Z"
+      "checkedAt": "2026-10-03T18:54:47.827Z"
     },
     {
       "name": "全支付 官方活動",
       "url": "https://prod-s3.pxpayplus.com/pxplus_jpmam_mktpage2026/index.html",
       "officialSite": "https://www.pxpayplus.com.tw/",
       "status": "ok",
-      "checkedAt": "2026-10-03T13:11:04.437Z"
+      "checkedAt": "2026-10-03T18:54:47.827Z"
     },
     {
       "name": "全支付 官方活動",
       "url": "https://www.pxpayplus.com.tw/",
       "officialSite": "https://www.pxpayplus.com.tw/",
       "status": "ok",
-      "checkedAt": "2026-10-03T13:11:04.437Z"
+      "checkedAt": "2026-10-03T18:54:47.827Z"
     },
     {
       "name": "橘子支付 官方活動",
       "url": "https://www.gamapay.com.tw/news_list.html",
       "officialSite": "https://www.gamapay.com.tw/news_list.html",
-      "status": "ok",
-      "checkedAt": "2026-10-03T13:11:04.437Z"
+      "status": "unreachable",
+      "note": "fetch failed",
+      "checkedAt": "2026-10-03T18:54:47.827Z"
     },
     {
       "name": "橘子支付 官方活動",
       "url": "https://www.gamapay.com.tw/api/NewsList",
       "officialSite": "https://www.gamapay.com.tw/news_list.html",
-      "status": "ok",
-      "checkedAt": "2026-10-03T13:11:04.437Z"
+      "status": "unreachable",
+      "note": "fetch failed",
+      "checkedAt": "2026-10-03T18:54:47.827Z"
     },
     {
       "name": "歐付寶 O'Pay 官方活動",
       "url": "https://www.opay.tw/banner/event",
       "officialSite": "https://www.opay.tw/banner/event",
       "status": "ok",
-      "checkedAt": "2026-10-03T13:11:04.437Z"
+      "checkedAt": "2026-10-03T18:54:47.827Z"
     },
     {
       "name": "ezPay 簡單付 官方活動",
@@ -1130,7 +1132,7 @@
       "officialSite": "https://www.ezpay.com.tw/",
       "status": "blocked",
       "note": "官方首頁拒絕自動讀取，暫不列入目前有效活動",
-      "checkedAt": "2026-10-03T13:11:04.437Z"
+      "checkedAt": "2026-10-03T18:54:47.827Z"
     }
   ],
   "payments": [
@@ -1139,7 +1141,7 @@
       "logo": "/logos/line-pay.svg",
       "color": "#00c300",
       "focus": "LINE Pay、LINE Pay Money 與官方通路優惠。",
-      "freshness": "官方來源檢查 2026/10/03；依官方更新順序排列",
+      "freshness": "官方來源檢查 2026/10/04；依官方更新順序排列",
       "campaigns": [
         {
           "title": "【365天優惠不間斷】 天天LINE Pay，好康來配！",
@@ -1164,94 +1166,6 @@
           "officialOrder": -1
         },
         {
-          "title": "【週週領】好康地圖領 八大主題優惠券",
-          "category": "一般回饋",
-          "stores": [
-            "官方支付服務"
-          ],
-          "paymentMethods": [
-            "LINE Pay"
-          ],
-          "audience": "not-stated",
-          "rate": 0,
-          "cap": 0,
-          "rewardLabel": "依官方條件回饋",
-          "status": "活動期間 2026/09/30–2026/12/31；官方發布 2026年9月30日16:00 GMT+00",
-          "sourceUrl": "https://web-tw-pay.line.me/cms/event/template1.3/dd3c5680-6590-4997-ab75-ebcb1acc1859",
-          "image": "https://linepaytw-cms.line-scdn.net/v0/3d8644018be3d50a3bf705a8c77bdce6187714036670a0e7906751b72d7ed0e4.png",
-          "rawText": "天天LINE Pay\n 優惠券\n 任一付款方法\n 【週週領】好康地圖領 八大主題優惠券 \n 發布日期：2026年9月30日16:00 GMT+00\n 活動日期\n 2026/9/30 16:00 -\n 2026/12/31 15:59 (GMT+00)\n ※各主題使用優惠券限制不同，請見各主題活動頁面說明※\n 活動店家\n 主題店家(詳見各主題活動頁面)\n ※請以付款當下各主題活動頁面提供的店家清單為準※\n 領取及使用優惠券教學\n 活動提醒\n 參加活動前請務必先進入LINE\n Pay，依序點選「設定」＞「服務條款」＞「行銷資訊提供政策」，確認頁面上方是否已勾選同意，未同意將不符活動資格。\n 付款前請務必再次留意選擇的付款方式是否正確；若選擇錯誤，後續能否取消再重新交易將依店家規定為準。\n 活動內容\n 活動期間已註冊LINE Pay的用戶可週週到「好康地圖」領 八大主題店家優惠券！\n ※活動店家的部份商品可能因內部或法規規定而無法使用優惠券，請以店家系統判斷為主。\n ※若活動店家及活動參加者皆已開通LINE Pay Money，則選用LINE Pay Money餘額付款同享回饋。\n ※自行了解LINE Pay付款操作方式及活動內容為活動參加者的義務，參加活動視同同意本活動規則，不因個人認知、星座生肖、宗教信仰、身分地位、疾病、威脅等而有特例，LINE Pay保有對本活動所有事宜做出最終解釋及決定的權利。\n 活動注意事項\n 立即下載 LINE Pay App\n 追蹤更多 LINE Pay 動態",
-          "startsAt": "20260930",
-          "endsAt": "20261231",
-          "publishedAt": "20260930",
-          "officialOrder": 0
-        },
-        {
-          "title": "【LINE Pay Money】 使用乘車碼搭乘，月月最高享LINE POINTS 30%回饋！",
-          "category": "交通／旅遊回饋",
-          "stores": [
-            "官方支付服務"
-          ],
-          "paymentMethods": [
-            "LINE Pay"
-          ],
-          "audience": "not-stated",
-          "rate": 0.3,
-          "cap": 0,
-          "rewardLabel": "最高 30% 回饋",
-          "status": "活動期間 2026/09/30–2026/12/31；官方發布 2026年9月30日16:00 GMT+00",
-          "sourceUrl": "https://web-tw-pay.line.me/cms/event/template1.3/6e2f1143-fdd5-4a01-9583-611668f4e733",
-          "image": "https://linepaytw-cms.line-scdn.net/v0/d806b53a867147bcfa291a80a59822f99987d0ffa59451bce59e7c400967175d.png",
-          "rawText": "任務活動列表\n LINE Pay Money 會員專屬活動\n 點數回饋\n 指定付款方法\n 【LINE Pay Money】 使用乘車碼搭乘，月月最高享LINE POINTS 30%回饋！\n 發布日期：2026年9月30日16:00 GMT+00\n 活動日期\n 2026/9/30 16:00 -\n 2026/12/31 15:59 (GMT+00)\n 活動店家\n LINE Pay Money 會員專屬\n ※僅適用於台北捷運(棕線、橘線、紅線、藍線、綠線)、新北捷運環狀線、台北市聯營公車及新北市區公車；台北捷運貓空纜車、新北捷運三鶯線、淡水輕軌、安坑輕軌皆不適用。\n 十月任務進度\n 活動提醒\n 參加活動前請務必先進入LINE\n Pay，依序點選「設定」＞「服務條款」＞「行銷資訊提供政策」，確認頁面上方是否已勾選同意，未同意將不符活動資格。\n 付款前請務必再次留意選擇的付款方式是否正確；若選擇錯誤，後續能否取消再重新交易將依店家規定為準。\n 活動內容\n 優惠一：每月前10趟享LINE POINTS 10%回饋！\n 優惠二：單月累計30筆且30筆交易實際支付金額皆大於新台幣0元(LINE POINTS及優惠券折抵金額不計入)，享LINE POINTS 20%回饋！\n [任務進度]\n ※自行了解LINE Pay Money開戶條件、方式、流程、限制及本活動內容為活動參加者的義務，參加活動視同同意本活動規則，不因個人認知、星座生肖、宗教信仰、身分地位、疾病、威脅等而有特例，LINE Pay Money(連加電子支付)保有對本活動所有事宜做出最終解釋及決定的權利。\n 活動注意事項\n 立即下載 LINE Pay App\n 追蹤更多 LINE Pay 動態",
-          "startsAt": "20260930",
-          "endsAt": "20261231",
-          "publishedAt": "20260930",
-          "officialOrder": 1
-        },
-        {
-          "title": "【LINE Pay Money】 未成年用戶開通LINE Pay Money帳戶享7-ELEVEN總價值100元優惠券！",
-          "category": "超商回饋",
-          "stores": [
-            "7-ELEVEN"
-          ],
-          "paymentMethods": [
-            "LINE Pay"
-          ],
-          "audience": "new-user",
-          "rate": 0,
-          "cap": 0,
-          "rewardLabel": "依官方條件回饋",
-          "status": "活動期間 2026/09/30–2026/12/31；官方發布 2026年9月30日16:00 GMT+00",
-          "sourceUrl": "https://web-tw-pay.line.me/cms/event/template1.3/ade2597f-2488-440a-90dd-8f7a66156fdc",
-          "image": "https://linepaytw-cms.line-scdn.net/v0/d5e4c9fd3781d524ab547d08c4d309a3b2203600dc756bb654cba9800e6ad356.png",
-          "rawText": "LINE Pay Money 會員專屬活動\n 優惠券\n 【LINE Pay Money】 未成年用戶開通LINE Pay Money帳戶享7-ELEVEN總價值100元優惠券！\n 發布日期：2026年9月30日16:00 GMT+00\n 活動日期\n 2026/9/30 16:00 -\n 2026/12/31 15:59 (GMT+00)\n 活動店家\n LINE Pay Money未成年會員專屬\n 活動提醒\n 參加活動前請務必先進入LINE\n Pay，依序點選「設定」＞「服務條款」＞「行銷資訊提供政策」，確認頁面上方是否已勾選同意，未同意將不符活動資格。\n 付款前請務必再次留意選擇的付款方式是否正確；若選擇錯誤，後續能否取消再重新交易將依店家規定為準。\n 活動內容\n 未成年用戶開通LINE Pay Money帳戶享7-ELEVEN總價值100元優惠券！\n ※自行了解LINE Pay Money開戶條件、方式、流程、限制及本活動內容為活動參加者的義務，參加活動視同同意本活動規則，不因個人認知、星座生肖、宗教信仰、身分地位、疾病、威脅等而有特例，LINE Pay Money(連加電子支付)保有對本活動所有事宜做出最終解釋及決定的權利。\n ※使用優惠券的交易無法部份退款，僅能全額退款。\n 活動注意事項\n 立即下載 LINE Pay App\n 追蹤更多 LINE Pay 動態",
-          "startsAt": "20260930",
-          "endsAt": "20261231",
-          "publishedAt": "20260930",
-          "officialOrder": 2
-        },
-        {
-          "title": "【LINE Pay Money】 透過邀請好友的連結推薦親友成功開通LINE Pay Money享LINE POINTS 50點回饋，親友可得LINE Pay 50元優惠券！",
-          "category": "新戶優惠",
-          "stores": [
-            "官方支付服務"
-          ],
-          "paymentMethods": [
-            "LINE Pay"
-          ],
-          "audience": "not-stated",
-          "rate": 0,
-          "cap": 0,
-          "rewardLabel": "依官方條件回饋",
-          "status": "活動期間 2026/09/30–2026/12/31；官方發布 2026年9月30日16:00 GMT+00",
-          "sourceUrl": "https://web-tw-pay.line.me/cms/event/template1.3/382a39bc-1649-4a86-944c-ac5161e1eba6",
-          "image": "https://linepaytw-cms.line-scdn.net/v0/c22c8ff0e1320fe7990cbc35a4cb51d599fa39512bf0316b241fad96f0dffb34.png",
-          "rawText": "LINE Pay Money 會員專屬活動\n 【LINE Pay Money】 透過邀請好友的連結推薦親友成功開通LINE Pay Money享LINE POINTS 50點回饋，親友可得LINE Pay 50元優惠券！\n 發布日期：2026年9月30日16:00 GMT+00\n 活動日期\n 2026/9/30 16:00 -\n 2026/12/31 15:59 (GMT+00)\n ▶︎需按照活動內容的說明及示意圖操作始符合活動資格◀︎\n 活動店家\n LINE Pay Money 會員專屬\n 立即前往邀請(請用手機開啟）\n 活動提醒\n 參加活動前請務必先進入LINE\n Pay，依序點選「設定」＞「服務條款」＞「行銷資訊提供政策」，確認頁面上方是否已勾選同意，未同意將不符活動資格。\n 付款前請務必再次留意選擇的付款方式是否正確；若選擇錯誤，後續能否取消再重新交易將依店家規定為準。\n 活動內容\n 透過邀請好友的連結推薦親友成功開通LINE Pay Money享LINE POINTS 50點回饋，親友可得LINE Pay 50元優惠券！\n 邀請好友流程步驟\n ※使用優惠券的交易無法部份退款，僅能全額退款。\n ※自行了解LINE Pay Money開戶條件、方式、流程、限制及本活動內容為活動參加者的義務，參加活動視為同意本活動規則，不因個人認知、星座生肖、宗教信仰、身分地位、疾病、威脅等而有特例，LINE Pay Money(連加電子支付)保有對本活動所有事宜做出最終解釋及決定的權利。\n 活動注意事項\n 立即下載 LINE Pay App\n 追蹤更多 LINE Pay 動態",
-          "startsAt": "20260930",
-          "endsAt": "20261231",
-          "publishedAt": "20260930",
-          "officialOrder": 3
-        },
-        {
           "title": "【指定計程車】每週六日用LINE Pay，單筆滿200元且單月累計4筆，享幸運轉轉樂機會，抽最高300點！",
           "category": "金融／綁卡回饋",
           "stores": [
@@ -1271,7 +1185,7 @@
           "startsAt": "20261003",
           "endsAt": "20261227",
           "publishedAt": "20261002",
-          "officialOrder": 4
+          "officialOrder": 0
         },
         {
           "title": "【IKEA宜家家居門市】每週六日用LINE Pay，單筆消費滿2,000元享LINE POINTS 4%回饋！",
@@ -1293,7 +1207,7 @@
           "startsAt": "20261003",
           "endsAt": "20261227",
           "publishedAt": "20261002",
-          "officialOrder": 5
+          "officialOrder": 1
         },
         {
           "title": "【LINE Pay星巴克隨行卡】每週五經由LINE Pay 儲值，單筆滿額贈50元線上優惠券！",
@@ -1315,7 +1229,7 @@
           "startsAt": "20261002",
           "endsAt": "20261225",
           "publishedAt": "20261001",
-          "officialOrder": 6
+          "officialOrder": 2
         },
         {
           "title": "【watashi+資生堂集團美妝購物網】用LINE Pay享LINE POINTS 10%回饋，綁定中信LINE Pay卡付款再享6%！",
@@ -1337,77 +1251,11 @@
           "startsAt": "20261002",
           "endsAt": "20261009",
           "publishedAt": "20261001",
-          "officialOrder": 7
+          "officialOrder": 3
         },
         {
-          "title": "【Uber Eats】每週一至週五用LINE Pay，單筆滿199元且單月累計5筆享幸運轉轉樂機會，抽最高300點！",
-          "category": "新戶優惠",
-          "stores": [
-            "官方支付服務"
-          ],
-          "paymentMethods": [
-            "LINE Pay"
-          ],
-          "audience": "new-user",
-          "rate": 0.07,
-          "cap": 300,
-          "rewardLabel": "最高 7%／上限 300 點／元",
-          "status": "活動期間 2026/10/01–2026/12/31；官方發布 2026年9月30日16:00 GMT+00",
-          "sourceUrl": "https://web-tw-pay.line.me/cms/event/template1.3/58354b1c-496c-418c-b6e9-ae1c503cad3c",
-          "image": "https://linepaytw-cms.line-scdn.net/v0/c5b734d595d580c17f85a9c8d9dc727a7cf29162acd94a207f930ecbb6c617b4.png",
-          "rawText": "任務活動列表\n 天天LINE Pay\n 幸運轉轉樂\n 指定付款方法\n 【Uber Eats】每週一至週五用LINE Pay，單筆滿199元且單月累計5筆享幸運轉轉樂機會，抽最高300點！\n 發布日期：2026年9月30日16:00 GMT+00\n 活動日期\n 2026/9/30 16:00 -\n 2026/12/31 15:59 (GMT+00)\n ※僅活動期間內的每週一至週五適用※\n 活動店家\n Uber Eats App\n ※Uber Eats網頁版、預約訂單、小費及購買Uber One會員不適用※\n 10月任務進度\n 活動提醒\n 參加活動前請務必先進入LINE\n Pay，依序點選「設定」＞「服務條款」＞「行銷資訊提供政策」，確認頁面上方是否已勾選同意，未同意將不符活動資格。\n 付款前請務必再次留意選擇的付款方式是否正確；若選擇錯誤，後續能否取消再重新交易將依店家規定為準。\n 活動內容\n 優惠一：活動期間內的每週一至週五已註冊LINE Pay的用戶於Uber Eats App消費，結帳時透過LINE Pay並使用已綁定的任一發卡銀行信用卡或簽帳金融卡付款，單月累計5筆且5筆交易實際支付金額滿199元，享幸運轉轉樂機會一次！\n 優惠二：[2026/10/1-11/15]每週一至五已註冊LINE Pay的用戶於Uber Eats App消費，結帳時透過LINE Pay並使用已綁定的台新信用卡或台新簽帳金融卡付款，且單筆交易實際支付金額滿199元，享LINE POINTS 2%回饋！\n 10/1至10/31 Uber Eats App輸入優惠序號【秋日美食】最高享四折優惠！\n [八大城市限定] 10/1至10/31 Uber Eats App 輸入優惠序號【十月吃飽】最高享三折優惠！\n [新戶加碼] 10/1至10/31 Uber Eats App輸入優惠序號【初秋嚐鮮】可獲得 Uber Eats 美食外送3折優惠折抵2次！\n ※自行了解LINE Pay付款操作方式及活動內容為活動參加者的義務，參加活動視同同意本活動規則，不因個人認知、星座生肖、宗教信仰、身分地位、疾病、威脅等而有特例，LINE Pay保有對本活動所有事宜做出最終解釋及決定的權利。\n 活動注意事項\n 立即下載 LINE Pay App\n 追蹤更多 LINE Pay 動態",
-          "startsAt": "20261001",
-          "endsAt": "20261231",
-          "publishedAt": "20260930",
-          "officialOrder": 8
-        },
-        {
-          "title": "【指定加油站】每週一至週五用LINE Pay，單筆滿500元且單月累計3筆享幸運轉轉樂機會，抽最高500點！",
-          "category": "加油回饋",
-          "stores": [
-            "台亞石油"
-          ],
-          "paymentMethods": [
-            "LINE Pay"
-          ],
-          "audience": "not-stated",
-          "rate": 0.02,
-          "cap": 500,
-          "rewardLabel": "最高 2%／上限 500 點／元",
-          "status": "活動期間 2026/10/01–2026/12/31；官方發布 2026年9月30日16:00 GMT+00",
-          "sourceUrl": "https://web-tw-pay.line.me/cms/event/template1.3/610c3723-3da8-43cf-b5e6-b8156fea3582",
-          "image": "https://linepaytw-cms.line-scdn.net/v0/51fe4a94fcca34ee9e0bfd5b96459c42fc09ee255a020ba171875cbccccd255f.png",
-          "rawText": "任務活動列表\n 天天LINE Pay\n 幸運轉轉樂\n 指定付款方法\n 【指定加油站】每週一至週五用LINE Pay，單筆滿500元且單月累計3筆享幸運轉轉樂機會，抽最高500點！\n 發布日期：2026年9月30日16:00 GMT+00\n 活動日期\n 2026/9/30 16:00 -\n 2026/12/31 15:59 (GMT+00)\n ※僅活動期間內的每週一至週五適用※\n 活動店家\n 指定加油站\n ※本活動僅適用：①台灣中油直營站/部份加盟站(詳見任務進度頁下方清單)人工加油、複合商店、洗車及 ②台亞石油人工加油 ③台糖加油站人工加油 ④統一精工速邁樂人工加油；自助加油、儲值台灣中油捷利卡、儲值台亞帝雉卡、台亞/台糖/統一精工速邁樂非人工加油消費、統一精工速邁樂皆不適用※\n 10月任務進度\n 活動提醒\n 參加活動前請務必先進入LINE\n Pay，依序點選「設定」＞「服務條款」＞「行銷資訊提供政策」，確認頁面上方是否已勾選同意，未同意將不符活動資格。\n 付款前請務必再次留意選擇的付款方式是否正確；若選擇錯誤，後續能否取消再重新交易將依店家規定為準。\n 活動內容\n 優惠一：活動期間內的每週一到五已註冊LINE Pay的用戶於指定加油站現場消費，結帳時透過LINE Pay並使用已綁定的任一發卡銀行信用卡或簽帳金融卡付款，單月累計3筆且3筆交易實際支付金額滿新台幣500元(LINE POINTS及優惠券折抵金額不計入)，享幸運轉轉樂機會！\n 優惠二：[2026/10/1-11/15]每週一到五已註冊LINE Pay的用戶於指定加油站現場消費，結帳時透過LINE Pay並使用已綁定的台新信用卡或台新簽帳金融卡付款，且單筆交易實際支付滿500元(LINE POINTS及優惠券折抵金額不計入)，享LINE POINTS 2%回饋！\n ※自行了解LINE Pay付款操作方式及活動內容為活動參加者的義務，參加活動視同同意本活動規則，不因個人認知、星座生肖、宗教信仰、身分地位、疾病、威脅等而有特例，LINE Pay保有對本活動所有事宜做出最終解釋及決定的權利。\n 活動注意事項\n 立即下載 LINE Pay App\n 追蹤更多 LINE Pay 動態",
-          "startsAt": "20261001",
-          "endsAt": "20261231",
-          "publishedAt": "20260930",
-          "officialOrder": 9
-        },
-        {
-          "title": "【LOPIA】每週三四用LINE Pay，單筆消費滿700元享LINE POINTS 6%回饋！",
-          "category": "金融／綁卡回饋",
-          "stores": [
-            "新光三越"
-          ],
-          "paymentMethods": [
-            "LINE Pay"
-          ],
-          "audience": "not-stated",
-          "rate": 0.06,
-          "cap": 0,
-          "rewardLabel": "最高 6% 回饋",
-          "status": "活動期間 2026/10/01–2026/12/31；官方發布 2026年9月30日16:00 GMT+00",
-          "sourceUrl": "https://web-tw-pay.line.me/cms/event/template1.3/4d2df854-31ea-4240-8d7c-11d607d7f719",
-          "image": "https://linepaytw-cms.line-scdn.net/v0/792029fa30cd5c14acbddbe226312402d30c2f2d1d088cbabe96b9df17096989.png",
-          "rawText": "天天LINE Pay\n 點數回饋\n 任一付款方法\n 【LOPIA】每週三四用LINE Pay，單筆消費滿700元享LINE POINTS 6%回饋！\n 發布日期：2026年9月30日16:00 GMT+00\n 活動日期\n 2026/9/30 16:00 -\n 2026/12/31 15:59 (GMT+00)\n ※僅活動期間內的每週三四適用※\n 活動店家\n LOPIA實體門市\n ※新光三越台南小北門店及非開立LOPIA發票的門市不適用本活動※\n 搜尋店家位置(請用手機操作)\n 活動提醒\n 參加活動前請務必先進入LINE\n Pay，依序點選「設定」＞「服務條款」＞「行銷資訊提供政策」，確認頁面上方是否已勾選同意，未同意將不符活動資格。\n 付款前請務必再次留意選擇的付款方式是否正確；若選擇錯誤，後續能否取消再重新交易將依店家規定為準。\n 活動內容\n 活動期間內的每週三及週四已註冊LINE Pay的用戶於LOPIA門市現場消費，結帳時透過LINE Pay條碼並使用已綁定的任一發卡銀行信用卡/簽帳金融卡或LINE Pay Money餘額付款，且單筆交易實際支付滿新台幣700元(LINE POINTS及優惠券折抵金額不計入)，享LINE POINTS 6％回饋！\n [不適用本活動的門市、服務及商品]\n ※自行了解LINE Pay付款操作方式及活動內容為活動參加者的義務，參加活動視同同意本活動規則，不因個人認知、星座生肖、宗教信仰、身分地位、疾病、威脅等而有特例，LINE Pay保有對本活動所有事宜做出最終解釋及決定的權利。\n 活動注意事項\n 立即下載 LINE Pay App\n 追蹤更多 LINE Pay 動態",
-          "startsAt": "20261001",
-          "endsAt": "20261231",
-          "publishedAt": "20260930",
-          "officialOrder": 10
-        },
-        {
-          "title": "【迪卡儂門市】每週四五用LINE Pay，單筆消費滿2,000元享LINE POINTS 6%回饋！",
-          "category": "購物回饋",
+          "title": "【週週領】好康地圖領 八大主題優惠券",
+          "category": "一般回饋",
           "stores": [
             "官方支付服務"
           ],
@@ -1415,23 +1263,23 @@
             "LINE Pay"
           ],
           "audience": "not-stated",
-          "rate": 0.06,
+          "rate": 0,
           "cap": 0,
-          "rewardLabel": "最高 6% 回饋",
-          "status": "活動期間 2026/10/01–2026/12/31；官方發布 2026年9月30日16:00 GMT+00",
-          "sourceUrl": "https://web-tw-pay.line.me/cms/event/template1.3/b252a7db-1183-4833-bc9f-f093b2ea95ab",
-          "image": "https://linepaytw-cms.line-scdn.net/v0/d1bca2237cff2e91addb4ea9bb09db94d7ed927273a89a8e1cb4d1e2c41bf1b1.png",
-          "rawText": "天天LINE Pay\n 點數回饋\n 指定付款方法\n 【迪卡儂門市】每週四五用LINE Pay，單筆消費滿2,000元享LINE POINTS 6%回饋！\n 發布日期：2026年9月30日16:00 GMT+00\n 活動日期\n 2026/9/30 16:00 -\n 2026/12/31 15:59 (GMT+00)\n ※僅活動期間內的每週四五適用※\n 活動店家\n 迪卡儂獨立實體門市\n ※迪卡儂線上官方網站、蝦皮迪卡儂官方旗艦店及非開立迪卡儂發票的門市不適用本活動※\n 搜尋店家位置(請用手機操作)\n 活動提醒\n 參加活動前請務必先進入LINE\n Pay，依序點選「設定」＞「服務條款」＞「行銷資訊提供政策」，確認頁面上方是否已勾選同意，未同意將不符活動資格。\n 付款前請務必再次留意選擇的付款方式是否正確；若選擇錯誤，後續能否取消再重新交易將依店家規定為準。\n 活動內容\n 活動期間內的每週四及週五已註冊LINE Pay的用戶於迪卡儂實體門市現場消費，結帳時透過LINE Pay條碼使用已綁定的任一發卡銀行信用卡或簽帳金融卡或LINE Pay Money餘額付款，且單筆交易實際支付滿新台幣2,000元(LINE POINTS及優惠券折抵金額不計入)，享LINE POINTS 6％回饋！\n ※自行了解LINE Pay付款操作方式及活動內容為活動參加者的義務，參加活動視同同意本活動規則，不因個人認知、星座生肖、宗教信仰、身分地位、疾病、威脅等而有特例，LINE Pay保有對本活動所有事宜做出最終解釋及決定的權利。\n 活動注意事項\n 立即下載 LINE Pay App\n 追蹤更多 LINE Pay 動態",
-          "startsAt": "20261001",
+          "rewardLabel": "依官方條件回饋",
+          "status": "活動期間 2026/09/30–2026/12/31；官方發布 2026年9月30日16:00 GMT+00",
+          "sourceUrl": "https://web-tw-pay.line.me/cms/event/template1.3/dd3c5680-6590-4997-ab75-ebcb1acc1859",
+          "image": "https://linepaytw-cms.line-scdn.net/v0/3d8644018be3d50a3bf705a8c77bdce6187714036670a0e7906751b72d7ed0e4.png",
+          "rawText": "天天LINE Pay\n 優惠券\n 任一付款方法\n 【週週領】好康地圖領 八大主題優惠券 \n 發布日期：2026年9月30日16:00 GMT+00\n 活動日期\n 2026/9/30 16:00 -\n 2026/12/31 15:59 (GMT+00)\n ※各主題使用優惠券限制不同，請見各主題活動頁面說明※\n 活動店家\n 主題店家(詳見各主題活動頁面)\n ※請以付款當下各主題活動頁面提供的店家清單為準※\n 領取及使用優惠券教學\n 活動提醒\n 參加活動前請務必先進入LINE\n Pay，依序點選「設定」＞「服務條款」＞「行銷資訊提供政策」，確認頁面上方是否已勾選同意，未同意將不符活動資格。\n 付款前請務必再次留意選擇的付款方式是否正確；若選擇錯誤，後續能否取消再重新交易將依店家規定為準。\n 活動內容\n 活動期間已註冊LINE Pay的用戶可週週到「好康地圖」領 八大主題店家優惠券！\n ※活動店家的部份商品可能因內部或法規規定而無法使用優惠券，請以店家系統判斷為主。\n ※若活動店家及活動參加者皆已開通LINE Pay Money，則選用LINE Pay Money餘額付款同享回饋。\n ※自行了解LINE Pay付款操作方式及活動內容為活動參加者的義務，參加活動視同同意本活動規則，不因個人認知、星座生肖、宗教信仰、身分地位、疾病、威脅等而有特例，LINE Pay保有對本活動所有事宜做出最終解釋及決定的權利。\n 活動注意事項\n 立即下載 LINE Pay App\n 追蹤更多 LINE Pay 動態",
+          "startsAt": "20260930",
           "endsAt": "20261231",
           "publishedAt": "20260930",
-          "officialOrder": 11
+          "officialOrder": 4
         },
         {
-          "title": "【LINE Pay App 】指定日用LINE Pay，享最高LINE POINTS 18%回饋！綁定永豐DAWAY卡付款再享最高10%回饋！",
-          "category": "金融／綁卡回饋",
+          "title": "【LINE Pay Money】 使用乘車碼搭乘，月月最高享LINE POINTS 30%回饋！",
+          "category": "交通／旅遊回饋",
           "stores": [
-            "KLOOK"
+            "官方支付服務"
           ],
           "paymentMethods": [
             "LINE Pay"
@@ -1441,39 +1289,39 @@
           "cap": 0,
           "rewardLabel": "最高 30% 回饋",
           "status": "活動期間 2026/09/30–2026/12/31；官方發布 2026年9月30日16:00 GMT+00",
-          "sourceUrl": "https://web-tw-pay.line.me/cms/event/template1.3/e1f669bf-4f6b-42b1-87f9-1e3c60dd38cc",
-          "image": "https://linepaytw-cms.line-scdn.net/v0/877e7cdc896c07b466e2013ad095b571fe350059fc72319089bcf7b0ff0edc6f.png",
-          "rawText": "天天LINE Pay\n 點數回饋\n 任一付款方法\n 【LINE Pay App 】指定日用LINE Pay，享最高LINE POINTS 18%回饋！綁定永豐DAWAY卡付款再享最高10%回饋！\n 發布日期：2026年9月30日16:00 GMT+00\n 活動日期\n 2026/9/30 16:00 -\n 2026/12/31 15:59 (GMT+00)\n 活動店家\n LINE Pay App 功能\n ※「找體驗」入口僅在LINE Pay App內，請更新LINE Pay App至3.5.0以上版本；如使用iPhone，請更新至iOS14以上版本※\n 點我抵達「找體驗」購買Klook票券\n 點我看「找體驗」教學\n 活動提醒\n 參加活動前請務必先進入LINE\n Pay，依序點選「設定」＞「服務條款」＞「行銷資訊提供政策」，確認頁面上方是否已勾選同意，未同意將不符活動資格。\n 付款前請務必再次留意選擇的付款方式是否正確；若選擇錯誤，後續能否取消再重新交易將依店家規定為準。\n 活動內容\n 活動期間內已註冊LINE Pay的用戶經由LINE Pay App 功能購買Klook票券，可享以下優惠：\n 優惠一：每週一至週五結帳時透過LINE Pay付款使用已綁定的任一發卡銀行信用卡/簽帳金融卡或LINE Pay Money餘額付款享LINE POINTS 10%回饋！\n 優惠二：每週一至週五結帳時透過LINE Pay並使用已綁定的永豐DAWAY卡付款，再享最高LINE POINTS 10%回饋！\n 優惠三：每週六及週日結帳時透過LINE Pay付款使用已綁定的任一發卡銀行信用卡/簽帳金融卡或LINE Pay Money餘額付款享LINE POINTS 18%回饋！\n 優惠四：每週六及週日結帳時透過LINE Pay並使用已綁定的永豐DAWAY卡付款，再享最高LINE POINTS 10%回饋！\n 【2026/10/1-12/31 限時加碼！】 每週二及週五 指定商品加碼最高享LINE POINTS 30%回饋！\n ※自行了解LINE Pay付款操作方式及活動內容為活動參加者的義務，參加活動視同同意本活動規則，不因個人認知、星座生肖、宗教信仰、身分地位、疾病、威脅等而有特例，LINE Pay保有對本活動所有事宜做出最終解釋及決定的權利。\n 活動注意事項\n 立即下載 LINE Pay App\n 追蹤更多 LINE Pay 動態",
+          "sourceUrl": "https://web-tw-pay.line.me/cms/event/template1.3/6e2f1143-fdd5-4a01-9583-611668f4e733",
+          "image": "https://linepaytw-cms.line-scdn.net/v0/d806b53a867147bcfa291a80a59822f99987d0ffa59451bce59e7c400967175d.png",
+          "rawText": "任務活動列表\n LINE Pay Money 會員專屬活動\n 點數回饋\n 指定付款方法\n 【LINE Pay Money】 使用乘車碼搭乘，月月最高享LINE POINTS 30%回饋！\n 發布日期：2026年9月30日16:00 GMT+00\n 活動日期\n 2026/9/30 16:00 -\n 2026/12/31 15:59 (GMT+00)\n 活動店家\n LINE Pay Money 會員專屬\n ※僅適用於台北捷運(棕線、橘線、紅線、藍線、綠線)、新北捷運環狀線、台北市聯營公車及新北市區公車；台北捷運貓空纜車、新北捷運三鶯線、淡水輕軌、安坑輕軌皆不適用。\n 十月任務進度\n 活動提醒\n 參加活動前請務必先進入LINE\n Pay，依序點選「設定」＞「服務條款」＞「行銷資訊提供政策」，確認頁面上方是否已勾選同意，未同意將不符活動資格。\n 付款前請務必再次留意選擇的付款方式是否正確；若選擇錯誤，後續能否取消再重新交易將依店家規定為準。\n 活動內容\n 優惠一：每月前10趟享LINE POINTS 10%回饋！\n 優惠二：單月累計30筆且30筆交易實際支付金額皆大於新台幣0元(LINE POINTS及優惠券折抵金額不計入)，享LINE POINTS 20%回饋！\n [任務進度]\n ※自行了解LINE Pay Money開戶條件、方式、流程、限制及本活動內容為活動參加者的義務，參加活動視同同意本活動規則，不因個人認知、星座生肖、宗教信仰、身分地位、疾病、威脅等而有特例，LINE Pay Money(連加電子支付)保有對本活動所有事宜做出最終解釋及決定的權利。\n 活動注意事項\n 立即下載 LINE Pay App\n 追蹤更多 LINE Pay 動態",
           "startsAt": "20260930",
           "endsAt": "20261231",
           "publishedAt": "20260930",
-          "officialOrder": 12
+          "officialOrder": 5
         },
         {
-          "title": "【LINE Pay App 精選商店】用LINE Pay付款滿35元且累計3筆，抽最高LINE POINTS 500點！單筆付款滿100元，再贈 50元優惠券一張！",
-          "category": "餐飲回饋",
+          "title": "【LINE Pay Money】 未成年用戶開通LINE Pay Money帳戶享7-ELEVEN總價值100元優惠券！",
+          "category": "超商回饋",
           "stores": [
-            "星巴克"
+            "7-ELEVEN"
           ],
           "paymentMethods": [
             "LINE Pay"
           ],
-          "audience": "not-stated",
+          "audience": "new-user",
           "rate": 0,
-          "cap": 500,
-          "rewardLabel": "最高 500 點／元",
+          "cap": 0,
+          "rewardLabel": "依官方條件回饋",
           "status": "活動期間 2026/09/30–2026/12/31；官方發布 2026年9月30日16:00 GMT+00",
-          "sourceUrl": "https://web-tw-pay.line.me/cms/event/template1.3/6a266356-4082-41d7-9112-429e08150c86",
-          "image": "https://linepaytw-cms.line-scdn.net/v0/39f5fde70be9309241586eedbf28c4a06777628c900d4510334a73a5ebd977fc.png",
-          "rawText": "任務活動列表\n 幸運轉轉樂\n 優惠券\n 任一付款方法\n 【LINE Pay App 精選商店】用LINE Pay付款滿35元且累計3筆，抽最高LINE POINTS 500點！單筆付款滿100元，再贈 50元優惠券一張！\n 發布日期：2026年9月30日16:00 GMT+00\n 活動日期\n 2026/9/30 16:00 -\n 2026/12/31 15:59 (GMT+00)\n 活動店家\n LINE Pay App 精選商店\n ※「精選商店」定義為排除「星巴克星意禮」後，當下在購好券頁面可以購買票券的商店※\n 查看活動任務進度\n 前往 \n 使用教學\n 活動提醒\n 參加活動前請務必先進入LINE\n Pay，依序點選「設定」＞「服務條款」＞「行銷資訊提供政策」，確認頁面上方是否已勾選同意，未同意將不符活動資格。\n 付款前請務必再次留意選擇的付款方式是否正確；若選擇錯誤，後續能否取消再重新交易將依店家規定為準。\n 活動內容\n 優惠一：活動期間內已註冊LINE Pay的用戶經由LINE Pay App 於「精選商店」消費，結帳時透過LINE Pay並使用已綁定的任一發卡銀行卡片或LINE Pay Money餘額付款，累計3筆且3筆交易實際支付金額滿新台幣35元(LINE POINTS及優惠券折抵金額不計入)，享幸運轉轉樂機會！\n 優惠二：結帳時透過LINE Pay並選擇使用已綁定的任一發卡銀行卡片或LINE Pay Money餘額付款，且單筆交易支付滿新台幣100元，贈 線上50元優惠券一張！\n ※若商店及活動參加者皆已開通LINE Pay Money，則選用LINE Pay Money餘額付款同享回饋。※\n ※自行了解LINE Pay付款操作方式及活動內容為活動參加者的義務，參加活動視同同意本活動規則，不因個人認知、星座生肖、宗教信仰、身分地位、疾病、威脅等而有特例，LINE Pay保有對本活動所有事宜做出最終解釋及決定的權利。\n 活動注意事項\n 立即下載 LINE Pay App\n 追蹤更多 LINE Pay 動態",
+          "sourceUrl": "https://web-tw-pay.line.me/cms/event/template1.3/ade2597f-2488-440a-90dd-8f7a66156fdc",
+          "image": "https://linepaytw-cms.line-scdn.net/v0/d5e4c9fd3781d524ab547d08c4d309a3b2203600dc756bb654cba9800e6ad356.png",
+          "rawText": "LINE Pay Money 會員專屬活動\n 優惠券\n 【LINE Pay Money】 未成年用戶開通LINE Pay Money帳戶享7-ELEVEN總價值100元優惠券！\n 發布日期：2026年9月30日16:00 GMT+00\n 活動日期\n 2026/9/30 16:00 -\n 2026/12/31 15:59 (GMT+00)\n 活動店家\n LINE Pay Money未成年會員專屬\n 活動提醒\n 參加活動前請務必先進入LINE\n Pay，依序點選「設定」＞「服務條款」＞「行銷資訊提供政策」，確認頁面上方是否已勾選同意，未同意將不符活動資格。\n 付款前請務必再次留意選擇的付款方式是否正確；若選擇錯誤，後續能否取消再重新交易將依店家規定為準。\n 活動內容\n 未成年用戶開通LINE Pay Money帳戶享7-ELEVEN總價值100元優惠券！\n ※自行了解LINE Pay Money開戶條件、方式、流程、限制及本活動內容為活動參加者的義務，參加活動視同同意本活動規則，不因個人認知、星座生肖、宗教信仰、身分地位、疾病、威脅等而有特例，LINE Pay Money(連加電子支付)保有對本活動所有事宜做出最終解釋及決定的權利。\n ※使用優惠券的交易無法部份退款，僅能全額退款。\n 活動注意事項\n 立即下載 LINE Pay App\n 追蹤更多 LINE Pay 動態",
           "startsAt": "20260930",
           "endsAt": "20261231",
           "publishedAt": "20260930",
-          "officialOrder": 13
+          "officialOrder": 6
         },
         {
-          "title": "【永豐DAWAY卡】領 優惠券，LINE Pay付款單筆滿額現折300元！",
-          "category": "金融／綁卡回饋",
+          "title": "【LINE Pay Money】 透過邀請好友的連結推薦親友成功開通LINE Pay Money享LINE POINTS 50點回饋，親友可得LINE Pay 50元優惠券！",
+          "category": "新戶優惠",
           "stores": [
             "官方支付服務"
           ],
@@ -1482,126 +1330,16 @@
           ],
           "audience": "not-stated",
           "rate": 0,
-          "cap": 300,
-          "rewardLabel": "最高 300 點／元",
-          "status": "活動期間 2026/09/30–2026/12/31；官方發布 2026年10月01日02:00 GMT+00",
-          "sourceUrl": "https://web-tw-pay.line.me/cms/event/template1.3/578d8ac6-b78b-473b-b92c-ccff7770e182",
-          "image": "https://linepaytw-cms.line-scdn.net/v0/265518c169d17828aa6983e46d4f663955f3ea18c6fb178862446bbd2050426b.png",
-          "rawText": "優惠券\n 指定付款方法\n 【永豐DAWAY卡】領 優惠券，LINE Pay付款單筆滿額現折300元！\n 發布日期：2026年10月01日02:00 GMT+00\n 活動日期\n 2026/9/30 16:00 -\n 2026/12/31 15:59 (GMT+00)\n ※活動適用店家可能因內部、法規規定或商店代號生效時間而無法使用此優惠券，請以消費當下店家系統判斷為主 ; 每月可使用的優惠券限量750張，用完為止，不另行通知。\n 活動店家\n LINE Pay一般合作店家\n 前往領取10月先用先贏優惠券\n 前往申辦永豐DAWAY卡\n 活動提醒\n 參加活動前請務必先進入LINE\n Pay，依序點選「設定」＞「服務條款」＞「行銷資訊提供政策」，確認頁面上方是否已勾選同意，未同意將不符活動資格。\n 付款前請務必再次留意選擇的付款方式是否正確；若選擇錯誤，後續能否取消再重新交易將依店家規定為準。\n 活動內容\n 活動期間內已註冊LINE Pay的用戶領 300元優惠券，於LINE Pay一般合作店家消費結帳時透過LINE Pay並使用已綁定的永豐DAWAY卡付款，且單筆交易實際支付金額滿新台幣10,000元(LINE POINTS及優惠券折抵金額不計入)即可使用！\n [教學]如何領取LINE Pay優惠券？\n [教學]如何使用LINE Pay優惠券？\n [不適用本活動的店家、服務及商品]\n ※自行了解LINE Pay付款操作方式及活動內容為活動參加者的義務，參加活動視同同意本活動規則，不因個人認知、星座生肖、宗教信仰、身分地位、疾病、威脅等而有特例，LINE Pay保有對本活動所有事宜做出最終解釋及決定的權利。\n 活動注意事項\n 立即下載 LINE Pay App\n 追蹤更多 LINE Pay 動態",
-          "startsAt": "20260930",
-          "endsAt": "20261231",
-          "publishedAt": "20261001",
-          "officialOrder": 14
-        },
-        {
-          "title": "【指定停車場】用LINE Pay單筆滿100元且單月累計4筆，享幸運轉轉樂機會，抽最高LINE POINTS 300點！",
-          "category": "交通／旅遊回饋",
-          "stores": [
-            "官方支付服務"
-          ],
-          "paymentMethods": [
-            "LINE Pay"
-          ],
-          "audience": "not-stated",
-          "rate": 0,
-          "cap": 300,
-          "rewardLabel": "最高 300 點／元",
+          "cap": 0,
+          "rewardLabel": "依官方條件回饋",
           "status": "活動期間 2026/09/30–2026/12/31；官方發布 2026年9月30日16:00 GMT+00",
-          "sourceUrl": "https://web-tw-pay.line.me/cms/event/template1.3/f62b91ed-7cc2-4bb9-88be-d5f8b84c5f04",
-          "image": "https://linepaytw-cms.line-scdn.net/v0/81c395e6d2257bc5eb4b88fda0ed6a266744f8c9274605a946f854b5ba612724.png",
-          "rawText": "任務活動列表\n 天天LINE Pay\n 幸運轉轉樂\n 指定付款方法\n 【指定停車場】用LINE Pay單筆滿100元且單月累計4筆，享幸運轉轉樂機會，抽最高LINE POINTS 300點！\n 發布日期：2026年9月30日16:00 GMT+00\n 活動日期\n 2026/9/30 16:00 -\n 2026/12/31 15:59 (GMT+00)\n 活動店家\n 指定停車場\n ※下方適用清單內公告的停車場站，必須使用LINE Pay並透過「對應的支付服務平台廠商」付款才可累計筆數並享有活動回饋※\n 適用活動停車場站點清單\n 10月任務進度\n 活動提醒\n 參加活動前請務必先進入LINE\n Pay，依序點選「設定」＞「服務條款」＞「行銷資訊提供政策」，確認頁面上方是否已勾選同意，未同意將不符活動資格。\n 付款前請務必再次留意選擇的付款方式是否正確；若選擇錯誤，後續能否取消再重新交易將依店家規定為準。\n 活動內容\n 活動期間內已註冊LINE Pay的用戶於指定停車場消費，結帳時透過LINE Pay並使用已綁定的任一發卡銀行信用卡或簽帳金融卡付款，單月累計4筆且4筆交易實際支付金額滿新台幣100元(LINE POINTS及優惠券折抵金額不計入)，享幸運轉轉樂機會！\n ※若活動商店及活動參加者皆已開通LINE Pay Money，則選用LINE Pay Money餘額付款同享回饋。\n ※自行了解LINE Pay付款操作方式及活動內容為活動參加者的義務，參加活動視同同意本活動規則，不因個人認知、星座生肖、宗教信仰、身分地位、疾病、威脅等而有特例，LINE Pay保有對本活動所有事宜做出最終解釋及決定的權利。\n 活動注意事項\n 立即下載 LINE Pay App\n 追蹤更多 LINE Pay 動態",
+          "sourceUrl": "https://web-tw-pay.line.me/cms/event/template1.3/382a39bc-1649-4a86-944c-ac5161e1eba6",
+          "image": "https://linepaytw-cms.line-scdn.net/v0/c22c8ff0e1320fe7990cbc35a4cb51d599fa39512bf0316b241fad96f0dffb34.png",
+          "rawText": "LINE Pay Money 會員專屬活動\n 【LINE Pay Money】 透過邀請好友的連結推薦親友成功開通LINE Pay Money享LINE POINTS 50點回饋，親友可得LINE Pay 50元優惠券！\n 發布日期：2026年9月30日16:00 GMT+00\n 活動日期\n 2026/9/30 16:00 -\n 2026/12/31 15:59 (GMT+00)\n ▶︎需按照活動內容的說明及示意圖操作始符合活動資格◀︎\n 活動店家\n LINE Pay Money 會員專屬\n 立即前往邀請(請用手機開啟）\n 活動提醒\n 參加活動前請務必先進入LINE\n Pay，依序點選「設定」＞「服務條款」＞「行銷資訊提供政策」，確認頁面上方是否已勾選同意，未同意將不符活動資格。\n 付款前請務必再次留意選擇的付款方式是否正確；若選擇錯誤，後續能否取消再重新交易將依店家規定為準。\n 活動內容\n 透過邀請好友的連結推薦親友成功開通LINE Pay Money享LINE POINTS 50點回饋，親友可得LINE Pay 50元優惠券！\n 邀請好友流程步驟\n ※使用優惠券的交易無法部份退款，僅能全額退款。\n ※自行了解LINE Pay Money開戶條件、方式、流程、限制及本活動內容為活動參加者的義務，參加活動視為同意本活動規則，不因個人認知、星座生肖、宗教信仰、身分地位、疾病、威脅等而有特例，LINE Pay Money(連加電子支付)保有對本活動所有事宜做出最終解釋及決定的權利。\n 活動注意事項\n 立即下載 LINE Pay App\n 追蹤更多 LINE Pay 動態",
           "startsAt": "20260930",
           "endsAt": "20261231",
           "publishedAt": "20260930",
-          "officialOrder": 15
-        },
-        {
-          "title": "【Sisley官網】用LINE Pay享LINE POINTS 10%回饋，綁定中信LINE Pay卡付款再享6%！",
-          "category": "金融／綁卡回饋",
-          "stores": [
-            "官方支付服務"
-          ],
-          "paymentMethods": [
-            "LINE Pay"
-          ],
-          "audience": "not-stated",
-          "rate": 0.1,
-          "cap": 0,
-          "rewardLabel": "最高 10% 回饋",
-          "status": "活動期間 2026/10/01–2026/10/11；官方發布 2026年9月30日16:00 GMT+00",
-          "sourceUrl": "https://web-tw-pay.line.me/cms/event/template1.3/74840759-2b59-45cc-998d-91b631ae3bef",
-          "image": "https://linepaytw-cms.line-scdn.net/v0/1c22e76bef46d9c84fd17d2719d16be328c73e40bec89fcadefa95c11ce78744.jpg",
-          "rawText": "點數回饋\n 任一付款方法\n 指定付款方法\n 【Sisley官網】用LINE Pay享LINE POINTS 10%回饋，綁定中信LINE Pay卡付款再享6%！\n 發布日期：2026年9月30日16:00 GMT+00\n 活動日期\n 2026/9/30 16:00 -\n 2026/10/11 15:59 (GMT+00)\n 活動店家\n Sisley官網\n 前往Sisley官網\n 活動提醒\n 參加活動前請務必先進入LINE\n Pay，依序點選「設定」＞「服務條款」＞「行銷資訊提供政策」，確認頁面上方是否已勾選同意，未同意將不符活動資格。\n 付款前請務必再次留意選擇的付款方式是否正確；若選擇錯誤，後續能否取消再重新交易將依店家規定為準。\n 活動內容\n 活動期間內已註冊LINE Pay的用戶於Sisley官網消費，結帳時透過LINE Pay付款，可享以下優惠：\n 優惠一：選擇使用已綁定的任一發卡銀行信用卡/簽帳金融卡或LINE Pay Money帳戶付款，享LINE POINTS 10%回饋！\n 優惠二：選擇使用已綁定的中國信託LINE Pay信用卡或LINE Pay簽帳金融卡付款，再享LINE POINTS 6%回饋！\n ※若商店及活動參加者皆已開通LINE Pay Money，則選用LINE Pay Money帳戶付款同享回饋。\n ※自行了解LINE Pay付款操作方式及活動內容為活動參加者的義務，參加活動視同同意本活動規則，不因個人認知、星座生肖、宗教信仰、身分地位、疾病、威脅等而有特例，LINE Pay保有對本活動所有事宜做出最終解釋及決定的權利。\n 活動注意事項\n 立即下載 LINE Pay App\n 追蹤更多 LINE Pay 動態",
-          "startsAt": "20261001",
-          "endsAt": "20261011",
-          "publishedAt": "20260930",
-          "officialOrder": 16
-        },
-        {
-          "title": "【山隆加油站】LINE Pay付款單筆滿額享LINE POINTS 1%回饋！",
-          "category": "加油回饋",
-          "stores": [
-            "官方支付服務"
-          ],
-          "paymentMethods": [
-            "LINE Pay"
-          ],
-          "audience": "not-stated",
-          "rate": 0.01,
-          "cap": 0,
-          "rewardLabel": "最高 1% 回饋",
-          "status": "活動期間 2026/10/01–2026/12/31；官方發布 2026年9月30日16:00 GMT+00",
-          "sourceUrl": "https://web-tw-pay.line.me/cms/event/template1.3/a1ab617c-b220-4c72-817f-771a94238d04",
-          "image": "https://linepaytw-cms.line-scdn.net/v0/dd07dfd0d7077c9e205c85d6c6b72f1ae66b25dd373d653f92ef16b078af44d9.png",
-          "rawText": "點數回饋\n 任一付款方法\n 【山隆加油站】LINE Pay付款單筆滿額享LINE POINTS 1%回饋！\n 發布日期：2026年9月30日16:00 GMT+00\n 活動日期\n 2026/9/30 16:00 -\n 2026/12/31 15:59 (GMT+00)\n 活動店家\n 山隆加油站\n 立即查看服務據點\n 活動提醒\n 參加活動前請務必先進入LINE\n Pay，依序點選「設定」＞「服務條款」＞「行銷資訊提供政策」，確認頁面上方是否已勾選同意，未同意將不符活動資格。\n 付款前請務必再次留意選擇的付款方式是否正確；若選擇錯誤，後續能否取消再重新交易將依店家規定為準。\n 活動內容\n 活動期間內已註冊LINE Pay的用戶於山隆加油站現場消費，結帳時透過LINE Pay使用已綁定的任一發卡銀行信用卡/簽帳金融卡付款，且單筆交易實際支付金額滿新台幣100元(LINE POINTS及優惠券折抵金額不計入)，享LINE POINTS 1%回饋！ \n ※若商店及活動參加者皆已開通LINE Pay Money，則選用LINE Pay Money帳戶付款同享回饋。\n ※自行了解LINE Pay付款操作方式及活動內容為活動參加者的義務，參加活動視同同意本活動規則，不因個人認知、星座生肖、宗教信仰、身分地位、疾病、威脅等而有特例，LINE Pay保有對本活動所有事宜做出最終解釋及決定的權利。\n 活動注意事項\n 立即下載 LINE Pay App\n 追蹤更多 LINE Pay 動態",
-          "startsAt": "20261001",
-          "endsAt": "20261231",
-          "publishedAt": "20260930",
-          "officialOrder": 17
-        },
-        {
-          "title": "【長髮公主的秘密官網】LINE Pay付款享LINE POINTS 5%回饋，單筆滿額再享15%！",
-          "category": "金融／綁卡回饋",
-          "stores": [
-            "官方支付服務"
-          ],
-          "paymentMethods": [
-            "LINE Pay"
-          ],
-          "audience": "not-stated",
-          "rate": 0.2,
-          "cap": 0,
-          "rewardLabel": "最高 20% 回饋",
-          "status": "活動期間 2026/10/01–2026/10/31；官方發布 2026年9月30日16:00 GMT+00",
-          "sourceUrl": "https://web-tw-pay.line.me/cms/event/template1.3/c08ec900-6321-4354-b772-609d3de6c9ef",
-          "image": "https://linepaytw-cms.line-scdn.net/v0/d67ca303a7d0cc57cde1fdb8f8fdebfe70a42edf2486c93527308da0ecb98184.png",
-          "rawText": "點數回饋\n 任一付款方法\n 【長髮公主的秘密官網】LINE Pay付款享LINE POINTS 5%回饋，單筆滿額再享15%！\n 發布日期：2026年9月30日16:00 GMT+00\n 活動日期\n 2026/9/30 16:00 -\n 2026/10/31 15:59 (GMT+00)\n 活動店家\n 長髮公主的秘密官網\n 前往長髮公主的秘密官網\n 活動提醒\n 參加活動前請務必先進入LINE\n Pay，依序點選「設定」＞「服務條款」＞「行銷資訊提供政策」，確認頁面上方是否已勾選同意，未同意將不符活動資格。\n 付款前請務必再次留意選擇的付款方式是否正確；若選擇錯誤，後續能否取消再重新交易將依店家規定為準。\n 活動內容\n 活動期間內已註冊LINE Pay的用戶於長髮公主的秘密官網消費，結帳時透過LINE Pay使用已綁定的任一發卡銀行信用卡/簽帳金融卡付款，可享以下優惠：\n 優惠一：享LINE POINTS 5%回饋！\n 優惠二：單筆交易實際支付金額滿新台幣2,011元(LINE POINTS及優惠券折抵金額不計入)，再享LINE POINTS 15%回饋，與優惠一合計享最高LINE POINTS 20%回饋！ \n 以上優惠合計限量10萬點，發完為止，額滿訊息將公告於LINE Pay官方帳號貼文專區：\n ① 請加入 LINE Pay官方帳號 並解除封鎖。\n ② 開啟手機版LINE應用程式＞進入聊天室列表＞搜尋並進入「LINE Pay」官方帳號＞點選「活動額滿公告」查看是否額滿( 圖片說明 )。\n ③ 已結束活動或跨月活動的額滿通知，也可至LINE Pay官方帳號 活動額滿公告頁 查看。\n ④ 若因參加活動人數踴躍導致付款完成時間有秒數差異，則以「LINE錢包」通知訊息顯示是否有回饋資訊為準，未顯示即代表無回饋，參加活動視同同意此機制，不以任何理由要求賠償。\n ※若商店及活動參加者皆已開通LINE Pay Money，則選用LINE Pay Money帳戶付款同享回饋。\n ※自行了解LINE Pay付款操作方式及活動內容為活動參加者的義務，參加活動視同同意本活動規則，不因個人認知、星座生肖、宗教信仰、身分地位、疾病、威脅等而有特例，LINE Pay保有對本活動所有事宜做出最終解釋及決定的權利。\n 活動注意事項\n 立即下載 LINE Pay App\n 追蹤更多 LINE Pay 動態",
-          "startsAt": "20261001",
-          "endsAt": "20261031",
-          "publishedAt": "20260930",
-          "officialOrder": 18
-        },
-        {
-          "title": "【Hearth官方網站】用LINE Pay單筆滿額享LINE POINTS 300點回饋，綁定中信LINE Pay卡付款再享6%！",
-          "category": "金融／綁卡回饋",
-          "stores": [
-            "官方支付服務"
-          ],
-          "paymentMethods": [
-            "LINE Pay"
-          ],
-          "audience": "not-stated",
-          "rate": 0.06,
-          "cap": 0,
-          "rewardLabel": "最高 6% 回饋",
-          "status": "活動期間 2026/10/01–2026/10/07；官方發布 2026年9月30日16:00 GMT+00",
-          "sourceUrl": "https://web-tw-pay.line.me/cms/event/template1.3/04527db0-bb26-41f3-b340-318eef555b13",
-          "image": "https://linepaytw-cms.line-scdn.net/v0/75710dde3673fa95e669af5905fd556df13672a8e626e4c7d7dc7d4e1beb23fd.jpg",
-          "rawText": "點數回饋\n 任一付款方法\n 指定付款方法\n 【Hearth官方網站】用LINE Pay單筆滿額享LINE POINTS 300點回饋，綁定中信LINE Pay卡付款再享6%！\n 發布日期：2026年9月30日16:00 GMT+00\n 活動日期\n 2026/9/30 16:00 -\n 2026/10/7 15:59 (GMT+00)\n 活動店家\n Hearth官方網站\n 前往Hearth官方網站\n 活動提醒\n 參加活動前請務必先進入LINE\n Pay，依序點選「設定」＞「服務條款」＞「行銷資訊提供政策」，確認頁面上方是否已勾選同意，未同意將不符活動資格。\n 付款前請務必再次留意選擇的付款方式是否正確；若選擇錯誤，後續能否取消再重新交易將依店家規定為準。\n 活動內容\n 活動期間內已註冊LINE Pay的用戶於Hearth官方網站消費，結帳時透過LINE Pay使用已綁定的信用卡/簽帳金融卡付款，且單筆交易實際支付金額滿新台幣3,800元(LINE POINTS及優惠券折抵金額不計入)，享LINE POINTS 300點回饋！\n 優惠二：選擇使用已綁定的中國信託LINE Pay信用卡或LINE Pay簽帳金融卡付款，再享LINE POINTS 6%回饋！\n 活動注意事項\n 立即下載 LINE Pay App\n 追蹤更多 LINE Pay 動態",
-          "startsAt": "20261001",
-          "endsAt": "20261007",
-          "publishedAt": "20260930",
-          "officialOrder": 19
+          "officialOrder": 7
         },
         {
           "title": "【誠品生活】領取先用先贏50元優惠券，單筆消費滿500元即可使用！",
@@ -1623,7 +1361,249 @@
           "startsAt": "20260917",
           "endsAt": "20261031",
           "publishedAt": "20260917",
-          "officialOrder": 20
+          "officialOrder": 8
+        },
+        {
+          "title": "【LINE Pay App 精選商店】用LINE Pay付款滿35元且累計3筆，抽最高LINE POINTS 500點！單筆付款滿100元，再贈 50元優惠券一張！",
+          "category": "餐飲回饋",
+          "stores": [
+            "星巴克"
+          ],
+          "paymentMethods": [
+            "LINE Pay"
+          ],
+          "audience": "not-stated",
+          "rate": 0,
+          "cap": 500,
+          "rewardLabel": "最高 500 點／元",
+          "status": "活動期間 2026/09/30–2026/12/31；官方發布 2026年9月30日16:00 GMT+00",
+          "sourceUrl": "https://web-tw-pay.line.me/cms/event/template1.3/6a266356-4082-41d7-9112-429e08150c86",
+          "image": "https://linepaytw-cms.line-scdn.net/v0/39f5fde70be9309241586eedbf28c4a06777628c900d4510334a73a5ebd977fc.png",
+          "rawText": "任務活動列表\n 幸運轉轉樂\n 優惠券\n 任一付款方法\n 【LINE Pay App 精選商店】用LINE Pay付款滿35元且累計3筆，抽最高LINE POINTS 500點！單筆付款滿100元，再贈 50元優惠券一張！\n 發布日期：2026年9月30日16:00 GMT+00\n 活動日期\n 2026/9/30 16:00 -\n 2026/12/31 15:59 (GMT+00)\n 活動店家\n LINE Pay App 精選商店\n ※「精選商店」定義為排除「星巴克星意禮」後，當下在購好券頁面可以購買票券的商店※\n 查看活動任務進度\n 前往 \n 使用教學\n 活動提醒\n 參加活動前請務必先進入LINE\n Pay，依序點選「設定」＞「服務條款」＞「行銷資訊提供政策」，確認頁面上方是否已勾選同意，未同意將不符活動資格。\n 付款前請務必再次留意選擇的付款方式是否正確；若選擇錯誤，後續能否取消再重新交易將依店家規定為準。\n 活動內容\n 優惠一：活動期間內已註冊LINE Pay的用戶經由LINE Pay App 於「精選商店」消費，結帳時透過LINE Pay並使用已綁定的任一發卡銀行卡片或LINE Pay Money餘額付款，累計3筆且3筆交易實際支付金額滿新台幣35元(LINE POINTS及優惠券折抵金額不計入)，享幸運轉轉樂機會！\n 優惠二：結帳時透過LINE Pay並選擇使用已綁定的任一發卡銀行卡片或LINE Pay Money餘額付款，且單筆交易支付滿新台幣100元，贈 線上50元優惠券一張！\n ※若商店及活動參加者皆已開通LINE Pay Money，則選用LINE Pay Money餘額付款同享回饋。※\n ※自行了解LINE Pay付款操作方式及活動內容為活動參加者的義務，參加活動視同同意本活動規則，不因個人認知、星座生肖、宗教信仰、身分地位、疾病、威脅等而有特例，LINE Pay保有對本活動所有事宜做出最終解釋及決定的權利。\n 活動注意事項\n 立即下載 LINE Pay App\n 追蹤更多 LINE Pay 動態",
+          "startsAt": "20260930",
+          "endsAt": "20261231",
+          "publishedAt": "20260930",
+          "officialOrder": 9
+        },
+        {
+          "title": "【Uber Eats】每週一至週五用LINE Pay，單筆滿199元且單月累計5筆享幸運轉轉樂機會，抽最高300點！",
+          "category": "新戶優惠",
+          "stores": [
+            "官方支付服務"
+          ],
+          "paymentMethods": [
+            "LINE Pay"
+          ],
+          "audience": "new-user",
+          "rate": 0.07,
+          "cap": 300,
+          "rewardLabel": "最高 7%／上限 300 點／元",
+          "status": "活動期間 2026/10/01–2026/12/31；官方發布 2026年9月30日16:00 GMT+00",
+          "sourceUrl": "https://web-tw-pay.line.me/cms/event/template1.3/58354b1c-496c-418c-b6e9-ae1c503cad3c",
+          "image": "https://linepaytw-cms.line-scdn.net/v0/c5b734d595d580c17f85a9c8d9dc727a7cf29162acd94a207f930ecbb6c617b4.png",
+          "rawText": "任務活動列表\n 天天LINE Pay\n 幸運轉轉樂\n 指定付款方法\n 【Uber Eats】每週一至週五用LINE Pay，單筆滿199元且單月累計5筆享幸運轉轉樂機會，抽最高300點！\n 發布日期：2026年9月30日16:00 GMT+00\n 活動日期\n 2026/9/30 16:00 -\n 2026/12/31 15:59 (GMT+00)\n ※僅活動期間內的每週一至週五適用※\n 活動店家\n Uber Eats App\n ※Uber Eats網頁版、預約訂單、小費及購買Uber One會員不適用※\n 10月任務進度\n 活動提醒\n 參加活動前請務必先進入LINE\n Pay，依序點選「設定」＞「服務條款」＞「行銷資訊提供政策」，確認頁面上方是否已勾選同意，未同意將不符活動資格。\n 付款前請務必再次留意選擇的付款方式是否正確；若選擇錯誤，後續能否取消再重新交易將依店家規定為準。\n 活動內容\n 優惠一：活動期間內的每週一至週五已註冊LINE Pay的用戶於Uber Eats App消費，結帳時透過LINE Pay並使用已綁定的任一發卡銀行信用卡或簽帳金融卡付款，單月累計5筆且5筆交易實際支付金額滿199元，享幸運轉轉樂機會一次！\n 優惠二：[2026/10/1-11/15]每週一至五已註冊LINE Pay的用戶於Uber Eats App消費，結帳時透過LINE Pay並使用已綁定的台新信用卡或台新簽帳金融卡付款，且單筆交易實際支付金額滿199元，享LINE POINTS 2%回饋！\n 10/1至10/31 Uber Eats App輸入優惠序號【秋日美食】最高享四折優惠！\n [八大城市限定] 10/1至10/31 Uber Eats App 輸入優惠序號【十月吃飽】最高享三折優惠！\n [新戶加碼] 10/1至10/31 Uber Eats App輸入優惠序號【初秋嚐鮮】可獲得 Uber Eats 美食外送3折優惠折抵2次！\n ※自行了解LINE Pay付款操作方式及活動內容為活動參加者的義務，參加活動視同同意本活動規則，不因個人認知、星座生肖、宗教信仰、身分地位、疾病、威脅等而有特例，LINE Pay保有對本活動所有事宜做出最終解釋及決定的權利。\n 活動注意事項\n 立即下載 LINE Pay App\n 追蹤更多 LINE Pay 動態",
+          "startsAt": "20261001",
+          "endsAt": "20261231",
+          "publishedAt": "20260930",
+          "officialOrder": 10
+        },
+        {
+          "title": "【指定加油站】每週一至週五用LINE Pay，單筆滿500元且單月累計3筆享幸運轉轉樂機會，抽最高500點！",
+          "category": "加油回饋",
+          "stores": [
+            "台亞石油"
+          ],
+          "paymentMethods": [
+            "LINE Pay"
+          ],
+          "audience": "not-stated",
+          "rate": 0.02,
+          "cap": 500,
+          "rewardLabel": "最高 2%／上限 500 點／元",
+          "status": "活動期間 2026/10/01–2026/12/31；官方發布 2026年9月30日16:00 GMT+00",
+          "sourceUrl": "https://web-tw-pay.line.me/cms/event/template1.3/610c3723-3da8-43cf-b5e6-b8156fea3582",
+          "image": "https://linepaytw-cms.line-scdn.net/v0/51fe4a94fcca34ee9e0bfd5b96459c42fc09ee255a020ba171875cbccccd255f.png",
+          "rawText": "任務活動列表\n 天天LINE Pay\n 幸運轉轉樂\n 指定付款方法\n 【指定加油站】每週一至週五用LINE Pay，單筆滿500元且單月累計3筆享幸運轉轉樂機會，抽最高500點！\n 發布日期：2026年9月30日16:00 GMT+00\n 活動日期\n 2026/9/30 16:00 -\n 2026/12/31 15:59 (GMT+00)\n ※僅活動期間內的每週一至週五適用※\n 活動店家\n 指定加油站\n ※本活動僅適用：①台灣中油直營站/部份加盟站(詳見任務進度頁下方清單)人工加油、複合商店、洗車及 ②台亞石油人工加油 ③台糖加油站人工加油 ④統一精工速邁樂人工加油；自助加油、儲值台灣中油捷利卡、儲值台亞帝雉卡、台亞/台糖/統一精工速邁樂非人工加油消費、統一精工速邁樂皆不適用※\n 10月任務進度\n 活動提醒\n 參加活動前請務必先進入LINE\n Pay，依序點選「設定」＞「服務條款」＞「行銷資訊提供政策」，確認頁面上方是否已勾選同意，未同意將不符活動資格。\n 付款前請務必再次留意選擇的付款方式是否正確；若選擇錯誤，後續能否取消再重新交易將依店家規定為準。\n 活動內容\n 優惠一：活動期間內的每週一到五已註冊LINE Pay的用戶於指定加油站現場消費，結帳時透過LINE Pay並使用已綁定的任一發卡銀行信用卡或簽帳金融卡付款，單月累計3筆且3筆交易實際支付金額滿新台幣500元(LINE POINTS及優惠券折抵金額不計入)，享幸運轉轉樂機會！\n 優惠二：[2026/10/1-11/15]每週一到五已註冊LINE Pay的用戶於指定加油站現場消費，結帳時透過LINE Pay並使用已綁定的台新信用卡或台新簽帳金融卡付款，且單筆交易實際支付滿500元(LINE POINTS及優惠券折抵金額不計入)，享LINE POINTS 2%回饋！\n ※自行了解LINE Pay付款操作方式及活動內容為活動參加者的義務，參加活動視同同意本活動規則，不因個人認知、星座生肖、宗教信仰、身分地位、疾病、威脅等而有特例，LINE Pay保有對本活動所有事宜做出最終解釋及決定的權利。\n 活動注意事項\n 立即下載 LINE Pay App\n 追蹤更多 LINE Pay 動態",
+          "startsAt": "20261001",
+          "endsAt": "20261231",
+          "publishedAt": "20260930",
+          "officialOrder": 11
+        },
+        {
+          "title": "【LOPIA】每週三四用LINE Pay，單筆消費滿700元享LINE POINTS 6%回饋！",
+          "category": "金融／綁卡回饋",
+          "stores": [
+            "新光三越"
+          ],
+          "paymentMethods": [
+            "LINE Pay"
+          ],
+          "audience": "not-stated",
+          "rate": 0.06,
+          "cap": 0,
+          "rewardLabel": "最高 6% 回饋",
+          "status": "活動期間 2026/10/01–2026/12/31；官方發布 2026年9月30日16:00 GMT+00",
+          "sourceUrl": "https://web-tw-pay.line.me/cms/event/template1.3/4d2df854-31ea-4240-8d7c-11d607d7f719",
+          "image": "https://linepaytw-cms.line-scdn.net/v0/792029fa30cd5c14acbddbe226312402d30c2f2d1d088cbabe96b9df17096989.png",
+          "rawText": "天天LINE Pay\n 點數回饋\n 任一付款方法\n 【LOPIA】每週三四用LINE Pay，單筆消費滿700元享LINE POINTS 6%回饋！\n 發布日期：2026年9月30日16:00 GMT+00\n 活動日期\n 2026/9/30 16:00 -\n 2026/12/31 15:59 (GMT+00)\n ※僅活動期間內的每週三四適用※\n 活動店家\n LOPIA實體門市\n ※新光三越台南小北門店及非開立LOPIA發票的門市不適用本活動※\n 搜尋店家位置(請用手機操作)\n 活動提醒\n 參加活動前請務必先進入LINE\n Pay，依序點選「設定」＞「服務條款」＞「行銷資訊提供政策」，確認頁面上方是否已勾選同意，未同意將不符活動資格。\n 付款前請務必再次留意選擇的付款方式是否正確；若選擇錯誤，後續能否取消再重新交易將依店家規定為準。\n 活動內容\n 活動期間內的每週三及週四已註冊LINE Pay的用戶於LOPIA門市現場消費，結帳時透過LINE Pay條碼並使用已綁定的任一發卡銀行信用卡/簽帳金融卡或LINE Pay Money餘額付款，且單筆交易實際支付滿新台幣700元(LINE POINTS及優惠券折抵金額不計入)，享LINE POINTS 6％回饋！\n [不適用本活動的門市、服務及商品]\n ※自行了解LINE Pay付款操作方式及活動內容為活動參加者的義務，參加活動視同同意本活動規則，不因個人認知、星座生肖、宗教信仰、身分地位、疾病、威脅等而有特例，LINE Pay保有對本活動所有事宜做出最終解釋及決定的權利。\n 活動注意事項\n 立即下載 LINE Pay App\n 追蹤更多 LINE Pay 動態",
+          "startsAt": "20261001",
+          "endsAt": "20261231",
+          "publishedAt": "20260930",
+          "officialOrder": 12
+        },
+        {
+          "title": "【迪卡儂門市】每週四五用LINE Pay，單筆消費滿2,000元享LINE POINTS 6%回饋！",
+          "category": "購物回饋",
+          "stores": [
+            "官方支付服務"
+          ],
+          "paymentMethods": [
+            "LINE Pay"
+          ],
+          "audience": "not-stated",
+          "rate": 0.06,
+          "cap": 0,
+          "rewardLabel": "最高 6% 回饋",
+          "status": "活動期間 2026/10/01–2026/12/31；官方發布 2026年9月30日16:00 GMT+00",
+          "sourceUrl": "https://web-tw-pay.line.me/cms/event/template1.3/b252a7db-1183-4833-bc9f-f093b2ea95ab",
+          "image": "https://linepaytw-cms.line-scdn.net/v0/d1bca2237cff2e91addb4ea9bb09db94d7ed927273a89a8e1cb4d1e2c41bf1b1.png",
+          "rawText": "天天LINE Pay\n 點數回饋\n 指定付款方法\n 【迪卡儂門市】每週四五用LINE Pay，單筆消費滿2,000元享LINE POINTS 6%回饋！\n 發布日期：2026年9月30日16:00 GMT+00\n 活動日期\n 2026/9/30 16:00 -\n 2026/12/31 15:59 (GMT+00)\n ※僅活動期間內的每週四五適用※\n 活動店家\n 迪卡儂獨立實體門市\n ※迪卡儂線上官方網站、蝦皮迪卡儂官方旗艦店及非開立迪卡儂發票的門市不適用本活動※\n 搜尋店家位置(請用手機操作)\n 活動提醒\n 參加活動前請務必先進入LINE\n Pay，依序點選「設定」＞「服務條款」＞「行銷資訊提供政策」，確認頁面上方是否已勾選同意，未同意將不符活動資格。\n 付款前請務必再次留意選擇的付款方式是否正確；若選擇錯誤，後續能否取消再重新交易將依店家規定為準。\n 活動內容\n 活動期間內的每週四及週五已註冊LINE Pay的用戶於迪卡儂實體門市現場消費，結帳時透過LINE Pay條碼使用已綁定的任一發卡銀行信用卡或簽帳金融卡或LINE Pay Money餘額付款，且單筆交易實際支付滿新台幣2,000元(LINE POINTS及優惠券折抵金額不計入)，享LINE POINTS 6％回饋！\n ※自行了解LINE Pay付款操作方式及活動內容為活動參加者的義務，參加活動視同同意本活動規則，不因個人認知、星座生肖、宗教信仰、身分地位、疾病、威脅等而有特例，LINE Pay保有對本活動所有事宜做出最終解釋及決定的權利。\n 活動注意事項\n 立即下載 LINE Pay App\n 追蹤更多 LINE Pay 動態",
+          "startsAt": "20261001",
+          "endsAt": "20261231",
+          "publishedAt": "20260930",
+          "officialOrder": 13
+        },
+        {
+          "title": "【LINE Pay App 】指定日用LINE Pay，享最高LINE POINTS 18%回饋！綁定永豐DAWAY卡付款再享最高10%回饋！",
+          "category": "金融／綁卡回饋",
+          "stores": [
+            "KLOOK"
+          ],
+          "paymentMethods": [
+            "LINE Pay"
+          ],
+          "audience": "not-stated",
+          "rate": 0.3,
+          "cap": 0,
+          "rewardLabel": "最高 30% 回饋",
+          "status": "活動期間 2026/09/30–2026/12/31；官方發布 2026年9月30日16:00 GMT+00",
+          "sourceUrl": "https://web-tw-pay.line.me/cms/event/template1.3/e1f669bf-4f6b-42b1-87f9-1e3c60dd38cc",
+          "image": "https://linepaytw-cms.line-scdn.net/v0/877e7cdc896c07b466e2013ad095b571fe350059fc72319089bcf7b0ff0edc6f.png",
+          "rawText": "天天LINE Pay\n 點數回饋\n 任一付款方法\n 【LINE Pay App 】指定日用LINE Pay，享最高LINE POINTS 18%回饋！綁定永豐DAWAY卡付款再享最高10%回饋！\n 發布日期：2026年9月30日16:00 GMT+00\n 活動日期\n 2026/9/30 16:00 -\n 2026/12/31 15:59 (GMT+00)\n 活動店家\n LINE Pay App 功能\n ※「找體驗」入口僅在LINE Pay App內，請更新LINE Pay App至3.5.0以上版本；如使用iPhone，請更新至iOS14以上版本※\n 點我抵達「找體驗」購買Klook票券\n 點我看「找體驗」教學\n 活動提醒\n 參加活動前請務必先進入LINE\n Pay，依序點選「設定」＞「服務條款」＞「行銷資訊提供政策」，確認頁面上方是否已勾選同意，未同意將不符活動資格。\n 付款前請務必再次留意選擇的付款方式是否正確；若選擇錯誤，後續能否取消再重新交易將依店家規定為準。\n 活動內容\n 活動期間內已註冊LINE Pay的用戶經由LINE Pay App 功能購買Klook票券，可享以下優惠：\n 優惠一：每週一至週五結帳時透過LINE Pay付款使用已綁定的任一發卡銀行信用卡/簽帳金融卡或LINE Pay Money餘額付款享LINE POINTS 10%回饋！\n 優惠二：每週一至週五結帳時透過LINE Pay並使用已綁定的永豐DAWAY卡付款，再享最高LINE POINTS 10%回饋！\n 優惠三：每週六及週日結帳時透過LINE Pay付款使用已綁定的任一發卡銀行信用卡/簽帳金融卡或LINE Pay Money餘額付款享LINE POINTS 18%回饋！\n 優惠四：每週六及週日結帳時透過LINE Pay並使用已綁定的永豐DAWAY卡付款，再享最高LINE POINTS 10%回饋！\n 【2026/10/1-12/31 限時加碼！】 每週二及週五 指定商品加碼最高享LINE POINTS 30%回饋！\n ※自行了解LINE Pay付款操作方式及活動內容為活動參加者的義務，參加活動視同同意本活動規則，不因個人認知、星座生肖、宗教信仰、身分地位、疾病、威脅等而有特例，LINE Pay保有對本活動所有事宜做出最終解釋及決定的權利。\n 活動注意事項\n 立即下載 LINE Pay App\n 追蹤更多 LINE Pay 動態",
+          "startsAt": "20260930",
+          "endsAt": "20261231",
+          "publishedAt": "20260930",
+          "officialOrder": 14
+        },
+        {
+          "title": "【永豐DAWAY卡】領 優惠券，LINE Pay付款單筆滿額現折300元！",
+          "category": "金融／綁卡回饋",
+          "stores": [
+            "官方支付服務"
+          ],
+          "paymentMethods": [
+            "LINE Pay"
+          ],
+          "audience": "not-stated",
+          "rate": 0,
+          "cap": 300,
+          "rewardLabel": "最高 300 點／元",
+          "status": "活動期間 2026/09/30–2026/12/31；官方發布 2026年10月01日02:00 GMT+00",
+          "sourceUrl": "https://web-tw-pay.line.me/cms/event/template1.3/578d8ac6-b78b-473b-b92c-ccff7770e182",
+          "image": "https://linepaytw-cms.line-scdn.net/v0/265518c169d17828aa6983e46d4f663955f3ea18c6fb178862446bbd2050426b.png",
+          "rawText": "優惠券\n 指定付款方法\n 【永豐DAWAY卡】領 優惠券，LINE Pay付款單筆滿額現折300元！\n 發布日期：2026年10月01日02:00 GMT+00\n 活動日期\n 2026/9/30 16:00 -\n 2026/12/31 15:59 (GMT+00)\n ※活動適用店家可能因內部、法規規定或商店代號生效時間而無法使用此優惠券，請以消費當下店家系統判斷為主 ; 每月可使用的優惠券限量750張，用完為止，不另行通知。\n 活動店家\n LINE Pay一般合作店家\n 前往領取10月先用先贏優惠券\n 前往申辦永豐DAWAY卡\n 活動提醒\n 參加活動前請務必先進入LINE\n Pay，依序點選「設定」＞「服務條款」＞「行銷資訊提供政策」，確認頁面上方是否已勾選同意，未同意將不符活動資格。\n 付款前請務必再次留意選擇的付款方式是否正確；若選擇錯誤，後續能否取消再重新交易將依店家規定為準。\n 活動內容\n 活動期間內已註冊LINE Pay的用戶領 300元優惠券，於LINE Pay一般合作店家消費結帳時透過LINE Pay並使用已綁定的永豐DAWAY卡付款，且單筆交易實際支付金額滿新台幣10,000元(LINE POINTS及優惠券折抵金額不計入)即可使用！\n [教學]如何領取LINE Pay優惠券？\n [教學]如何使用LINE Pay優惠券？\n [不適用本活動的店家、服務及商品]\n ※自行了解LINE Pay付款操作方式及活動內容為活動參加者的義務，參加活動視同同意本活動規則，不因個人認知、星座生肖、宗教信仰、身分地位、疾病、威脅等而有特例，LINE Pay保有對本活動所有事宜做出最終解釋及決定的權利。\n 活動注意事項\n 立即下載 LINE Pay App\n 追蹤更多 LINE Pay 動態",
+          "startsAt": "20260930",
+          "endsAt": "20261231",
+          "publishedAt": "20261001",
+          "officialOrder": 15
+        },
+        {
+          "title": "【指定停車場】用LINE Pay單筆滿100元且單月累計4筆，享幸運轉轉樂機會，抽最高LINE POINTS 300點！",
+          "category": "交通／旅遊回饋",
+          "stores": [
+            "官方支付服務"
+          ],
+          "paymentMethods": [
+            "LINE Pay"
+          ],
+          "audience": "not-stated",
+          "rate": 0,
+          "cap": 300,
+          "rewardLabel": "最高 300 點／元",
+          "status": "活動期間 2026/09/30–2026/12/31；官方發布 2026年9月30日16:00 GMT+00",
+          "sourceUrl": "https://web-tw-pay.line.me/cms/event/template1.3/f62b91ed-7cc2-4bb9-88be-d5f8b84c5f04",
+          "image": "https://linepaytw-cms.line-scdn.net/v0/81c395e6d2257bc5eb4b88fda0ed6a266744f8c9274605a946f854b5ba612724.png",
+          "rawText": "任務活動列表\n 天天LINE Pay\n 幸運轉轉樂\n 指定付款方法\n 【指定停車場】用LINE Pay單筆滿100元且單月累計4筆，享幸運轉轉樂機會，抽最高LINE POINTS 300點！\n 發布日期：2026年9月30日16:00 GMT+00\n 活動日期\n 2026/9/30 16:00 -\n 2026/12/31 15:59 (GMT+00)\n 活動店家\n 指定停車場\n ※下方適用清單內公告的停車場站，必須使用LINE Pay並透過「對應的支付服務平台廠商」付款才可累計筆數並享有活動回饋※\n 適用活動停車場站點清單\n 10月任務進度\n 活動提醒\n 參加活動前請務必先進入LINE\n Pay，依序點選「設定」＞「服務條款」＞「行銷資訊提供政策」，確認頁面上方是否已勾選同意，未同意將不符活動資格。\n 付款前請務必再次留意選擇的付款方式是否正確；若選擇錯誤，後續能否取消再重新交易將依店家規定為準。\n 活動內容\n 活動期間內已註冊LINE Pay的用戶於指定停車場消費，結帳時透過LINE Pay並使用已綁定的任一發卡銀行信用卡或簽帳金融卡付款，單月累計4筆且4筆交易實際支付金額滿新台幣100元(LINE POINTS及優惠券折抵金額不計入)，享幸運轉轉樂機會！\n ※若活動商店及活動參加者皆已開通LINE Pay Money，則選用LINE Pay Money餘額付款同享回饋。\n ※自行了解LINE Pay付款操作方式及活動內容為活動參加者的義務，參加活動視同同意本活動規則，不因個人認知、星座生肖、宗教信仰、身分地位、疾病、威脅等而有特例，LINE Pay保有對本活動所有事宜做出最終解釋及決定的權利。\n 活動注意事項\n 立即下載 LINE Pay App\n 追蹤更多 LINE Pay 動態",
+          "startsAt": "20260930",
+          "endsAt": "20261231",
+          "publishedAt": "20260930",
+          "officialOrder": 16
+        },
+        {
+          "title": "【Sisley官網】用LINE Pay享LINE POINTS 10%回饋，綁定中信LINE Pay卡付款再享6%！",
+          "category": "金融／綁卡回饋",
+          "stores": [
+            "官方支付服務"
+          ],
+          "paymentMethods": [
+            "LINE Pay"
+          ],
+          "audience": "not-stated",
+          "rate": 0.1,
+          "cap": 0,
+          "rewardLabel": "最高 10% 回饋",
+          "status": "活動期間 2026/10/01–2026/10/11；官方發布 2026年9月30日16:00 GMT+00",
+          "sourceUrl": "https://web-tw-pay.line.me/cms/event/template1.3/74840759-2b59-45cc-998d-91b631ae3bef",
+          "image": "https://linepaytw-cms.line-scdn.net/v0/1c22e76bef46d9c84fd17d2719d16be328c73e40bec89fcadefa95c11ce78744.jpg",
+          "rawText": "點數回饋\n 任一付款方法\n 指定付款方法\n 【Sisley官網】用LINE Pay享LINE POINTS 10%回饋，綁定中信LINE Pay卡付款再享6%！\n 發布日期：2026年9月30日16:00 GMT+00\n 活動日期\n 2026/9/30 16:00 -\n 2026/10/11 15:59 (GMT+00)\n 活動店家\n Sisley官網\n 前往Sisley官網\n 活動提醒\n 參加活動前請務必先進入LINE\n Pay，依序點選「設定」＞「服務條款」＞「行銷資訊提供政策」，確認頁面上方是否已勾選同意，未同意將不符活動資格。\n 付款前請務必再次留意選擇的付款方式是否正確；若選擇錯誤，後續能否取消再重新交易將依店家規定為準。\n 活動內容\n 活動期間內已註冊LINE Pay的用戶於Sisley官網消費，結帳時透過LINE Pay付款，可享以下優惠：\n 優惠一：選擇使用已綁定的任一發卡銀行信用卡/簽帳金融卡或LINE Pay Money帳戶付款，享LINE POINTS 10%回饋！\n 優惠二：選擇使用已綁定的中國信託LINE Pay信用卡或LINE Pay簽帳金融卡付款，再享LINE POINTS 6%回饋！\n ※若商店及活動參加者皆已開通LINE Pay Money，則選用LINE Pay Money帳戶付款同享回饋。\n ※自行了解LINE Pay付款操作方式及活動內容為活動參加者的義務，參加活動視同同意本活動規則，不因個人認知、星座生肖、宗教信仰、身分地位、疾病、威脅等而有特例，LINE Pay保有對本活動所有事宜做出最終解釋及決定的權利。\n 活動注意事項\n 立即下載 LINE Pay App\n 追蹤更多 LINE Pay 動態",
+          "startsAt": "20261001",
+          "endsAt": "20261011",
+          "publishedAt": "20260930",
+          "officialOrder": 17
+        },
+        {
+          "title": "【山隆加油站】LINE Pay付款單筆滿額享LINE POINTS 1%回饋！",
+          "category": "加油回饋",
+          "stores": [
+            "官方支付服務"
+          ],
+          "paymentMethods": [
+            "LINE Pay"
+          ],
+          "audience": "not-stated",
+          "rate": 0.01,
+          "cap": 0,
+          "rewardLabel": "最高 1% 回饋",
+          "status": "活動期間 2026/10/01–2026/12/31；官方發布 2026年9月30日16:00 GMT+00",
+          "sourceUrl": "https://web-tw-pay.line.me/cms/event/template1.3/a1ab617c-b220-4c72-817f-771a94238d04",
+          "image": "https://linepaytw-cms.line-scdn.net/v0/dd07dfd0d7077c9e205c85d6c6b72f1ae66b25dd373d653f92ef16b078af44d9.png",
+          "rawText": "點數回饋\n 任一付款方法\n 【山隆加油站】LINE Pay付款單筆滿額享LINE POINTS 1%回饋！\n 發布日期：2026年9月30日16:00 GMT+00\n 活動日期\n 2026/9/30 16:00 -\n 2026/12/31 15:59 (GMT+00)\n 活動店家\n 山隆加油站\n 立即查看服務據點\n 活動提醒\n 參加活動前請務必先進入LINE\n Pay，依序點選「設定」＞「服務條款」＞「行銷資訊提供政策」，確認頁面上方是否已勾選同意，未同意將不符活動資格。\n 付款前請務必再次留意選擇的付款方式是否正確；若選擇錯誤，後續能否取消再重新交易將依店家規定為準。\n 活動內容\n 活動期間內已註冊LINE Pay的用戶於山隆加油站現場消費，結帳時透過LINE Pay使用已綁定的任一發卡銀行信用卡/簽帳金融卡付款，且單筆交易實際支付金額滿新台幣100元(LINE POINTS及優惠券折抵金額不計入)，享LINE POINTS 1%回饋！ \n ※若商店及活動參加者皆已開通LINE Pay Money，則選用LINE Pay Money帳戶付款同享回饋。\n ※自行了解LINE Pay付款操作方式及活動內容為活動參加者的義務，參加活動視同同意本活動規則，不因個人認知、星座生肖、宗教信仰、身分地位、疾病、威脅等而有特例，LINE Pay保有對本活動所有事宜做出最終解釋及決定的權利。\n 活動注意事項\n 立即下載 LINE Pay App\n 追蹤更多 LINE Pay 動態",
+          "startsAt": "20261001",
+          "endsAt": "20261231",
+          "publishedAt": "20260930",
+          "officialOrder": 18
+        },
+        {
+          "title": "【長髮公主的秘密官網】LINE Pay付款享LINE POINTS 5%回饋，單筆滿額再享15%！",
+          "category": "金融／綁卡回饋",
+          "stores": [
+            "官方支付服務"
+          ],
+          "paymentMethods": [
+            "LINE Pay"
+          ],
+          "audience": "not-stated",
+          "rate": 0.2,
+          "cap": 0,
+          "rewardLabel": "最高 20% 回饋",
+          "status": "活動期間 2026/10/01–2026/10/31；官方發布 2026年9月30日16:00 GMT+00",
+          "sourceUrl": "https://web-tw-pay.line.me/cms/event/template1.3/c08ec900-6321-4354-b772-609d3de6c9ef",
+          "image": "https://linepaytw-cms.line-scdn.net/v0/d67ca303a7d0cc57cde1fdb8f8fdebfe70a42edf2486c93527308da0ecb98184.png",
+          "rawText": "點數回饋\n 任一付款方法\n 【長髮公主的秘密官網】LINE Pay付款享LINE POINTS 5%回饋，單筆滿額再享15%！\n 發布日期：2026年9月30日16:00 GMT+00\n 活動日期\n 2026/9/30 16:00 -\n 2026/10/31 15:59 (GMT+00)\n 活動店家\n 長髮公主的秘密官網\n 前往長髮公主的秘密官網\n 活動提醒\n 參加活動前請務必先進入LINE\n Pay，依序點選「設定」＞「服務條款」＞「行銷資訊提供政策」，確認頁面上方是否已勾選同意，未同意將不符活動資格。\n 付款前請務必再次留意選擇的付款方式是否正確；若選擇錯誤，後續能否取消再重新交易將依店家規定為準。\n 活動內容\n 活動期間內已註冊LINE Pay的用戶於長髮公主的秘密官網消費，結帳時透過LINE Pay使用已綁定的任一發卡銀行信用卡/簽帳金融卡付款，可享以下優惠：\n 優惠一：享LINE POINTS 5%回饋！\n 優惠二：單筆交易實際支付金額滿新台幣2,011元(LINE POINTS及優惠券折抵金額不計入)，再享LINE POINTS 15%回饋，與優惠一合計享最高LINE POINTS 20%回饋！ \n 以上優惠合計限量10萬點，發完為止，額滿訊息將公告於LINE Pay官方帳號貼文專區：\n ① 請加入 LINE Pay官方帳號 並解除封鎖。\n ② 開啟手機版LINE應用程式＞進入聊天室列表＞搜尋並進入「LINE Pay」官方帳號＞點選「活動額滿公告」查看是否額滿( 圖片說明 )。\n ③ 已結束活動或跨月活動的額滿通知，也可至LINE Pay官方帳號 活動額滿公告頁 查看。\n ④ 若因參加活動人數踴躍導致付款完成時間有秒數差異，則以「LINE錢包」通知訊息顯示是否有回饋資訊為準，未顯示即代表無回饋，參加活動視同同意此機制，不以任何理由要求賠償。\n ※若商店及活動參加者皆已開通LINE Pay Money，則選用LINE Pay Money帳戶付款同享回饋。\n ※自行了解LINE Pay付款操作方式及活動內容為活動參加者的義務，參加活動視同同意本活動規則，不因個人認知、星座生肖、宗教信仰、身分地位、疾病、威脅等而有特例，LINE Pay保有對本活動所有事宜做出最終解釋及決定的權利。\n 活動注意事項\n 立即下載 LINE Pay App\n 追蹤更多 LINE Pay 動態",
+          "startsAt": "20261001",
+          "endsAt": "20261031",
+          "publishedAt": "20260930",
+          "officialOrder": 19
         },
         {
           "title": "【SABON台灣官網】LINE Pay付款享LINE POINTS 4%回饋，綁定中信LINE Pay卡付款再享6%！",
@@ -1645,7 +1625,7 @@
           "startsAt": "20260929",
           "endsAt": "20261007",
           "publishedAt": "20260929",
-          "officialOrder": 21
+          "officialOrder": 20
         },
         {
           "title": "【LINE Pay Money 用戶專屬】 66張 「好樂投」 抽獎券霸氣送，抽大獎 16,888 點！",
@@ -1667,7 +1647,7 @@
           "startsAt": "20260922",
           "endsAt": "20261231",
           "publishedAt": "20260922",
-          "officialOrder": 22
+          "officialOrder": 21
         },
         {
           "title": "【ELEMIS愛莉美官網】LINE Pay付款享LINE POINTS 25%回饋！",
@@ -1689,7 +1669,7 @@
           "startsAt": "20260917",
           "endsAt": "20261012",
           "publishedAt": "20260916",
-          "officialOrder": 23
+          "officialOrder": 22
         },
         {
           "title": "【ECCO直營門市】LINE Pay付款享LINE POINTS 10％回饋！",
@@ -1711,7 +1691,7 @@
           "startsAt": "20260916",
           "endsAt": "20261011",
           "publishedAt": "20260916",
-          "officialOrder": 24
+          "officialOrder": 23
         },
         {
           "title": "【簡單JAN DAN官網】指定日期用LINE Pay，享最高LINE POINTS 15%回饋！",
@@ -1733,7 +1713,29 @@
           "startsAt": "20260908",
           "endsAt": "20261113",
           "publishedAt": "20260908",
-          "officialOrder": 25
+          "officialOrder": 24
+        },
+        {
+          "title": "【Hearth官方網站】用LINE Pay單筆滿額享LINE POINTS 300點回饋，綁定中信LINE Pay卡付款再享6%！",
+          "category": "金融／綁卡回饋",
+          "stores": [
+            "官方支付服務"
+          ],
+          "paymentMethods": [
+            "LINE Pay"
+          ],
+          "audience": "not-stated",
+          "rate": 0.06,
+          "cap": 0,
+          "rewardLabel": "最高 6% 回饋",
+          "status": "活動期間 2026/10/01–2026/10/07；官方發布 2026年9月30日16:00 GMT+00",
+          "sourceUrl": "https://web-tw-pay.line.me/cms/event/template1.3/04527db0-bb26-41f3-b340-318eef555b13",
+          "image": "https://linepaytw-cms.line-scdn.net/v0/75710dde3673fa95e669af5905fd556df13672a8e626e4c7d7dc7d4e1beb23fd.jpg",
+          "rawText": "點數回饋\n 任一付款方法\n 指定付款方法\n 【Hearth官方網站】用LINE Pay單筆滿額享LINE POINTS 300點回饋，綁定中信LINE Pay卡付款再享6%！\n 發布日期：2026年9月30日16:00 GMT+00\n 活動日期\n 2026/9/30 16:00 -\n 2026/10/7 15:59 (GMT+00)\n 活動店家\n Hearth官方網站\n 前往Hearth官方網站\n 活動提醒\n 參加活動前請務必先進入LINE\n Pay，依序點選「設定」＞「服務條款」＞「行銷資訊提供政策」，確認頁面上方是否已勾選同意，未同意將不符活動資格。\n 付款前請務必再次留意選擇的付款方式是否正確；若選擇錯誤，後續能否取消再重新交易將依店家規定為準。\n 活動內容\n 活動期間內已註冊LINE Pay的用戶於Hearth官方網站消費，結帳時透過LINE Pay使用已綁定的信用卡/簽帳金融卡付款，且單筆交易實際支付金額滿新台幣3,800元(LINE POINTS及優惠券折抵金額不計入)，享LINE POINTS 300點回饋！\n 優惠二：選擇使用已綁定的中國信託LINE Pay信用卡或LINE Pay簽帳金融卡付款，再享LINE POINTS 6%回饋！\n 活動注意事項\n 立即下載 LINE Pay App\n 追蹤更多 LINE Pay 動態",
+          "startsAt": "20261001",
+          "endsAt": "20261007",
+          "publishedAt": "20260930",
+          "officialOrder": 27
         },
         {
           "title": "【韓國樂天世界】用LINE Pay享LINE POINTS 15%回饋！綁定指定卡種付款享最高30%回饋！",
@@ -2651,7 +2653,7 @@
       "logo": "/logos/jkos-pay.png",
       "color": "#eb6a2a",
       "focus": "街口支付官方行銷活動、街口幣與指定通路折扣。",
-      "freshness": "官方來源檢查 2026/10/03；依官方更新順序排列",
+      "freshness": "官方來源檢查 2026/10/04；依官方更新順序排列",
       "campaigns": [
         {
           "title": "2026/10/1-12/31 週三午餐主題日，最高享 23.5%",
@@ -2924,7 +2926,7 @@
       "logo": "/logos/easywallet.png",
       "color": "#007c70",
       "focus": "悠遊付官方優惠、交通與日常採買回饋。",
-      "freshness": "官方來源檢查 2026/10/03；依官方更新順序排列",
+      "freshness": "官方來源檢查 2026/10/04；依官方更新順序排列",
       "campaigns": [
         {
           "title": "悠遊付暢遊金門 筆筆最高回饋23%",
@@ -4558,7 +4560,7 @@
       "logo": "/logos/ipass-money.png",
       "color": "#00a6d6",
       "focus": "iPASS MONEY 官方優惠活動與使用條件。",
-      "freshness": "官方來源檢查 2026/10/03；依官方更新順序排列",
+      "freshness": "官方來源檢查 2026/10/04；依官方更新順序排列",
       "campaigns": [
         {
           "title": "用 iPASS MONEY 消費，最高享 10% 回饋！",
@@ -5444,7 +5446,7 @@
       "logo": "/logos/icash-pay.png",
       "color": "#e95e22",
       "focus": "icash Pay 官方活動卡、合作通路與 OPENPOINT 回饋。",
-      "freshness": "官方來源檢查 2026/10/03；依官方更新順序排列",
+      "freshness": "官方來源檢查 2026/10/04；依官方更新順序排列",
       "campaigns": [
         {
           "title": "icash Pay超強支付 綁uniopen聯名卡滿額最高回饋11%",
@@ -6143,7 +6145,7 @@
       "logo": "/logos/pi-wallet.svg",
       "color": "#ed6b31",
       "focus": "Pi 拍錢包 P 幣、電商與指定通路活動。",
-      "freshness": "官方來源檢查 2026/10/03；依官方更新順序排列",
+      "freshness": "官方來源檢查 2026/10/04；依官方更新順序排列",
       "campaigns": [
         {
           "title": "PChome24h購物📱購新機⚡️綁定玉山 Pi 拍錢包信用卡最高贈7517Ｐ幣",
@@ -6244,7 +6246,7 @@
       "logo": "/logos/pluspay.png",
       "color": "#ef7d32",
       "focus": "全盈+PAY 儲值金、Fa 點與全家通路活動。",
-      "freshness": "官方來源檢查 2026/10/03；依官方更新順序排列",
+      "freshness": "官方來源檢查 2026/10/04；依官方更新順序排列",
       "campaigns": [
         {
           "title": "滿 1,111 元享 11% 全盈儲值金",
@@ -6341,7 +6343,7 @@
       "logo": "/logos/open-wallet.png",
       "color": "#ef5a24",
       "focus": "OPEN錢包於 7-ELEVEN 與合作銀行的 OPENPOINT 活動。",
-      "freshness": "官方來源檢查 2026/10/03；依官方更新順序排列",
+      "freshness": "官方來源檢查 2026/10/04；依官方更新順序排列",
       "campaigns": [
         {
           "title": "OPENPOINT點數加贈活動說明",
@@ -6531,7 +6533,7 @@
       "logo": "/logos/7-eleven.png",
       "color": "#00a651",
       "focus": "7-ELEVEN 官方活動與支付工具回饋。",
-      "freshness": "官方來源檢查 2026/10/03；依官方更新順序排列",
+      "freshness": "官方來源檢查 2026/10/04；依官方更新順序排列",
       "campaigns": [
         {
           "title": "1010購物節",
@@ -7847,7 +7849,7 @@
       "logo": "/logos/taiwan-pay.png",
       "color": "#b22637",
       "focus": "台灣 Pay、TWQR 與銀行合作通路回饋。",
-      "freshness": "官方來源檢查 2026/10/03；依官方更新順序排列",
+      "freshness": "官方來源檢查 2026/10/04；依官方更新順序排列",
       "campaigns": [
         {
           "title": "艋舺夜市超給利 台灣Pay單筆享20%現金回饋你",
@@ -8714,7 +8716,7 @@
       "logo": "/logos/pxpay.png",
       "color": "#5f49a6",
       "focus": "全支付全點、消費回饋與指定通路活動。",
-      "freshness": "官方來源檢查 2026/10/03；依官方更新順序排列",
+      "freshness": "官方來源檢查 2026/10/04；依官方更新順序排列",
       "campaigns": [
         {
           "title": "收益進帳全支付 消費回饋最高1200全點",
@@ -8741,442 +8743,11 @@
       ]
     },
     {
-      "name": "橘子支付 官方活動",
-      "logo": "/logos/gama-pay.png",
-      "color": "#f58220",
-      "focus": "橘子支付官方活動、公告與服務異動。",
-      "freshness": "官方來源檢查 2026/10/03；依官方更新順序排列",
-      "campaigns": [
-        {
-          "title": "橘子支付店家幫手10/29起停止支援部分少數手機版本",
-          "category": "最新資訊",
-          "stores": [
-            "官方支付服務"
-          ],
-          "paymentMethods": [
-            "橘子支付"
-          ],
-          "audience": "not-stated",
-          "rate": 0,
-          "cap": 0,
-          "rewardLabel": "官方最新資訊",
-          "status": "2026/09/30；官方內容請見詳情頁",
-          "sourceUrl": "https://www.gamapay.com.tw/news.html?id=4974",
-          "image": "",
-          "rawText": "親愛的客戶您好： \n 橘子支付 店家幫手 APP 為提供更完善的服務體驗並提升使用安全性，將自 2026/10/29 起，停止支援以下手機作業系統版本： \n ● Android 系統：低於 7.0 版本 \n ● iOS 系統：低於 15.0 版本 \n 提醒您可至手機「設定」中的「關於本機 / 關於手機」查看目前作業系統版本； \n 若您的手機作業系統版本低於前述支援範圍，需先更新手機作業系統或更換可支援之裝置，始得繼續使用本服務。 \n 本次服務調整造成不便，敬請見諒 \n 未來橘子支付也將持續致力於提供更好的服務體驗，感謝您的理解與配合 \n 橘子支付營運團隊敬上 \n 客服信箱： CS@Service.gamapay.com.tw \n 客服專線： 02-21926082 \n 服務時間： 10:00~19:00 ( 週一至週日 )",
-          "startsAt": "20260930",
-          "endsAt": "20261029",
-          "publishedAt": "",
-          "officialOrder": 0
-        },
-        {
-          "title": "【重要公告】橘子支付將自2026/10/29起，停止提供「連結新光銀行帳戶」服務",
-          "category": "最新資訊",
-          "stores": [
-            "官方支付服務"
-          ],
-          "paymentMethods": [
-            "橘子支付"
-          ],
-          "audience": "not-stated",
-          "rate": 0,
-          "cap": 0,
-          "rewardLabel": "官方最新資訊",
-          "status": "2026/09/29；官方內容請見詳情頁",
-          "sourceUrl": "https://www.gamapay.com.tw/news.html?id=4971",
-          "image": "",
-          "rawText": "親愛的會員，您好： \n 感謝您長期以來對橘子支付的支持與愛護！ \n 因應新光銀行與台新銀行合併作業，橘子支付將配合自 2026 年 10 月 29 日 ( 四 ) 00:00 起，停止提供「橘子支付連結新光銀行帳戶」服務。 \n 一、影響範圍： \n l 停止「綁定新光銀行連結帳戶」功能 \n l 停止「新光銀行連結帳戶儲值」功能 \n l 停止「綁定新光銀行提領帳戶」功能 \n 二、溫馨提醒： \n 1. 如您目前使用新光銀行帳戶進行儲值或提領交易，請新增綁定其他合作銀行帳戶，以免影響相關服務之正常使用。 \n 2. 請於 2026/10/28( 三 )23:59 前，至橘子支付 APP 取消綁定新光銀行帳戶，操作步驟如下： \n 橘子支付 APP &rarr;「會員中心」&rarr;「支付設定」&rarr;「綁定銀行帳戶」&rarr;選擇「新光銀行」&rarr;右上角「刪除」 \n 3. 若您未在 2026/10/28( 三 )23:59 前取消綁定，系統將於 2026/10/29( 四 )00:00 起自動解除您所綁定的新光銀行帳戶。 \n 4. 敬請參考新光銀行公告： https://www.skbank.com.tw/news/announcement/302043 \n 本次服務調整造成不便，敬請見諒。 \n 未來橘子支付也將持續致力於提供更好的服務體驗，感謝您的理解與配合。 \n 橘子支付營運團隊敬上 \n 客服信箱： CS@Service.gamapay.com.tw \n 客服專線： 02-21926082 \n 服務時間： 10:00~19:00 ( 週一至週日 )",
-          "startsAt": "20260929",
-          "endsAt": "20261028",
-          "publishedAt": "",
-          "officialOrder": 1
-        },
-        {
-          "title": "【防詐宣導】切勿點擊「商品將自動扣款」、「帳單逾期未繳」等之釣魚簡訊或電子郵件！",
-          "category": "最新資訊",
-          "stores": [
-            "官方支付服務"
-          ],
-          "paymentMethods": [
-            "橘子支付"
-          ],
-          "audience": "not-stated",
-          "rate": 0,
-          "cap": 0,
-          "rewardLabel": "依官方條件回饋",
-          "status": "2026/09/24；官方內容請見詳情頁",
-          "sourceUrl": "https://www.gamapay.com.tw/news.html?id=4968",
-          "image": "",
-          "rawText": "圖片來源：警政署刑事警察局。 \n 親愛的橘子支付會員您好： \n 近期詐騙集團假冒常見之網路購物店家、物流公司、公營事業或金融機構等，發送釣魚簡訊或電子郵件，內文常以 「購買某商品將自動扣款」、「購買某商品尚未繳費」、「帳單逾期未繳」 等理由，誘騙民眾點擊簡訊或電子郵件所附之惡意網址。 \n 若於該假網站輸入 銀行帳號或信用卡 OTP 驗證碼 等個人資料， 易導致帳號遭盜用或財產損失。 \n 防詐提醒： \n 1. 請不要直接點選簡訊或電子郵件提供之連結， 更不要輸入重要個人資料、銀行帳號或信用卡號 等資訊。 \n 2. 收到疑似詐欺之簡訊或電子郵件時，請利用搜尋引擎確認是否為 正確之官方網站連結 或 官方電子郵件 。 \n 3. 如有疑問，請立即撥打「 165 」警政署反詐騙專線查詢，或可直接與發送簡訊或電子郵件之公司聯繫。",
-          "startsAt": "20260924",
-          "endsAt": "",
-          "publishedAt": "",
-          "officialOrder": 2
-        },
-        {
-          "title": "【重要公告】橘子支付將自9/1起暫停OK 超商的通路服務",
-          "category": "最新資訊",
-          "stores": [
-            "7-ELEVEN",
-            "全家便利商店",
-            "全家",
-            "萊爾富"
-          ],
-          "paymentMethods": [
-            "橘子支付"
-          ],
-          "audience": "not-stated",
-          "rate": 0,
-          "cap": 0,
-          "rewardLabel": "官方最新資訊",
-          "status": "2026/08/25；官方內容請見詳情頁",
-          "sourceUrl": "https://www.gamapay.com.tw/news.html?id=4956",
-          "image": "",
-          "rawText": "親愛的會員，您好： \n 因應 OK 超商進行相關系統轉換，橘子支付將自 2026 年 9 月 1 日起暫停提供 OK 超商的通路服務，屆時將無法於 OK 超商使用橘子支付進行付款。 \n 橘子支付於統一超商 (7-ELEVEN) 、全家便利商店及萊爾富等合作通路的付款服務皆維持正常，不受本次調整影響。後續如有服務異動，將另行公告通知。 \n 造成您的不便，敬請見諒，感謝您的理解與支持。 \n 橘子支付營運團隊敬上",
-          "startsAt": "20260825",
-          "endsAt": "",
-          "publishedAt": "",
-          "officialOrder": 3
-        },
-        {
-          "title": "【重要通知】8/10、8/13 14:30-15:00 政府行動網路降速演練，期間可能無法以行動網路使用橘子支付",
-          "category": "最新資訊",
-          "stores": [
-            "宜蘭",
-            "南投"
-          ],
-          "paymentMethods": [
-            "橘子支付"
-          ],
-          "audience": "not-stated",
-          "rate": 0,
-          "cap": 0,
-          "rewardLabel": "官方最新資訊",
-          "status": "2026/07/30；官方內容請見詳情頁",
-          "sourceUrl": "https://www.gamapay.com.tw/news.html?id=4944",
-          "image": "",
-          "rawText": "親愛的會員，您好： \n 因應 政府辦理「 2026 城鎮韌性(防空)演習-行動網路降速演練」 ， 演習期間部分地區可能因行動網路連線緩慢或不穩，而無法以行動網路使用橘子支付 APP 相關服務。 \n 如您於演習期間有支付需求，建議預先準備現金或實體信用卡等替代支付工具，避免因行動網路連線緩慢而無法使用電子支付工具。 \n l 影響範圍：會員註冊、付款、繳費、儲值、轉帳及查詢等功能 \n l 各區演習時間： \n 日期 \n 時間 \n 地區 \n 涵蓋縣市 \n 8 月 10 日（一） \n 14:30 &ndash; 15:00 \n 中部 \n 苗栗縣、臺中市、南投縣、彰化縣、雲林縣、嘉義市、嘉義縣 \n 8 月 13 日（四） \n 14:30 &ndash; 15:00 \n 北部 \n 宜蘭縣、基隆市、臺北市、新北市、桃園市、新竹市、新竹縣 \n l 演習詳細內容請參考：行政院公告 https://www.ey.gov.tw/Page/448DE008087A1971/096fb808-f775-47cd-bca9-9f3916680f54 \n 感謝您的理解與配合，造成不便，敬請見諒 \n 橘子支付營運團隊敬上",
-          "startsAt": "20260730",
-          "endsAt": "",
-          "publishedAt": "",
-          "officialOrder": 4
-        },
-        {
-          "title": "台中「AVI無紙化綁定自動扣繳」活動",
-          "category": "交通／旅遊回饋",
-          "stores": [
-            "官方支付服務"
-          ],
-          "paymentMethods": [
-            "橘子支付"
-          ],
-          "audience": "not-stated",
-          "rate": 0.04,
-          "cap": 0,
-          "rewardLabel": "最高 4% 回饋",
-          "status": "2026/07/14；官方內容請見詳情頁",
-          "sourceUrl": "https://www.gamapay.com.tw/news.html?id=4936",
-          "image": "",
-          "rawText": "115 年 7 月 22 日起於西區「國立臺灣美術館」周邊之五權西路、五權西三街、五權西四街等 3 條路段實施智慧停車無紙化，智慧化車格內皆標繪有綠底白字「 P 」及「無紙化收費」字樣，不開立紙本停車繳費單，提前綁定「電子支付自動代扣繳」，還可享最高 6 折停車優惠喔。 \n 智慧停車無紙化 (AVI) 懶人包詳下方連結 \n https://tcparking.taichung.gov.tw/ParkWeb/Pages/PublicService/AviTicketQA \n 停車費繳費方式詳下方連結 \n https://tcparking.taichung.gov.tw/ParkWeb/Pages/PublicService/PaymentWay",
-          "startsAt": "20260714",
-          "endsAt": "",
-          "publishedAt": "",
-          "officialOrder": 5
-        },
-        {
-          "title": "〈防詐宣導〉網路購物停看聽！別讓「假客服」、「假驗證」騙走你的辛苦錢",
-          "category": "最新資訊",
-          "stores": [
-            "官方支付服務"
-          ],
-          "paymentMethods": [
-            "橘子支付"
-          ],
-          "audience": "not-stated",
-          "rate": 0,
-          "cap": 0,
-          "rewardLabel": "官方最新資訊",
-          "status": "2026/06/26；官方內容請見詳情頁",
-          "sourceUrl": "https://www.gamapay.com.tw/news.html?id=4929",
-          "image": "",
-          "rawText": "圖片來源：警政署刑事警察局。 \n 親愛的橘子支付會員您好： \n 最近網路購物的相關詐騙手法越來越多變，有些詐騙集團甚至會假冒成常見的購物平台（如賣貨便、好賣+等）來設下陷阱。 \n 為了讓大家都能安心購物，本公司整理了 假網購、假客服 的常見套路，請花一分鐘看一下，保護好自己的錢包唷！ \n 第一步：用低價或限量商品吸引您的注意 \n 詐騙集團時常會在 Facebook、Instagram、LINE或Threads 等社群平台上，刊登低價商品、限量周邊或熱門演唱會門票，來吸引您的注意。 \n 第二步：提供假賣場網址，下單失敗後要您聯繫「假客服」 \n 當您決定要下單時，詐騙集團會提供一個看似正常的賣場連結，但您點擊連結下單後，網頁卻跳出 「未實名認證」、「訂單遭凍結」 或 「交易異常」 等語，這時對方就會假裝熱心地提供 QR Code 或連結，請您入指定的 LINE帳號或聯繫客服 幫忙解鎖， 注意這裡可能就是「假客服」 ！ \n 第三步：要求您進行「假驗證」，藉機騙取您的重要個資或簡訊驗證碼 \n 接著假客服會要求您進行身分驗證，可能會引導您到不明網站中 輸入 銀行帳號、 操作網銀或ATM轉帳、輸入手機簡訊驗證碼，甚至可能要求透過視訊、共享螢幕 來假裝核對身分，但實際上是要竊取您的重要個資！過程中，假賣家甚至會以「如果不弄好，我的帳戶會被扣錢、我要報警喔！」等話術威脅您，讓您在慌亂中就把重要個人資料、驗整馬提供給詐騙集團，或是依指示進行轉帳，導致財產損失！ \n 防詐提醒： \n 1. 正規網路購物平台通常 不會 要求您 跨平台加入LINE辦理實名認證！ \n 2. 絕對不要將手機簡訊驗證碼、OTP提供給任何人！ \n 3. 凡是要求您 登入網路銀行、網路/ATM轉帳、視訊或共享螢幕 ，才能完成交易、解除限制或驗證身分者， 高機率都是詐騙！ \n 4. 若您接到可疑的來電、簡訊或郵件，請立即撥打 「165」 警政署反詐騙專線查詢。",
-          "startsAt": "20260626",
-          "endsAt": "",
-          "publishedAt": "",
-          "officialOrder": 6
-        },
-        {
-          "title": "提醒！請勿任意將「付款碼QRcode」截圖提供給他人，極可能為詐騙，請務必提高警覺！",
-          "category": "最新資訊",
-          "stores": [
-            "官方支付服務"
-          ],
-          "paymentMethods": [
-            "橘子支付"
-          ],
-          "audience": "not-stated",
-          "rate": 0,
-          "cap": 0,
-          "rewardLabel": "官方最新資訊",
-          "status": "2026/05/20；官方內容請見詳情頁",
-          "sourceUrl": "https://www.gamapay.com.tw/news.html?id=4914",
-          "image": "",
-          "rawText": "近期常有詐騙集團誘騙被害人「提供付款碼截圖」或「以視訊方式螢幕共享付款碼」等方式，並利用該付款碼（即付款 QRcode ）進行大額或連續多筆交易。 \n ⚠ 為保障您的帳戶安全，提醒您注意以下事項： \n ●橘子支付 APP 付款碼僅供您結帳當下出示予店家掃碼使用 ，不會有其他用途！ \n ●若他人取得您的付款碼，您的橘子支付帳戶將可能被盜用進行 帳戶扣款 或 刷卡交易 ，請務必提高警覺並妥善保管付款碼！ \n ●本公司已於 橘子支付 APP 付款碼下方新增防詐跑馬燈警語 ，提醒您多加留意。 \n 如果您收到任何可疑的來電、電子郵件或簡訊，請向本 公司客服專線求證（ 02-21926082 ），或立即撥打「 １６５ 」警政署反詐騙專線查證，以確保自身權益。",
-          "startsAt": "20260520",
-          "endsAt": "",
-          "publishedAt": "",
-          "officialOrder": 7
-        },
-        {
-          "title": "【TWQR x 橘子支付】 逛越多，即可享不同回饋！",
-          "category": "一般回饋",
-          "stores": [
-            "官方支付服務"
-          ],
-          "paymentMethods": [
-            "橘子支付"
-          ],
-          "audience": "not-stated",
-          "rate": 0,
-          "cap": 0,
-          "rewardLabel": "依官方條件回饋",
-          "status": "2026/05/06；官方內容請見詳情頁",
-          "sourceUrl": "https://www.gamapay.com.tw/news.html?id=4909",
-          "image": "",
-          "rawText": "各活動詳情，請見TWQR官方活動網頁： \n https://www.twqr.com.tw/activity_35.html \n https://www.twqr.com.tw/activity_37.html \n https://www.twqr.com.tw/activity_41.html \n 注意：本活動實際執行皆以主辦/協辦單位為主",
-          "startsAt": "20260506",
-          "endsAt": "",
-          "publishedAt": "",
-          "officialOrder": 8
-        },
-        {
-          "title": "跨行轉帳更安心！橘子支付新增「顯示收款人遮罩戶名」功能",
-          "category": "最新資訊",
-          "stores": [
-            "官方支付服務"
-          ],
-          "paymentMethods": [
-            "橘子支付"
-          ],
-          "audience": "not-stated",
-          "rate": 0,
-          "cap": 0,
-          "rewardLabel": "官方最新資訊",
-          "status": "2026/04/21；官方內容請見詳情頁",
-          "sourceUrl": "https://www.gamapay.com.tw/news.html?id=4904",
-          "image": "",
-          "rawText": "親愛的會員，您好 , \n 為降低轉帳錯誤與詐騙風險，橘子支付於 2026 年 4 月 21 日起，跨行轉帳新增「轉帳戶名部分遮罩的服務」，說明如下： \n 1 、會員進行轉帳操作時，輸入銀行帳號後，畫面會顯示部分遮罩的戶名，例如「王○明」，協助使用者在轉帳前再次核對是否為預期的收款對象 \n 2 、提醒您，若銀行尚未支援戶名查詢或連線逾時，畫面將提示無法顯示戶名，會員仍可選擇是否繼續完成轉帳 \n 感謝您長期對橘子支付的支持與愛用 \n 橘子支付營運團隊敬上 \n 客服信箱： CS@Service.gamapay.com.tw \n 客服專線： 02-21926082 ；服務時間： 10:00~19:00 ( 週一至週日 )",
-          "startsAt": "20260421",
-          "endsAt": "",
-          "publishedAt": "",
-          "officialOrder": 9
-        },
-        {
-          "title": "橘子支付114年內部控制制度聲明書",
-          "category": "最新資訊",
-          "stores": [
-            "官方支付服務"
-          ],
-          "paymentMethods": [
-            "橘子支付"
-          ],
-          "audience": "not-stated",
-          "rate": 0,
-          "cap": 0,
-          "rewardLabel": "官方最新資訊",
-          "status": "2026/03/06；官方內容請見詳情頁",
-          "sourceUrl": "https://www.gamapay.com.tw/news.html?id=4884",
-          "image": "",
-          "rawText": "親愛的會員，您好：\n依專營電子支付機構內部控制及稽核制度實施辦法第 26 條，揭露本公司 114 年內部控制制度聲明書。\n 114 年度內部控制制度聲明書： https://www.gamapay.com.tw/events/ICS/橘子支_114年度內部控制制度聲明書.pdf",
-          "startsAt": "20260306",
-          "endsAt": "",
-          "publishedAt": "",
-          "officialOrder": 10
-        },
-        {
-          "title": "114年度營運報告書、114年度經會計師查核之財務報告",
-          "category": "最新資訊",
-          "stores": [
-            "官方支付服務"
-          ],
-          "paymentMethods": [
-            "橘子支付"
-          ],
-          "audience": "not-stated",
-          "rate": 0,
-          "cap": 0,
-          "rewardLabel": "官方最新資訊",
-          "status": "2026/03/05；官方內容請見詳情頁",
-          "sourceUrl": "https://www.gamapay.com.tw/news.html?id=4882",
-          "image": "",
-          "rawText": "親愛的會員，您好： \n 依據電子支付機構管理條例第 35 條規定，公告本公司 114 年度營業報告書暨財務報告 \n 114 年度營業報告書： https://www.gamapay.com.tw/events/ICS/114 年度營業報告書.pdf \n 114 年度經會計師查核之財務報告： https://www.gamapay.com.tw/events/ICS/114 年度經會計師查核之財務報告.pdf",
-          "startsAt": "20260305",
-          "endsAt": "",
-          "publishedAt": "",
-          "officialOrder": 11
-        },
-        {
-          "title": "《防詐宣導》橘子支付不會寄發電子郵件或簡訊請使用者及特約機構點擊連結並輸入機敏資訊",
-          "category": "最新資訊",
-          "stores": [
-            "官方支付服務"
-          ],
-          "paymentMethods": [
-            "橘子支付"
-          ],
-          "audience": "not-stated",
-          "rate": 0,
-          "cap": 0,
-          "rewardLabel": "官方最新資訊",
-          "status": "2026/01/29；官方內容請見詳情頁",
-          "sourceUrl": "https://www.gamapay.com.tw/news.html?id=4869",
-          "image": "",
-          "rawText": "親愛的會員您好，為避免不肖人士藉由以假亂真的情境，使人因稍不留神就誤入詐騙陷阱，橘子支付提醒您留意下列事項： \n 1 、透過電子郵件或簡訊的方式，以各種話術誘騙提供帳號、密碼、簡訊認證碼等機敏資訊，是屬於「 網路釣魚 」的詐騙手法。 \n 2 、橘子支付 不會 寄發電子郵件或簡訊請您點擊連結並輸入帳號、密碼、簡訊認證碼等機敏資訊。 \n 3 、請各位會員除於橘子支付官方網站或 APP 外， 切勿在其他網站或 APP 輸入您的帳號、密碼、簡訊認證碼或其他任何機敏資訊 。 \n 4 、如果您收到任何可疑的來電、電子郵件或簡訊，請向本公司客服專線求證（ 02-21926082 ），或立即撥打「 １６５ 」警政署反詐騙專線查證，以確保自身權益。",
-          "startsAt": "20260129",
-          "endsAt": "",
-          "publishedAt": "",
-          "officialOrder": 12
-        },
-        {
-          "title": "橘子支付客服專線服務時間調整公告",
-          "category": "最新資訊",
-          "stores": [
-            "官方支付服務"
-          ],
-          "paymentMethods": [
-            "橘子支付"
-          ],
-          "audience": "not-stated",
-          "rate": 0,
-          "cap": 0,
-          "rewardLabel": "官方最新資訊",
-          "status": "2025/10/23；官方內容請見詳情頁",
-          "sourceUrl": "https://www.gamapay.com.tw/news.html?id=4829",
-          "image": "",
-          "rawText": "親愛的客戶您好： \n 本公司客服專線服務時間將於 114 年 11 月 1 日起，調整為 週一至週日的上午 10 點至晚上 7 點 。 \n 其他時段您可以透過 常見問題 進行查詢，或利用客服信箱與我們聯繫。 \n 感謝您的理解與支持。 \n 客服專線： 02-21926082 \n 客服信箱： CS@Service.gamapay.com.tw",
-          "startsAt": "20251023",
-          "endsAt": "",
-          "publishedAt": "",
-          "officialOrder": 13
-        },
-        {
-          "title": "橘子支行動支付股份有限公司會員條款、隱私權條款調整公告",
-          "category": "最新資訊",
-          "stores": [
-            "官方支付服務"
-          ],
-          "paymentMethods": [
-            "橘子支付"
-          ],
-          "audience": "not-stated",
-          "rate": 0,
-          "cap": 0,
-          "rewardLabel": "官方最新資訊",
-          "status": "2025/10/15；官方內容請見詳情頁",
-          "sourceUrl": "https://www.gamapay.com.tw/news.html?id=4825",
-          "image": "",
-          "rawText": "親愛的客戶您好： \n 因應本公司客服專線服務時間異動，以及客服專線系統和防詐流程優化，茲公告修正本公司「會員條款」及「隱私權條款」，並自 114 年 11 月 1 日 起生效實施。 \n ● 會員條款： https://www.gamapay.com.tw/ver_1.html \n ● 隱私權條款： https://www.gamapay.com.tw/privacy.html \n 有關前述修訂之詳細內容，請參閱下方附件新舊條款之修正對照表。請會員詳細閱讀條款，若對於本次修訂內容有異議者，請通知本公司終止契約，若未於公告後 七日 內提出異議並通知本公司終止契約者，則將視為同意本次修訂內容，敬請知悉。 \n 感謝您對橘子支付的支持！ \n 附件：會員條款、隱私權條款 _ 修正對照表",
-          "startsAt": "20251015",
-          "endsAt": "",
-          "publishedAt": "",
-          "officialOrder": 14
-        },
-        {
-          "title": "【得獎名單公告】🎉7月橘子支付陪你 \"FUN暑假\" 抽獎得獎名單🎉",
-          "category": "最新資訊",
-          "stores": [
-            "官方支付服務"
-          ],
-          "paymentMethods": [
-            "橘子支付"
-          ],
-          "audience": "not-stated",
-          "rate": 0,
-          "cap": 0,
-          "rewardLabel": "官方最新資訊",
-          "status": "2025/08/21；官方內容請見詳情頁",
-          "sourceUrl": "https://www.gamapay.com.tw/news.html?id=4797",
-          "image": "",
-          "rawText": "【得獎名單公告】🎉7月橘子支付陪你 \"FUN暑假\" 抽獎得獎名單🎉",
-          "startsAt": "20250821",
-          "endsAt": "",
-          "publishedAt": "",
-          "officialOrder": 15
-        },
-        {
-          "title": "【得獎名單公告】🎉7月橘子支付陪你 \"楓暑假\" 抽獎得獎名單🎉",
-          "category": "最新資訊",
-          "stores": [
-            "官方支付服務"
-          ],
-          "paymentMethods": [
-            "橘子支付"
-          ],
-          "audience": "not-stated",
-          "rate": 0,
-          "cap": 0,
-          "rewardLabel": "官方最新資訊",
-          "status": "2025/08/21；官方內容請見詳情頁",
-          "sourceUrl": "https://www.gamapay.com.tw/news.html?id=4796",
-          "image": "",
-          "rawText": "【得獎名單公告】🎉7月橘子支付陪你 \"楓暑假\" 抽獎得獎名單🎉",
-          "startsAt": "20250821",
-          "endsAt": "",
-          "publishedAt": "",
-          "officialOrder": 16
-        },
-        {
-          "title": "⚠️防詐宣導⚠️ 橘子支付特別提醒您提高警覺，防範詐騙！",
-          "category": "最新資訊",
-          "stores": [
-            "官方支付服務"
-          ],
-          "paymentMethods": [
-            "橘子支付"
-          ],
-          "audience": "not-stated",
-          "rate": 0,
-          "cap": 0,
-          "rewardLabel": "官方最新資訊",
-          "status": "2025/06/27；官方內容請見詳情頁",
-          "sourceUrl": "https://www.gamapay.com.tw/news.html?id=4749",
-          "image": "",
-          "rawText": "親愛的會員您好， \n 詐騙手法日益多元，詐騙集團常假冒金融機構之名義，以 電話、簡訊、電子郵件 或其他手段 \n 誘導民眾提供個人資料或點擊不明連結，進而竊取個資或進行詐騙，請務必謹記「 ４個不要 」： \n 🚨 不要 點擊任何來源不明的連結。 \n 🚨不要 匯款至陌生帳號。 \n 🚨不要 將金融卡交給陌生人。 \n 🚨不要 將網銀帳號或密碼洩露給任何人。 \n 若您接到可疑的來電、簡訊或郵件，請立即撥打「 １６５ 」警政署反詐騙專線查詢，或於客服中心營業時間內與橘子支付聯繫，我們將竭誠為您服務。",
-          "startsAt": "20250627",
-          "endsAt": "",
-          "publishedAt": "",
-          "officialOrder": 17
-        },
-        {
-          "title": "🚗國道休息站「橘」點開通啦！🧡",
-          "category": "最新資訊",
-          "stores": [
-            "南投"
-          ],
-          "paymentMethods": [
-            "橘子支付"
-          ],
-          "audience": "not-stated",
-          "rate": 0,
-          "cap": 0,
-          "rewardLabel": "依官方條件回饋",
-          "status": "2025/05/30；官方內容請見詳情頁",
-          "sourceUrl": "https://www.gamapay.com.tw/news.html?id=3737",
-          "image": "",
-          "rawText": "🚗國道休息站「 橘 」點開通啦！🧡 \n 不只中油加油能用橘子支付，休息站也可以🙌\n 📍中壢、湖口、古坑、關西、西湖、南投、西螺、東草屯休息站 \n 通通都能用橘子支付～ 🎉🎉🎉\n 不管是買咖啡、買零食，還是肚子餓想吃一頓\n 通通快速付款，不用掏錢找零好便利 😍\n 中油活動詳情👉 https://lihi2.com/HImIz \n 🔜快來下載橘子支付 \n https://gamapay.onelink.me/9ZMY/i0265qfh \n #橘子支付 #行動支付 #國道休息站\n #中油加油站 #加油回饋 #休息也能賺回饋 #便利生活橘著來",
-          "startsAt": "20250530",
-          "endsAt": "",
-          "publishedAt": "",
-          "officialOrder": 18
-        }
-      ]
-    },
-    {
       "name": "歐付寶 O'Pay 官方活動",
       "logo": "/logos/opay-icon.png",
       "color": "#1388c9",
       "focus": "歐付寶 O'Pay 官方好康活動與合作通路。",
-      "freshness": "官方來源檢查 2026/10/03；依官方更新順序排列",
+      "freshness": "官方來源檢查 2026/10/04；依官方更新順序排列",
       "campaigns": [
         {
           "title": "2026/10/1~2026/12/31持歐付寶至萊爾富消費滿150元回饋紅利10%",
@@ -9212,7 +8783,7 @@
       "segment": "daily",
       "officialSite": "https://web-tw-pay.line.me/cms/event",
       "sourceUrl": "https://web-tw-pay.line.me/cms/event",
-      "checkedAt": "2026-10-03T13:11:04.437Z"
+      "checkedAt": "2026-10-03T18:54:47.827Z"
     },
     {
       "name": "街口支付",
@@ -9222,7 +8793,7 @@
       "segment": "daily",
       "officialSite": "https://mkt.jkopay.com/zh-TW/event",
       "sourceUrl": "https://mkt.jkopay.com/sitemap.xml",
-      "checkedAt": "2026-10-03T13:11:04.437Z"
+      "checkedAt": "2026-10-03T18:54:47.827Z"
     },
     {
       "name": "悠遊付",
@@ -9232,7 +8803,7 @@
       "segment": "daily",
       "officialSite": "https://easywallet.easycard.com.tw/benefit/",
       "sourceUrl": "https://easywallet.easycard.com.tw/benefit/?page=1",
-      "checkedAt": "2026-10-03T13:11:04.437Z"
+      "checkedAt": "2026-10-03T18:54:47.827Z"
     },
     {
       "name": "iPASS MONEY",
@@ -9242,7 +8813,7 @@
       "segment": "daily",
       "officialSite": "https://www.i-pass.com.tw/Preferential",
       "sourceUrl": "https://www.i-pass.com.tw/Preferential?page=1&type=0",
-      "checkedAt": "2026-10-03T13:11:04.437Z"
+      "checkedAt": "2026-10-03T18:54:47.827Z"
     },
     {
       "name": "icash Pay",
@@ -9252,7 +8823,7 @@
       "segment": "daily",
       "officialSite": "https://www.icashpay.com.tw/",
       "sourceUrl": "https://www.icashpay.com.tw/advertMessage/index?page=1",
-      "checkedAt": "2026-10-03T13:11:04.437Z"
+      "checkedAt": "2026-10-03T18:54:47.827Z"
     },
     {
       "name": "Pi 拍錢包",
@@ -9262,7 +8833,7 @@
       "segment": "merchant",
       "officialSite": "https://web.piapp.com.tw/events/",
       "sourceUrl": "https://web.piapp.com.tw/events/",
-      "checkedAt": "2026-10-03T13:11:04.437Z"
+      "checkedAt": "2026-10-03T18:54:47.827Z"
     },
     {
       "name": "全盈+PAY",
@@ -9272,7 +8843,7 @@
       "segment": "merchant",
       "officialSite": "https://event2023.pluspay.com.tw/",
       "sourceUrl": "https://event2023.pluspay.com.tw/",
-      "checkedAt": "2026-10-03T13:11:04.437Z"
+      "checkedAt": "2026-10-03T18:54:47.827Z"
     },
     {
       "name": "OPEN錢包",
@@ -9282,7 +8853,7 @@
       "segment": "merchant",
       "officialSite": "https://www.7-11.com.tw/service/Pay.aspx#tab1",
       "sourceUrl": "https://www.7-11.com.tw/service/Pay.aspx#tab1",
-      "checkedAt": "2026-10-03T13:11:04.437Z"
+      "checkedAt": "2026-10-03T18:54:47.827Z"
     },
     {
       "name": "7-ELEVEN",
@@ -9292,7 +8863,7 @@
       "segment": "merchant",
       "officialSite": "https://www.7-11.com.tw/index.aspx",
       "sourceUrl": "https://www.7-11.com.tw/index.aspx",
-      "checkedAt": "2026-10-03T13:11:04.437Z"
+      "checkedAt": "2026-10-03T18:54:47.827Z"
     },
     {
       "name": "台灣 Pay",
@@ -9302,7 +8873,7 @@
       "segment": "cross-network",
       "officialSite": "https://taiwanpay.firstbank.com.tw/sites/twpay/latestOffers",
       "sourceUrl": "https://taiwanpay.firstbank.com.tw/sites/twpay/latestOffers",
-      "checkedAt": "2026-10-03T13:11:04.437Z"
+      "checkedAt": "2026-10-03T18:54:47.827Z"
     },
     {
       "name": "全支付",
@@ -9312,7 +8883,7 @@
       "segment": "merchant",
       "officialSite": "https://www.pxpayplus.com.tw/",
       "sourceUrl": "https://www.pxpayplus.com.tw/",
-      "checkedAt": "2026-10-03T13:11:04.437Z"
+      "checkedAt": "2026-10-03T18:54:47.827Z"
     },
     {
       "name": "橘子支付",
@@ -9322,7 +8893,7 @@
       "segment": "cross-network",
       "officialSite": "https://www.gamapay.com.tw/news_list.html",
       "sourceUrl": "https://www.gamapay.com.tw/news_list.html",
-      "checkedAt": "2026-10-03T13:11:04.437Z"
+      "checkedAt": "2026-10-03T18:54:47.827Z"
     },
     {
       "name": "歐付寶 O'Pay",
@@ -9332,7 +8903,7 @@
       "segment": "cross-network",
       "officialSite": "https://www.opay.tw/banner/event",
       "sourceUrl": "https://www.opay.tw/banner/event",
-      "checkedAt": "2026-10-03T13:11:04.437Z"
+      "checkedAt": "2026-10-03T18:54:47.827Z"
     },
     {
       "name": "ezPay 簡單付",
@@ -9342,7 +8913,7 @@
       "segment": "cross-network",
       "officialSite": "https://www.ezpay.com.tw/",
       "sourceUrl": "https://www.ezpay.com.tw/",
-      "checkedAt": "2026-10-03T13:11:04.437Z"
+      "checkedAt": "2026-10-03T18:54:47.827Z"
     }
   ]
 }
