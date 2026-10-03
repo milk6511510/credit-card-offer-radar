@@ -1041,7 +1041,7 @@ export default function Home() {
             <a className={activeView === "latest" ? "active" : ""} href="#latest" aria-current={activeView === "latest" ? "page" : undefined}>活動總覽</a>
             <a href="#platforms">平台分類</a>
             <a className={isFavoritesView ? "active" : ""} href="#favorites" aria-current={isFavoritesView ? "page" : undefined}>我的最愛{favoriteOfferCount ? <span className="nav-count">{favoriteOfferCount}</span> : null}</a>
-            <a className={isHistoryView ? "active" : ""} href="#history" aria-current={isHistoryView ? "page" : undefined}>歷史回饋</a>
+            <a className={isHistoryView ? "active" : ""} href="#history" aria-current={isHistoryView ? "page" : undefined}>歷史軌跡</a>
             <a href="#sources">官方入口</a>
           </nav>
           <div className="topbar-actions">
@@ -1066,44 +1066,16 @@ export default function Home() {
           <section className="workspace-header" aria-labelledby="workspace-title">
             <div className="workspace-header-copy">
               <span className="kicker"><span className="kicker-line" />paymentrader / 支付優惠情報站</span>
-              <h1 id="workspace-title">{isHistoryView ? "歷史回饋紀錄" : isFavoritesView ? "我的最愛" : "有效活動總覽"}</h1>
-              <p>{isHistoryView ? "回看官方曾公告的額滿日期與時間，作為下次安排回饋的參考。" : isFavoritesView ? "集中查看你正在追蹤的活動，資料同步後更快確認變化。" : "先看回饋，再看條件。所有平台活動集中在同一份清單，可直接搜尋與篩選。"}</p>
+              <h1 id="workspace-title">{isHistoryView ? "歷史耗盡軌跡" : isFavoritesView ? "我的最愛" : "有效活動總覽"}</h1>
+              <p>{isHistoryView ? "獨立整理官方曾公告的額滿日期與時間，回看哪個月份、哪家銀行需要優先使用。" : isFavoritesView ? "集中查看你正在追蹤的活動，資料同步後更快確認變化。" : "先看回饋，再看條件。所有平台活動集中在同一份清單，可直接搜尋與篩選。"}</p>
             </div>
             <div className="workspace-header-tools">
               <div className="workspace-actions">
                 <a className="workspace-action" href={isFavoritesView ? "#latest" : "#favorites"}><Icon name={isFavoritesView ? "search" : "heart"} size={16} />{isFavoritesView ? "全部活動" : "我的最愛"}</a>
-                <a className="workspace-action" href="#history"><Icon name="clock" size={16} />歷史耗盡</a>
+                <a className="workspace-action" href="#history"><Icon name="clock" size={16} />歷史軌跡</a>
                 <button type="button" className={`workspace-action${preferencesOpen ? " is-selected" : ""}`} onClick={() => setPreferencesOpen((open) => !open)} aria-expanded={preferencesOpen} aria-controls="local-preferences"><Icon name="sliders" size={16} />偏好平台</button>
               </div>
             </div>
-          </section>
-
-          <section className="history-trail-preview" aria-labelledby="history-trail-preview-title">
-            <div className="history-trail-preview-heading">
-              <div className="history-trail-title-wrap">
-                <span className="history-trail-icon"><Icon name="timeline" size={19} /></span>
-                <div>
-                  <span className="eyebrow">HISTORY TRACK</span>
-                  <h2 id="history-trail-preview-title">歷史耗盡軌跡</h2>
-                  <p>把同一活動的銀行與額滿日期收在一起，先看趨勢，再進完整紀錄。</p>
-                </div>
-              </div>
-              <button type="button" className="history-trail-jump" onClick={jumpToHistoryRecords}>
-                <span>查看完整紀錄</span><Icon name="arrow-right" size={15} />
-              </button>
-            </div>
-            <div className="history-trail-metrics" aria-label="歷史耗盡摘要">
-              <span><strong>{historyTrackGroups.length}</strong> 個活動軌跡</span>
-              <span><strong>{historyRecords.length}</strong> 筆官方紀錄</span>
-              <span><strong>{exactHistoryCount ? "日期／時間" : "日期"}</strong> 優先保留</span>
-            </div>
-            {historyTrackGroups.length ? (
-              <div className="history-track-grid history-track-grid-preview">
-                {historyTrackGroups.slice(0, 3).map((group) => <HistoryTrackGroupCard group={group} key={group.key} />)}
-              </div>
-            ) : (
-              <p className="history-trail-empty">目前尚未收集到官方額滿紀錄。</p>
-            )}
           </section>
 
           <section id={isFavoritesView ? "favorites" : "latest"} className={`activity-workspace${isHistoryView ? " app-view-hidden" : ""}`}>
@@ -1269,15 +1241,34 @@ export default function Home() {
             <p className="panel-footnote"><Icon name="info" size={14} />活動細項、名額與期限請以各平台、各通路的官方頁面為準。</p>
           </section>
 
-          <section id="history" className={`history-section${isHistoryView ? " is-standalone" : " app-view-hidden"}`} aria-labelledby="history-title">
-            <div className="history-heading">
-              <div>
-                <span className="eyebrow"><Icon name="clock" size={14} />EXHAUSTION HISTORY</span>
-                <h2 id="history-title">歷史回饋耗盡</h2>
-                <p>把官方曾公告的額滿時間留下來，下一次先判斷哪個月份、哪家銀行需要優先使用。</p>
+          <section id="history" className={`history-section${isHistoryView ? " is-standalone" : " app-view-hidden"}`} aria-labelledby="history-trail-preview-title">
+            <section className="history-trail-preview" aria-labelledby="history-trail-preview-title">
+              <div className="history-trail-preview-heading">
+                <div className="history-trail-title-wrap">
+                  <span className="history-trail-icon"><Icon name="timeline" size={19} /></span>
+                  <div>
+                    <span className="eyebrow">HISTORY TRACK</span>
+                    <h2 id="history-trail-preview-title">歷史耗盡軌跡</h2>
+                    <p>把同一活動的銀行與額滿日期收在一起，先看趨勢，再進完整紀錄。</p>
+                  </div>
+                </div>
+                <button type="button" className="history-trail-jump" onClick={jumpToHistoryRecords}>
+                  <span>查看完整紀錄</span><Icon name="arrow-right" size={15} />
+                </button>
               </div>
-              <div className="history-total"><strong>{historyRecords.length}</strong><span>筆官方紀錄</span></div>
-            </div>
+              <div className="history-trail-metrics" aria-label="歷史耗盡摘要">
+                <span><strong>{historyTrackGroups.length}</strong> 個活動軌跡</span>
+                <span><strong>{historyRecords.length}</strong> 筆官方紀錄</span>
+                <span><strong>{exactHistoryCount ? "日期／時間" : "日期"}</strong> 優先保留</span>
+              </div>
+              {historyTrackGroups.length ? (
+                <div className="history-track-grid history-track-grid-preview">
+                  {historyTrackGroups.slice(0, 3).map((group) => <HistoryTrackGroupCard group={group} key={group.key} />)}
+                </div>
+              ) : (
+                <p className="history-trail-empty">目前尚未收集到官方額滿紀錄。</p>
+              )}
+            </section>
 
             <div className="history-kpi-grid">
               <div className="history-kpi glass-panel"><span>已記錄月份</span><strong>{historyMonthCount}</strong><small>跨平台累積</small></div>
