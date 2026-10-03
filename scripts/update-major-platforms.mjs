@@ -955,7 +955,7 @@ data.sources = [...legacySources, ...generatedSources]
 data.updatedAt = checkedAt;
 data.source = {
   name: "多平台官方活動資料",
-  url: "https://www.7-11.com.tw/service/Pay.aspx",
+  url: "https://www.7-11.com.tw/service/Pay.aspx#tab1",
   officialSite: "https://www.7-11.com.tw/index.aspx",
   counts: Object.fromEntries(data.payments.flatMap((payment) => payment.campaigns).reduce((map, item) => map.set(item.category, (map.get(item.category) || 0) + 1), new Map())),
 };
