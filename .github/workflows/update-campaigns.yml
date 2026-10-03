@@ -2,8 +2,8 @@ name: Update official campaign data
 
 on:
   schedule:
-    # 00:00, 08:00, and 16:00 UTC = 08:00, 16:00, and 00:00 Asia/Taipei.
-    - cron: "0 0,8,16 * * *"
+    # Every four hours. GitHub cron uses UTC; this covers six checks per day in Asia/Taipei.
+    - cron: "0 */4 * * *"
   workflow_dispatch:
 
 permissions:
@@ -23,17 +23,23 @@ jobs:
         with:
           ref: main
 
+      - name: Set up pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 11.25.0
+
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 22
-          cache: npm
+          cache: pnpm
+          cache-dependency-path: pnpm-lock.yaml
 
       - name: Install dependencies
-        run: npm ci
+        run: pnpm install --frozen-lockfile
 
       - name: Scrape official campaign pages
-        run: npm run update:campaigns
+        run: pnpm run update:campaigns
 
       - name: Commit changed campaign data
         shell: bash

@@ -134,7 +134,23 @@ const paymentPatterns = [
 ];
 
 function inferPaymentMethods(text) {
-  return paymentPatterns.filter(([, pattern]) => pattern.test(text)).map(([label]) => label);
+  const value = String(text || "");
+  const negativeMarker = /(?:不包含|不含|不適用|不得|不支援|不列入|排除|除外|禁止|無法)/i;
+  const boundary = /[。；;\n]|(?:活動\s*\d+)|(?:支付工具\s*[-：:])|(?:注意事項)/gi;
+
+  return paymentPatterns
+    .filter(([label, pattern]) => {
+      const matcher = new RegExp(pattern.source, `${pattern.flags.replace("g", "")}g`);
+      return [...value.matchAll(matcher)].some((match) => {
+        const index = match.index ?? 0;
+        const before = value.slice(0, index);
+        const boundaries = [...before.matchAll(boundary)].map((item) => (item.index ?? 0) + item[0].length);
+        const start = boundaries.length ? Math.max(...boundaries) : 0;
+        const context = value.slice(start, index);
+        return !negativeMarker.test(context);
+      });
+    })
+    .map(([label]) => label);
 }
 
 function inferAudience(text) {
@@ -208,6 +224,60 @@ function parsePaymentRows(html, today) {
   }).filter(Boolean);
 }
 
+function pageText(html) {
+  return cleanText(String(html || "")
+    .replace(/<!-->[\s\S]*?-->/g, " ")
+    .replace(/<!--[\s\S]*?-->/g, " ")
+    .replace(/<script\b[\s\S]*?<\/script>/gi, " ")
+    .replace(/<style\b[\s\S]*?<\/style>/gi, " ")
+    .replace(/<noscript\b[\s\S]*?<\/noscript>/gi, " "));
+}
+
+function officialStatusSnippets(html) {
+  const text = pageText(html);
+  const snippets = [...text.matchAll(/(?<![\d-])\d{1,2}\s*月(?:份)?[^。；\n]{0,100}?已(?:於[^。；\n]{0,48})?(?:額滿|滿額|兌換完畢|用罄|送完)/gi)]
+    .map((match) => cleanText(match[0]))
+    .filter((snippet) => snippet.length > 4)
+    .filter((snippet, index, all) => all.indexOf(snippet) === index);
+  return snippets.slice(0, 6).join("；");
+}
+
+async function enrichOpenWalletCampaigns(campaigns) {
+  const enriched = [...campaigns];
+  const candidates = campaigns
+    .map((campaign, index) => ({ campaign, index }))
+    .filter(({ campaign }) => campaign.paymentMethods?.includes("OPEN錢包") && campaign.sourceUrl && campaign.sourceUrl !== paymentSourceUrl);
+
+  for (let start = 0; start < candidates.length; start += 4) {
+    const batch = await Promise.all(candidates.slice(start, start + 4).map(async ({ campaign, index }) => {
+      try {
+        const response = await fetch(campaign.sourceUrl, {
+          cache: "no-store",
+          headers: {
+            "user-agent": "Mozilla/5.0 paymentrader-official-sync/1.0",
+            accept: "text/html,application/xhtml+xml",
+          },
+        });
+        if (!response.ok) return { index, campaign };
+        const status = officialStatusSnippets(await response.text());
+        if (!status) return { index, campaign };
+        return {
+          index,
+          campaign: {
+            ...campaign,
+            rawText: `${campaign.rawText}；官方頁額滿狀態：${status}`,
+          },
+        };
+      } catch (error) {
+        console.warn(`OPEN錢包 official detail skipped: ${campaign.sourceUrl} (${error.message})`);
+        return { index, campaign };
+      }
+    }));
+    for (const item of batch) enriched[item.index] = item.campaign;
+  }
+  return enriched;
+}
+
 async function main() {
   const outputPath = path.join(process.cwd(), "public", "data", "campaigns.json");
   let previousHistory = [];
@@ -263,10 +333,22 @@ async function main() {
 
   const paymentResponse = await fetch(paymentSourceUrl, { cache: "no-store" });
   const paymentHtml = paymentResponse.ok ? await paymentResponse.text() : "";
-  const paymentCampaigns = paymentHtml ? parsePaymentRows(paymentHtml, today) : [];
+  const paymentCampaigns = paymentHtml ? await enrichOpenWalletCampaigns(parsePaymentRows(paymentHtml, today)) : [];
   const campaigns = [...xmlCampaigns, ...paymentCampaigns.map((campaign, index) => ({ ...campaign, officialOrder: xmlCampaigns.length + index }))]
-    .filter((campaign, index, all) => all.findIndex((item) => `${item.title}|${item.sourceUrl}|${item.rawText}` === `${campaign.title}|${campaign.sourceUrl}|${campaign.rawText}`) === index)
-    .map((campaign, index) => ({ ...campaign, officialOrder: campaign.officialOrder ?? index }));
+    .reduce((unique, campaign) => {
+      const isBankPaymentCampaign = String(campaign.title || "").startsWith("OPEN錢包綁");
+      const key = isBankPaymentCampaign
+        ? `${campaign.title}|${campaign.sourceUrl}`
+        : `${campaign.title}|${campaign.sourceUrl}|${campaign.rawText}`;
+      const existingIndex = unique.findIndex((item) => item.key === key);
+      if (existingIndex < 0) {
+        unique.push({ key, campaign });
+      } else if (String(campaign.rawText || "").length > String(unique[existingIndex].campaign.rawText || "").length) {
+        unique[existingIndex] = { key, campaign };
+      }
+      return unique;
+    }, [])
+    .map(({ campaign }, index) => ({ ...campaign, officialOrder: campaign.officialOrder ?? index }));
 
   const groupedCounts = campaigns.reduce((acc, campaign) => {
     acc[campaign.category] = (acc[campaign.category] || 0) + 1;

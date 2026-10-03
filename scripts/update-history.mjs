@@ -159,6 +159,7 @@ function dedupeHistoryRecords(records) {
 
 function extractDateRecords(platform, campaign, records) {
   const text = `${campaign.title || ""}\n${campaign.rawText || ""}`;
+  if (platform === "OPEN錢包" && !String(campaign.title || "").startsWith("OPEN錢包綁")) return;
   if (platform === "iPASS MONEY" && !/額滿/.test(campaign.title || "")) return;
   const pattern = /(20\d{2})\s*[/.\-]\s*(\d{1,2})\s*[/.\-]\s*(\d{1,2})(?:\s+(\d{1,2}):(\d{2})(?::(\d{2}))?\s*(a\.?m\.?|p\.?m\.?|am|pm)?)?[\s\S]{0,28}?(額滿|用罄|售完|送完)/gi;
   for (const match of text.matchAll(pattern)) {
@@ -197,8 +198,9 @@ function extractDateRecords(platform, campaign, records) {
 
 function extractOpenMonthRecords(platform, campaign, records) {
   if (platform !== "OPEN錢包") return;
+  if (!String(campaign.title || "").startsWith("OPEN錢包綁")) return;
   const text = `${campaign.title || ""}\n${campaign.rawText || ""}`;
-  const pattern = /(\d{1,2})月(?:份)?[^。\n]{0,24}名額已額滿/gi;
+  const pattern = /(\d{1,2})月(?:份)?[^。\n]{0,64}?已(?:於[^。\n]{0,40})?(?:額滿|滿額|兌換完畢|用罄|送完)/gi;
   for (const match of text.matchAll(pattern)) {
     const monthNumber = String(Number(match[1])).padStart(2, "0");
     const year = dateFromCampaign(campaign);
@@ -222,8 +224,16 @@ function extractOpenMonthRecords(platform, campaign, records) {
   }
 }
 
+function keepHistoryRecord(record) {
+  if (record.platform !== "OPEN錢包") return true;
+  const title = String(record.campaignTitle || "");
+  const evidence = String(record.evidence || "");
+  if (!title.startsWith("OPEN錢包綁")) return false;
+  return !/(家居分期|1010購物節|店內活動|一般權益)/i.test(evidence);
+}
+
 const data = JSON.parse(await readFile(outputPath, "utf8"));
-const records = process.env.REBUILD_HISTORY === "1" ? [] : [...(data.history || [])];
+const records = process.env.REBUILD_HISTORY === "1" ? [] : [...(data.history || [])].filter(keepHistoryRecord);
 for (const payment of data.payments || []) {
   const platform = canonicalPlatform(payment.name);
   for (const campaign of payment.campaigns || []) {
