@@ -8,7 +8,7 @@
   "theme_color": "#65c89a",
   "icons": [
     {
-      "src": "/branding/paymentrader/logo-10-editorial-light-mark.svg",
+      "src": "/favicon.svg",
       "sizes": "64x64",
       "type": "image/svg+xml",
       "purpose": "any maskable"

@@ -6079,43 +6079,6 @@ body {
   }
 }
 
-/* Keep the brand mark centered in a compact rounded-square anchor. */
-.light-theme .brand-lockup {
-  align-items: center;
-  gap: 8px;
-}
-
-.light-theme .paymentrader-mark {
-  width: 28px;
-  height: 28px;
-  flex: 0 0 28px;
-  aspect-ratio: 1;
-  object-position: center;
-  border-radius: 8px;
-}
-
-@media (max-width: 760px) {
-  .light-theme .brand-lockup {
-    gap: 6px;
-  }
-
-  .light-theme .paymentrader-mark {
-    width: 24px;
-    height: 24px;
-    flex-basis: 24px;
-    border-radius: 7px;
-  }
-}
-
-@media (max-width: 380px) {
-  .light-theme .paymentrader-mark {
-    width: 22px;
-    height: 22px;
-    flex-basis: 22px;
-    border-radius: 6px;
-  }
-}
-
 /* Make the primary platform filter unmistakable without enlarging the header. */
 .topbar-filter-button {
   border-color: #79cf58;
