@@ -1,7 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="paymentrader Editorial P">
   <rect width="64" height="64" rx="16" fill="#ffffff"/>
-  <g transform="translate(6.1 6.8) scale(0.7)">
+  <g transform="translate(7 6.8) scale(0.7)">
     <path fill="#65c89a" d="M13 8h28.5C53.6 8 61 15.3 61 25.2c0 10.9-7.4 18.8-19.5 18.8H32v9.5c0 6.2-3.7 10.5-9.5 10.5S13 59.8 13 53.5V8Z"/>
-    <path fill="#ffffff" d="M31.4 19.8h9.5c6.4 0 10.4 2.3 10.4 6.4 0 4.2-4 6.5-10.4 6.5h-8.7v8.4h-4.5c-4.5 0-8.4 1.1-11.7 3.5 2.3-9.7 8.2-17.9 17.2-17.9v-6.9Z"/>
+    <path transform="translate(-3 0)" fill="#ffffff" d="M31.4 19.8h9.5c6.4 0 10.4 2.3 10.4 6.4 0 4.2-4 6.5-10.4 6.5h-8.7v8.4h-4.5c-4.5 0-8.4 1.1-11.7 3.5 2.3-9.7 8.2-17.9 17.2-17.9v-6.9Z"/>
   </g>
 </svg>
