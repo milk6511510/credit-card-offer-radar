@@ -8,9 +8,9 @@
   "theme_color": "#65c89a",
   "icons": [
     {
-      "src": "/favicon.svg",
-      "sizes": "64x64",
-      "type": "image/svg+xml",
+      "src": "/branding/paymentrader/paymentrader-option-05-final.png",
+      "sizes": "512x512",
+      "type": "image/png",
       "purpose": "any maskable"
     }
   ]

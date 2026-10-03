@@ -953,7 +953,7 @@ export default function Home() {
       <header className="topbar">
         <div className="topbar-inner">
           <a href="#latest" className="brand-lockup" aria-label="paymentrader 活動總覽">
-            <img className="paymentrader-mark" src="/branding/paymentrader/logo-10-editorial-light-mark.svg" alt="" />
+            <img className="paymentrader-mark" src="/branding/paymentrader/paymentrader-option-05-final.png" alt="" />
             <span className="paymentrader-wordmark"><strong>paymentrader</strong><small>PAYMENT INTELLIGENCE</small></span>
           </a>
           <nav className="topnav" aria-label="主要導覽">
