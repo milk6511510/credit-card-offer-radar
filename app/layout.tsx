@@ -21,7 +21,7 @@ export const metadata: Metadata = {
   manifest: "/site.webmanifest",
   icons: {
     icon: [{ url: paymentraderIcon, type: "image/svg+xml" }],
-    shortcut: [{ url: paymentraderIcon, type: "image/svg+xml" }],
+    shortcut: paymentraderIcon,
     apple: [{ url: paymentraderIcon, type: "image/svg+xml" }],
   },
 };
