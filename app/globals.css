@@ -5594,6 +5594,353 @@ body {
   }
 }
 
+/* History trail: a compact overview stays near the top, while the raw log remains at the bottom. */
+.history-trail-preview {
+  margin-top: 17px;
+  padding: 16px 18px 18px;
+  border: 1px solid #d9e7e0;
+  border-radius: 15px;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.96), rgba(244, 251, 247, 0.88));
+  box-shadow: 0 10px 28px rgba(37, 87, 61, 0.06);
+}
+
+.history-trail-preview-heading,
+.history-watch-heading {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 18px;
+}
+
+.history-trail-title-wrap {
+  display: flex;
+  align-items: flex-start;
+  gap: 11px;
+  min-width: 0;
+}
+
+.history-trail-icon {
+  display: inline-grid;
+  width: 36px;
+  height: 36px;
+  flex: 0 0 auto;
+  place-items: center;
+  border: 1px solid #b9dfc7;
+  border-radius: 11px;
+  color: #23704b;
+  background: #e9f8ee;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.9);
+}
+
+.history-trail-icon.is-watch {
+  color: #94631b;
+  border-color: #ead4aa;
+  background: #fff5df;
+}
+
+.history-trail-preview h2,
+.history-watch-heading h3 {
+  margin: 5px 0 0;
+  color: #17332a;
+  font-size: 16px;
+  font-weight: 760;
+  line-height: 1.3;
+}
+
+.history-trail-preview p,
+.history-watch-heading p {
+  max-width: 660px;
+  margin: 5px 0 0;
+  color: #71827b;
+  font-size: 10px;
+  line-height: 1.65;
+}
+
+.history-trail-jump {
+  display: inline-flex;
+  min-height: 36px;
+  flex: 0 0 auto;
+  align-items: center;
+  gap: 6px;
+  padding: 0 11px;
+  border: 1px solid #c7dfd1;
+  border-radius: 9px;
+  color: #246d4a;
+  background: #fff;
+  font-size: 10px;
+  font-weight: 760;
+  white-space: nowrap;
+}
+
+.history-trail-jump:hover {
+  border-color: #77b98e;
+  background: #effaf2;
+  box-shadow: 0 5px 13px rgba(37, 112, 75, 0.12);
+}
+
+.history-trail-metrics {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 18px;
+  margin-top: 14px;
+  padding-top: 11px;
+  border-top: 1px solid #e1ece6;
+  color: #7a8c84;
+  font-size: 10px;
+}
+
+.history-trail-metrics span {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 5px;
+}
+
+.history-trail-metrics strong {
+  color: #286d4b;
+  font-size: 14px;
+  font-weight: 760;
+  font-variant-numeric: tabular-nums;
+}
+
+.history-track-grid {
+  display: grid;
+  gap: 10px;
+  min-width: 0;
+}
+
+.history-track-grid-preview {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin-top: 12px;
+}
+
+.history-track-grid-watch {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  margin-top: 15px;
+}
+
+.history-track-card {
+  min-width: 0;
+  padding: 13px 14px;
+  border: 1px solid #dce9e2;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.82);
+  transition: border-color 160ms ease, box-shadow 160ms ease, transform 160ms ease;
+}
+
+.history-track-card:hover {
+  border-color: #b7d8c4;
+  box-shadow: 0 7px 16px rgba(37, 87, 61, 0.08);
+  transform: translateY(-1px);
+}
+
+.history-track-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.history-track-platform {
+  display: inline-flex;
+  min-width: 0;
+  align-items: center;
+  gap: 5px;
+  overflow: hidden;
+  color: #2d7a55;
+  font-size: 9px;
+  font-weight: 760;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.history-track-count,
+.history-watch-count {
+  flex: 0 0 auto;
+  color: #82928b;
+  font-size: 9px;
+  font-weight: 700;
+}
+
+.history-track-card h3 {
+  display: -webkit-box;
+  overflow: hidden;
+  margin: 9px 0 0;
+  color: #29473c;
+  font-size: 12px;
+  font-weight: 740;
+  line-height: 1.5;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+.history-track-card > p {
+  overflow: hidden;
+  margin: 4px 0 0;
+  color: #81918a;
+  font-size: 9px;
+  line-height: 1.5;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.history-track-bank-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  margin-top: 10px;
+  padding-top: 9px;
+  border-top: 1px solid #e4eee8;
+}
+
+.history-track-bank {
+  display: grid;
+  min-width: 0;
+  gap: 2px;
+  padding: 5px 7px;
+  border: 1px solid #d8e8de;
+  border-radius: 7px;
+  background: #f8fcf9;
+}
+
+.history-track-bank strong {
+  max-width: 112px;
+  overflow: hidden;
+  color: #4f685d;
+  font-size: 9px;
+  font-weight: 720;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.history-track-bank small {
+  color: #2d8057;
+  font-size: 9px;
+  font-weight: 760;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.history-track-more {
+  display: inline-flex;
+  min-height: 29px;
+  align-items: center;
+  padding: 0 8px;
+  border-radius: 7px;
+  color: #82928b;
+  background: #f0f5f2;
+  font-size: 9px;
+  font-weight: 720;
+}
+
+.history-trail-empty {
+  margin: 13px 0 0;
+  padding: 12px;
+  border: 1px dashed #cbded4;
+  border-radius: 9px;
+  color: #71827b;
+  background: rgba(255, 255, 255, 0.6);
+  font-size: 10px;
+  text-align: center;
+}
+
+.history-watch-section {
+  margin-top: 17px;
+  padding-top: 17px;
+  border-top: 1px solid #dfeae4;
+}
+
+.history-watch-heading {
+  align-items: center;
+}
+
+.history-watch-count {
+  padding: 6px 9px;
+  border: 1px solid #e5d4aa;
+  border-radius: 999px;
+  color: #8a631f;
+  background: #fff8e9;
+}
+
+.history-track-card.is-compact {
+  padding: 12px 13px;
+}
+
+.history-records-section {
+  margin-top: 28px;
+  scroll-margin-top: 104px;
+}
+
+@media (max-width: 960px) {
+  .history-track-grid-preview {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .history-track-grid-preview .history-track-card:last-child {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 640px) {
+  .history-trail-preview {
+    margin-top: 13px;
+    padding: 14px;
+  }
+
+  .history-trail-preview-heading,
+  .history-watch-heading {
+    align-items: stretch;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .history-trail-jump {
+    justify-content: center;
+  }
+
+  .history-trail-metrics {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 7px;
+  }
+
+  .history-trail-metrics span {
+    display: grid;
+    gap: 2px;
+    line-height: 1.45;
+  }
+
+  .history-trail-metrics strong {
+    font-size: 13px;
+  }
+
+  .history-track-grid-preview,
+  .history-track-grid-watch {
+    grid-template-columns: 1fr;
+  }
+
+  .history-track-grid-preview .history-track-card:last-child {
+    grid-column: auto;
+  }
+
+  .history-track-card {
+    padding: 12px;
+  }
+
+  .history-watch-section {
+    margin-top: 15px;
+    padding-top: 15px;
+  }
+
+  .history-watch-count {
+    align-self: flex-start;
+  }
+
+  .history-records-section {
+    margin-top: 23px;
+    scroll-margin-top: 84px;
+  }
+}
+
 /* paymentrader v4: make filtering a visible primary action and keep mobile scans calm. */
 .workspace-header-copy,
 .workspace-header-tools {

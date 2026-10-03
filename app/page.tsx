@@ -69,6 +69,15 @@ type HistoryRecord = {
   source: "official";
 };
 
+type HistoryTrackGroup = {
+  key: string;
+  platform: string;
+  merchant: string;
+  campaignTitle: string;
+  rewardLabel: string;
+  records: HistoryRecord[];
+};
+
 type CampaignData = {
   updatedAt: string;
   source?: {
@@ -110,6 +119,7 @@ type IconName =
   | "check"
   | "heart"
   | "bell"
+  | "timeline"
   | "sliders"
   | "arrow-right"
   | "x";
@@ -253,6 +263,8 @@ function Icon({ name, size = 18 }: { name: IconName; size?: number }) {
       return <svg {...common}><path d="M20.8 8.9c0 5.2-8.8 10.4-8.8 10.4S3.2 14.1 3.2 8.9A4.7 4.7 0 0 1 12 6.2a4.7 4.7 0 0 1 8.8 2.7Z" /></svg>;
     case "bell":
       return <svg {...common}><path d="M18 9a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9" /><path d="M10 21h4" /></svg>;
+    case "timeline":
+      return <svg {...common}><path d="M5 5v14" /><path d="M19 5v14" /><path d="M5 8h14" /><path d="M5 16h14" /><circle cx="5" cy="5" r="1.5" fill="currentColor" stroke="none" /><circle cx="19" cy="19" r="1.5" fill="currentColor" stroke="none" /><circle cx="19" cy="5" r="1.5" fill="currentColor" stroke="none" /><circle cx="5" cy="19" r="1.5" fill="currentColor" stroke="none" /></svg>;
     case "sliders":
       return <svg {...common}><path d="M4 6h16" /><path d="M4 12h16" /><path d="M4 18h16" /><circle cx="9" cy="6" r="2" fill="currentColor" stroke="none" /><circle cx="15" cy="12" r="2" fill="currentColor" stroke="none" /><circle cx="8" cy="18" r="2" fill="currentColor" stroke="none" /></svg>;
     case "arrow-right":
@@ -364,6 +376,28 @@ function formatHistoryDate(record: HistoryRecord) {
   if (!record.exhaustedDate) return "尚未記錄";
   const date = record.exhaustedDate.replaceAll("-", "/");
   return `${date}${record.exhaustedTime ? ` ${record.exhaustedTime}` : "（時間未公布）"}`;
+}
+
+function formatHistoryTrackDate(record: HistoryRecord) {
+  return record.exhaustedDate ? record.exhaustedDate.replaceAll("-", "/") : formatHistoryMonth(record.month);
+}
+
+function historyRecordSortValue(record: HistoryRecord) {
+  return `${record.exhaustedDate || record.month} ${record.exhaustedTime || ""}`;
+}
+
+function taiwanDateKey() {
+  const parts = new Intl.DateTimeFormat("zh-TW", { timeZone: "Asia/Taipei", year: "numeric", month: "2-digit", day: "2-digit" }).formatToParts(new Date());
+  const values = Object.fromEntries(parts.map((part) => [part.type, part.value]));
+  return `${values.year}-${values.month}-${values.day}`;
+}
+
+function isObservedHistoryRecord(record: HistoryRecord) {
+  return !record.exhaustedDate || record.exhaustedDate <= taiwanDateKey();
+}
+
+function normalizeHistoryCampaignTitle(record: HistoryRecord) {
+  return record.campaignTitle.replace(/綁\s*[^｜|]+銀行\s*[｜|]/, "綁多家銀行｜");
 }
 
 function historyConfidenceLabel(confidence: HistoryConfidence) {
@@ -616,6 +650,31 @@ function OfferCard({ offer, isFavorite, onToggleFavorite, viewMode }: { offer: O
   );
 }
 
+function HistoryTrackGroupCard({ group, compact = false }: { group: HistoryTrackGroup; compact?: boolean }) {
+  const visibleRecords = group.records.slice(0, compact ? 5 : 3);
+  const extraRecordCount = Math.max(0, group.records.length - visibleRecords.length);
+
+  return (
+    <article className={`history-track-card${compact ? " is-compact" : ""}`}>
+      <div className="history-track-card-top">
+        <span className="history-track-platform"><Icon name="clock" size={13} />{group.platform}</span>
+        <span className="history-track-count">{group.records.length} 筆</span>
+      </div>
+      <h3>{group.campaignTitle}</h3>
+      <p>{[group.merchant, group.rewardLabel].filter(Boolean).join(" · ") || "官方活動回饋"}</p>
+      <div className="history-track-bank-list">
+        {visibleRecords.map((record) => (
+          <span className="history-track-bank" key={record.id} title={formatHistoryDate(record)}>
+            <strong>{record.bank || "全通路"}</strong>
+            <small>{formatHistoryTrackDate(record)}</small>
+          </span>
+        ))}
+        {extraRecordCount ? <span className="history-track-more">+{extraRecordCount} 筆</span> : null}
+      </div>
+    </article>
+  );
+}
+
 export default function Home() {
   const [data, setData] = useState<CampaignData>(fallbackData);
   const [favoriteIds, setFavoriteIds] = useState<string[]>([]);
@@ -835,12 +894,33 @@ export default function Home() {
   const favoriteOfferCount = offers.filter((offer) => isOfferFavorite(offer, favoriteIds)).length;
   const selectedPlatformSummary = selectedPlatform === "全部平台" ? null : platformSummaries.find(({ platform }) => platform.name === selectedPlatform);
   const historyRecords = useMemo(() => {
-    return [...(data.history || [])].sort((a, b) => {
-      const aKey = `${a.exhaustedDate || a.month} ${a.exhaustedTime || ""}`;
-      const bKey = `${b.exhaustedDate || b.month} ${b.exhaustedTime || ""}`;
-      return bKey.localeCompare(aKey) || a.platform.localeCompare(b.platform, "zh-Hant");
+    return [...(data.history || [])].filter(isObservedHistoryRecord).sort((a, b) => {
+      return historyRecordSortValue(b).localeCompare(historyRecordSortValue(a)) || a.platform.localeCompare(b.platform, "zh-Hant");
     });
   }, [data.history]);
+  const historyTrackGroups = useMemo<HistoryTrackGroup[]>(() => {
+    const groups = new Map<string, HistoryTrackGroup>();
+    historyRecords.forEach((record) => {
+      const campaignTitle = normalizeHistoryCampaignTitle(record);
+      const key = [record.platform, record.merchant || "", record.rewardLabel, campaignTitle].join("|");
+      const current = groups.get(key);
+      if (current) {
+        current.records.push(record);
+        return;
+      }
+      groups.set(key, {
+        key,
+        platform: record.platform,
+        merchant: record.merchant || "",
+        campaignTitle,
+        rewardLabel: record.rewardLabel,
+        records: [record],
+      });
+    });
+    return Array.from(groups.values())
+      .map((group) => ({ ...group, records: [...group.records].sort((a, b) => historyRecordSortValue(b).localeCompare(historyRecordSortValue(a))) }))
+      .sort((a, b) => historyRecordSortValue(b.records[0]).localeCompare(historyRecordSortValue(a.records[0])) || a.platform.localeCompare(b.platform, "zh-Hant"));
+  }, [historyRecords]);
   const historyPlatforms = useMemo(() => Array.from(new Set(historyRecords.map((record) => record.platform))).sort((a, b) => a.localeCompare(b, "zh-Hant")), [historyRecords]);
   const historyMonths = useMemo(() => Array.from(new Set(historyRecords.map((record) => record.month))).sort((a, b) => b.localeCompare(a)), [historyRecords]);
   const filteredHistoryRecords = useMemo(() => {
@@ -858,15 +938,6 @@ export default function Home() {
   const exactHistoryCount = historyRecords.filter((record) => record.confidence === "exact").length;
   const monthOnlyHistoryCount = historyRecords.filter((record) => record.confidence === "month-only").length;
   const historyMonthCount = new Set(historyRecords.map((record) => record.month)).size;
-  const openWalletHistory = historyRecords.filter((record) => record.platform === "OPEN錢包" && record.merchant === "7-ELEVEN");
-  const openWalletLatestMonth = [...new Set(openWalletHistory.map((record) => record.month))].sort((a, b) => b.localeCompare(a))[0] || "";
-  const openWalletLatestRecords = openWalletHistory.filter((record) => record.month === openWalletLatestMonth);
-  const openWalletExactLatest = openWalletLatestRecords.filter((record) => record.confidence === "exact").sort((a, b) => String(a.exhaustedAt || a.exhaustedDate).localeCompare(String(b.exhaustedAt || b.exhaustedDate)));
-  const ipassFederalHistory = historyRecords.filter((record) => record.platform === "iPASS MONEY" && record.bank === "聯邦銀行");
-  const icashFourPercentHistory = historyRecords.filter((record) => record.platform === "icash Pay" && Math.abs((record.rate || 0) - 0.04) < 0.001 && record.exhaustedDate);
-  const icashFourPercentAverageDay = icashFourPercentHistory.length
-    ? Math.round(icashFourPercentHistory.reduce((sum, record) => sum + Number(record.exhaustedDate?.slice(8) || 0), 0) / icashFourPercentHistory.length)
-    : 0;
   const choosePlatform = (platformName: string) => {
     setSelectedPlatform(platformName);
     setActiveCategory("全部");
@@ -884,6 +955,16 @@ export default function Home() {
   const visibleOffers = filteredOffers.slice(0, visibleOfferCount);
   const remainingOfferCount = Math.max(0, filteredOffers.length - visibleOffers.length);
   const activeFilterCount = (selectedPlatform !== "全部平台" ? 1 : 0) + (activeCategory !== "全部" ? 1 : 0) + (query.trim() ? 1 : 0);
+
+  const jumpToHistoryRecords = () => {
+    const scrollToRecords = () => document.getElementById("history-records")?.scrollIntoView({ behavior: "smooth", block: "start" });
+    if (window.location.hash !== "#history") {
+      window.location.hash = "history";
+      window.setTimeout(() => requestAnimationFrame(() => requestAnimationFrame(scrollToRecords)), 260);
+      return;
+    }
+    scrollToRecords();
+  };
 
   const toggleFavorite = (offer: Offer) => {
     const id = getOfferId(offer);
@@ -995,6 +1076,34 @@ export default function Home() {
                 <button type="button" className={`workspace-action${preferencesOpen ? " is-selected" : ""}`} onClick={() => setPreferencesOpen((open) => !open)} aria-expanded={preferencesOpen} aria-controls="local-preferences"><Icon name="sliders" size={16} />偏好平台</button>
               </div>
             </div>
+          </section>
+
+          <section className="history-trail-preview" aria-labelledby="history-trail-preview-title">
+            <div className="history-trail-preview-heading">
+              <div className="history-trail-title-wrap">
+                <span className="history-trail-icon"><Icon name="timeline" size={19} /></span>
+                <div>
+                  <span className="eyebrow">HISTORY TRACK</span>
+                  <h2 id="history-trail-preview-title">歷史耗盡軌跡</h2>
+                  <p>把同一活動的銀行與額滿日期收在一起，先看趨勢，再進完整紀錄。</p>
+                </div>
+              </div>
+              <button type="button" className="history-trail-jump" onClick={jumpToHistoryRecords}>
+                <span>查看完整紀錄</span><Icon name="arrow-right" size={15} />
+              </button>
+            </div>
+            <div className="history-trail-metrics" aria-label="歷史耗盡摘要">
+              <span><strong>{historyTrackGroups.length}</strong> 個活動軌跡</span>
+              <span><strong>{historyRecords.length}</strong> 筆官方紀錄</span>
+              <span><strong>{exactHistoryCount ? "日期／時間" : "日期"}</strong> 優先保留</span>
+            </div>
+            {historyTrackGroups.length ? (
+              <div className="history-track-grid history-track-grid-preview">
+                {historyTrackGroups.slice(0, 3).map((group) => <HistoryTrackGroupCard group={group} key={group.key} />)}
+              </div>
+            ) : (
+              <p className="history-trail-empty">目前尚未收集到官方額滿紀錄。</p>
+            )}
           </section>
 
           <section id={isFavoritesView ? "favorites" : "latest"} className={`activity-workspace${isHistoryView ? " app-view-hidden" : ""}`}>
@@ -1176,49 +1285,23 @@ export default function Home() {
               <div className="history-kpi glass-panel"><span>待補完整時間</span><strong>{monthOnlyHistoryCount}</strong><small>官方只公布月份</small></div>
             </div>
 
-            <div className="history-insight-grid">
-              <article className="history-insight glass-panel">
-                <div className="history-insight-top"><span className="history-topic">OPEN錢包 × 7-ELEVEN</span><span className="history-topic-status">銀行比較</span></div>
-                <h3>哪家銀行先用完？</h3>
-                {openWalletExactLatest.length ? (
-                  <>
-                    <strong className="history-insight-value">{openWalletExactLatest[0].bank || "未標示銀行"}</strong>
-                    <p>{formatHistoryMonth(openWalletLatestMonth)} 第一筆官方額滿紀錄為 {formatHistoryDate(openWalletExactLatest[0])}。</p>
-                  </>
-                ) : (
-                  <>
-                    <strong className="history-insight-value">尚不能判定先後</strong>
-                    <p>{openWalletLatestMonth ? `${formatHistoryMonth(openWalletLatestMonth)} 已觀測到 ${openWalletLatestRecords.length} 家銀行額滿，但官方只寫月份，沒有公開時分。` : "目前尚未收集到 OPEN錢包 × 7-ELEVEN 的額滿紀錄。"}</p>
-                  </>
-                )}
-                <div className="history-bank-list">
-                  {openWalletLatestRecords.map((record) => <div className="history-bank-row" key={record.id}><span>{record.bank || "未標示銀行"}</span><strong>{formatHistoryDate(record)}</strong></div>)}
+            <div className="history-watch-section" aria-labelledby="history-watch-title">
+              <div className="history-watch-heading">
+                <div className="history-trail-title-wrap">
+                  <span className="history-trail-icon is-watch"><Icon name="bell" size={18} /></span>
+                  <div>
+                    <span className="eyebrow">EXHAUSTION WATCH</span>
+                    <h3 id="history-watch-title">額滿追蹤</h3>
+                    <p>同一活動集中顯示各家銀行最近一次額滿日期；官方沒提供時間時，先保留日期或月份。</p>
+                  </div>
                 </div>
-              </article>
-
-              <article className="history-insight glass-panel">
-                <div className="history-insight-top"><span className="history-topic">iPASS MONEY × 聯邦</span><span className="history-topic-status">已留存</span></div>
-                <h3>聯邦回饋上限</h3>
-                {ipassFederalHistory[0] ? (
-                  <>
-                    <strong className="history-insight-value">{formatHistoryDate(ipassFederalHistory[0])}</strong>
-                    <p>{formatHistoryMonth(ipassFederalHistory[0].month)} 的 {ipassFederalHistory[0].rewardLabel} 已由官方公告額滿。</p>
-                    <a className="history-source-link" href={ipassFederalHistory[0].sourceUrl} target="_blank" rel="noreferrer">查看官方公告 <Icon name="external" size={14} /></a>
-                  </>
-                ) : <p>目前尚未收集到 iPASS MONEY 聯邦銀行的明確額滿時間。</p>}
-              </article>
-
-              <article className="history-insight glass-panel">
-                <div className="history-insight-top"><span className="history-topic">icash Pay 4%</span><span className="history-topic-status">月份觀察</span></div>
-                <h3>通常每月幾號耗盡？</h3>
-                {icashFourPercentHistory.length ? (
-                  <>
-                    <strong className="history-insight-value">約每月 {icashFourPercentAverageDay} 日</strong>
-                    <p>目前有 {icashFourPercentHistory.length} 筆精確到日期的 4% 紀錄，樣本仍會隨每月更新增加。</p>
-                    <div className="history-mini-list">{icashFourPercentHistory.slice(0, 3).map((record) => <span key={record.id}>{formatHistoryMonth(record.month)} · {record.exhaustedDate?.slice(8)} 日</span>)}</div>
-                  </>
-                ) : <p>目前尚未收集到 icash Pay 4% 的精確耗盡日期，待官方公告後會加入統計。</p>}
-              </article>
+                <span className="history-watch-count">{historyTrackGroups.length} 個活動</span>
+              </div>
+              {historyTrackGroups.length ? (
+                <div className="history-track-grid history-track-grid-watch">
+                  {historyTrackGroups.map((group) => <HistoryTrackGroupCard group={group} compact key={group.key} />)}
+                </div>
+              ) : <p className="history-trail-empty">目前尚未收集到可追蹤的額滿活動。</p>}
             </div>
 
             <div className="history-toolbar glass-panel">
@@ -1227,9 +1310,10 @@ export default function Home() {
               <label className="field-block history-search"><span>搜尋銀行、通路或活動</span><div className="input-shell"><Icon name="search" size={17} /><input value={historyQuery} onChange={(event) => setHistoryQuery(event.target.value)} placeholder="例如：聯邦、7-ELEVEN、4%" aria-label="搜尋歷史活動" /></div></label>
             </div>
 
-            <div className="history-record-heading"><div><span className="eyebrow"><Icon name="database" size={14} />OFFICIAL LOG</span><h3>完整額滿紀錄</h3></div><span>{filteredHistoryRecords.length} 筆符合</span></div>
-            {filteredHistoryRecords.length ? (
-              <div className="history-record-list">
+            <div id="history-records" className="history-records-section">
+              <div className="history-record-heading"><div><span className="eyebrow"><Icon name="database" size={14} />OFFICIAL LOG</span><h3>完整額滿紀錄</h3></div><span>{filteredHistoryRecords.length} 筆符合</span></div>
+              {filteredHistoryRecords.length ? (
+                <div className="history-record-list">
                 {filteredHistoryRecords.map((record) => (
                   <article className="history-record-card glass-panel" key={record.id}>
                     <div className="history-record-main">
@@ -1241,10 +1325,11 @@ export default function Home() {
                     <div className="history-record-evidence"><p>{record.evidence}</p>{record.sourceUrl ? <a href={record.sourceUrl} target="_blank" rel="noreferrer">看官方活動頁 <Icon name="external" size={13} /></a> : null}</div>
                   </article>
                 ))}
-              </div>
-            ) : (
-              <div className="history-empty glass-panel"><Icon name="clock" size={22} /><strong>目前沒有符合的歷史紀錄</strong><p>換一個平台、月份或關鍵字。</p></div>
-            )}
+                </div>
+              ) : (
+                <div className="history-empty glass-panel"><Icon name="clock" size={22} /><strong>目前沒有符合的歷史紀錄</strong><p>換一個平台、月份或關鍵字。</p></div>
+              )}
+            </div>
             <p className="panel-footnote"><Icon name="info" size={14} />「尚不能判定先後」代表官方頁面沒有公開時間，不代表活動一定沒有提前額滿；後續同步會持續補上新月份。</p>
           </section>
 
