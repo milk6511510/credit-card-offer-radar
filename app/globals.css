@@ -5594,6 +5594,182 @@ body {
   }
 }
 
+/* Monthly history navigation keeps every month discoverable without hiding tracks behind a three-card preview. */
+.history-month-selector {
+  margin-top: 16px;
+  padding-top: 14px;
+  border-top: 1px solid #e1ece6;
+}
+
+.history-month-selector-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.history-month-selector h3 {
+  margin: 5px 0 0;
+  color: #17332a;
+  font-size: 13px;
+  font-weight: 760;
+  line-height: 1.35;
+}
+
+.history-month-selector p {
+  max-width: 680px;
+  margin: 4px 0 0;
+  color: #71827b;
+  font-size: 10px;
+  line-height: 1.6;
+}
+
+.history-trail-icon.is-month {
+  color: #2d6e8a;
+  border-color: #b9d9e4;
+  background: #edf8fb;
+}
+
+.history-month-current {
+  flex: 0 0 auto;
+  padding: 6px 9px;
+  border: 1px solid #cfe1d6;
+  border-radius: 999px;
+  color: #2d7451;
+  background: #f4fbf6;
+  font-size: 9px;
+  font-weight: 760;
+  white-space: nowrap;
+}
+
+.history-month-options {
+  display: flex;
+  gap: 7px;
+  overflow-x: auto;
+  margin-top: 12px;
+  padding: 2px 2px 5px;
+  scrollbar-width: thin;
+  scrollbar-color: #b7d8c4 transparent;
+}
+
+.history-month-options::-webkit-scrollbar {
+  height: 4px;
+}
+
+.history-month-options::-webkit-scrollbar-thumb {
+  border-radius: 999px;
+  background: #b7d8c4;
+}
+
+.history-month-option {
+  display: inline-flex;
+  min-height: 37px;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 0 11px;
+  border: 1px solid #d7e5de;
+  border-radius: 10px;
+  color: #60756b;
+  background: #fff;
+  font-size: 10px;
+  font-weight: 720;
+  white-space: nowrap;
+}
+
+.history-month-option:hover,
+.history-month-option.is-selected {
+  border-color: #83bd98;
+  color: #216943;
+  background: #ebf8ef;
+  box-shadow: 0 4px 10px rgba(43, 116, 80, 0.08);
+}
+
+.history-month-option small {
+  display: inline-grid;
+  min-width: 20px;
+  height: 20px;
+  place-items: center;
+  border-radius: 6px;
+  color: #7e9187;
+  background: #f1f6f3;
+  font-size: 9px;
+  font-variant-numeric: tabular-nums;
+}
+
+.history-month-option.is-selected small {
+  color: #216943;
+  background: #d4efdc;
+}
+
+.history-status-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 16px;
+  margin-top: 8px;
+  color: #76877f;
+  font-size: 9px;
+}
+
+.history-status-legend span {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.history-status-light {
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  flex: 0 0 auto;
+  border-radius: 50%;
+  background: #d2ddd7;
+}
+
+.history-status-light.is-lit {
+  background: #31b66c;
+  box-shadow: 0 0 0 3px rgba(49, 182, 108, 0.13), 0 0 8px rgba(49, 182, 108, 0.58);
+}
+
+.history-status-light.is-muted {
+  border: 1px solid #bdcbc3;
+  background: #eef3f0;
+}
+
+.history-track-bank-label {
+  display: inline-flex;
+  min-width: 0;
+  align-items: center;
+  gap: 5px;
+}
+
+.history-track-bank.is-exhausted {
+  border-color: #c7e2d0;
+  background: #f6fcf7;
+}
+
+@media (max-width: 640px) {
+  .history-month-selector-heading {
+    align-items: stretch;
+    flex-direction: column;
+    gap: 9px;
+  }
+
+  .history-month-current {
+    align-self: flex-start;
+  }
+
+  .history-month-options {
+    margin-inline: -2px;
+  }
+
+  .history-status-legend {
+    display: grid;
+    gap: 6px;
+  }
+}
+
 /* History trail: a compact overview stays near the top, while the raw log remains at the bottom. */
 .history-trail-preview {
   margin-top: 17px;

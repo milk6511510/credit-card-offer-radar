@@ -120,6 +120,7 @@ type IconName =
   | "heart"
   | "bell"
   | "timeline"
+  | "calendar"
   | "sliders"
   | "arrow-right"
   | "x";
@@ -265,6 +266,8 @@ function Icon({ name, size = 18 }: { name: IconName; size?: number }) {
       return <svg {...common}><path d="M18 9a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9" /><path d="M10 21h4" /></svg>;
     case "timeline":
       return <svg {...common}><path d="M5 5v14" /><path d="M19 5v14" /><path d="M5 8h14" /><path d="M5 16h14" /><circle cx="5" cy="5" r="1.5" fill="currentColor" stroke="none" /><circle cx="19" cy="19" r="1.5" fill="currentColor" stroke="none" /><circle cx="19" cy="5" r="1.5" fill="currentColor" stroke="none" /><circle cx="5" cy="19" r="1.5" fill="currentColor" stroke="none" /></svg>;
+    case "calendar":
+      return <svg {...common}><rect x="4" y="5.5" width="16" height="14" rx="2" /><path d="M8 3.5v4M16 3.5v4M4 10h16" /><path d="M8 14h.01M12 14h.01M16 14h.01M8 17h.01M12 17h.01" /></svg>;
     case "sliders":
       return <svg {...common}><path d="M4 6h16" /><path d="M4 12h16" /><path d="M4 18h16" /><circle cx="9" cy="6" r="2" fill="currentColor" stroke="none" /><circle cx="15" cy="12" r="2" fill="currentColor" stroke="none" /><circle cx="8" cy="18" r="2" fill="currentColor" stroke="none" /></svg>;
     case "arrow-right":
@@ -664,14 +667,50 @@ function HistoryTrackGroupCard({ group, compact = false }: { group: HistoryTrack
       <p>{[group.merchant, group.rewardLabel].filter(Boolean).join(" · ") || "官方活動回饋"}</p>
       <div className="history-track-bank-list">
         {visibleRecords.map((record) => (
-          <span className="history-track-bank" key={record.id} title={formatHistoryDate(record)}>
-            <strong>{record.bank || "全通路"}</strong>
+          <span className="history-track-bank is-exhausted" key={record.id} title={formatHistoryDate(record)}>
+            <span className="history-track-bank-label"><i className="history-status-light is-lit" aria-hidden="true" /><strong>{record.bank || "全通路"}</strong></span>
             <small>{formatHistoryTrackDate(record)}</small>
           </span>
         ))}
         {extraRecordCount ? <span className="history-track-more">+{extraRecordCount} 筆</span> : null}
       </div>
     </article>
+  );
+}
+
+function HistoryMonthSelector({ months, records, selectedMonth, onSelect }: { months: string[]; records: HistoryRecord[]; selectedMonth: string; onSelect: (month: string) => void }) {
+  return (
+    <div className="history-month-selector" aria-labelledby="history-month-selector-title">
+      <div className="history-month-selector-heading">
+        <div className="history-trail-title-wrap">
+          <span className="history-trail-icon is-month"><Icon name="calendar" size={17} /></span>
+          <div>
+            <span className="eyebrow">MONTHLY TRACK</span>
+            <h3 id="history-month-selector-title">選擇月份查看完整軌跡</h3>
+            <p>綠燈代表官方已記錄額滿；灰燈只代表目前沒有額滿公告，不判定尚未額滿。</p>
+          </div>
+        </div>
+        <span className="history-month-current">{selectedMonth === "全部月份" ? "跨月份" : formatHistoryMonth(selectedMonth)}</span>
+      </div>
+      <div className="history-month-options" role="tablist" aria-label="歷史額滿月份">
+        <button type="button" role="tab" aria-selected={selectedMonth === "全部月份"} className={`history-month-option${selectedMonth === "全部月份" ? " is-selected" : ""}`} onClick={() => onSelect("全部月份")}>
+          <span>全部月份</span><small>{records.length}</small>
+        </button>
+        {months.map((month) => {
+          const count = records.filter((record) => record.month === month).length;
+          const active = selectedMonth === month;
+          return (
+            <button type="button" role="tab" aria-selected={active} className={`history-month-option${active ? " is-selected" : ""}`} key={month} onClick={() => onSelect(month)}>
+              <span>{formatHistoryMonth(month)}</span><small>{count}</small>
+            </button>
+          );
+        })}
+      </div>
+      <div className="history-status-legend" aria-label="額滿狀態說明">
+        <span><i className="history-status-light is-lit" aria-hidden="true" />已確認額滿</span>
+        <span><i className="history-status-light is-muted" aria-hidden="true" />尚未收到官方額滿公告</span>
+      </div>
+    </div>
   );
 }
 
@@ -923,6 +962,14 @@ export default function Home() {
   }, [historyRecords]);
   const historyPlatforms = useMemo(() => Array.from(new Set(historyRecords.map((record) => record.platform))).sort((a, b) => a.localeCompare(b, "zh-Hant")), [historyRecords]);
   const historyMonths = useMemo(() => Array.from(new Set(historyRecords.map((record) => record.month))).sort((a, b) => b.localeCompare(a)), [historyRecords]);
+  const historyTrackGroupsForMonth = useMemo(() => {
+    if (historyMonth === "全部月份") return historyTrackGroups;
+    return historyTrackGroups
+      .map((group) => ({ ...group, records: group.records.filter((record) => record.month === historyMonth) }))
+      .filter((group) => group.records.length > 0);
+  }, [historyMonth, historyTrackGroups]);
+  const historyTrackRecordCount = historyTrackGroupsForMonth.reduce((total, group) => total + group.records.length, 0);
+  const historyTrackExactCount = historyTrackGroupsForMonth.reduce((total, group) => total + group.records.filter((record) => record.confidence === "exact").length, 0);
   const filteredHistoryRecords = useMemo(() => {
     const keyword = historyQuery.trim().toLowerCase();
     return historyRecords.filter((record) => {
@@ -1249,25 +1296,19 @@ export default function Home() {
                   <div>
                     <span className="eyebrow">HISTORY TRACK</span>
                     <h2 id="history-trail-preview-title">歷史耗盡軌跡</h2>
-                    <p>把同一活動的銀行與額滿日期收在一起，先看趨勢，再進完整紀錄。</p>
+                    <p>先選月份，再查看該月份完整的活動軌跡與銀行額滿狀態。</p>
                   </div>
                 </div>
                 <button type="button" className="history-trail-jump" onClick={jumpToHistoryRecords}>
                   <span>查看完整紀錄</span><Icon name="arrow-right" size={15} />
                 </button>
               </div>
+              <HistoryMonthSelector months={historyMonths} records={historyRecords} selectedMonth={historyMonth} onSelect={setHistoryMonth} />
               <div className="history-trail-metrics" aria-label="歷史耗盡摘要">
-                <span><strong>{historyTrackGroups.length}</strong> 個活動軌跡</span>
-                <span><strong>{historyRecords.length}</strong> 筆官方紀錄</span>
-                <span><strong>{exactHistoryCount ? "日期／時間" : "日期"}</strong> 優先保留</span>
+                <span><strong>{historyTrackGroupsForMonth.length}</strong> 個活動軌跡</span>
+                <span><strong>{historyTrackRecordCount}</strong> 筆官方紀錄</span>
+                <span><strong>{historyTrackExactCount ? "日期／時間" : "日期"}</strong> 優先保留</span>
               </div>
-              {historyTrackGroups.length ? (
-                <div className="history-track-grid history-track-grid-preview">
-                  {historyTrackGroups.slice(0, 3).map((group) => <HistoryTrackGroupCard group={group} key={group.key} />)}
-                </div>
-              ) : (
-                <p className="history-trail-empty">目前尚未收集到官方額滿紀錄。</p>
-              )}
             </section>
 
             <div className="history-kpi-grid">
@@ -1283,16 +1324,16 @@ export default function Home() {
                   <div>
                     <span className="eyebrow">EXHAUSTION WATCH</span>
                     <h3 id="history-watch-title">額滿追蹤</h3>
-                    <p>同一活動集中顯示各家銀行最近一次額滿日期；官方沒提供時間時，先保留日期或月份。</p>
+                    <p>{historyMonth === "全部月份" ? "全部月份" : formatHistoryMonth(historyMonth)}：同一活動集中顯示各家銀行額滿日期；官方沒提供時間時，先保留日期或月份。</p>
                   </div>
                 </div>
-                <span className="history-watch-count">{historyTrackGroups.length} 個活動</span>
+                <span className="history-watch-count">{historyTrackGroupsForMonth.length} 個活動</span>
               </div>
-              {historyTrackGroups.length ? (
+              {historyTrackGroupsForMonth.length ? (
                 <div className="history-track-grid history-track-grid-watch">
-                  {historyTrackGroups.map((group) => <HistoryTrackGroupCard group={group} compact key={group.key} />)}
+                  {historyTrackGroupsForMonth.map((group) => <HistoryTrackGroupCard group={group} compact key={group.key} />)}
                 </div>
-              ) : <p className="history-trail-empty">目前尚未收集到可追蹤的額滿活動。</p>}
+              ) : <p className="history-trail-empty">{historyMonth === "全部月份" ? "目前尚未收集到可追蹤的額滿活動。" : `${formatHistoryMonth(historyMonth)} 尚未收集到官方額滿紀錄。`}</p>}
             </div>
 
             <div className="history-toolbar glass-panel">
