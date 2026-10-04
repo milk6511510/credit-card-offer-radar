@@ -123,6 +123,7 @@ type IconName =
   | "calendar"
   | "sliders"
   | "arrow-right"
+  | "chevron-down"
   | "x";
 
 const fallbackData: CampaignData = bundledCampaignData as CampaignData;
@@ -272,6 +273,8 @@ function Icon({ name, size = 18 }: { name: IconName; size?: number }) {
       return <svg {...common}><path d="M4 6h16" /><path d="M4 12h16" /><path d="M4 18h16" /><circle cx="9" cy="6" r="2" fill="currentColor" stroke="none" /><circle cx="15" cy="12" r="2" fill="currentColor" stroke="none" /><circle cx="8" cy="18" r="2" fill="currentColor" stroke="none" /></svg>;
     case "arrow-right":
       return <svg {...common}><path d="M5 12h13" /><path d="m13 6 6 6-6 6" /></svg>;
+    case "chevron-down":
+      return <svg {...common}><path d="m6 9 6 6 6-6" /></svg>;
     case "x":
       return <svg {...common}><path d="m6 6 12 12" /><path d="m18 6-12 12" /></svg>;
   }
@@ -654,8 +657,10 @@ function OfferCard({ offer, isFavorite, onToggleFavorite, viewMode }: { offer: O
 }
 
 function HistoryTrackGroupCard({ group, compact = false }: { group: HistoryTrackGroup; compact?: boolean }) {
-  const visibleRecords = group.records.slice(0, compact ? 5 : 3);
+  const [isExpanded, setIsExpanded] = useState(false);
+  const visibleRecords = isExpanded || !compact ? group.records : group.records.slice(0, 5);
   const extraRecordCount = Math.max(0, group.records.length - visibleRecords.length);
+  const shouldShowToggle = compact && group.records.length > 5;
 
   return (
     <article className={`history-track-card${compact ? " is-compact" : ""}`}>
@@ -672,7 +677,18 @@ function HistoryTrackGroupCard({ group, compact = false }: { group: HistoryTrack
             <small>{formatHistoryTrackDate(record)}</small>
           </span>
         ))}
-        {extraRecordCount ? <span className="history-track-more">+{extraRecordCount} 筆</span> : null}
+        {shouldShowToggle ? (
+          <button
+            type="button"
+            className={`history-track-more${isExpanded ? " is-expanded" : ""}`}
+            onClick={() => setIsExpanded((expanded) => !expanded)}
+            aria-expanded={isExpanded}
+            aria-label={isExpanded ? `收合 ${group.campaignTitle} 的完整額滿紀錄` : `展開 ${group.campaignTitle} 的其餘 ${extraRecordCount} 筆額滿紀錄`}
+          >
+            {isExpanded ? "收合" : `查看其餘 ${extraRecordCount} 筆`}
+            <Icon name="chevron-down" size={13} />
+          </button>
+        ) : null}
       </div>
     </article>
   );

@@ -6079,12 +6079,36 @@ body {
   display: inline-flex;
   min-height: 29px;
   align-items: center;
+  gap: 4px;
   padding: 0 8px;
+  border: 1px dashed #c6dacf;
   border-radius: 7px;
   color: #82928b;
   background: #f0f5f2;
+  font-family: inherit;
   font-size: 9px;
   font-weight: 720;
+  cursor: pointer;
+  transition: border-color 160ms ease, color 160ms ease, background 160ms ease;
+}
+
+.history-track-more:hover {
+  border-color: #76b28a;
+  color: #286d4b;
+  background: #eaf7ed;
+}
+
+.history-track-more:focus-visible {
+  outline: 2px solid #55a978;
+  outline-offset: 2px;
+}
+
+.history-track-more svg {
+  transition: transform 160ms ease;
+}
+
+.history-track-more.is-expanded svg {
+  transform: rotate(180deg);
 }
 
 .history-trail-empty {
