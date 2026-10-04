@@ -969,7 +969,6 @@ export default function Home() {
       .filter((group) => group.records.length > 0);
   }, [historyMonth, historyTrackGroups]);
   const historyTrackRecordCount = historyTrackGroupsForMonth.reduce((total, group) => total + group.records.length, 0);
-  const historyTrackExactCount = historyTrackGroupsForMonth.reduce((total, group) => total + group.records.filter((record) => record.confidence === "exact").length, 0);
   const filteredHistoryRecords = useMemo(() => {
     const keyword = historyQuery.trim().toLowerCase();
     return historyRecords.filter((record) => {
@@ -1307,15 +1306,8 @@ export default function Home() {
               <div className="history-trail-metrics" aria-label="歷史耗盡摘要">
                 <span><strong>{historyTrackGroupsForMonth.length}</strong> 個活動軌跡</span>
                 <span><strong>{historyTrackRecordCount}</strong> 筆官方紀錄</span>
-                <span><strong>{historyTrackExactCount ? "日期／時間" : "日期"}</strong> 優先保留</span>
               </div>
             </section>
-
-            <div className="history-kpi-grid">
-              <div className="history-kpi glass-panel"><span>已記錄月份</span><strong>{historyMonthCount}</strong><small>跨平台累積</small></div>
-              <div className="history-kpi glass-panel"><span>精確到時間</span><strong>{exactHistoryCount}</strong><small>可用來比較先後</small></div>
-              <div className="history-kpi glass-panel"><span>待補完整時間</span><strong>{monthOnlyHistoryCount}</strong><small>官方只公布月份</small></div>
-            </div>
 
             <div className="history-watch-section" aria-labelledby="history-watch-title">
               <div className="history-watch-heading">
@@ -1362,6 +1354,18 @@ export default function Home() {
                 <div className="history-empty glass-panel"><Icon name="clock" size={22} /><strong>目前沒有符合的歷史紀錄</strong><p>換一個平台、月份或關鍵字。</p></div>
               )}
             </div>
+            <aside className="history-data-availability" aria-labelledby="history-data-availability-title">
+              <div className="history-data-availability-heading">
+                <span className="eyebrow"><Icon name="info" size={13} />DATA AVAILABILITY</span>
+                <strong id="history-data-availability-title">資料可得性</strong>
+                <span>僅反映官方頁目前公開的資訊，不代表活動狀態或額滿判定。</span>
+              </div>
+              <div className="history-data-availability-stats">
+                <span><strong>{historyMonthCount}</strong> 已記錄月份</span>
+                <span><strong>{exactHistoryCount}</strong> 筆含時間</span>
+                <span><strong>{monthOnlyHistoryCount}</strong> 筆僅公布月份</span>
+              </div>
+            </aside>
             <p className="panel-footnote"><Icon name="info" size={14} />「尚不能判定先後」代表官方頁面沒有公開時間，不代表活動一定沒有提前額滿；後續同步會持續補上新月份。</p>
           </section>
 

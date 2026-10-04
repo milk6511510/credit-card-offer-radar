@@ -5594,6 +5594,85 @@ body {
   }
 }
 
+/* Secondary provenance stats stay available below the log without competing with the month view. */
+.history-data-availability {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  margin-top: 18px;
+  padding: 10px 12px;
+  border-top: 1px solid #e1eae5;
+  border-bottom: 1px solid #e1eae5;
+  color: #81918a;
+}
+
+.history-data-availability-heading {
+  display: flex;
+  min-width: 0;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 6px 9px;
+}
+
+.history-data-availability-heading .eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  color: #82958b;
+  font-size: 8px;
+}
+
+.history-data-availability-heading .eyebrow svg {
+  color: #8ca49a;
+}
+
+.history-data-availability-heading strong {
+  color: #526b60;
+  font-size: 10px;
+  font-weight: 760;
+}
+
+.history-data-availability-heading > span:last-child {
+  color: #8a9992;
+  font-size: 9px;
+}
+
+.history-data-availability-stats {
+  display: flex;
+  flex: 0 0 auto;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 6px 13px;
+  font-size: 9px;
+  white-space: nowrap;
+}
+
+.history-data-availability-stats span {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 4px;
+}
+
+.history-data-availability-stats strong {
+  color: #657d71;
+  font-size: 12px;
+  font-weight: 760;
+  font-variant-numeric: tabular-nums;
+}
+
+@media (max-width: 760px) {
+  .history-data-availability {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 9px;
+  }
+
+  .history-data-availability-stats {
+    justify-content: flex-start;
+  }
+}
+
 /* Monthly history navigation keeps every month discoverable without hiding tracks behind a three-card preview. */
 .history-month-selector {
   margin-top: 16px;
