@@ -6928,3 +6928,83 @@ body {
     display: none;
   }
 }
+
+/* Desktop activity index: three equal cards with the important fields separated vertically. */
+@media (min-width: 961px) {
+  .light-theme .activity-layout {
+    grid-template-columns: minmax(220px, 244px) minmax(0, 1fr);
+    gap: 14px;
+  }
+
+  .light-theme .offer-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 12px;
+  }
+
+  .light-theme .offer-bar-card {
+    min-height: 292px;
+  }
+
+  .offer-bar-main {
+    grid-template-columns: 32px minmax(0, 1fr) auto;
+    align-items: start;
+    gap: 8px;
+    padding: 11px;
+  }
+
+  .offer-bar-main > .brand-mark {
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  .offer-bar-identity {
+    grid-column: 2;
+    grid-row: 1;
+  }
+
+  .offer-bar-main > .offer-card-actions {
+    grid-column: 3;
+    grid-row: 1;
+  }
+
+  .offer-bar-reward {
+    grid-column: 1 / -1;
+    grid-row: 2;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 2px;
+  }
+
+  .offer-bar-reward .reward-highlight {
+    flex: 0 0 auto;
+  }
+
+  .offer-bar-period {
+    min-width: 0;
+    flex: 1 1 150px;
+    overflow-wrap: anywhere;
+    white-space: normal;
+  }
+
+  .offer-bar-footer {
+    margin-top: auto;
+  }
+
+  .offer-bar-card.is-scan .offer-bar-source {
+    display: none;
+  }
+
+  .offer-bar-card.is-scan .offer-bar-footer {
+    justify-content: flex-end;
+  }
+
+  .offer-bar-card.is-scan .offer-bar-summary {
+    min-height: 68px;
+  }
+
+  .offer-bar-card.is-detail .offer-bar-summary {
+    min-height: 102px;
+  }
+}

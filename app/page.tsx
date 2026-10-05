@@ -1244,11 +1244,11 @@ export default function Home() {
                     <div className="activity-view-switch" role="group" aria-label="活動資訊顯示方式">
                       <button type="button" className={activityViewMode === "scan" ? "selected" : ""} onClick={() => setActivityViewMode("scan")} aria-pressed={activityViewMode === "scan"} title="只顯示回饋、期限與一行活動精要">
                         <Icon name="layers" size={14} />
-                        <span>快速瀏覽</span>
+                        <span>精簡</span>
                       </button>
                       <button type="button" className={activityViewMode === "detail" ? "selected" : ""} onClick={() => setActivityViewMode("detail")} aria-pressed={activityViewMode === "detail"} title="顯示更多活動摘要與支付方式">
                         <Icon name="database" size={14} />
-                        <span>完整資訊</span>
+                        <span>精細</span>
                       </button>
                     </div>
                     <label className="sort-control">
