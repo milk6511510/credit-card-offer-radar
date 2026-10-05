@@ -5661,6 +5661,16 @@ body {
   font-variant-numeric: tabular-nums;
 }
 
+/* Desktop keeps platform navigation beside the activity index; mobile retains the existing top filter flow. */
+.desktop-platform-directory .directory-caption strong {
+  color: #2e8b62;
+  font-weight: 760;
+}
+
+.desktop-platform-directory .directory-scroll {
+  flex: 1 1 auto;
+}
+
 @media (max-width: 760px) {
   .history-data-availability {
     align-items: flex-start;
@@ -6888,5 +6898,33 @@ body {
     gap: 3px;
     padding-inline: 3px;
     font-size: 7.5px;
+  }
+}
+
+/* Final responsive split: desktop uses the persistent left directory; mobile keeps the current filter control. */
+@media (min-width: 961px) {
+  .light-theme .activity-layout {
+    display: grid;
+    grid-template-columns: minmax(240px, 280px) minmax(0, 1fr);
+    align-items: start;
+    gap: 20px;
+  }
+
+  .topbar-filter-button {
+    display: none;
+  }
+
+  .desktop-platform-directory {
+    display: flex;
+  }
+}
+
+@media (max-width: 960px) {
+  .light-theme .activity-layout {
+    display: block;
+  }
+
+  .desktop-platform-directory {
+    display: none;
   }
 }

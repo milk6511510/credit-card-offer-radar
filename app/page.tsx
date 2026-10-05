@@ -1197,8 +1197,41 @@ export default function Home() {
               </section>
             ) : null}
 
-            <div className="activity-layout">
-              <div id="platforms" className="activity-results">
+            <div id="platforms" className="activity-layout">
+              <aside className="platform-directory desktop-platform-directory glass-panel" aria-labelledby="desktop-platform-directory-title">
+                <div className="directory-header">
+                  <div>
+                    <span className="eyebrow"><Icon name="layers" size={14} />PLATFORM DIRECTORY</span>
+                    <h3 id="desktop-platform-directory-title">平台分類</h3>
+                    <p>選擇平台，右側活動立即整理。</p>
+                  </div>
+                  <span>{platformSummaries.length}</span>
+                </div>
+                <p className="directory-caption">目前選取：<strong>{selectedPlatform}</strong></p>
+                <div className="directory-scroll">
+                  <button type="button" className={`platform-filter-button ${selectedPlatform === "全部平台" ? "selected" : ""}`} onClick={() => choosePlatform("全部平台")} aria-pressed={selectedPlatform === "全部平台"}>
+                    <span className="directory-all-icon"><Icon name="grid" size={16} /></span>
+                    <span><strong>全部平台</strong><small>{totalCount} 筆有效活動</small></span>
+                    <Icon name="arrow-right" size={15} />
+                  </button>
+                  {platformGroups.map((group) => (
+                    <div className="directory-group" key={group.segment}>
+                      <div className="directory-group-heading"><span>{group.label}</span><small>{group.items.length}</small></div>
+                      <div className="directory-list">
+                        {group.items.map(({ platform, offers: platformOffers }) => (
+                          <button type="button" key={platform.name} className={`platform-filter-button ${selectedPlatform === platform.name ? "selected" : ""}`} onClick={() => choosePlatform(platform.name)} aria-pressed={selectedPlatform === platform.name} title={`篩選 ${platform.name} 活動`}>
+                            <BrandMark name={platform.name} logo={platform.logo || paymentLogos[platform.name]} color={platform.color || platformColors[platform.name] || "#2e8b62"} />
+                            <span><strong>{platform.name}</strong><small>{platformOffers.length ? `${platformOffers.length} 筆活動` : "官方入口已建立"}</small></span>
+                            <span className={`directory-status ${platformOffers.length ? "is-active" : ""}`}>{platformOffers.length ? "有活動" : "索引"}</span>
+                          </button>
+                        ))}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </aside>
+
+              <div className="activity-results">
                 <div className="activity-toolbar glass-panel">
                   <label className="field-block activity-search">
                     <span>搜尋活動、通路或平台</span>
