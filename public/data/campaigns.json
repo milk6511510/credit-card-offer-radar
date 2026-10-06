@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-06T06:57:27.872Z",
+  "updatedAt": "2026-10-06T12:19:57.878Z",
   "history": [
     {
       "platform": "悠遊付",
@@ -14,21 +14,6 @@
       "sourceUrl": "https://easywallet.easycard.com.tw/benefit/content.php?id=1773728616",
       "source": "official",
       "id": "悠遊付|https://easywallet.easycard.com.tw/benefit/content.php?id=1773728616|2026-12||2026-12-31|"
-    },
-    {
-      "platform": "icash Pay",
-      "month": "2026-11",
-      "campaignTitle": "icash Pay超強支付 綁uniopen聯名卡滿額最高回饋11%",
-      "rewardLabel": "4% 回饋",
-      "rate": 0.04,
-      "cap": 150,
-      "exhaustedDate": "2026-11-30",
-      "exhaustionType": "quota-full",
-      "confidence": "date-only",
-      "evidence": "99元享4%】活動贈點已於2026/9/6 11:00 am額滿 (回饋資格及入點時間認定依icash Pay資訊系統紀錄認定為準，系統將以符合活動資格者之消費優先順序匯入該icash Pay綁定之uniopen會員帳戶，最晚於2026/11/30前匯入) 額滿提醒：此訊息揭露僅為提醒之用，揭露作業時間會晚於活動回饋額滿時間，實際仍依交易之時間順序為準判定符合資格，活動參與者不得以未獲知本活動回饋額滿訊息為理由要求補贈",
-      "sourceUrl": "https://www.icashpay.com.tw/advertMessage/view/id/2461",
-      "source": "official",
-      "id": "icash Pay|https://www.icashpay.com.tw/advertMessage/view/id/2461|2026-11||2026-11-30|"
     },
     {
       "platform": "OPEN錢包",
@@ -114,6 +99,24 @@
       "sourceUrl": "https://www.icashpay.com.tw/advertMessage/view/id/2340",
       "source": "official",
       "id": "icash Pay|https://www.icashpay.com.tw/advertMessage/view/id/2340|2026-10||2026-10-01|10:08"
+    },
+    {
+      "platform": "icash Pay",
+      "month": "2026-10",
+      "campaignTitle": "icash Pay超強支付 綁uniopen聯名卡滿額最高回饋11%",
+      "merchant": "全通路",
+      "rewardLabel": "4% 回饋",
+      "rate": 0.04,
+      "cap": 150,
+      "exhaustedAt": "2026-10-06T15:00:00+08:00",
+      "exhaustedDate": "2026-10-06",
+      "exhaustedTime": "15:00",
+      "exhaustionType": "quota-full",
+      "confidence": "exact",
+      "evidence": "h Pay用戶每月回饋上限150點，活動每月回饋上限300萬點。 2026年9月【全通路單筆消費滿199元享4%】活動贈點已於2026/9/6 11:00額滿 2026年10月【全通路單筆消費滿199元享4%】活動贈點已於2026/10/6 15:00額滿 (回饋資格及入點時間認定依icash Pay資訊系統紀錄認定為準，系統將以符合活動資格者之消費優先順序匯入該icash Pay綁定之uniopen會員帳戶",
+      "sourceUrl": "https://www.icashpay.com.tw/advertMessage/view/id/2461",
+      "source": "official",
+      "id": "icash Pay|https://www.icashpay.com.tw/advertMessage/view/id/2461|2026-10||2026-10-06|15:00"
     },
     {
       "platform": "OPEN錢包",
@@ -1054,21 +1057,20 @@
     "url": "https://www.7-11.com.tw/service/Pay.aspx#tab1",
     "officialSite": "https://www.7-11.com.tw/index.aspx",
     "counts": {
-      "一般回饋": 20,
-      "金融／綁卡回饋": 40,
-      "交通／旅遊回饋": 20,
+      "一般回饋": 21,
+      "金融／綁卡回饋": 71,
       "超商回饋": 34,
-      "新戶優惠": 33,
-      "餐飲回饋": 15,
-      "購物回饋": 26,
-      "加油回饋": 5,
-      "最新資訊": 4,
+      "交通／旅遊回饋": 24,
+      "新戶優惠": 35,
+      "餐飲回饋": 18,
+      "購物回饋": 33,
+      "加油回饋": 7,
+      "最新資訊": 20,
       "iPASS MONEY 活動": 1,
       "生活服務": 2,
       "金融回饋": 15,
       "交通活動": 22,
       "指定通路": 2,
-      "會員回饋": 1,
       "便利生活": 13,
       "OPEN錢包回饋": 14,
       "主題活動": 14,
@@ -1091,144 +1093,208 @@
       "url": "https://web-tw-pay.line.me/cms/event",
       "officialSite": "https://web-tw-pay.line.me/cms/event",
       "status": "ok",
-      "checkedAt": "2026-10-06T06:57:27.872Z"
+      "detailPagesChecked": 79,
+      "checkedAt": "2026-10-06T12:19:57.878Z"
     },
     {
       "name": "LINE Pay 官方活動",
       "url": "https://web-tw-pay.line.me/svc/event/display2/ce715b92-8150-406b-bf42-c71cb56eb427",
       "officialSite": "https://web-tw-pay.line.me/cms/event",
       "status": "ok",
-      "checkedAt": "2026-10-06T06:57:27.872Z"
+      "detailPagesChecked": 79,
+      "checkedAt": "2026-10-06T12:19:57.878Z"
     },
     {
       "name": "LINE Pay 官方活動",
       "url": "https://pay.line.me/portal/tw/about/promotions?progressType=ONGOING",
       "officialSite": "https://web-tw-pay.line.me/cms/event",
       "status": "ok",
-      "checkedAt": "2026-10-06T06:57:27.872Z"
+      "detailPagesChecked": 79,
+      "checkedAt": "2026-10-06T12:19:57.878Z"
     },
     {
       "name": "LINE Pay 官方活動",
       "url": "https://pay.line.me/portal/tw/customer/press",
       "officialSite": "https://web-tw-pay.line.me/cms/event",
       "status": "ok",
-      "checkedAt": "2026-10-06T06:57:27.872Z"
+      "detailPagesChecked": 79,
+      "checkedAt": "2026-10-06T12:19:57.878Z"
     },
     {
       "name": "街口支付 官方活動",
       "url": "https://mkt.jkopay.com/sitemap.xml",
       "officialSite": "https://mkt.jkopay.com/zh-TW/event",
       "status": "ok",
-      "checkedAt": "2026-10-06T06:57:27.872Z"
+      "detailPagesChecked": 92,
+      "checkedAt": "2026-10-06T12:19:57.878Z"
     },
     {
       "name": "悠遊付 官方活動",
       "url": "https://easywallet.easycard.com.tw/benefit/?page=1",
       "officialSite": "https://easywallet.easycard.com.tw/benefit/",
       "status": "ok",
-      "checkedAt": "2026-10-06T06:57:27.872Z"
+      "detailPagesChecked": 77,
+      "checkedAt": "2026-10-06T12:19:57.878Z"
     },
     {
       "name": "iPASS MONEY 官方活動",
       "url": "https://www.i-pass.com.tw/Preferential?page=1&type=0",
       "officialSite": "https://www.i-pass.com.tw/Preferential",
       "status": "ok",
-      "checkedAt": "2026-10-06T06:57:27.872Z"
+      "detailPagesChecked": 42,
+      "checkedAt": "2026-10-06T12:19:57.878Z"
     },
     {
       "name": "icash Pay 官方活動",
       "url": "https://www.icashpay.com.tw/advertMessage/index?page=1",
       "officialSite": "https://www.icashpay.com.tw/",
       "status": "ok",
-      "checkedAt": "2026-10-06T06:57:27.872Z"
+      "detailPagesChecked": 36,
+      "checkedAt": "2026-10-06T12:19:57.878Z"
+    },
+    {
+      "name": "icash Pay 官方活動",
+      "url": "https://www.icashpay.com.tw/advertMessage/index?page=2",
+      "officialSite": "https://www.icashpay.com.tw/",
+      "status": "ok",
+      "detailPagesChecked": 36,
+      "checkedAt": "2026-10-06T12:19:57.878Z"
+    },
+    {
+      "name": "icash Pay 官方活動",
+      "url": "https://www.icashpay.com.tw/advertMessage/index?page=3",
+      "officialSite": "https://www.icashpay.com.tw/",
+      "status": "ok",
+      "detailPagesChecked": 36,
+      "checkedAt": "2026-10-06T12:19:57.878Z"
+    },
+    {
+      "name": "icash Pay 官方活動",
+      "url": "https://www.icashpay.com.tw/advertMessage/index?page=4",
+      "officialSite": "https://www.icashpay.com.tw/",
+      "status": "ok",
+      "detailPagesChecked": 36,
+      "checkedAt": "2026-10-06T12:19:57.878Z"
+    },
+    {
+      "name": "icash Pay 官方活動",
+      "url": "https://www.icashpay.com.tw/advertMessage/index?page=5",
+      "officialSite": "https://www.icashpay.com.tw/",
+      "status": "ok",
+      "detailPagesChecked": 36,
+      "checkedAt": "2026-10-06T12:19:57.878Z"
+    },
+    {
+      "name": "icash Pay 官方活動",
+      "url": "https://www.icashpay.com.tw/advertMessage/index?page=6",
+      "officialSite": "https://www.icashpay.com.tw/",
+      "status": "ok",
+      "detailPagesChecked": 36,
+      "checkedAt": "2026-10-06T12:19:57.878Z"
     },
     {
       "name": "icash Pay 官方活動",
       "url": "https://www.icashpay.com.tw/advertMessage/view/id/2540",
       "officialSite": "https://www.icashpay.com.tw/",
       "status": "ok",
-      "checkedAt": "2026-10-06T06:57:27.872Z"
+      "detailPagesChecked": 36,
+      "checkedAt": "2026-10-06T12:19:57.878Z"
     },
     {
       "name": "Pi 拍錢包 官方活動",
       "url": "https://web.piapp.com.tw/events/",
       "officialSite": "https://web.piapp.com.tw/events/",
       "status": "ok",
-      "checkedAt": "2026-10-06T06:57:27.872Z"
+      "detailPagesChecked": 36,
+      "checkedAt": "2026-10-06T12:19:57.878Z"
     },
     {
       "name": "全盈+PAY 官方活動",
       "url": "https://event2023.pluspay.com.tw/",
       "officialSite": "https://event2023.pluspay.com.tw/",
-      "status": "fallback",
-      "note": "官方頁為 JavaScript 應用程式，未取得活動內容",
-      "checkedAt": "2026-10-06T06:57:27.872Z"
+      "status": "ok",
+      "detailPagesChecked": 490,
+      "checkedAt": "2026-10-06T12:19:57.878Z"
+    },
+    {
+      "name": "全盈+PAY 官方活動",
+      "url": "https://event2023.pluspay.com.tw/api/weba/v3/site/publish/event2023.pluspay.com.tw",
+      "officialSite": "https://event2023.pluspay.com.tw/",
+      "status": "ok",
+      "detailPagesChecked": 490,
+      "checkedAt": "2026-10-06T12:19:57.878Z"
     },
     {
       "name": "OPEN錢包 官方活動",
       "url": "https://www.7-11.com.tw/service/Pay.aspx#tab1",
       "officialSite": "https://www.7-11.com.tw/service/Pay.aspx#tab1",
       "status": "ok",
-      "checkedAt": "2026-10-06T06:57:27.872Z"
+      "detailPagesChecked": 51,
+      "checkedAt": "2026-10-06T12:19:57.878Z"
     },
     {
       "name": "7-ELEVEN 官方活動",
       "url": "https://www.7-11.com.tw/index.aspx",
       "officialSite": "https://www.7-11.com.tw/index.aspx",
       "status": "ok",
-      "checkedAt": "2026-10-06T06:57:27.872Z"
+      "detailPagesChecked": 51,
+      "checkedAt": "2026-10-06T12:19:57.878Z"
     },
     {
       "name": "7-ELEVEN 官方活動",
       "url": "https://www.7-11.com.tw/include/SalesPromo.xml?12",
       "officialSite": "https://www.7-11.com.tw/index.aspx",
       "status": "ok",
-      "checkedAt": "2026-10-06T06:57:27.872Z"
+      "detailPagesChecked": 51,
+      "checkedAt": "2026-10-06T12:19:57.878Z"
     },
     {
       "name": "台灣 Pay 官方活動",
       "url": "https://taiwanpay.firstbank.com.tw/sites/twpay/latestOffers",
       "officialSite": "https://taiwanpay.firstbank.com.tw/sites/twpay/latestOffers",
-      "status": "unreachable",
-      "note": "The operation was aborted due to timeout",
-      "checkedAt": "2026-10-06T06:57:27.872Z"
+      "status": "ok",
+      "detailPagesChecked": 50,
+      "checkedAt": "2026-10-06T12:19:57.878Z"
     },
     {
       "name": "全支付 官方活動",
       "url": "https://prod-s3.pxpayplus.com/pxplus_jpmam_mktpage2026/index.html",
       "officialSite": "https://www.pxpayplus.com.tw/",
       "status": "ok",
-      "checkedAt": "2026-10-06T06:57:27.872Z"
+      "detailPagesChecked": 1,
+      "checkedAt": "2026-10-06T12:19:57.878Z"
     },
     {
       "name": "全支付 官方活動",
       "url": "https://www.pxpayplus.com.tw/",
       "officialSite": "https://www.pxpayplus.com.tw/",
       "status": "ok",
-      "checkedAt": "2026-10-06T06:57:27.872Z"
+      "detailPagesChecked": 1,
+      "checkedAt": "2026-10-06T12:19:57.878Z"
     },
     {
       "name": "橘子支付 官方活動",
       "url": "https://www.gamapay.com.tw/news_list.html",
       "officialSite": "https://www.gamapay.com.tw/news_list.html",
-      "status": "unreachable",
-      "note": "fetch failed",
-      "checkedAt": "2026-10-06T06:57:27.872Z"
+      "status": "ok",
+      "detailPagesChecked": 80,
+      "checkedAt": "2026-10-06T12:19:57.878Z"
     },
     {
       "name": "橘子支付 官方活動",
       "url": "https://www.gamapay.com.tw/api/NewsList",
       "officialSite": "https://www.gamapay.com.tw/news_list.html",
-      "status": "unreachable",
-      "note": "fetch failed",
-      "checkedAt": "2026-10-06T06:57:27.872Z"
+      "status": "ok",
+      "detailPagesChecked": 80,
+      "checkedAt": "2026-10-06T12:19:57.878Z"
     },
     {
       "name": "歐付寶 O'Pay 官方活動",
       "url": "https://www.opay.tw/banner/event",
       "officialSite": "https://www.opay.tw/banner/event",
       "status": "ok",
-      "checkedAt": "2026-10-06T06:57:27.872Z"
+      "detailPagesChecked": 12,
+      "checkedAt": "2026-10-06T12:19:57.878Z"
     },
     {
       "name": "ezPay 簡單付 官方活動",
@@ -1236,7 +1302,7 @@
       "officialSite": "https://www.ezpay.com.tw/",
       "status": "blocked",
       "note": "官方首頁拒絕自動讀取，暫不列入目前有效活動",
-      "checkedAt": "2026-10-06T06:57:27.872Z"
+      "checkedAt": "2026-10-06T12:19:57.878Z"
     }
   ],
   "payments": [
@@ -1336,6 +1402,28 @@
           "officialOrder": 2
         },
         {
+          "title": "【LINE Pay Money】 未成年用戶開通LINE Pay Money帳戶享7-ELEVEN總價值100元優惠券！",
+          "category": "超商回饋",
+          "stores": [
+            "7-ELEVEN"
+          ],
+          "paymentMethods": [
+            "LINE Pay"
+          ],
+          "audience": "new-user",
+          "rate": 0,
+          "cap": 0,
+          "rewardLabel": "依官方條件回饋",
+          "status": "活動期間 2026/09/30–2026/12/31；官方發布 2026年9月30日16:00 GMT+00",
+          "sourceUrl": "https://web-tw-pay.line.me/cms/event/template1.3/ade2597f-2488-440a-90dd-8f7a66156fdc",
+          "image": "https://linepaytw-cms.line-scdn.net/v0/d5e4c9fd3781d524ab547d08c4d309a3b2203600dc756bb654cba9800e6ad356.png",
+          "rawText": "LINE Pay Money 會員專屬活動\n 優惠券\n 【LINE Pay Money】 未成年用戶開通LINE Pay Money帳戶享7-ELEVEN總價值100元優惠券！\n 發布日期：2026年9月30日16:00 GMT+00\n 活動日期\n 2026/9/30 16:00 -\n 2026/12/31 15:59 (GMT+00)\n 活動店家\n LINE Pay Money未成年會員專屬\n 活動提醒\n 參加活動前請務必先進入LINE\n Pay，依序點選「設定」＞「服務條款」＞「行銷資訊提供政策」，確認頁面上方是否已勾選同意，未同意將不符活動資格。\n 付款前請務必再次留意選擇的付款方式是否正確；若選擇錯誤，後續能否取消再重新交易將依店家規定為準。\n 活動內容\n 未成年用戶開通LINE Pay Money帳戶享7-ELEVEN總價值100元優惠券！\n ※自行了解LINE Pay Money開戶條件、方式、流程、限制及本活動內容為活動參加者的義務，參加活動視同同意本活動規則，不因個人認知、星座生肖、宗教信仰、身分地位、疾病、威脅等而有特例，LINE Pay Money(連加電子支付)保有對本活動所有事宜做出最終解釋及決定的權利。\n ※使用優惠券的交易無法部份退款，僅能全額退款。\n 活動注意事項\n 立即下載 LINE Pay App\n 追蹤更多 LINE Pay 動態",
+          "startsAt": "20260930",
+          "endsAt": "20261231",
+          "publishedAt": "20260930",
+          "officialOrder": 3
+        },
+        {
           "title": "【週週領】好康地圖領 八大主題優惠券",
           "category": "一般回饋",
           "stores": [
@@ -1355,7 +1443,7 @@
           "startsAt": "20260930",
           "endsAt": "20261231",
           "publishedAt": "20260930",
-          "officialOrder": 3
+          "officialOrder": 4
         },
         {
           "title": "【LINE Pay Money】 使用乘車碼搭乘，月月最高享LINE POINTS 30%回饋！",
@@ -1374,28 +1462,6 @@
           "sourceUrl": "https://web-tw-pay.line.me/cms/event/template1.3/6e2f1143-fdd5-4a01-9583-611668f4e733",
           "image": "https://linepaytw-cms.line-scdn.net/v0/d806b53a867147bcfa291a80a59822f99987d0ffa59451bce59e7c400967175d.png",
           "rawText": "任務活動列表\n LINE Pay Money 會員專屬活動\n 點數回饋\n 指定付款方法\n 【LINE Pay Money】 使用乘車碼搭乘，月月最高享LINE POINTS 30%回饋！\n 發布日期：2026年9月30日16:00 GMT+00\n 活動日期\n 2026/9/30 16:00 -\n 2026/12/31 15:59 (GMT+00)\n 活動店家\n LINE Pay Money 會員專屬\n ※僅適用於台北捷運(棕線、橘線、紅線、藍線、綠線)、新北捷運環狀線、台北市聯營公車及新北市區公車；台北捷運貓空纜車、新北捷運三鶯線、淡水輕軌、安坑輕軌皆不適用。\n 十月任務進度\n 活動提醒\n 參加活動前請務必先進入LINE\n Pay，依序點選「設定」＞「服務條款」＞「行銷資訊提供政策」，確認頁面上方是否已勾選同意，未同意將不符活動資格。\n 付款前請務必再次留意選擇的付款方式是否正確；若選擇錯誤，後續能否取消再重新交易將依店家規定為準。\n 活動內容\n 優惠一：每月前10趟享LINE POINTS 10%回饋！\n 優惠二：單月累計30筆且30筆交易實際支付金額皆大於新台幣0元(LINE POINTS及優惠券折抵金額不計入)，享LINE POINTS 20%回饋！\n [任務進度]\n ※自行了解LINE Pay Money開戶條件、方式、流程、限制及本活動內容為活動參加者的義務，參加活動視同同意本活動規則，不因個人認知、星座生肖、宗教信仰、身分地位、疾病、威脅等而有特例，LINE Pay Money(連加電子支付)保有對本活動所有事宜做出最終解釋及決定的權利。\n 活動注意事項\n 立即下載 LINE Pay App\n 追蹤更多 LINE Pay 動態",
-          "startsAt": "20260930",
-          "endsAt": "20261231",
-          "publishedAt": "20260930",
-          "officialOrder": 4
-        },
-        {
-          "title": "【LINE Pay Money】 未成年用戶開通LINE Pay Money帳戶享7-ELEVEN總價值100元優惠券！",
-          "category": "超商回饋",
-          "stores": [
-            "7-ELEVEN"
-          ],
-          "paymentMethods": [
-            "LINE Pay"
-          ],
-          "audience": "new-user",
-          "rate": 0,
-          "cap": 0,
-          "rewardLabel": "依官方條件回饋",
-          "status": "活動期間 2026/09/30–2026/12/31；官方發布 2026年9月30日16:00 GMT+00",
-          "sourceUrl": "https://web-tw-pay.line.me/cms/event/template1.3/ade2597f-2488-440a-90dd-8f7a66156fdc",
-          "image": "https://linepaytw-cms.line-scdn.net/v0/d5e4c9fd3781d524ab547d08c4d309a3b2203600dc756bb654cba9800e6ad356.png",
-          "rawText": "LINE Pay Money 會員專屬活動\n 優惠券\n 【LINE Pay Money】 未成年用戶開通LINE Pay Money帳戶享7-ELEVEN總價值100元優惠券！\n 發布日期：2026年9月30日16:00 GMT+00\n 活動日期\n 2026/9/30 16:00 -\n 2026/12/31 15:59 (GMT+00)\n 活動店家\n LINE Pay Money未成年會員專屬\n 活動提醒\n 參加活動前請務必先進入LINE\n Pay，依序點選「設定」＞「服務條款」＞「行銷資訊提供政策」，確認頁面上方是否已勾選同意，未同意將不符活動資格。\n 付款前請務必再次留意選擇的付款方式是否正確；若選擇錯誤，後續能否取消再重新交易將依店家規定為準。\n 活動內容\n 未成年用戶開通LINE Pay Money帳戶享7-ELEVEN總價值100元優惠券！\n ※自行了解LINE Pay Money開戶條件、方式、流程、限制及本活動內容為活動參加者的義務，參加活動視同同意本活動規則，不因個人認知、星座生肖、宗教信仰、身分地位、疾病、威脅等而有特例，LINE Pay Money(連加電子支付)保有對本活動所有事宜做出最終解釋及決定的權利。\n ※使用優惠券的交易無法部份退款，僅能全額退款。\n 活動注意事項\n 立即下載 LINE Pay App\n 追蹤更多 LINE Pay 動態",
           "startsAt": "20260930",
           "endsAt": "20261231",
           "publishedAt": "20260930",
@@ -5677,8 +5743,8 @@
           "rewardLabel": "最高 11%／上限 150 點／元",
           "status": "2026/09/01–2026/12/31",
           "sourceUrl": "https://www.icashpay.com.tw/advertMessage/view/id/2461",
-          "image": "https://www.icashpay.com.tw/images/backend/advertMessage/7b76ef6e2a784f2745b34ddcfe6642bf.jpg",
-          "rawText": "icash Pay超強支付 綁uniopen聯名卡滿額最高回饋11% \n 活動期間： 自2026/9/1 起至2026/12/31\n 活動方式： \n 活動期間使用icash Pay綁定uniopen聯名卡，全通路單筆消費滿199元，享4% OPENPOINT回饋，每一icash Pay用戶每月回饋上限150點，活動每月回饋上限300萬點。 \n 2026年9月【全通路單筆消費滿199元享4%】活動贈點已於2026/9/6 11:00 am額滿 \n(回饋資格及入點時間認定依icash Pay資訊系統紀錄認定為準，系統將以符合活動資格者之消費優先順序匯入該icash Pay綁定之uniopen會員帳戶，最晚於2026/11/30前匯入) \n 額滿提醒：此訊息揭露僅為提醒之用，揭露作業時間會晚於活動回饋額滿時間，實際仍依交易之時間順序為準判定符合資格，活動參與者不得以未獲知本活動回饋額滿訊息為理由要求補贈點。 \n 【uniopen聯名卡最高7%回饋】 \nicash Pay綁定uniopen聯名卡適用統一企業品牌商店指定任務滿額最高回饋7%。 活動詳情 \n 請先事先註冊icash Pay帳號並完成icash Pay註冊【 立即下載icash Pay 】\n流程請參考： https://pse.is/6345vx \n 如活動期間內已達活動總回饋上限，將依icash Pay交易之時間順序為準判定符合資格，不另行公告或通知，活動參與者不得以未獲知本活動回饋額滿訊息為理由要求補贈點，請視情況評估參與。 \n 本活動回饋點數將於消費成功後最晚於次次月底前匯入icash Pay所綁定的 uniopen 會員帳戶中，回饋資格及入點時間認定依icash Pay資訊系統紀錄認定為準，系統將以符合活動資格者之消費優先順序匯入該icash Pay綁定之 uniopen 會員帳戶，如活動資格檢核作業順利則可能提前匯入點數。\n 信用卡回饋活動、循環信用利率及各項費用詳情請參閱銀行官網。\n 本活動交易金額僅限一般商品交易，不適用自動加值、現金加值、儲值類交易、自助加油、菸類商品、繳稅/費及代收代售項目、OPENPOINT點數折抵金額。本活動之消費認定將依實際交易金額及發票為主，加碼回饋之OPENPOINT計算至小數點後第二位 (依小數點後第三位四捨五入計算)。如交易經取消、退貨及退款，將不予贈點，若於活動贈點發送後發生退貨(包含部分退貨)，將會扣回以該筆交易計算之全額活動點數。*例外通路：統一精工自助加油之本活動贈點一律於次次月底前匯入點數(若經核算當月活動贈點已達每戶上限150點則不再入點)。\n 商店端進行交易退貨之流程(例如進行交易/退貨之順序、作業時間)可能影響本活動點數之計算判斷，如因此而影響所獲得之點數，不另外進行點數回補。\n 本活動適用之店櫃需具接受icash Pay之設備，並依業者現場公告為準。是否符合本活動回饋通路，以icash Pay交易紀錄內顯示之交易對象為主，如該店櫃於百貨內之icash Pay交易資訊無法判斷為該商店類型，則該筆交易不適用本活動。\n 使用icash Pay參與本活動應使用具備Android作業系統6.0以上或iOS作業系統13.0以上的手機，並請將OPENPOINT APP或icash Pay APP之應用程式及手機內建瀏覽器更新至最新版本。icash Pay用戶於獲得本活動回饋前及回饋當下仍應具有 uniopen 會員資格及icash Pay使用者資格，icash Pay與其銀行卡應為「綁定狀態」且使用皆為「正常狀態」，入點時應符合本活動資格等相關規範。\n 詳細活動辦法以主辦單位(愛金卡)網站公告為準。主辦單位保留本活動所有事宜之最終解釋之權利，並可隨時變更、取消、終止或暫停本活動及替換其他獎項；活動如遇有任何因電腦系統、網路、電話等故障或傳輸異常、或有不可抗力事由，主辦單位得暫時停止相關服務，參與者同意取消當次消費支付指示。如因而致參加者之資料有延遲、遺失、錯誤或無法辨識等情況，主辦單位不負任何法律責任，參加者亦不得因此異議。其他未盡事宜，悉依主辦單位相關規定辦理。\n 參加本活動即表示同意接受本活動條款；若有違反者，主辦單位有權取消參加者之參加資格並追回獲得之點數，如對本活動有任何疑義，可撥打愛金卡公司客服專線0800-233-888 (手機請撥02-2657-6388)。\n OPENPOINT由統一超商發行，紅利點數規則(例如使用效期/範圍/方式)、累兌紀錄或相關問題，請至OPENPOINT App查詢或電洽OPENPOINT客服中心0800-711-177(手機請撥02-2627-1650)或請mail至 service@mail.openpoint.com.tw 並留下您的icash Pay用戶手機號碼、icash Pay帳號、問題等以供查詢回覆。",
+          "image": "https://www.icashpay.com.tw/images/backend/advertMessage/376e4676fb8d7ead49894eeaff6ea90d.jpg",
+          "rawText": "icash Pay超強支付 綁uniopen聯名卡滿額最高回饋11% \n 活動期間： 自2026/9/1 起至2026/12/31\n 活動方式： \n 活動期間使用icash Pay綁定uniopen聯名卡，全通路單筆消費滿199元，享4% OPENPOINT回饋，每一icash Pay用戶每月回饋上限150點，活動每月回饋上限300萬點。 \n 2026年9月【全通路單筆消費滿199元享4%】活動贈點已於2026/9/6 11:00額滿 \n 2026年10月【全通路單筆消費滿199元享4%】活動贈點已於2026/10/6 15:00額滿 \n (回饋資格及入點時間認定依icash Pay資訊系統紀錄認定為準，系統將以符合活動資格者之消費優先順序匯入該icash Pay綁定之uniopen會員帳戶，最晚於2026/12/31前匯入) \n 額滿提醒：此訊息揭露僅為提醒之用，揭露作業時間會晚於活動回饋額滿時間，實際仍依交易之時間順序為準判定符合資格，活動參與者不得以未獲知本活動回饋額滿訊息為理由要求補贈點。 \n 【uniopen聯名卡最高7%回饋】 \nicash Pay綁定uniopen聯名卡適用統一企業品牌商店指定任務滿額最高回饋7%。 活動詳情 \n 請先事先註冊icash Pay帳號並完成icash Pay註冊【 立即下載icash Pay 】\n流程請參考： https://pse.is/6345vx \n 如活動期間內已達活動總回饋上限，將依icash Pay交易之時間順序為準判定符合資格，不另行公告或通知，活動參與者不得以未獲知本活動回饋額滿訊息為理由要求補贈點，請視情況評估參與。 \n 本活動回饋點數將於消費成功後最晚於次次月底前匯入icash Pay所綁定的 uniopen 會員帳戶中，回饋資格及入點時間認定依icash Pay資訊系統紀錄認定為準，系統將以符合活動資格者之消費優先順序匯入該icash Pay綁定之 uniopen 會員帳戶，如活動資格檢核作業順利則可能提前匯入點數。\n 信用卡回饋活動、循環信用利率及各項費用詳情請參閱銀行官網。\n 本活動交易金額僅限一般商品交易，不適用自動加值、現金加值、儲值類交易、自助加油、菸類商品、繳稅/費及代收代售項目、OPENPOINT點數折抵金額。本活動之消費認定將依實際交易金額及發票為主，加碼回饋之OPENPOINT計算至小數點後第二位 (依小數點後第三位四捨五入計算)。如交易經取消、退貨及退款，將不予贈點，若於活動贈點發送後發生退貨(包含部分退貨)，將會扣回以該筆交易計算之全額活動點數。*例外通路：統一精工自助加油之本活動贈點一律於次次月底前匯入點數(若經核算當月活動贈點已達每戶上限150點則不再入點)。\n 商店端進行交易退貨之流程(例如進行交易/退貨之順序、作業時間)可能影響本活動點數之計算判斷，如因此而影響所獲得之點數，不另外進行點數回補。\n 本活動適用之店櫃需具接受icash Pay之設備，並依業者現場公告為準。是否符合本活動回饋通路，以icash Pay交易紀錄內顯示之交易對象為主，如該店櫃於百貨內之icash Pay交易資訊無法判斷為該商店類型，則該筆交易不適用本活動。\n 使用icash Pay參與本活動應使用具備Android作業系統6.0以上或iOS作業系統13.0以上的手機，並請將OPENPOINT APP或icash Pay APP之應用程式及手機內建瀏覽器更新至最新版本。icash Pay用戶於獲得本活動回饋前及回饋當下仍應具有 uniopen 會員資格及icash Pay使用者資格，icash Pay與其銀行卡應為「綁定狀態」且使用皆為「正常狀態」，入點時應符合本活動資格等相關規範。\n 詳細活動辦法以主辦單位(愛金卡)網站公告為準。主辦單位保留本活動所有事宜之最終解釋之權利，並可隨時變更、取消、終止或暫停本活動及替換其他獎項；活動如遇有任何因電腦系統、網路、電話等故障或傳輸異常、或有不可抗力事由，主辦單位得暫時停止相關服務，參與者同意取消當次消費支付指示。如因而致參加者之資料有延遲、遺失、錯誤或無法辨識等情況，主辦單位不負任何法律責任，參加者亦不得因此異議。其他未盡事宜，悉依主辦單位相關規定辦理。\n 參加本活動即表示同意接受本活動條款；若有違反者，主辦單位有權取消參加者之參加資格並追回獲得之點數，如對本活動有任何疑義，可撥打愛金卡公司客服專線0800-233-888 (手機請撥02-2657-6388)。\n OPENPOINT由統一超商發行，紅利點數規則(例如使用效期/範圍/方式)、累兌紀錄或相關問題，請至OPENPOINT App查詢或電洽OPENPOINT客服中心0800-711-177(手機請撥02-2627-1650)或請mail至 service@mail.openpoint.com.tw 並留下您的icash Pay用戶手機號碼、icash Pay帳號、問題等以供查詢回覆。",
           "startsAt": "20260901",
           "endsAt": "20261231",
           "publishedAt": "",
@@ -6463,74 +6529,8 @@
       "freshness": "官方來源檢查 2026/10/06；依官方更新順序排列",
       "campaigns": [
         {
-          "title": "滿 1,111 元享 11% 全盈儲值金",
-          "category": "最新資訊",
-          "stores": [
-            "官方指定通路"
-          ],
-          "paymentMethods": [
-            "全盈+PAY"
-          ],
-          "audience": "not-stated",
-          "rate": 0,
-          "cap": 0,
-          "rewardLabel": "官方最新資訊",
-          "status": "2026/09/18–2026/12/31",
-          "sourceUrl": "https://event2023.pluspay.com.tw/",
-          "image": "",
-          "rawText": "全盈+PAY 官方活動：指定店家單筆消費滿 1,111 元享最高 11% 全盈儲值金，活動預算與適用通路以官方活動頁為準。",
-          "startsAt": "20260918",
-          "endsAt": "20261231",
-          "publishedAt": "",
-          "officialOrder": 0
-        },
-        {
-          "title": "精選品牌滿 1,500 元回饋 10% 全盈儲值金",
-          "category": "一般回饋",
-          "stores": [
-            "官方指定通路"
-          ],
-          "paymentMethods": [
-            "全盈+PAY"
-          ],
-          "audience": "not-stated",
-          "rate": 0.1,
-          "cap": 200,
-          "rewardLabel": "最高 10%／上限 200 點／元",
-          "status": "2026/07/01–2026/12/31",
-          "sourceUrl": "https://event2023.pluspay.com.tw/",
-          "image": "",
-          "rawText": "指定實體與線上品牌單筆消費滿 1,500 元，享 10% 全盈儲值金，每會員每月最高 200 元；使用全盈+PAY 條碼或 QR Code。",
-          "startsAt": "20260701",
-          "endsAt": "20261231",
-          "publishedAt": "",
-          "officialOrder": 1
-        },
-        {
-          "title": "註冊全盈+PAY 領全家咖啡",
-          "category": "新戶優惠",
-          "stores": [
-            "全家"
-          ],
-          "paymentMethods": [
-            "全盈+PAY"
-          ],
-          "audience": "new-user",
-          "rate": 0,
-          "cap": 0,
-          "rewardLabel": "官方最新資訊",
-          "status": "2026/01/01–2026/12/31",
-          "sourceUrl": "https://event2023.pluspay.com.tw/",
-          "image": "",
-          "rawText": "符合資格的新註冊會員可領全家咖啡，領取資格與兌換期限以官方活動頁及 App 顯示為準。",
-          "startsAt": "20260101",
-          "endsAt": "20261231",
-          "publishedAt": "",
-          "officialOrder": 2
-        },
-        {
-          "title": "Fa 點驚喜，筆筆消費贈 Fa 點",
-          "category": "會員回饋",
+          "title": "全家行動購",
+          "category": "超商回饋",
           "stores": [
             "全家"
           ],
@@ -6541,14 +6541,212 @@
           "rate": 0,
           "cap": 0,
           "rewardLabel": "依官方條件回饋",
+          "status": "官方頁最新資訊；詳細條件請見官方頁",
+          "sourceUrl": "https://event2023.pluspay.com.tw/2026-Q4FamilyMart-AUG?deviceModeForBot=mobile",
+          "image": "https://s3.ryzoweba.io/ryzo/4541B2D4-B3C0-4E3F-80E3-B7FEDD61EF73/CAED119E-487E-4680-AD8D-47A39F4AA9A5/20260929152112_1065X80010m.jpg",
+          "rawText": "全家行動購\n2026/10/05\n5號｜全盈+PAY行動購日\n前往消費享回饋",
+          "startsAt": "20261005",
+          "endsAt": "",
+          "publishedAt": "",
+          "officialOrder": 6
+        },
+        {
+          "title": "通路活動",
+          "category": "金融／綁卡回饋",
+          "stores": [
+            "官方指定通路"
+          ],
+          "paymentMethods": [
+            "全盈+PAY"
+          ],
+          "audience": "not-stated",
+          "rate": 0,
+          "cap": 0,
+          "rewardLabel": "依官方條件回饋",
+          "status": "2026/10/01–2026/12/31",
+          "sourceUrl": "https://event2023.pluspay.com.tw/2026Q4?deviceModeForBot=mobile",
+          "image": "https://s3.ryzoweba.io/ryzo/4541B2D4-B3C0-4E3F-80E3-B7FEDD61EF73/CAED119E-487E-4680-AD8D-47A39F4AA9A5/20260917162705_1065X800.jpg",
+          "rawText": "2026/10/01-2026/12/31\nPAY樂時刻🥳吃喝玩樂購！享精彩生活💝\n通路活動\n\\銀行加碼回饋/",
+          "startsAt": "20261001",
+          "endsAt": "20261231",
+          "publishedAt": "",
+          "officialOrder": 44
+        },
+        {
+          "title": "通路活動",
+          "category": "購物回饋",
+          "stores": [
+            "官方指定通路"
+          ],
+          "paymentMethods": [
+            "全盈+PAY"
+          ],
+          "audience": "not-stated",
+          "rate": 0,
+          "cap": 0,
+          "rewardLabel": "依官方條件回饋",
+          "status": "2026/10/01–2026/12/31",
+          "sourceUrl": "https://event2023.pluspay.com.tw/2026Q4-mall?deviceModeForBot=mobile",
+          "image": "https://s3.ryzoweba.io/ryzo/4541B2D4-B3C0-4E3F-80E3-B7FEDD61EF73/CAED119E-487E-4680-AD8D-47A39F4AA9A5/20260908131650_1065X800.jpg",
+          "rawText": "2026/10/01-2026/12/31\n狂歡百貨季💫品味潮流！輕鬆買樂開懷🛍️\n通路活動\n\\銀行加碼回饋/",
+          "startsAt": "20261001",
+          "endsAt": "20261231",
+          "publishedAt": "",
+          "officialOrder": 45
+        },
+        {
+          "title": "了解山隆加油站 加油優惠👉",
+          "category": "加油回饋",
+          "stores": [
+            "官方指定通路"
+          ],
+          "paymentMethods": [
+            "全盈+PAY"
+          ],
+          "audience": "not-stated",
+          "rate": 0,
+          "cap": 0,
+          "rewardLabel": "依官方條件回饋",
+          "status": "2026/10/01–2026/12/31",
+          "sourceUrl": "https://event2023.pluspay.com.tw/2026SHAN-LOONG?deviceModeForBot=mobile",
+          "image": "https://s3.ryzoweba.io/ryzo/4541B2D4-B3C0-4E3F-80E3-B7FEDD61EF73/CAED119E-487E-4680-AD8D-47A39F4AA9A5/20260916094232_1065X800.jpg",
+          "rawText": "了解山隆加油站 加油優惠👉\n2026/10/01-2026/12/31\n加進油箱的是能量⛽存進荷包的是回饋💸\n通路活動\n\\銀行加碼回饋/",
+          "startsAt": "20261001",
+          "endsAt": "20261231",
+          "publishedAt": "",
+          "officialOrder": 47
+        },
+        {
+          "title": "了解星舟快充 充電優惠👉",
+          "category": "金融／綁卡回饋",
+          "stores": [
+            "官方指定通路"
+          ],
+          "paymentMethods": [
+            "全盈+PAY"
+          ],
+          "audience": "not-stated",
+          "rate": 0,
+          "cap": 0,
+          "rewardLabel": "依官方條件回饋",
+          "status": "2026/10/01–2026/12/31",
+          "sourceUrl": "https://event2023.pluspay.com.tw/2026STARCHARGER?deviceModeForBot=mobile",
+          "image": "https://s3.ryzoweba.io/ryzo/4541B2D4-B3C0-4E3F-80E3-B7FEDD61EF73/CAED119E-487E-4680-AD8D-47A39F4AA9A5/20260916102530_1065X800.jpg",
+          "rawText": "了解星舟快充 充電優惠👉\n2026/10/01-2026/12/31\n補滿的不只是電量🔋還有你的移動能量⚡\n通路活動\n\\銀行加碼回饋/",
+          "startsAt": "20261001",
+          "endsAt": "20261231",
+          "publishedAt": "",
+          "officialOrder": 48
+        },
+        {
+          "title": "1. 回饋方式：符合活動條件，每月1日至當月月底成功推薦會員註冊，將於次月25日(含)前收到推薦禮50元全盈儲值金。",
+          "category": "新戶優惠",
+          "stores": [
+            "官方支付服務"
+          ],
+          "paymentMethods": [
+            "全盈+PAY"
+          ],
+          "audience": "not-stated",
+          "rate": 0,
+          "cap": 0,
+          "rewardLabel": "依官方條件回饋",
           "status": "2026/01/01–2026/12/31",
-          "sourceUrl": "https://event2023.pluspay.com.tw/",
-          "image": "",
-          "rawText": "全家會員使用全盈+PAY 消費可依官方規則累積 Fa 點，實際會員資格與點數計算以官方頁最新規則為準。",
+          "sourceUrl": "https://event2023.pluspay.com.tw/MGM_2026?deviceModeForBot=mobile",
+          "image": "https://s3.ryzoweba.io/ryzo/4541B2D4-B3C0-4E3F-80E3-B7FEDD61EF73/CAED119E-487E-4680-AD8D-47A39F4AA9A5/20251231174258_1065X800.jpg",
+          "rawText": "Invite Friends\n※請使用 APP 開啟\n1. 回饋方式：符合活動條件，每月1日至當月月底成功推薦會員註冊，將於次月25日(含)前收到推薦禮50元全盈儲值金。 \n 2. 50元全盈儲值金將發送至「推薦人」於 全盈+PAY 系統撈取贈禮名單當下之全盈電支帳戶。全盈儲值金可支援用戶間轉帳、消費時付款使用，無使用期限，亦可依全盈+PAY系統規則提領至個人銀行帳戶。全盈儲值金須妥善保管，如遭他人盜用，恕不補發。 \n 3. 回饋發放時全盈+PAY需為已註冊且開通狀態，若回饋時有下列情形而無法完成贈送，視同放棄回饋資格：全盈+PAY會員申請結清、已銷戶、取消綁定、與活動額滿公告之時間差、強制停用、刪除等或其它違反本活動注意事項。 \n 4. 全盈+PAY會員提供他人自己專屬推薦碼或專屬連結者並經由被推薦人於指定頁面填寫「推薦人」資訊且成功提交者，始為「推薦人」；透過他人提供之專屬推薦碼或點選專屬連結於該連結頁面完成填寫推薦人資料並進行註冊者為「被推薦人」。 \n 5. 每一個 全盈+PAY 會員僅能成為「被推薦人」一次，「推薦人」無推薦次數限制。 \n 6. 「推薦人」與「被推薦人」不得為同一人，且推薦人需完成註冊為 全盈+PAY 會員。 \n 7. 參加本活動之時，即同意接受本活動之活動辦法及注意事項，如有違反，全盈支付得取消其參加或回饋資格。 \n 8. 參加者同意本活動相關參與資料及紀錄，一律以全盈支付資訊系統所載紀錄為準。活動如遇有任何因電腦系統、網路、電話等故障或傳輸異常、或有不可抗力事由，全盈支付得暫時停止相關服務。如因而致參加者之資料有延遲、遺失、錯誤或無法辨識等情況，全盈支付不負任何法律責任，參加者亦不得因此異議。其他未盡事宜，悉依全盈支付相關規定辦理。 \n 9. 參加本活動者若以惡意程式、竄改紀錄或違反法律或其他非法之方式違反本活動之公平性 ( 包含但不限於重複結清帳戶 ) 或正確性，或意圖混淆、影響本活動結果者，經全盈支付發現或經第三人檢舉，全盈支付除得取消其贈獎資格外，並得追回贈獎內容。參加活動者應自行承擔因違反相關規定所生之一切法律責任。 \n 10. 全盈支付保有活動解釋、修改、調整及終止等相關權利，詳細辦法、變更事項或未盡事宜以官網公告為主。此等條款及細則如有更改，將會在全盈支付官網公告，如有任何疑義或爭議，全盈支付保有最終解釋權及決定權，並保留對本活動之參加資格、回饋資格等最後審核權，且有權隨時變更／終止／取消本活動。 \n 11. 個資告知事項：參加人瞭解及同意全盈支付金融科技股份有限公司係依照電子支付機構相關法令、「個人資料保護法」、「金融機構間資料共享指引」及其他相關法令規定，蒐集、處理及利用您的資料。但其他法律或主管機關另有規定者，不在此限。 \n 詳細內容請見全盈支付之隱私權政策：https://www.pluspay.com.tw/Terms/Privacy \n 12. 若對於全盈支付活動辦法有任何意見或疑問，歡迎透過以下管道與全盈支付聯繫： \n 客服表單：https://www.pluspay.com.tw/Forms/Service \n 客服信箱：service@pluspay.com.tw\n2026/1/1-2026/12/31\n推薦好友註冊全盈+PAY 拿全盈儲值金\nForeigner\n手刀推薦",
           "startsAt": "20260101",
           "endsAt": "20261231",
           "publishedAt": "",
-          "officialOrder": 3
+          "officialOrder": 273
+        },
+        {
+          "title": "1. 全盈儲值金發放：當月消費於次月25日前發放至交易當下所綁定之 全盈+PAY 電支帳戶。 例，7/1-7/31符合活動資格的訂單，於 8/25前發放。",
+          "category": "餐飲回饋",
+          "stores": [
+            "官方支付服務"
+          ],
+          "paymentMethods": [
+            "全盈+PAY"
+          ],
+          "audience": "not-stated",
+          "rate": 0.25,
+          "cap": 100,
+          "rewardLabel": "最高 25%／上限 100 點／元",
+          "status": "2026/06/12–2026/12/31",
+          "sourceUrl": "https://event2023.pluspay.com.tw/Taipei?deviceModeForBot=mobile",
+          "image": "https://s3.ryzoweba.io/ryzo/4541B2D4-B3C0-4E3F-80E3-B7FEDD61EF73/CAED119E-487E-4680-AD8D-47A39F4AA9A5/20230617111521_1065x4503.jpg",
+          "rawText": "活動期間：6/12-12/31 \n 適用對象：台北市指定商圈店家，使用 全盈+PAY 付款 \n 活動案型： 活動期間內於指定商圈內消費並使用 全盈＋PAY 付款，消費不限金額享最高20%回饋 (單筆最高回饋 100 元，每人最高回饋 5 筆) \n 各梯次店家適用狀況 \n 1.6/1起適用店家：鐵布衫服飾坊、nenechicken 士林大南店、味擂家、流浪觀點咖啡館、好日子義式餐坊、拾味料理所、名匠堂眼鏡、E&bull;Hair \n 2.7/1起適用店家：晧雅日本生活百貨、永康街 芋頭大王二店、小珍珠烘焙坊、永峰茗茶、雅緻人生工作室、美德樂齡服飾百貨、李記紅茶冰(萬華廣州店)、家吶子台式居酒屋、Coffee PLZ、向日葵精緻早餐、蛋黃那一面朝上、清真黃牛肉麵、澤之屋日本料理 \n 、台灣添虱目魚專賣店、卡卡城站前店、良品牛肉麵館、聯華數位印刷、黃金咖啡店、阿桂的店、芙蘿拉造型攝影沙龍、悟和軒、藝巧熊皮件、湯花作、人山艸、松柏農生活創意整合有限公司、萬華東區釣具店、中天眼鏡股份有限公司-萬芳分公司、傳家香食品商行、凱暘數位勻資訊工作室 \n 3.8/1起適用店家：布子咖啡商行、PHONE FIX手機維修中心、愛完美 Eye.perfect \n 4.9/1起適用店家：OGC株式會社、小宋唱片行、家呐子居酒屋、第六感髮型設計名店、ARPOLYGON MCASHA士林店 \n 、FunSo、駿鴻貿易有限公司、薩摩亞商山嶺有限公司台灣分公司、百怪牛仔服飾店、通訊無阻手機維修專門店、馬蒂餐飲有限公司、楊記冰店 \n 5.10/1起適用店家：恩典養生活力生菜捲、珍珠芭樂、Three Gals Hot Dog、煙斗服飾第二分公司、嗣竣貿易有限公司 \n 煙斗服飾台北地下街店、Cozy Sun Day Cafe日向咖啡、早茶商行、微點咖啡、30巷咖哩飯、舒肥底家(營養師的理想餐盒)\\、暇以食日裸食堂x私廚x天然甜點實驗室、HUE宥昇髮型沙龍、小春樓滷味、阿忠越式傳統牛肉河粉、街角 \n 活動辦法\n1. 全盈儲值金發放：當月消費於次月25日前發放至交易當下所綁定之 全盈+PAY 電支帳戶。 例，7/1-7/31符合活動資格的訂單，於 8/25前發放。 \n 2. 全盈+PAY 儲值金回饋符合活動條件者，全盈儲值金將入帳至交易當下所綁定之 全盈+PAY帳戶。全盈儲值金支援用戶間轉帳、可於消費時付款使用，無使用期限。 \n3. 回饋全盈儲值金時，全盈＋PAY需為已註冊且開通狀態，若回饋時有下列情形而無法完成贈送，視同放棄回饋資格：全盈+PAY會員申請結清、已銷戶、強制停用等或其它違反本活動注意事項。 \n4. 全盈儲值金須妥善保管，如遭他人盜用，恕不補發。此等條款及細則或會隨時更改而毋須另行通知，如有任何爭議，全盈支付保有最終決定權。 \n5. 若使用全盈+PAY於上述活動通路消費達活動條件，即表示同意授權全盈支付提供包含但不限於姓名、手機號碼及全盈+PAY電支帳號等必要資訊予活動相關廠商或消費通路利用，以便提供活動贈品與優惠派送。 \n6. 其他優惠活動可參考「全盈+PAY 每月優惠懶人包」活動頁，活動網址：https://www.pluspay.com.tw/Campaign/event \n7. 銀行相關活動之詳細辦法依各通路、銀行公告為準。 \n 8. 此等條款及細則或會隨時更改而毋須另行通知，如有任何爭議，全盈支付保有最終決定權。\n2023/6/12-2023/12/31\n台北商圈指定店家消費 筆筆回饋25%\n適用店家\n玉山銀行數位e卡-寵生活版",
+          "startsAt": "20260612",
+          "endsAt": "20261231",
+          "publishedAt": "",
+          "officialOrder": 300
+        },
+        {
+          "title": "點擊領取店家優惠券，於結帳時出示優惠條碼並使用全盈+PAY透過PayPay完成付款，即可享優惠。",
+          "category": "一般回饋",
+          "stores": [
+            "官方指定通路"
+          ],
+          "paymentMethods": [
+            "全盈+PAY"
+          ],
+          "audience": "not-stated",
+          "rate": 0,
+          "cap": 0,
+          "rewardLabel": "依官方條件回饋",
+          "status": "2026/10/01–2026/12/31",
+          "sourceUrl": "https://event2023.pluspay.com.tw/261001-1231-PayPay-home?deviceModeForBot=mobile",
+          "image": "https://s3.ryzoweba.io/ryzo/4541B2D4-B3C0-4E3F-80E3-B7FEDD61EF73/CAED119E-487E-4680-AD8D-47A39F4AA9A5/20260924172917_banner.jpg",
+          "rawText": "點擊領取店家優惠券，於結帳時出示優惠條碼並使用全盈+PAY透過PayPay完成付款，即可享優惠。\n2026/10/01 ~ 2026/12/31",
+          "startsAt": "20261001",
+          "endsAt": "20261231",
+          "publishedAt": "",
+          "officialOrder": 424
+        },
+        {
+          "title": "PayPay綁定國泰世華銀行 消費最高享15%回饋",
+          "category": "金融／綁卡回饋",
+          "stores": [
+            "官方指定通路"
+          ],
+          "paymentMethods": [
+            "全盈+PAY"
+          ],
+          "audience": "not-stated",
+          "rate": 0.15,
+          "cap": 0,
+          "rewardLabel": "最高 15% 回饋",
+          "status": "2026/10/01–2026/12/31",
+          "sourceUrl": "https://event2023.pluspay.com.tw/2026Q4paypay_cathaybk?deviceModeForBot=mobile",
+          "image": "https://s3.ryzoweba.io/ryzo/4541B2D4-B3C0-4E3F-80E3-B7FEDD61EF73/CAED119E-487E-4680-AD8D-47A39F4AA9A5/20260921162502_1065X800.jpg",
+          "rawText": "2026/10/01-2026/12/31\nPayPay綁定國泰世華銀行 消費最高享15%回饋\n＼更多回饋攻略∕\n點擊查看常見問題",
+          "startsAt": "20261001",
+          "endsAt": "20261231",
+          "publishedAt": "",
+          "officialOrder": 441
+        },
+        {
+          "title": "綁定玉山銀行，不分國內外 筆筆回饋 13%",
+          "category": "金融／綁卡回饋",
+          "stores": [
+            "官方指定通路"
+          ],
+          "paymentMethods": [
+            "全盈+PAY"
+          ],
+          "audience": "not-stated",
+          "rate": 0.13,
+          "cap": 0,
+          "rewardLabel": "最高 13% 回饋",
+          "status": "2026/10/01–2026/12/31",
+          "sourceUrl": "https://event2023.pluspay.com.tw/2026paypay_esun_Q4?deviceModeForBot=mobile",
+          "image": "https://s3.ryzoweba.io/ryzo/4541B2D4-B3C0-4E3F-80E3-B7FEDD61EF73/CAED119E-487E-4680-AD8D-47A39F4AA9A5/20260922144958_1065X800.jpg",
+          "rawText": "2026/10/01-2026/12/31\n綁定玉山銀行，不分國內外 筆筆回饋 13%\n＼更多回饋攻略∕\n點擊查看常見問題",
+          "startsAt": "20261001",
+          "endsAt": "20261231",
+          "publishedAt": "",
+          "officialOrder": 450
         }
       ]
     },
@@ -8059,6 +8257,873 @@
       ]
     },
     {
+      "name": "台灣 Pay 官方活動",
+      "logo": "/logos/taiwan-pay.png",
+      "color": "#b22637",
+      "focus": "台灣 Pay、TWQR 與銀行合作通路回饋。",
+      "freshness": "官方來源檢查 2026/10/06；依官方更新順序排列",
+      "campaigns": [
+        {
+          "title": "艋舺夜市超給利 台灣Pay單筆享20%現金回饋你",
+          "category": "金融／綁卡回饋",
+          "stores": [
+            "官方支付服務"
+          ],
+          "paymentMethods": [
+            "台灣 Pay"
+          ],
+          "audience": "not-stated",
+          "rate": 0.2,
+          "cap": 1000,
+          "rewardLabel": "最高 20%／上限 1,000 點／元",
+          "status": "2026/10/01–2027/03/31",
+          "sourceUrl": "https://www.firstbank.com.tw/sites/fcb/zh_TW/1565713890840",
+          "image": "",
+          "rawText": "2026年10月01日\n 活動對象：透過本行「第e行動」、「iLEO」或「台灣行動支付」APP至活動地點以「台灣Pay」QR Code掃碼進行支付(金融卡/帳戶)之用戶。\n 活動期間：115年10月1日起至116年3月31日止。\n 活動地點：艋舺夜市等商圈受理「台灣Pay」交易之店家(店家資訊詳臺灣企銀官網，惟實際交易受理依現場狀況為準)。\n 活動內容：用戶於活動期間至活動地點消費，使用「台灣 Pay」(限金融卡/帳戶)以QR Code掃碼支付成功，單筆消費不限金額享20%現金回饋(小數點後四捨五入，非即時回饋)，單筆交易回饋金上限新臺幣(以下同)300元，於活動期間每一金融卡號/帳戶最高回饋上限1,000元，本活動回饋總金額上限47萬元，額滿為止，並公告於臺灣企銀官網。\n 相關活動限制及注意事項請詳閱 台灣Pay官網 。\n 艋舺夜市超給利_熱門優惠頁面相關檔案下載表格 \n 檔案名稱 \n 下載 \n 艋舺夜市超給利 台灣Pay單筆享現金回饋你活動辦法\n PDF \n 附件為 PDF 格式之檔案，若您尚未安裝 PDF 檔案閱讀軟體 Adobe Reader 請至 http://get.adobe.com/tw/reader/ 下載安裝。\n ::: \n 第一商業銀行股份有限公司\n First Commercial Bank ©2020\n 台北市重慶南路一段30號\n 營業人：第一商業銀行股份有限公司\n 營利事業統一編號：05052322",
+          "startsAt": "20261001",
+          "endsAt": "20270331",
+          "publishedAt": "",
+          "officialOrder": 0
+        },
+        {
+          "title": "福懋台灣Pay 加油享回饋",
+          "category": "加油回饋",
+          "stores": [
+            "福懋"
+          ],
+          "paymentMethods": [
+            "台灣 Pay"
+          ],
+          "audience": "not-stated",
+          "rate": 0,
+          "cap": 0,
+          "rewardLabel": "依官方條件回饋",
+          "status": "2026/10/01–2026/12/31",
+          "sourceUrl": "https://www.firstbank.com.tw/sites/fcb/zh_TW/1565713914733",
+          "image": "",
+          "rawText": "2026年10月01日\n 活動對象：使用「台灣Pay」透過參與金融機構「行動銀行」APP或「台灣行動支付」APP)於活動地點消費，以「台灣Pay」(金融卡/帳戶/信用卡)進行支付之用戶。\n 活動期間：115年10月1日起至115年12月31日止。\n 活動地點：受理「台灣Pay」之福懋人工加油站(參與本活動之加油站據點以福懋加油站官網公告為準)。\n 活動內容：用戶於活動期間內至活動地點進行人工加油服務，並出示「台灣 Pay」付款條碼(金融卡/帳戶/信用卡)進行支付，單筆消費汽油 1 公升(含)以上，即享有每公升現折新臺幣(以下同) 0.7 元優惠。\n 相關活動限制及注意事項請詳閱 台灣Pay官網 。\n 福懋台灣Pay 加油享回饋_熱門優惠頁面相關檔案下載表格 \n 檔案名稱 \n 下載 \n 福懋台灣Pay加油享回饋活動辦法\n PDF \n 附件為 PDF 格式之檔案，若您尚未安裝 PDF 檔案閱讀軟體 Adobe Reader 請至 http://get.adobe.com/tw/reader/ 下載安裝。\n ::: \n 第一商業銀行股份有限公司\n First Commercial Bank ©2020\n 台北市重慶南路一段30號\n 營業人：第一商業銀行股份有限公司\n 營利事業統一編號：05052322",
+          "startsAt": "20261001",
+          "endsAt": "20261231",
+          "publishedAt": "",
+          "officialOrder": 1
+        },
+        {
+          "title": "It’s「米」Time！刷台灣Pay享20%回饋",
+          "category": "金融／綁卡回饋",
+          "stores": [
+            "官方支付服務"
+          ],
+          "paymentMethods": [
+            "台灣 Pay"
+          ],
+          "audience": "not-stated",
+          "rate": 0.2,
+          "cap": 1000,
+          "rewardLabel": "最高 20%／上限 1,000 點／元",
+          "status": "2026/09/25–2027/03/31",
+          "sourceUrl": "https://www.firstbank.com.tw/sites/fcb/zh_TW/1565713870687",
+          "image": "",
+          "rawText": "2026年09月25日\n 活動對象：透過本行「第e行動」、「iLEO」或「台灣行動支付」APP至活動地點以「台灣Pay」QR Code掃碼進行支付(金融卡/帳戶)之用戶。\n 活動期間：115年9月25日起至116年3月31日止。\n 活動地點：米炭火燒肉品牌受理「台灣Pay」之指定門市(指定門市詳臺灣企銀官網公告為準)。\n 活動內容：用戶於活動地點單筆消費不限金額可享20%現金回饋(非即時回饋，金額小數點後四捨五入)，每一金融卡/帳戶於活動期間內回饋最高以新臺幣(以下同)1,000元為限，本活動回饋總金額上限60萬元。\n 相關活動限制及注意事項請詳閱 台灣Pay官網 。\n Its米Time刷台灣Pay_熱門優惠頁面相關檔案下載表格 \n 檔案名稱 \n 下載 \n It’s米Time刷台灣Pay享回饋活動辦法\n PDF \n 附件為 PDF 格式之檔案，若您尚未安裝 PDF 檔案閱讀軟體 Adobe Reader 請至 http://get.adobe.com/tw/reader/ 下載安裝。\n ::: \n 第一商業銀行股份有限公司\n First Commercial Bank ©2020\n 台北市重慶南路一段30號\n 營業人：第一商業銀行股份有限公司\n 營利事業統一編號：05052322",
+          "startsAt": "20260925",
+          "endsAt": "20270331",
+          "publishedAt": "",
+          "officialOrder": 2
+        },
+        {
+          "title": "Apple Rewards Store Pay你換新機 享10%回饋",
+          "category": "購物回饋",
+          "stores": [
+            "Apple"
+          ],
+          "paymentMethods": [
+            "台灣 Pay"
+          ],
+          "audience": "not-stated",
+          "rate": 0.1,
+          "cap": 500,
+          "rewardLabel": "最高 10%／上限 500 點／元",
+          "status": "2026/09/21–2026/12/31",
+          "sourceUrl": "https://www.firstbank.com.tw/sites/fcb/zh_TW/1565713914362",
+          "image": "",
+          "rawText": "2026年09月21日\n 活動對象：使用「台灣Pay」透過參與金融機構「行動銀行」APP或「台灣行動支付」APP)於Apple Rewards Store電商平台消費，以「台灣Pay」(金融卡/帳戶)進行支付之用戶。\n 活動期間：115年9月21日起至115年12月31日止。\n 活動地點：Apple Rewards Store電商平台。\n 活動內容：活動期間用戶至Apple Rewards Store電商平台以「台灣 Pay」（限金融卡/帳戶）進行消費，可享單筆交易不限金額10%現金回饋（非即時回饋，小數點後四捨五入），每帳戶回饋上限新臺幣500元，本活動回饋總金額上限30萬元，額滿為止。並公告於元大銀行官網。\n 相關活動限制及注意事項請詳閱 台灣Pay官網 。\n Apple Rewards Store Pay你換新機_熱門優惠頁面相關檔案下載表格 \n 檔案名稱 \n 下載 \n Apple Rewards Store Pay你換新機 享回饋活動辦法\n PDF \n 附件為 PDF 格式之檔案，若您尚未安裝 PDF 檔案閱讀軟體 Adobe Reader 請至 http://get.adobe.com/tw/reader/ 下載安裝。\n ::: \n 第一商業銀行股份有限公司\n First Commercial Bank ©2020\n 台北市重慶南路一段30號\n 營業人：第一商業銀行股份有限公司\n 營利事業統一編號：05052322",
+          "startsAt": "20260921",
+          "endsAt": "20261231",
+          "publishedAt": "",
+          "officialOrder": 3
+        },
+        {
+          "title": "老少咸宜作伙台灣Pay！華西街×師大商圈享20%回饋",
+          "category": "金融／綁卡回饋",
+          "stores": [
+            "官方支付服務"
+          ],
+          "paymentMethods": [
+            "台灣 Pay"
+          ],
+          "audience": "not-stated",
+          "rate": 0.2,
+          "cap": 300,
+          "rewardLabel": "最高 20%／上限 300 點／元",
+          "status": "2026/09/15–2026/12/31",
+          "sourceUrl": "https://www.firstbank.com.tw/sites/fcb/zh_TW/1565713834130",
+          "image": "",
+          "rawText": "2026年09月15日\n 活動對象：透過本行「第e行動」、「iLEO」或「台灣行動支付」APP至活動地點以「台灣Pay」QR Code掃碼進行支付(金融卡/帳戶)之用戶。\n 活動期間：115年9月15日起至115年12月31日止。\n 活動地點：臺北市華西街商圈、臺北市師大龍泉商圈內受理「台灣Pay」之攤商店家，攤商店家資訊詳如本活動辦法附表，如有異動以兆豐銀行官網公告為主，惟用戶於實際交易時，仍應以該活動攤商得受理支付之方式或狀態為準。\n 活動內容：活動期間至活動地點消費，使用「台灣Pay」(限金融卡/帳戶)以QR Code掃碼支付成功，單筆消費不限金額享20%現金回饋(非即時回饋，小數點後無條件捨去)，單筆交易回饋金上限新臺幣(以下同)300元。本活動回饋總金額47萬元為上限，額滿為止，並公告於兆豐銀行官網。\n 相關活動限制及注意事項請詳閱 台灣Pay官網 。\n 華西街×師大商圈享回饋_熱門優惠頁面相關檔案下載表格 \n 檔案名稱 \n 下載 \n 老少咸宜作伙台灣Pay華西街×師大商圈享回饋活動辦法\n PDF \n 附件為 PDF 格式之檔案，若您尚未安裝 PDF 檔案閱讀軟體 Adobe Reader 請至 http://get.adobe.com/tw/reader/ 下載安裝。\n ::: \n 第一商業銀行股份有限公司\n First Commercial Bank ©2020\n 台北市重慶南路一段30號\n 營業人：第一商業銀行股份有限公司\n 營利事業統一編號：05052322",
+          "startsAt": "20260915",
+          "endsAt": "20261231",
+          "publishedAt": "",
+          "officialOrder": 4
+        },
+        {
+          "title": "台灣Pay省錢術 STUDIO A最高享1500元",
+          "category": "購物回饋",
+          "stores": [
+            "官方支付服務"
+          ],
+          "paymentMethods": [
+            "台灣 Pay"
+          ],
+          "audience": "not-stated",
+          "rate": 0.1,
+          "cap": 1500,
+          "rewardLabel": "最高 10%／上限 1,500 點／元",
+          "status": "2026/09/11–2026/11/30",
+          "sourceUrl": "https://www.firstbank.com.tw/sites/fcb/zh_TW/1565713774992",
+          "image": "",
+          "rawText": "2026年09月11日\n 活動對象： \n 活動一：使用「台灣 Pay」(透過參與金融機構「行動銀行 APP」或「台灣行動支付 APP」)，於活動地點消費並出示「台灣 Pay」付款條碼(即被掃交易，金融卡/帳戶/信用卡)之用戶。\n 活動二：使用「台灣 Pay」(透過參與金融機構「行動銀行 APP」或「台灣行動支付 APP」)，於活動地點消費並以 QR Code 掃碼進行支付 (即主掃交易，金融卡/帳戶/信用卡)之用戶。\n 活動期間：115年9月11日起至115年11月30日止。\n 活動地點： \n 活動一：STUDIO A、Straight A受理「台灣Pay」之指定門市(百貨櫃位僅限桃園統領、苗栗尚順育樂世界及台中麗寶百貨櫃位。指定門市如有異動以兆豐銀行官網公告為準)。\n 活動二：STUDIO A官方網站(https://www.studioa.com.tw)、Straight A官方網站(https://www.straighta.com.tw)。\n 活動內容： \n 活動一：活動期間至活動地點消費，出示「台灣Pay」付款條碼(即被掃交易，金融卡/帳戶/信用卡)進行支付，單筆消費不限金額享10%現金回饋(非即時回饋，回饋金計算採單筆小數點後無條件捨去法，單筆交易金額不得拆付)。\n 活動二：活動期間至活動地點消費，使用「台灣Pay」(即主掃交易，金融卡/帳戶/信用卡)以QR Code掃碼進行支付，單筆消費不限金額享10%現金回饋(非即時回饋，回饋金計算採單筆小數點後無條件捨去法，單筆交易金額不得拆付)。\n 活動期間內每一信用卡/金融卡/帳戶回饋金上限新臺幣(以下同)1000元。活動一及活動二合計回饋總金額上限57.5萬元整，額滿為止，並公告於兆豐銀行官網。\n 相關活動限制及注意事項請詳閱 台灣Pay官網 。\n 台灣Pay省錢術 STUDIO A最高享1500元_熱門優惠頁面相關檔案下載表格 \n 檔案名稱 \n 下載 \n 台灣Pay購新機 STUDIO A最高享10%活動辦法\n PDF \n 附件為 PDF 格式之檔案，若您尚未安裝 PDF 檔案閱讀軟體 Adobe Reader 請至 http://get.adobe.com/tw/reader/ 下載安裝。\n ::: \n 第一商業銀行股份有限公司\n First Commercial Bank ©2020\n 台北市重慶南路一段30號\n 營業人：第一商業銀行股份有限公司\n 營利事業統一編號：05052322",
+          "startsAt": "20260911",
+          "endsAt": "20261130",
+          "publishedAt": "",
+          "officialOrder": 5
+        },
+        {
+          "title": "傑昇愛用台灣Pay 獨享10%回饋",
+          "category": "金融／綁卡回饋",
+          "stores": [
+            "官方支付服務"
+          ],
+          "paymentMethods": [
+            "台灣 Pay"
+          ],
+          "audience": "not-stated",
+          "rate": 0.1,
+          "cap": 1000,
+          "rewardLabel": "最高 10%／上限 1,000 點／元",
+          "status": "2026/09/09–2026/12/31",
+          "sourceUrl": "https://www.firstbank.com.tw/sites/fcb/zh_TW/1565713592747",
+          "image": "",
+          "rawText": "2026年09月09日\n 活動對象：使用「台灣Pay」透過參與金融機構「行動銀行」APP或「台灣行動支付」APP)於活動地點消費，以「台灣Pay」付款條碼(金融卡/帳戶/信用卡)進行支付之用戶。\n 活動期間：115年9月9日起至115年12月31日止。\n 活動地點：傑昇通信受理「台灣 Pay」之指定實體門市(參與本活動之門市詳如附表，如有更新將以第一銀行官網、傑昇通信官網公告為準，恕不另行通知)。\n 活動內容：用戶於活動期間至活動地點消費，出示「台灣 Pay」付款條碼(金融卡/帳戶/信用卡)進行支付，單筆交易結帳金額滿新臺幣(下同)1,000元(含)以上，即享現折100元優惠，滿2,000元(含)以上，即享現折200元優惠，以此類推（單筆現折最高以1,000元為限，消費金額不得拆付）。本活動回饋總金額上限125萬元整，如達該總金額上限即停止回饋，並公告於第一銀行官網、傑昇通信官網，不另行通知。\n 相關活動限制及注意事項請詳閱 台灣Pay官網 。\n 傑昇愛用台灣Pay 獨享10趴回饋_熱門優惠頁面相關檔案下載表格 \n 檔案名稱 \n 下載 \n 傑昇愛用台灣Pay 獨享10%回饋活動辦法\n PDF \n 附件為 PDF 格式之檔案，若您尚未安裝 PDF 檔案閱讀軟體 Adobe Reader 請至 http://get.adobe.com/tw/reader/ 下載安裝。\n ::: \n 第一商業銀行股份有限公司\n First Commercial Bank ©2020\n 台北市重慶南路一段30號\n 營業人：第一商業銀行股份有限公司\n 營利事業統一編號：05052322",
+          "startsAt": "20260909",
+          "endsAt": "20261231",
+          "publishedAt": "",
+          "officialOrder": 6
+        },
+        {
+          "title": "暢遊馬祖享回饋，TWQR馬上Pay",
+          "category": "交通／旅遊回饋",
+          "stores": [
+            "馬祖"
+          ],
+          "paymentMethods": [
+            "台灣 Pay"
+          ],
+          "audience": "not-stated",
+          "rate": 0.1,
+          "cap": 500,
+          "rewardLabel": "最高 10%／上限 500 點／元",
+          "status": "2026/09/01–2026/12/31",
+          "sourceUrl": "https://www.firstbank.com.tw/sites/fcb/zh_TW/1565713699095",
+          "image": "",
+          "rawText": "2026年09月01日\n 活動對象：透過本行「第e行動」、「iLEO」、「台灣行動支付」APP 之「台灣Pay」(限金融卡/帳戶)，或以街口支付、歐付寶、橘子支付、全盈+PAY、全支付、icash Pay、一卡通 iPASS MONEY、悠遊付與簡單付之電子支付機構APP至活動地點掃碼進行支付之用戶。\n 活動期間：115年9月1日起至115年12月31日止。\n 活動地點：連江縣(馬祖)地區標示TWQR店家(惟用戶於實際交易時，仍應以各店家得受理支付之方式或狀態為準)。\n 活動內容：用戶於活動期間至活動地點掃碼支付，單筆消費不限金額享10%現金回饋或點數回饋(非即時回饋，小數點後四捨五入)，回饋形式與細節依各參與機構規定辦理，活動期間每一金融卡/帳戶、電子支付帳戶最高回饋新臺幣(以下同)500元現金或等值點數，本活動回饋總金額上限30萬元，額滿為止，並公告於臺灣銀行官網，不另行通知。\n 相關活動限制及注意事項請詳閱 台灣Pay官網 。\n 暢遊馬祖享回饋_熱門優惠頁面相關檔案下載表格 \n 檔案名稱 \n 下載 \n 「暢遊馬祖享回饋，TWQR馬上Pay」活動辦法\n PDF \n 附件為 PDF 格式之檔案，若您尚未安裝 PDF 檔案閱讀軟體 Adobe Reader 請至 http://get.adobe.com/tw/reader/ 下載安裝。\n ::: \n 第一商業銀行股份有限公司\n First Commercial Bank ©2020\n 台北市重慶南路一段30號\n 營業人：第一商業銀行股份有限公司\n 營利事業統一編號：05052322",
+          "startsAt": "20260901",
+          "endsAt": "20261231",
+          "publishedAt": "",
+          "officialOrder": 7
+        },
+        {
+          "title": "CITYLINK消費購划算，台灣Pay享20%回饋",
+          "category": "金融／綁卡回饋",
+          "stores": [
+            "CITYLINK"
+          ],
+          "paymentMethods": [
+            "台灣 Pay"
+          ],
+          "audience": "not-stated",
+          "rate": 0.2,
+          "cap": 1000,
+          "rewardLabel": "最高 20%／上限 1,000 點／元",
+          "status": "2026/09/01–2027/02/28",
+          "sourceUrl": "https://www.firstbank.com.tw/sites/fcb/zh_TW/1565713698687",
+          "image": "",
+          "rawText": "2026年09月01日\n 活動對象：使用「台灣Pay」透過參與金融機構「行動銀行」APP或「台灣行動支付」APP)於活動地點消費，以「台灣Pay」付款條碼(金融卡/帳戶/信用卡)進行支付之用戶。\n 活動期間：115年9月1日起至116年2月28日止。\n 活動地點：CITYLINK南港店、松山壹號店、內湖店、三重店內受理「台灣Pay」之櫃位，不參加之櫃位資訊詳如本活動辦法附表，如有異動以兆豐銀行官網公告為準。\n 活動內容：活動期間至活動地點消費出示「台灣Pay」付款碼(信用卡/金融卡/帳戶)進行支付(即被掃交易)，單筆消費不限金額享20%現金回饋（非即時回饋，回饋金計算採小數點後無條件捨去，單筆交易金額不得拆付）。每一信用卡/金融卡/帳戶於活動期間最高回饋新臺幣1,000元為限，本活動回饋總金額上限57.5萬元，額滿為止，並公告於兆豐銀行官網。\n 相關活動限制及注意事項請詳閱 台灣Pay官網 。\n CITYLINK消費購划算台灣Pay享回饋_熱門優惠頁面相關檔案下載表格 \n 檔案名稱 \n 下載 \n CITYLINK消費購划算台灣Pay享回饋活動辦法\n PDF \n 附件為 PDF 格式之檔案，若您尚未安裝 PDF 檔案閱讀軟體 Adobe Reader 請至 http://get.adobe.com/tw/reader/ 下載安裝。\n ::: \n 第一商業銀行股份有限公司\n First Commercial Bank ©2020\n 台北市重慶南路一段30號\n 營業人：第一商業銀行股份有限公司\n 營利事業統一編號：05052322",
+          "startsAt": "20260901",
+          "endsAt": "20270228",
+          "publishedAt": "",
+          "officialOrder": 8
+        },
+        {
+          "title": "TWQR玩澎湖，10%加碼帶回家",
+          "category": "金融／綁卡回饋",
+          "stores": [
+            "官方支付服務"
+          ],
+          "paymentMethods": [
+            "台灣 Pay"
+          ],
+          "audience": "not-stated",
+          "rate": 0.1,
+          "cap": 500,
+          "rewardLabel": "最高 10%／上限 500 點／元",
+          "status": "2026/09/01–2026/12/31",
+          "sourceUrl": "https://www.firstbank.com.tw/sites/fcb/zh_TW/1565713812308",
+          "image": "",
+          "rawText": "2026年09月01日\n 活動對象：透過本行「第e行動」、「iLEO」、「台灣行動支付」APP 之「台灣Pay」(限金融卡/帳戶)，或以街口支付、歐付寶、橘子支付、全盈+PAY、全支付、icash Pay、一卡通 iPASS MONEY、悠遊付與簡單付之電子支付機構APP至活動地點掃碼進行支付之用戶。\n 活動期間：115年9月1日起至115年12月31日止。\n 活動地點：澎湖地區標示TWQR店家(惟用戶於實際交易時，仍應以各店家得受理支付之方式或狀態為準)。\n 活動內容：用戶於活動期間至活動地點掃碼支付，單筆消費不限金額享10%回饋現金或點數回饋(非即時回饋，小數點後四捨五入)，回饋形式與細節依各參與機構規定辦理，活動期間每一金融卡/帳戶、電子支付帳戶最高回饋新臺幣(以下同)500元等值點數或現金，本活動回饋總金額上限10萬元，額滿為止，並公告於合作金庫官網。\n 相關活動限制及注意事項請詳閱 台灣Pay官網 。\n TWQR玩澎湖加碼帶回家_熱門優惠頁面相關檔案下載表格 \n 檔案名稱 \n 下載 \n TWQR玩澎湖加碼帶回家行銷活動辦法\n PDF \n 附件為 PDF 格式之檔案，若您尚未安裝 PDF 檔案閱讀軟體 Adobe Reader 請至 http://get.adobe.com/tw/reader/ 下載安裝。\n ::: \n 第一商業銀行股份有限公司\n First Commercial Bank ©2020\n 台北市重慶南路一段30號\n 營業人：第一商業銀行股份有限公司\n 營利事業統一編號：05052322",
+          "startsAt": "20260901",
+          "endsAt": "20261231",
+          "publishedAt": "",
+          "officialOrder": 9
+        },
+        {
+          "title": "台灣Pay在漢神洲際強棒出擊滿2000送200元電子商品券",
+          "category": "購物回饋",
+          "stores": [
+            "官方支付服務"
+          ],
+          "paymentMethods": [
+            "台灣 Pay"
+          ],
+          "audience": "not-stated",
+          "rate": 0,
+          "cap": 200,
+          "rewardLabel": "最高 200 點／元",
+          "status": "2026/09/01–2026/11/30",
+          "sourceUrl": "https://www.firstbank.com.tw/sites/fcb/zh_TW/1565713775731",
+          "image": "",
+          "rawText": "2026年09月01日\n 活動對象：使用「台灣Pay」透過參與金融機構「行動銀行」APP或「台灣行動支付」APP)於活動地點消費，以「台灣Pay」付款條碼(金融卡/帳戶/信用卡)進行支付之用戶。\n 活動期間：115年9月1日起至115年11月30日止。\n 活動地點：漢神洲際購物廣場(台中市北屯區崇德路三段865號)，配合專櫃依館內公告為準。\n 活動內容：用戶於活動期間於活動地點出示漢神Plus APP會員條碼消費集點且使用台灣Pay付款條碼支付，單筆滿新臺幣（以下同）2,000元（含）以上，即可獲得「200元漢神洲際電子商品券」乙份（單筆不累贈），每會員於活動期間限兌換2份。本活動限量5,750份，贈完為止，並於活動地點現場及漢神洲際官網公告。\n 相關活動限制及注意事項請詳閱 台灣Pay官網 。\n 台灣Pay在漢神洲際強棒出擊_熱門優惠頁面相關檔案下載表格 \n 檔案名稱 \n 下載 \n 台灣Pay在漢神洲際強棒出擊滿2000送200元電子商品券活動辦法\n PDF \n 附件為 PDF 格式之檔案，若您尚未安裝 PDF 檔案閱讀軟體 Adobe Reader 請至 http://get.adobe.com/tw/reader/ 下載安裝。\n ::: \n 第一商業銀行股份有限公司\n First Commercial Bank ©2020\n 台北市重慶南路一段30號\n 營業人：第一商業銀行股份有限公司\n 營利事業統一編號：05052322",
+          "startsAt": "20260901",
+          "endsAt": "20261130",
+          "publishedAt": "",
+          "officialOrder": 10
+        },
+        {
+          "title": "走入雲林好厝邊用TWQR消費享優惠",
+          "category": "金融／綁卡回饋",
+          "stores": [
+            "官方支付服務"
+          ],
+          "paymentMethods": [
+            "台灣 Pay"
+          ],
+          "audience": "not-stated",
+          "rate": 0.1,
+          "cap": 500,
+          "rewardLabel": "最高 10%／上限 500 點／元",
+          "status": "2026/08/31–2027/04/30",
+          "sourceUrl": "https://www.firstbank.com.tw/sites/fcb/zh_TW/1565713812792",
+          "image": "",
+          "rawText": "2026年08月31日\n 活動對象：透過本行「第e行動」、「iLEO」、「台灣行動支付」APP 之「台灣Pay」(限金融卡/帳戶)，或以街口支付、歐付寶、橘子支付、全盈+PAY、全支付、icash Pay、一卡通 iPASS MONEY、悠遊付與簡單付之電子支付機構APP至活動地點掃碼進行支付之用戶。\n 活動期間：115年8月31日起至116年4月30日止。\n 活動地點：雲林縣大埤鄉、褒忠鄉、東勢鄉、古坑鄉、莿桐鄉、二崙鄉、元長鄉標示TWQR店家(用戶於實際交易時，仍應以各店家得受理支付之方式或狀態為準)。\n 活動內容：用戶於活動地點使用掃碼支付，單筆消費不限金額可享10%回饋現金或點數(非即時回饋，小數點後四捨五入)，回饋形式與細節依各參與機構規定辦理，活動期間每一金融卡/帳戶、電子支付帳戶最高回饋500元等值點數或現金。本活動回饋總金額上限5萬元，額滿為止，並公告於彰化銀行官網。\n 相關活動限制及注意事項請詳閱 台灣Pay官網 。\n 走入雲林好厝邊用TWQR消費享優惠_熱門優惠頁面相關檔案下載表格 \n 檔案名稱 \n 下載 \n 走入雲林好厝邊用TWQR消費享優惠活動辦法\n PDF \n 附件為 PDF 格式之檔案，若您尚未安裝 PDF 檔案閱讀軟體 Adobe Reader 請至 http://get.adobe.com/tw/reader/ 下載安裝。\n ::: \n 第一商業銀行股份有限公司\n First Commercial Bank ©2020\n 台北市重慶南路一段30號\n 營業人：第一商業銀行股份有限公司\n 營利事業統一編號：05052322",
+          "startsAt": "20260831",
+          "endsAt": "20270430",
+          "publishedAt": "",
+          "officialOrder": 11
+        },
+        {
+          "title": "墊腳石Pay你樂購一夏，台灣Pay好康20%回饋",
+          "category": "金融／綁卡回饋",
+          "stores": [
+            "官方支付服務"
+          ],
+          "paymentMethods": [
+            "台灣 Pay"
+          ],
+          "audience": "not-stated",
+          "rate": 0.2,
+          "cap": 300,
+          "rewardLabel": "最高 20%／上限 300 點／元",
+          "status": "2026/08/21–2026/11/30",
+          "sourceUrl": "https://www.firstbank.com.tw/sites/fcb/zh_TW/1565713650468",
+          "image": "",
+          "rawText": "2026年08月21日\n 活動對象：使用「台灣Pay」透過參與金融機構「行動銀行」APP或「台灣行動支付」APP)於活動地點消費，以「台灣Pay」(金融卡/帳戶/信用卡)進行支付之用戶。\n 活動期間：115年8月21日起至115年11月30日止。\n 活動地點：墊腳石受理「台灣Pay」之門市(參與本活動之門市詳墊腳石官網，如有異動以墊腳石官網公告為準)。\n 活動內容：用戶於活動期間至活動地點消費，並出示「台灣Pay」付款條碼(金融卡/帳戶/信用卡)進行支付，單筆消費不限金額可享20%現金回饋(非即時回饋，小數點後四捨五入)，每一金融卡/帳戶/信用卡於活動期間最高回饋新臺幣(以下同)300元為限。本活動回饋總金額上限55萬元，額滿為止，並公告於臺灣銀行官網。\n 相關活動限制及注意事項請詳閱 台灣Pay官網 。\n 墊腳石Pay你樂購一夏_熱門優惠頁面相關檔案下載表格 \n 檔案名稱 \n 下載 \n 墊腳石Pay你樂購一夏台灣Pay好康回饋活動辦法F\n PDF \n 附件為 PDF 格式之檔案，若您尚未安裝 PDF 檔案閱讀軟體 Adobe Reader 請至 http://get.adobe.com/tw/reader/ 下載安裝。\n ::: \n 第一商業銀行股份有限公司\n First Commercial Bank ©2020\n 台北市重慶南路一段30號\n 營業人：第一商業銀行股份有限公司\n 營利事業統一編號：05052322",
+          "startsAt": "20260821",
+          "endsAt": "20261130",
+          "publishedAt": "",
+          "officialOrder": 12
+        },
+        {
+          "title": "微碧愛點餐X台灣Pay 餐餐美味、樂享回饋",
+          "category": "金融／綁卡回饋",
+          "stores": [
+            "官方支付服務"
+          ],
+          "paymentMethods": [
+            "台灣 Pay"
+          ],
+          "audience": "not-stated",
+          "rate": 0,
+          "cap": 0,
+          "rewardLabel": "依官方條件回饋",
+          "status": "2026/08/17–2026/12/31",
+          "sourceUrl": "https://www.firstbank.com.tw/sites/fcb/zh_TW/1565713650832",
+          "image": "",
+          "rawText": "2026年08月17日\n 活動對象：使用「台灣Pay」透過參與金融機構「行動銀行」APP或「台灣行動支付」APP)於活動地點消費，以「台灣Pay」(金融卡/帳戶/信用卡)進行支付之用戶。\n 活動期間：115年8月17日起至115年12月31日止。\n 活動地點及說明： \n 線上: 微碧愛點餐網站(https://iding.tw/)及微碧愛點餐 APP 之指定店家\n 線下: 使用「微碧智慧店面」POS 系統掃碼盒子支付之指定實體店家(商家提供之台灣 Pay QR CODE 收款碼不適用此活動）。\n 參與本活動之店家據點詳彰化銀行官網，惟用戶於實際交易時，仍應以該活動店家得受理支付之方式或狀態為準。\n 活動內容：用戶於活動期間至活動地點使用「台灣 Pay」(金融卡/帳戶/信用卡)進行支付成功，單筆交易金額滿新臺幣(以下同)125元(含)以上，可享25元回饋(非即時回饋)，單筆不累折。本活動回饋總金額上限為15萬元，如達回饋總金額上限，即停止回饋，並公告於彰銀及微碧愛點餐官網。\n 相關活動限制及注意事項請詳閱 台灣Pay官網 。\n 微碧愛點餐X台灣Pay_熱門優惠頁面相關檔案下載表格 \n 檔案名稱 \n 下載 \n 微碧愛點餐X台灣Pay 餐餐美味樂享回饋活動辦法\n PDF \n 附件為 PDF 格式之檔案，若您尚未安裝 PDF 檔案閱讀軟體 Adobe Reader 請至 http://get.adobe.com/tw/reader/ 下載安裝。\n ::: \n 第一商業銀行股份有限公司\n First Commercial Bank ©2020\n 台北市重慶南路一段30號\n 營業人：第一商業銀行股份有限公司\n 營利事業統一編號：05052322",
+          "startsAt": "20260817",
+          "endsAt": "20261231",
+          "publishedAt": "",
+          "officialOrder": 13
+        },
+        {
+          "title": "迺延三夜市就用TWQR『台灣Pay』樂享20%回饋",
+          "category": "金融／綁卡回饋",
+          "stores": [
+            "官方支付服務"
+          ],
+          "paymentMethods": [
+            "台灣 Pay"
+          ],
+          "audience": "not-stated",
+          "rate": 0.2,
+          "cap": 500,
+          "rewardLabel": "最高 20%／上限 500 點／元",
+          "status": "2026/08/13–2027/01/31",
+          "sourceUrl": "https://www.firstbank.com.tw/sites/fcb/zh_TW/1565713580723",
+          "image": "",
+          "rawText": "2026年08月13日\n 活動對象：透過本行「第e行動」、「iLEO」或「台灣行動支付」APP至活動地點以「台灣Pay」QR Code掃碼進行支付(金融卡/帳戶)之用戶。\n 活動期間：115年8月13日起至116年1月31日止。\n 活動地點：大橋頭延三商圈受理「台灣Pay」交易之店家(參與本活動之店家據點以彰化銀行官網為準，惟用戶於實際交易時，仍應以該活動攤商得受理支付之方式或狀態為準)。\n 活動內容：用戶於活動期間至活動地點消費，使用「台灣Pay」QR Code掃碼支付成功者，單筆消費不限金額可享20%之現金回饋(小數點後四捨五入，非即時回饋)，活動期間內每金融卡/帳戶最高回饋以500元為限，本活動回饋總金額上限30萬元，如達回饋總金額上限，即停止回饋，並公告於彰化銀行官網。\n 相關活動限制及注意事項請詳閱 台灣Pay官網 。\n 迺延三夜市就用TWQR台灣Pay_熱門優惠頁面相關檔案下載表格 \n 檔案名稱 \n 下載 \n 迺延三夜市就用TWQR台灣Pay樂享回饋\n PDF \n 附件為 PDF 格式之檔案，若您尚未安裝 PDF 檔案閱讀軟體 Adobe Reader 請至 http://get.adobe.com/tw/reader/ 下載安裝。\n ::: \n 第一商業銀行股份有限公司\n First Commercial Bank ©2020\n 台北市重慶南路一段30號\n 營業人：第一商業銀行股份有限公司\n 營利事業統一編號：05052322",
+          "startsAt": "20260813",
+          "endsAt": "20270131",
+          "publishedAt": "",
+          "officialOrder": 14
+        },
+        {
+          "title": "漫遊高雄．墨凡站前商圈 台灣Pay樂享10%回饋",
+          "category": "金融／綁卡回饋",
+          "stores": [
+            "官方支付服務"
+          ],
+          "paymentMethods": [
+            "台灣 Pay"
+          ],
+          "audience": "not-stated",
+          "rate": 0.1,
+          "cap": 0,
+          "rewardLabel": "最高 10% 回饋",
+          "status": "2026/08/01–2026/11/30",
+          "sourceUrl": "https://www.firstbank.com.tw/sites/fcb/zh_TW/1565713514809",
+          "image": "",
+          "rawText": "2026年08月01日\n 活動對象：透過本行「第e行動」、「iLEO」或「台灣行動支付」APP至活動地點以「台灣Pay」QR Code掃碼進行支付(金融卡/帳戶)之用戶。\n 活動期間：115年8月1日起至115年11月30日止。\n 活動地點：高雄墨凡美麗島商場及高雄車站周邊商圈受理「台灣 Pay」交易之指定店家(參與本活動之店家詳土地銀行官網公告，惟用戶於實際交易時，仍應以各店家得受理支付之方式或狀態為準)，本活動僅適用於透過土地銀行收單之交易，不適用透過其他行動支付或其他金融機構之 TWQR 及台灣Pay收單之交易。\n 活動內容：用戶於活動期間至活動地點消費，並使用「台灣Pay」QR Code掃碼支付(限金融卡/帳戶)成功者，單筆消費不限金額可享 10%之現金回饋(小數點後四捨五入，非即時回饋)，每一金融卡/帳戶於活動期間回饋以新臺幣(以下同)500元為上限，本活動回饋總金額上限37萬元，如達回饋總金額上限，活動即終止且停止回饋，並公告於土地銀行官網，不另行通知。\n 相關活動限制及注意事項請詳閱 台灣Pay官網 。\n 漫遊高雄．墨凡站前商圈_熱門優惠頁面相關檔案下載表格 \n 檔案名稱 \n 下載 \n 漫遊高雄．墨凡站前商圈 台灣Pay樂享回饋活動辦法\n PDF \n 附件為 PDF 格式之檔案，若您尚未安裝 PDF 檔案閱讀軟體 Adobe Reader 請至 http://get.adobe.com/tw/reader/ 下載安裝。\n ::: \n 第一商業銀行股份有限公司\n First Commercial Bank ©2020\n 台北市重慶南路一段30號\n 營業人：第一商業銀行股份有限公司\n 營利事業統一編號：05052322",
+          "startsAt": "20260801",
+          "endsAt": "20261130",
+          "publishedAt": "",
+          "officialOrder": 15
+        },
+        {
+          "title": "漫遊員山鄉 TWQR輕鬆付享10%回饋",
+          "category": "金融／綁卡回饋",
+          "stores": [
+            "宜蘭"
+          ],
+          "paymentMethods": [
+            "台灣 Pay"
+          ],
+          "audience": "not-stated",
+          "rate": 0.1,
+          "cap": 500,
+          "rewardLabel": "最高 10%／上限 500 點／元",
+          "status": "2026/08/01–2027/03/31",
+          "sourceUrl": "https://www.firstbank.com.tw/sites/fcb/zh_TW/1565713512095",
+          "image": "",
+          "rawText": "2026年08月01日\n 活動對象：透過本行「第e行動」、「iLEO」或「台灣行動支付」APP、全支付、全盈+PAY、悠遊付、一卡通iPASS MONEY、icash Pay、橘子支付、街口支付、歐付寶及簡單付之電子支付機構APP，於活動地點消費，以QR Code掃碼支付(金融卡/帳戶)之用戶。\n 活動期間：115年8月1日起至116年3月31日止。\n 活動地點：宜蘭縣員山鄉標示TWQR之店家。\n 活動內容：活動期間至活動地點以QR Code掃碼支付成功，單筆消費不限金額享10%回饋現金或點數(非即時回饋，小數點後無條件捨去)，回饋形式與細節依各參與機構規定辦理，單筆交易回饋金上限新臺幣(以下同)500元。活動期間每月每帳戶合計最高回饋500元現金或等值點數。本活動回饋總金額上限5萬元，額滿為止，並公告於兆豐銀行官網。\n 相關活動限制及注意事項請詳閱 台灣Pay官網 。\n 漫遊員山鄉 TWQR輕鬆付_熱門優惠頁面相關檔案下載表格 \n 檔案名稱 \n 下載 \n 漫遊員山鄉 TWQR輕鬆付享10%回饋活動辦法\n PDF \n 附件為 PDF 格式之檔案，若您尚未安裝 PDF 檔案閱讀軟體 Adobe Reader 請至 http://get.adobe.com/tw/reader/ 下載安裝。\n ::: \n 第一商業銀行股份有限公司\n First Commercial Bank ©2020\n 台北市重慶南路一段30號\n 營業人：第一商業銀行股份有限公司\n 營利事業統一編號：05052322",
+          "startsAt": "20260801",
+          "endsAt": "20270331",
+          "publishedAt": "",
+          "officialOrder": 16
+        },
+        {
+          "title": "前進仁愛鄉TWQR輕鬆付享10%回饋",
+          "category": "金融／綁卡回饋",
+          "stores": [
+            "南投"
+          ],
+          "paymentMethods": [
+            "台灣 Pay"
+          ],
+          "audience": "not-stated",
+          "rate": 0.1,
+          "cap": 500,
+          "rewardLabel": "最高 10%／上限 500 點／元",
+          "status": "2026/08/01–2027/03/31",
+          "sourceUrl": "https://www.firstbank.com.tw/sites/fcb/zh_TW/1565713511118",
+          "image": "",
+          "rawText": "2026年08月01日\n 活動對象：透過本行「第e行動」、「iLEO」或「台灣行動支付」APP、全支付、全盈+PAY、悠遊付、一卡通iPASS MONEY、icash Pay、橘子支付、街口支付、歐付寶及簡單付之電子支付機構APP，於活動地點消費，以QR Code掃碼支付(金融卡/帳戶)之用戶。\n 活動期間：115年8月1日起至116年3月31日止。\n 活動地點：南投縣仁愛鄉標示TWQR之店家。\n 活動內容：活動期間至活動地點以QR Code掃碼支付成功，單筆消費不限金額享10%回饋現金或點數(非即時回饋，小數點後無條件捨去)，回饋形式與細節依各參與機構規定辦理，單筆交易回饋金上限新臺幣(以下同)500元。活動期間每月每帳戶合計最高回饋500元現金或等值點數。本活動回饋總金額上限5萬元，額滿為止，並公告於兆豐銀行官網。\n 相關活動限制及注意事項請詳閱 台灣Pay官網 。\n 前進仁愛鄉TWQR輕鬆付_熱門優惠頁面相關檔案下載表格 \n 檔案名稱 \n 下載 \n 前進仁愛鄉TWQR輕鬆付享10%回饋活動辦法\n PDF \n 附件為 PDF 格式之檔案，若您尚未安裝 PDF 檔案閱讀軟體 Adobe Reader 請至 http://get.adobe.com/tw/reader/ 下載安裝。\n ::: \n 第一商業銀行股份有限公司\n First Commercial Bank ©2020\n 台北市重慶南路一段30號\n 營業人：第一商業銀行股份有限公司\n 營利事業統一編號：05052322",
+          "startsAt": "20260801",
+          "endsAt": "20270331",
+          "publishedAt": "",
+          "officialOrder": 17
+        },
+        {
+          "title": "永康國際商圈 x 台灣 Pay 消費拿回饋20%",
+          "category": "金融／綁卡回饋",
+          "stores": [
+            "官方支付服務"
+          ],
+          "paymentMethods": [
+            "台灣 Pay"
+          ],
+          "audience": "not-stated",
+          "rate": 0.2,
+          "cap": 1000,
+          "rewardLabel": "最高 20%／上限 1,000 點／元",
+          "status": "2026/08/01–2026/11/30",
+          "sourceUrl": "https://www.firstbank.com.tw/sites/fcb/zh_TW/1565713510201",
+          "image": "",
+          "rawText": "2026年08月01日\n 活動對象：透過本行「第e行動」、「iLEO」或「台灣行動支付」APP至活動地點以「台灣Pay」QR Code掃碼進行支付(金融卡/帳戶)之用戶。\n 活動期間：115年8月1日起至115年11月30日止。\n 活動地點：台北市大安區永康街及鄰近路、街、道受理「台灣Pay」之指定店家(詳華南銀行官網公告)，實際情況仍應以該活動攤商得受理支付之方式或狀態為準。\n 活動內容：用戶於活動期間至活動地點消費，以「台灣 Pay」QR Code 掃碼支付 (限金融卡/帳戶)，單筆不限消費金額，可享20%現金回饋(非即時回饋，小數點後四捨五入)，於活動期間每一金融卡號/帳戶最高回饋上限新臺幣(以下同)1,000元，本活動回饋總金額上限47萬元，額滿為止，並公告於華南銀行官網。\n 相關活動限制及注意事項請詳閱 台灣Pay官網 。\n 永康國際商圈x台灣Pay_熱門優惠頁面相關檔案下載表格 \n 檔案名稱 \n 下載 \n 永康國際圈X台灣Pay消費拿回饋活動辦法\n PDF \n 附件為 PDF 格式之檔案，若您尚未安裝 PDF 檔案閱讀軟體 Adobe Reader 請至 http://get.adobe.com/tw/reader/ 下載安裝。\n ::: \n 第一商業銀行股份有限公司\n First Commercial Bank ©2020\n 台北市重慶南路一段30號\n 營業人：第一商業銀行股份有限公司\n 營利事業統一編號：05052322",
+          "startsAt": "20260801",
+          "endsAt": "20261130",
+          "publishedAt": "",
+          "officialOrder": 18
+        },
+        {
+          "title": "蘭州就用台灣Pay 市場20%高回饋",
+          "category": "金融／綁卡回饋",
+          "stores": [
+            "官方支付服務"
+          ],
+          "paymentMethods": [
+            "台灣 Pay"
+          ],
+          "audience": "not-stated",
+          "rate": 0.2,
+          "cap": 0,
+          "rewardLabel": "最高 20% 回饋",
+          "status": "2026/07/15–2026/11/30",
+          "sourceUrl": "https://www.firstbank.com.tw/sites/fcb/zh_TW/1565711913099",
+          "image": "",
+          "rawText": "2026年07月15日\n 活動對象：透過本行「第e行動」、「iLEO」或「台灣行動支付」APP至活動地點以「台灣Pay」QR Code掃碼進行支付(金融卡/帳戶)之用戶。\n 活動期間：115年7月15日起至115年11月30日止。\n 活動地點：「蘭州市場」受理「台灣Pay」交易之指定店家，參與店家依「第一銀行」官網為準。\n 活動內容：活動期間至活動地點消費並以「台灣Pay」QR Code掃碼(限金融卡/帳戶)進行支付，單筆不限交易金額享20%現金回饋(非即時回饋，小數點後四捨五入)，每一金融卡/帳戶於活動期間回饋金額以新臺幣600元為上限，本活動回饋總金額以50萬元為上限，如達回饋總金額上限，本活動即終止且停止回饋，並公告於第一銀行官網，不另行通知。\n 相關活動限制及注意事項請詳閱 台灣Pay官網 。\n 蘭州就用台灣Pay-台灣Pay_熱門優惠頁面相關檔案下載表格 \n 檔案名稱 \n 下載 \n 第一銀行「蘭州就用台灣Pay 市場20%高回饋」_活動辦法\n PDF \n 蘭州商圈攤商名單\n PDF \n 附件為 PDF 格式之檔案，若您尚未安裝 PDF 檔案閱讀軟體 Adobe Reader 請至 http://get.adobe.com/tw/reader/ 下載安裝。\n ::: \n 第一商業銀行股份有限公司\n First Commercial Bank ©2020\n 台北市重慶南路一段30號\n 營業人：第一商業銀行股份有限公司\n 營利事業統一編號：05052322",
+          "startsAt": "20260715",
+          "endsAt": "20261130",
+          "publishedAt": "",
+          "officialOrder": 19
+        },
+        {
+          "title": "TWQR東遊趣 10%加碼Pay",
+          "category": "金融／綁卡回饋",
+          "stores": [
+            "官方支付服務"
+          ],
+          "paymentMethods": [
+            "台灣 Pay"
+          ],
+          "audience": "not-stated",
+          "rate": 0.1,
+          "cap": 500,
+          "rewardLabel": "最高 10%／上限 500 點／元",
+          "status": "2026/07/15–2026/10/31",
+          "sourceUrl": "https://www.firstbank.com.tw/sites/fcb/zh_TW/1565713377826",
+          "image": "",
+          "rawText": "2026年07月15日\n 活動對象：透過本行「第e行動」、「iLEO」、「台灣行動支付」APP 之「台灣Pay」(限金融卡/帳戶)，或以街口支付、歐付寶、橘子支付、全盈+PAY、全支付、icash Pay、一卡通 iPASS MONEY、悠遊付與簡單付之電子支付機構APP至活動地點掃碼進行支付之用戶。\n 活動期間：115年7月15日起至115年10月31日止。\n 活動地點：臺東縣卑南鄉、關山鎮、池上鄉及金峰鄉標示TWQR店家(用戶於實際交易時，仍應以各店家得受理支付之方式或狀態為準)。。\n 活動內容：用戶於活動地點掃碼支付，單筆消費不限金額10%回饋現金或點數(非即時回饋，小數點後四捨五入)，回饋形式與細節依各參與機構規定辦理，活動期間每一金融卡/帳戶、電子支付帳戶最高回饋新台幣(以下同)500元等值點數或現金。本活動回饋總金額上限10萬元，額滿為止，並公告於華南銀行官網。\n 相關活動限制及注意事項請詳閱 台灣Pay官網 。\n TWQR東遊趣10趴加碼Pay_熱門優惠頁面相關檔案下載表格 \n 檔案名稱 \n 下載 \n TWQR東遊趣加碼Pay活動辦法\n PDF \n 附件為 PDF 格式之檔案，若您尚未安裝 PDF 檔案閱讀軟體 Adobe Reader 請至 http://get.adobe.com/tw/reader/ 下載安裝。\n ::: \n 第一商業銀行股份有限公司\n First Commercial Bank ©2020\n 台北市重慶南路一段30號\n 營業人：第一商業銀行股份有限公司\n 營利事業統一編號：05052322",
+          "startsAt": "20260715",
+          "endsAt": "20261031",
+          "publishedAt": "",
+          "officialOrder": 20
+        },
+        {
+          "title": "TWQR金門風華Pay享10%回饋",
+          "category": "交通／旅遊回饋",
+          "stores": [
+            "金門"
+          ],
+          "paymentMethods": [
+            "台灣 Pay"
+          ],
+          "audience": "not-stated",
+          "rate": 0.1,
+          "cap": 200,
+          "rewardLabel": "最高 10%／上限 200 點／元",
+          "status": "2026/07/01–2026/11/30",
+          "sourceUrl": "https://www.firstbank.com.tw/sites/fcb/zh_TW/1565712629946",
+          "image": "",
+          "rawText": "2026年07月01日\n 活動對象：透過本行「第e行動」、「iLEO」、「台灣行動支付」APP 之「台灣Pay」(限金融卡/帳戶)，或以街口支付、歐付寶、橘子支付、全盈+PAY、全支付、icash Pay、一卡通 iPASS MONEY、悠遊付與簡單付之電子支付機構APP至活動地點掃碼進行支付之用戶。\n 活動期間：115年7月1日起至115年11月30日止。\n 活動地點：金門地區標示 TWQR 店家(用戶於實際交易時，仍應以各店家得受理支付之方式或狀態為準)。\n 活動內容：用戶於活動地點消費，進行掃碼支付，單筆消費不限金額享 10%之現金回饋或點數回饋(非即時回饋，小數點後四捨五入)，回饋形式與細節依各參與機構規定辦理，活動期間每帳戶合計最高回饋新臺幣200元現金或等值點數。本活動回饋總金額上限60萬元，如達本活動回饋總金額上限，本活動即終止，並公告於土地銀行官網，不另行通知。\n 相關活動限制及注意事項請詳閱 台灣Pay官網 。\n TWQR金門風華Pay享回饋_熱門優惠頁面相關檔案下載表格 \n 檔案名稱 \n 下載 \n TWQR金門風華Pay享回饋活動辦法\n PDF \n 附件為 PDF 格式之檔案，若您尚未安裝 PDF 檔案閱讀軟體 Adobe Reader 請至 http://get.adobe.com/tw/reader/ 下載安裝。\n ::: \n 第一商業銀行股份有限公司\n First Commercial Bank ©2020\n 台北市重慶南路一段30號\n 營業人：第一商業銀行股份有限公司\n 營利事業統一編號：05052322",
+          "startsAt": "20260701",
+          "endsAt": "20261130",
+          "publishedAt": "",
+          "officialOrder": 21
+        },
+        {
+          "title": "采盟免稅店、采盟/誠盟餐飲 TWQR最高享20%回饋",
+          "category": "餐飲回饋",
+          "stores": [
+            "官方支付服務"
+          ],
+          "paymentMethods": [
+            "台灣 Pay"
+          ],
+          "audience": "not-stated",
+          "rate": 0.2,
+          "cap": 1000,
+          "rewardLabel": "最高 20%／上限 1,000 點／元",
+          "status": "2026/07/01–2026/11/30",
+          "sourceUrl": "https://www.firstbank.com.tw/sites/fcb/zh_TW/1565712627765",
+          "image": "",
+          "rawText": "2026年07月01日\n 活動對象：透過本行「第e行動」、「iLEO」或「台灣行動支付」APP至活動地點以「台灣Pay」QR Code掃碼進行支付(金融卡/帳戶/信用卡)之用戶。\n 活動期間：115年7月1日起至115年11月30日止。\n 活動地點：采盟免稅店(桃園國際機場第二航廈)、采盟/誠盟餐飲(含桃園國際機場第二航廈管制區D區3F/4F及非管制區1F/4F)標示受理「台灣Pay」之櫃位（適用櫃位以現場公告為主。）。\n 活動內容：活動期間至活動地點消費，出示「台灣Pay」付款條碼(即被掃交易，適用金融卡/帳戶/信用卡)進行支付，單筆消費滿新臺幣500元(含)以上，即可折抵100元，單筆消費滿1000元(含)以上，即可折抵200元，以此類推(詳見活動辦法)，單筆折抵上限1,000元。\n 相關活動限制及注意事項請詳閱 台灣Pay官網 。\n 采盟免稅店、采盟/誠盟餐飲_熱門優惠頁面相關檔案下載表格 \n 檔案名稱 \n 下載 \n 采盟免稅店、采盟誠盟餐飲 TWQR最高享回饋活動辦法\n PDF \n 附件為 PDF 格式之檔案，若您尚未安裝 PDF 檔案閱讀軟體 Adobe Reader 請至 http://get.adobe.com/tw/reader/ 下載安裝。\n ::: \n 第一商業銀行股份有限公司\n First Commercial Bank ©2020\n 台北市重慶南路一段30號\n 營業人：第一商業銀行股份有限公司\n 營利事業統一編號：05052322",
+          "startsAt": "20260701",
+          "endsAt": "20261130",
+          "publishedAt": "",
+          "officialOrder": 22
+        },
+        {
+          "title": "寧夏夜市愛逮玩 台灣Pay享20%回饋",
+          "category": "金融／綁卡回饋",
+          "stores": [
+            "官方支付服務"
+          ],
+          "paymentMethods": [
+            "台灣 Pay"
+          ],
+          "audience": "not-stated",
+          "rate": 0.2,
+          "cap": 500,
+          "rewardLabel": "最高 20%／上限 500 點／元",
+          "status": "2026/07/01–2026/12/31",
+          "sourceUrl": "https://www.firstbank.com.tw/sites/fcb/zh_TW/1565712400123",
+          "image": "",
+          "rawText": "2026年07月01日\n 活動對象：透過本行「第e行動」、「iLEO」或「台灣行動支付」APP至活動地點以「台灣Pay」QR Code掃碼進行支付(金融卡/帳戶/信用卡)之用戶。\n 活動期間：115年7月1日起至115年12月31日止。\n 活動地點：台北寧夏觀光夜市指定店家。(參與本活動之店家據點詳彰化銀行官網，惟用戶於實際交易時，仍應以該活動店家得受理支付之方式或狀態為準)。\n 活動內容：用戶於活動期間至活動地點消費，使用「台灣 Pay」QR Code掃碼支付成功者，單筆消費不限金額可享20%之現金回饋(小數點後四捨五入，非即時回饋)，活動期間每一金融卡號/帳戶最高回饋500元為限，本活動回饋總金額上限30萬元，如達回饋總金額上限，即停止回饋，並公告於彰化銀行官網。\n 相關活動限制及注意事項請詳閱 台灣Pay官網 。\n 寧夏夜市愛逮玩_熱門優惠頁面相關檔案下載表格 \n 檔案名稱 \n 下載 \n 寧夏夜市愛逮玩 台灣Pay享回饋活動辦法\n PDF \n 附件為 PDF 格式之檔案，若您尚未安裝 PDF 檔案閱讀軟體 Adobe Reader 請至 http://get.adobe.com/tw/reader/ 下載安裝。\n ::: \n 第一商業銀行股份有限公司\n First Commercial Bank ©2020\n 台北市重慶南路一段30號\n 營業人：第一商業銀行股份有限公司\n 營利事業統一編號：05052322",
+          "startsAt": "20260701",
+          "endsAt": "20261231",
+          "publishedAt": "",
+          "officialOrder": 23
+        },
+        {
+          "title": "耐斯購物Pay你享回饋",
+          "category": "購物回饋",
+          "stores": [
+            "官方支付服務"
+          ],
+          "paymentMethods": [
+            "台灣 Pay"
+          ],
+          "audience": "not-stated",
+          "rate": 0.2,
+          "cap": 0,
+          "rewardLabel": "最高 20% 回饋",
+          "status": "2026/07/01–2026/12/27",
+          "sourceUrl": "https://www.firstbank.com.tw/sites/fcb/zh_TW/1565712600151",
+          "image": "",
+          "rawText": "2026年07月01日\n 活動對象：使用「台灣Pay」透過參與金融機構「行動銀行」APP或「台灣行動支付」APP)於活動地點消費，以「台灣Pay」(金融卡/帳戶/信用卡)進行支付之用戶。\n 活動期間：115年7月1日起至115年12月27日止。\n 活動地點：耐斯廣場購物中心(嘉義市東區忠孝路600號)指定櫃位。未參與本活動之耐斯廣場購物中心櫃位有3F-藏壽司、5F-湯姆熊。(如有更新，以耐斯廣場購物中心公布為準)。\n 活動內容：用戶於活動期間至活動地點消費，並出示「台灣Pay」付款條碼(信用卡/金融卡/帳戶)進行支付，單筆消費不限金額可享20%之現金回饋(小數點後四捨五入，非即時回饋)，每信用卡/金融卡/帳戶於活動期間以1,000元為回饋上限，本活動回饋總金額上限110萬元，如達回饋總金額上限，即停止回饋，並公告於彰化銀行官網。\n 相關活動限制及注意事項請詳閱 台灣Pay官網 。\n 耐斯購物Pay你享回饋_熱門優惠頁面相關檔案下載表格 \n 檔案名稱 \n 下載 \n 耐斯購物Pay你享回饋活動辦法\n PDF \n 附件為 PDF 格式之檔案，若您尚未安裝 PDF 檔案閱讀軟體 Adobe Reader 請至 http://get.adobe.com/tw/reader/ 下載安裝。\n ::: \n 第一商業銀行股份有限公司\n First Commercial Bank ©2020\n 台北市重慶南路一段30號\n 營業人：第一商業銀行股份有限公司\n 營利事業統一編號：05052322",
+          "startsAt": "20260701",
+          "endsAt": "20261227",
+          "publishedAt": "",
+          "officialOrder": 24
+        },
+        {
+          "title": "臨江街觀光夜市超給利 台灣Pay單筆享20%現金回饋",
+          "category": "金融／綁卡回饋",
+          "stores": [
+            "官方支付服務"
+          ],
+          "paymentMethods": [
+            "台灣 Pay"
+          ],
+          "audience": "not-stated",
+          "rate": 0.2,
+          "cap": 1000,
+          "rewardLabel": "最高 20%／上限 1,000 點／元",
+          "status": "2026/06/30–2026/12/31",
+          "sourceUrl": "https://www.firstbank.com.tw/sites/fcb/zh_TW/1565712599175",
+          "image": "",
+          "rawText": "2026年06月30日\n 活動對象：透過本行「第e行動」、「iLEO」或「台灣行動支付」APP至活動地點以「台灣Pay」QR Code掃碼進行支付(金融卡/帳戶/信用卡)之用戶。\n 活動期間：115年6月30日起至115年12月31日止。\n 活動地點：臨江街觀光夜市商圈內受理「台灣Pay」交易之店家(店家資訊詳臺灣企銀官網，惟實際交易受理依現場狀況為準)。\n 活動內容：用戶於活動期間至活動地點使用「台灣 Pay」(限金融卡/帳戶)以QR Code掃碼支付成功，單筆消費不限金額享20%現金回饋(小數點後四捨五入，非即時回饋)，單筆交易回饋金上限新臺幣(以下同)300元，於活動期間每一金融卡號/帳戶最高回饋上限1,000元，本活動回饋總金額上限47萬元，額滿為止，並公告於臺灣企銀官網。\n 相關活動限制及注意事項請詳閱 台灣Pay官網 。\n 臨江街觀光夜市超給利_熱門優惠頁面相關檔案下載表格 \n 檔案名稱 \n 下載 \n 臨江街觀光夜市超給利 台灣Pay單筆享現金回饋活動辦法\n PDF \n 附件為 PDF 格式之檔案，若您尚未安裝 PDF 檔案閱讀軟體 Adobe Reader 請至 http://get.adobe.com/tw/reader/ 下載安裝。\n ::: \n 第一商業銀行股份有限公司\n First Commercial Bank ©2020\n 台北市重慶南路一段30號\n 營業人：第一商業銀行股份有限公司\n 營利事業統一編號：05052322",
+          "startsAt": "20260630",
+          "endsAt": "20261231",
+          "publishedAt": "",
+          "officialOrder": 25
+        },
+        {
+          "title": "Autopass麻吉神助攻 用台灣Pay加油停車享20%回饋",
+          "category": "交通／旅遊回饋",
+          "stores": [
+            "官方支付服務"
+          ],
+          "paymentMethods": [
+            "台灣 Pay"
+          ],
+          "audience": "not-stated",
+          "rate": 0.2,
+          "cap": 800,
+          "rewardLabel": "最高 20%／上限 800 點／元",
+          "status": "2026/06/29–2026/12/31",
+          "sourceUrl": "https://www.firstbank.com.tw/sites/fcb/zh_TW/1565712402060",
+          "image": "",
+          "rawText": "2026年06月29日\n 活動對象：透過本行「第e行動」、「iLEO」或「台灣行動支付」APP至活動地點以「台灣Pay」QR Code掃碼進行支付(金融卡/帳戶)之用戶。\n 活動期間：115年6月29日起至115年12月31日止。\n 活動地點：指定Autopass合作之加油站與停車場，參與本活動之據點請以Autopass及臺灣企銀官網活動網頁公告為準。\n 活動內容：用戶於活動期間至活動地點消費，以「台灣Pay」QR Code掃碼支付(限金融卡/帳戶)進行支付，單筆消費不限金額享20%回饋，單筆交易回饋金上限800元(非即時回饋，小數點後四捨五入) ，本活動回饋總金額上限110萬元，額滿為止，並公告於臺灣企銀官網。\n 相關活動限制及注意事項請詳閱 台灣Pay官網 。\n Autopass麻吉神助攻_熱門優惠頁面相關檔案下載表格 \n 檔案名稱 \n 下載 \n Autopass麻吉神助攻 用台灣Pay加油停車享回饋活動辦法\n PDF \n 附件為 PDF 格式之檔案，若您尚未安裝 PDF 檔案閱讀軟體 Adobe Reader 請至 http://get.adobe.com/tw/reader/ 下載安裝。\n ::: \n 第一商業銀行股份有限公司\n First Commercial Bank ©2020\n 台北市重慶南路一段30號\n 營業人：第一商業銀行股份有限公司\n 營利事業統一編號：05052322",
+          "startsAt": "20260629",
+          "endsAt": "20261231",
+          "publishedAt": "",
+          "officialOrder": 26
+        },
+        {
+          "title": "美十樂連鎖藥局-台灣Pay 20%回饋",
+          "category": "金融／綁卡回饋",
+          "stores": [
+            "官方支付服務"
+          ],
+          "paymentMethods": [
+            "台灣 Pay"
+          ],
+          "audience": "not-stated",
+          "rate": 0.2,
+          "cap": 0,
+          "rewardLabel": "最高 20% 回饋",
+          "status": "2026/06/25–2026/11/30",
+          "sourceUrl": "https://www.firstbank.com.tw/sites/fcb/zh_TW/1565712294938",
+          "image": "",
+          "rawText": "2026年06月25日\n 活動對象：透過本行「第e行動」、「iLEO」或「台灣行動支付」APP至活動地點以「台灣Pay」QR Code掃碼進行支付(金融卡/帳戶/信用卡)之用戶。\n 活動期間：115年6月25日起至115年11月30日止。\n 活動地點：美十樂連鎖藥局之各實體門市。\n 活動內容：用戶於活動期間至活動地點消費，並使用「台灣 Pay」QR Code (金融卡/帳戶/信用卡)進行支付，單筆消費不限金額可享20%之現金回饋(小數點後四捨五入，非即時回饋)，每一金融卡/帳戶/信用卡於活動期間以新臺幣1,000元為回饋上限，本活動回饋總金額上限55萬元，如達本活動回饋總金額上限，即停止回饋，並公告於土地銀行官網，不另行通知。\n 相關活動限制及注意事項請詳閱 台灣Pay官網 。\n 美十樂連鎖藥局-台灣Pa_熱門優惠頁面相關檔案下載表格 \n 檔案名稱 \n 下載 \n 美十樂連鎖藥局台灣Pay回饋活動辦法\n PDF \n 附件為 PDF 格式之檔案，若您尚未安裝 PDF 檔案閱讀軟體 Adobe Reader 請至 http://get.adobe.com/tw/reader/ 下載安裝。\n ::: \n 第一商業銀行股份有限公司\n First Commercial Bank ©2020\n 台北市重慶南路一段30號\n 營業人：第一商業銀行股份有限公司\n 營利事業統一編號：05052322",
+          "startsAt": "20260625",
+          "endsAt": "20261130",
+          "publishedAt": "",
+          "officialOrder": 27
+        },
+        {
+          "title": "福容大飯店度假絕Pay 不限金額享20%回饋",
+          "category": "餐飲回饋",
+          "stores": [
+            "官方支付服務"
+          ],
+          "paymentMethods": [
+            "台灣 Pay"
+          ],
+          "audience": "not-stated",
+          "rate": 0.2,
+          "cap": 1500,
+          "rewardLabel": "最高 20%／上限 1,500 點／元",
+          "status": "2026/06/18–2026/12/31",
+          "sourceUrl": "https://www.firstbank.com.tw/sites/fcb/zh_TW/1565712175082",
+          "image": "",
+          "rawText": "2026年06月18日\n 活動對象：透過本行「第e行動」、「iLEO」或「台灣行動支付」APP至活動地點以「台灣Pay」QR Code掃碼進行支付(金融卡/帳戶/信用卡)之用戶。\n 活動期間：115年6月18日起至115年12月31日止。\n 活動地點：福容大飯店內受理「台灣 Pay」之指定據點(含住宿、指定餐飲)，指定據點詳附表。\n 活動內容：活動期間至活動地點使用「台灣 Pay」(金融卡/帳戶/信用卡) 消費，並以 QR Code 掃碼進行支付，消費不限金額享20%現金回饋(非即時回饋，回饋金計算採小數點後無條件捨去，單筆交易金額不得拆付)，於活動期間內每一信用卡/金融卡/帳戶回饋金上限新臺幣1,500 元為限。本活動回饋總金額上限55萬元整，額滿為止，並公告於兆豐銀行官網。\n 相關活動限制及注意事項請詳閱 台灣Pay官網 。\n 福容大飯店度假絕Pay_熱門優惠頁面相關檔案下載表格 \n 檔案名稱 \n 下載 \n 福容大飯店度假絕Pay不限金額享回饋活動辦法\n PDF \n 附件為 PDF 格式之檔案，若您尚未安裝 PDF 檔案閱讀軟體 Adobe Reader 請至 http://get.adobe.com/tw/reader/ 下載安裝。\n ::: \n 第一商業銀行股份有限公司\n First Commercial Bank ©2020\n 台北市重慶南路一段30號\n 營業人：第一商業銀行股份有限公司\n 營利事業統一編號：05052322",
+          "startsAt": "20260618",
+          "endsAt": "20261231",
+          "publishedAt": "",
+          "officialOrder": 28
+        },
+        {
+          "title": "三峽 X 八里攜手趴趴走 揪用台灣Pay享20%大回饋",
+          "category": "金融／綁卡回饋",
+          "stores": [
+            "官方支付服務"
+          ],
+          "paymentMethods": [
+            "台灣 Pay"
+          ],
+          "audience": "not-stated",
+          "rate": 0.2,
+          "cap": 1000,
+          "rewardLabel": "最高 20%／上限 1,000 點／元",
+          "status": "2026/06/16–2026/12/15",
+          "sourceUrl": "https://www.firstbank.com.tw/sites/fcb/zh_TW/1565712153043",
+          "image": "",
+          "rawText": "2026年06月16日\n 活動對象：透過本行「第e行動」、「iLEO」或「台灣行動支付」APP至活動地點以「台灣Pay」QR Code掃碼進行支付(金融卡/帳戶)之用戶。\n 活動期間：115年6月16日起至115年12月15日止。\n 活動地點：三峽老街商圈及八里渡船頭商圈指定店家。(參與本活動之店家據點詳彰化銀行官網，惟用戶於實際交易時，仍應以該活動店家得受理支付之方式或狀態為準)。\n 活動內容：用戶於活動期間至活動地點消費，使用「台灣 Pay」QR Code掃碼支付成功者，單筆消費不限金額可享20%之現金回饋(小數點後四捨五入，非即時回饋)，活動期間每一金融卡號/帳戶最高回饋以1,000元為限，本活動回饋總金額上限50萬元，如達回饋總金額上限，即停止回饋，並公告於彰化銀行官網。\n 相關活動限制及注意事項請詳閱 台灣Pay官網 。\n 三峽 X 八里攜手趴趴走_熱門優惠頁面相關檔案下載表格 \n 檔案名稱 \n 下載 \n 三峽八里攜手趴趴走揪用台灣Pay享回饋活動辦法\n PDF \n 附件為 PDF 格式之檔案，若您尚未安裝 PDF 檔案閱讀軟體 Adobe Reader 請至 http://get.adobe.com/tw/reader/ 下載安裝。\n ::: \n 第一商業銀行股份有限公司\n First Commercial Bank ©2020\n 台北市重慶南路一段30號\n 營業人：第一商業銀行股份有限公司\n 營利事業統一編號：05052322",
+          "startsAt": "20260616",
+          "endsAt": "20261215",
+          "publishedAt": "",
+          "officialOrder": 29
+        },
+        {
+          "title": "清涼一夏．台灣PAY喝小仁泉享20%回饋！",
+          "category": "金融／綁卡回饋",
+          "stores": [
+            "小仁泉"
+          ],
+          "paymentMethods": [
+            "台灣 Pay"
+          ],
+          "audience": "not-stated",
+          "rate": 0.2,
+          "cap": 1000,
+          "rewardLabel": "最高 20%／上限 1,000 點／元",
+          "status": "2026/06/15–2026/10/31",
+          "sourceUrl": "https://www.firstbank.com.tw/sites/fcb/zh_TW/1565712174811",
+          "image": "",
+          "rawText": "2026年06月15日\n 活動對象：使用「台灣Pay」透過參與金融機構「行動銀行」APP或「台灣行動支付」APP)於活動地點消費，以「台灣Pay」(金融卡/帳戶/信用卡)進行支付之用戶。\n 活動期間：115年6月15日起至115年10月31日止。\n 活動地點：小仁泉極品豆漿受理「台灣 Pay」之指定店家(參與本活動之門市資訊詳附表，若有異動以小仁泉極品豆漿官網公告為準，恕不另行通知)。\n 活動內容：用戶於活動地點消費，出示台灣 Pay 付款條碼(信用卡/金融卡/帳戶)進行支付，單筆消費不限金額可享20%回饋(即時回饋，小數點後四捨五入)，單筆交易回饋金上限新臺幣1,000 元。本活動總回饋金額以 107 萬元為上限，如達回饋總金額上限即停止回饋，並公告於合作金庫官網。\n 相關活動限制及注意事項請詳閱 台灣Pay官網 。\n 清涼一夏台灣PAY喝小仁泉_熱門優惠頁面相關檔案下載表格 \n 檔案名稱 \n 下載 \n 清涼一夏台灣PAY喝小仁泉享回饋活動辦法\n PDF \n 附件為 PDF 格式之檔案，若您尚未安裝 PDF 檔案閱讀軟體 Adobe Reader 請至 http://get.adobe.com/tw/reader/ 下載安裝。\n ::: \n 第一商業銀行股份有限公司\n First Commercial Bank ©2020\n 台北市重慶南路一段30號\n 營業人：第一商業銀行股份有限公司\n 營利事業統一編號：05052322",
+          "startsAt": "20260615",
+          "endsAt": "20261031",
+          "publishedAt": "",
+          "officialOrder": 30
+        },
+        {
+          "title": "Focus百貨放鬆購 台灣Pay享20%回饋",
+          "category": "購物回饋",
+          "stores": [
+            "官方支付服務"
+          ],
+          "paymentMethods": [
+            "台灣 Pay"
+          ],
+          "audience": "not-stated",
+          "rate": 0.2,
+          "cap": 400,
+          "rewardLabel": "最高 20%／上限 400 點／元",
+          "status": "2026/06/05–2026/12/31",
+          "sourceUrl": "https://www.firstbank.com.tw/sites/fcb/zh_TW/1565711904744",
+          "image": "",
+          "rawText": "2026年06月05日\n 活動對象：使用「台灣Pay」透過參與金融機構「行動銀行」APP或「台灣行動支付」APP)於活動地點消費，以「台灣Pay」(金融卡/帳戶/信用卡)進行支付之用戶。\n 活動期間：115年6月5日起至115年12月31日止。\n 活動地點： \n Focus時尚流行館內受理「台灣Pay」之櫃位。(不含海底撈、藏壽司、威秀影城、湯姆熊，其他未參與本活動之櫃位請依Focus時尚流行館現場公告或說明為準)。\n Focus 13珊瑚廣場受理「台灣Pay」之櫃位。(不含ZO&FRIENDS POP-UP 快閃櫃，其他未參與本活動之櫃位請依Focus 13珊瑚廣場現場公告或說明為準)\n 林百貨受理「台灣Pay」之櫃位。(未參與本活動之櫃位請依林百貨現場公告或說明為準)\n 活動內容：活動期間至活動地點出示「台灣Pay」付款碼(金融卡/帳戶/信用卡)進行消費，單筆消費金額滿新臺幣500元(含)以上可享20%現金回饋(非即時回饋，小數點後無條件捨去)，單筆交易回饋金最高以400元為限。本活動回饋總金額以55萬元為上限，額滿為止，並公告於兆豐銀行官網。\n 相關活動限制及注意事項請詳閱 台灣Pay官網 。\n Focus百貨放鬆購_熱門優惠頁面相關檔案下載表格 \n 檔案名稱 \n 下載 \n Focus百貨放鬆購 台灣Pay享回饋活動辦法\n PDF \n 附件為 PDF 格式之檔案，若您尚未安裝 PDF 檔案閱讀軟體 Adobe Reader 請至 http://get.adobe.com/tw/reader/ 下載安裝。\n ::: \n 第一商業銀行股份有限公司\n First Commercial Bank ©2020\n 台北市重慶南路一段30號\n 營業人：第一商業銀行股份有限公司\n 營利事業統一編號：05052322",
+          "startsAt": "20260605",
+          "endsAt": "20261231",
+          "publishedAt": "",
+          "officialOrder": 31
+        },
+        {
+          "title": "微風集團【TWQR限定5%超回饋】",
+          "category": "金融／綁卡回饋",
+          "stores": [
+            "官方支付服務"
+          ],
+          "paymentMethods": [
+            "台灣 Pay"
+          ],
+          "audience": "not-stated",
+          "rate": 0.05,
+          "cap": 100,
+          "rewardLabel": "最高 5%／上限 100 點／元",
+          "status": "2026/06/01–2026/12/31",
+          "sourceUrl": "https://www.firstbank.com.tw/sites/fcb/zh_TW/1565712030376",
+          "image": "",
+          "rawText": "2026年06月01日\n 活動對象：使用「iPASS MONEY」、「台灣Pay」及過本行「第e行動」、「iLEO」或「台灣行動支付」APP至活動地點出示付款條碼進行支付(金融卡/帳戶)之用戶。\n 活動期間：115年6月1日起至115年12月31日止。\n 活動地點：微風南山、微風信義、微風廣場、微風南京、微風松高、微風台北車站、微風臺大醫院、微風中研院受理「iPASS MONEY」及「台灣Pay」交易之櫃位（不適用櫃位詳見附錄，如有異動以微風集團各館公告為準）。\n 活動內容：微風會員於活動期間在活動地點消費，出示「iPASS MONEY」或「台灣Pay」付款條碼進行支付，單筆消費滿2,000元(含)以上即贈【100元微風電子酬賓券】乙份(可累贈)，每筆交易回饋上限5份，每日每會員限回饋乙次(不可拆付)。\n 相關活動限制及注意事項 請詳閱台灣Pay官網 。\n 微風集團頁面相關檔案下載表格 \n 檔案名稱 \n 下載 \n TWQR限定超回饋活動辦法\n PDF \n 附件為 PDF 格式之檔案，若您尚未安裝 PDF 檔案閱讀軟體 Adobe Reader 請至 http://get.adobe.com/tw/reader/ 下載安裝。\n ::: \n 第一商業銀行股份有限公司\n First Commercial Bank ©2020\n 台北市重慶南路一段30號\n 營業人：第一商業銀行股份有限公司\n 營利事業統一編號：05052322",
+          "startsAt": "20260601",
+          "endsAt": "20261231",
+          "publishedAt": "",
+          "officialOrder": 32
+        },
+        {
+          "title": "TWQR今夜留給我，高雄兩大夜市消費最高享15%回饋",
+          "category": "金融／綁卡回饋",
+          "stores": [
+            "官方支付服務"
+          ],
+          "paymentMethods": [
+            "台灣 Pay"
+          ],
+          "audience": "not-stated",
+          "rate": 0.15,
+          "cap": 200,
+          "rewardLabel": "最高 15%／上限 200 點／元",
+          "status": "2026/05/01–2026/12/31",
+          "sourceUrl": "https://www.firstbank.com.tw/sites/fcb/zh_TW/1565711470340",
+          "image": "",
+          "rawText": "2026年05月01日\n 活動對象：使用已加入 TWQR 之「電子支付機構APP(iPASS MONEY、歐付寶、橘子支付、全盈+Pay、全支付、icash Pay、街口支付、簡單付、悠遊付)」及過本行「第e行動」、「iLEO」或「台灣行動支付」APP至活動地點掃描「一卡通TWQR立牌」進行支付(金融卡/帳戶)之用戶。\n 活動期間：115年5月1日起至115年12月31日止。\n 活動地點： https://i-pass.co/8wakd7 \n 活動內容：活動期間於高雄六合夜市與瑞豐夜市指定TWQR店家消費，掃描「一卡通TWQR立牌」付款，樂享以下優惠： \n 優惠一：掃「一卡通TWQR立牌」付款享10%回饋！ \n 活動期間於高雄六合夜市與瑞豐夜市指定TWQR店家消費，使用支援TWQR交易之金融機構支付工具，包含「台灣Pay」(行動銀行/台灣行動支付APP) (限金融卡/帳戶)、電子支付機構APP(下稱指定電支機構APP)掃描「一卡通TWQR立牌」付款，消費金額享10% 現金回饋。 \n 每人每帳戶每月回饋上限200元，優惠一115年5月至115年11月期間，每月總回饋上限16萬元，115年12月回饋上限23萬，每月贈完為止，並公告於一卡通官網活動頁，恕不另行通知。\n 參與機構：指定電支機構APP，包含iPASS MONEY、歐付寶、橘子支付、全盈+Pay、全支付、icash Pay、街口支付、簡單付、悠遊付，如有更新則以一卡通官網活動頁公告為主，不再另行通知。\n 優惠二：iPASS MONEY消費加碼享5%回饋 \n 活動期間於高雄六合夜市與瑞豐夜市指定店家消費，使用iPASS MONEY APP掃描「一卡通TWQR立牌」付款，消費金額加碼享一卡通綠點5%回饋。一卡通綠點1點價值新台幣1元，每人每月回饋上限50點，優惠二每月總回饋上限2萬點，每月贈完為止，並公告於一卡通官網活動頁，恕不另行通知。\n 相關活動限制及注意事項請詳閱 台灣Pay官網 。\n 高雄兩大夜市消費最高享回饋_熱門優惠頁面相關檔案下載表格 \n 檔案名稱 \n 下載 \n TWQR今夜留給我高雄兩大夜市消費最高享回饋活動辦法\n PDF \n 附件為 PDF 格式之檔案，若您尚未安裝 PDF 檔案閱讀軟體 Adobe Reader 請至 http://get.adobe.com/tw/reader/ 下載安裝。\n ::: \n 第一商業銀行股份有限公司\n First Commercial Bank ©2020\n 台北市重慶南路一段30號\n 營業人：第一商業銀行股份有限公司\n 營利事業統一編號：05052322",
+          "startsAt": "20260501",
+          "endsAt": "20261231",
+          "publishedAt": "",
+          "officialOrder": 33
+        },
+        {
+          "title": "十大商圈掃全支付TWQR單筆不限金額享10%回饋",
+          "category": "金融／綁卡回饋",
+          "stores": [
+            "官方支付服務"
+          ],
+          "paymentMethods": [
+            "台灣 Pay"
+          ],
+          "audience": "not-stated",
+          "rate": 0.1,
+          "cap": 50,
+          "rewardLabel": "最高 10%／上限 50 點／元",
+          "status": "2026/04/15–2026/12/31",
+          "sourceUrl": "https://www.firstbank.com.tw/sites/fcb/zh_TW/1565711402709",
+          "image": "",
+          "rawText": "2026年04月15日\n 活動對象：使用已加入 TWQR 之「電子支付機構APP(全支付、全盈+PAY、悠遊付、一卡通iPASS MONEY、icash Pay、橘子支付、街口支付、歐付寶及簡單付)」及過本行「第e行動」、「iLEO」或「台灣行動支付」APP至活動地點以「台灣Pay」付款碼進行支付(金融卡/帳戶)之用戶。\n 活動期間：115年4月15日起至115年12月31日止。\n 活動地點：10大指定商圈(西門町、永康商圈、淡水老街、士林夜市、逢甲夜市、基隆廟口、迪化街、一中街夜市、羅東夜市、九份老街)全支付標示TWQR之指定店家(參與本活動之店家據點詳全支付官網公告；惟用戶於實際交易時，仍應以各店家得受理支付之方式或狀態為準，如有異動恕不另行通知)。\n 活動內容：用戶於活動地點掃碼支付，除全支付可享單筆消費不限金額10%全點回饋外，其他參與機構支付採單筆消費不限金額10%回饋現金或等值點數(非即時回饋，小數點後四捨五入)，回饋形式與細節依各參與機構規定辦理，活動期間每月每帳戶合計最高回饋新臺幣50元現金或等值點數。本活動回饋總金額上限300萬元(4月：20萬、5-12月：每月各35萬)，額滿為止，並公告於全支付APP右上角「最新消息(小鈴鐺圖示)」。\n 相關活動限制及注意事項 請詳閱台灣Pay官網 。\n 十大商圈掃全支付頁面相關檔案下載表格 \n 檔案名稱 \n 下載 \n 十大商圈掃全支付活動辦法\n PDF \n 附件為 PDF 格式之檔案，若您尚未安裝 PDF 檔案閱讀軟體 Adobe Reader 請至 http://get.adobe.com/tw/reader/ 下載安裝。\n ::: \n 第一商業銀行股份有限公司\n First Commercial Bank ©2020\n 台北市重慶南路一段30號\n 營業人：第一商業銀行股份有限公司\n 營利事業統一編號：05052322",
+          "startsAt": "20260415",
+          "endsAt": "20261231",
+          "publishedAt": "",
+          "officialOrder": 34
+        },
+        {
+          "title": "長春商圈X台灣Pay消費20%回饋",
+          "category": "金融／綁卡回饋",
+          "stores": [
+            "官方支付服務"
+          ],
+          "paymentMethods": [
+            "台灣 Pay"
+          ],
+          "audience": "not-stated",
+          "rate": 0.2,
+          "cap": 1000,
+          "rewardLabel": "最高 20%／上限 1,000 點／元",
+          "status": "2026/03/16–2026/12/31",
+          "sourceUrl": "https://www.firstbank.com.tw/sites/fcb/zh_TW/1565711087687",
+          "image": "",
+          "rawText": "2026年03月16日\n 活動對象：透過本行「第e行動」、「iLEO」或「台灣行動支付」APP至活動地點以「台灣Pay」QR Code掃碼進行支付(金融卡/帳戶)之用戶。\n 活動期間：115年3月16日起至115年12月31日止。\n 活動地點：台北市長春市場及鄰近路、街、道受理「台灣Pay」交易支付之指定店家(以華南銀行官網公告為準，實際情況仍應以該活動攤商得受理支付之方式或狀態)。\n 活動內容：用戶於活動期間至活動地點消費，以「台灣 Pay」QR Code 掃碼支付 (限金融卡/帳戶)，單筆不限消費金額可享20%現金回饋(非即時回饋，小數點後四捨五入)，於活動期間每一金融卡號/帳戶最高回饋上限新臺幣1,000元，本活動回饋總金額上限47萬元，如達回饋總金額上限，即停止回饋，並公告於華南銀行官網。\n 相關活動限制及注意事項 請詳閱台灣Pay官網 。\n 長春商圈X台灣Pay消費20回饋_熱門優惠頁面相關檔案下載表格 \n 檔案名稱 \n 下載 \n 長春商圈X台灣Pay消20%回饋活動辦法\n PDF \n 附件為 PDF 格式之檔案，若您尚未安裝 PDF 檔案閱讀軟體 Adobe Reader 請至 http://get.adobe.com/tw/reader/ 下載安裝。\n ::: \n 第一商業銀行股份有限公司\n First Commercial Bank ©2020\n 台北市重慶南路一段30號\n 營業人：第一商業銀行股份有限公司\n 營利事業統一編號：05052322",
+          "startsAt": "20260316",
+          "endsAt": "20261231",
+          "publishedAt": "",
+          "officialOrder": 35
+        },
+        {
+          "title": "來逛樂華夜市樂享10%回饋",
+          "category": "金融／綁卡回饋",
+          "stores": [
+            "官方支付服務"
+          ],
+          "paymentMethods": [
+            "台灣 Pay"
+          ],
+          "audience": "not-stated",
+          "rate": 0.1,
+          "cap": 300,
+          "rewardLabel": "最高 10%／上限 300 點／元",
+          "status": "2026/02/01–2026/12/31",
+          "sourceUrl": "https://www.firstbank.com.tw/sites/fcb/zh_TW/1565710774094",
+          "image": "",
+          "rawText": "2026年02月01日\n 活動對象：透過本行「第e行動」、「iLEO」或「台灣行動支付」APP至活動地點以「台灣Pay」QR Code掃碼進行支付(金融卡/帳戶)之用戶。\n 活動期間：115年2月1日起至115年12月31日止。\n 活動地點：新北市「樂華夜市商圈」受理「台灣Pay」交易之指定店家，指定店家詳上海商銀活動官網，如有異動以上海商銀官網頁面公告為準，不另行通知。\n 活動內容：用戶於活動期間於活動地點消費，以「台灣Pay」QR Code掃碼支付(限金融卡/帳戶)，單筆消費不限金額可享10%現金回饋(非即時回饋，小數點後四捨五入)，單筆消費回饋上限新台幣300元(單筆交易金額不得拆付)，本活動回饋總金額上限30萬元，如達回饋金額上限，即停止回饋，並公告於上海商銀官網。\n 相關活動限制及注意事項請詳閱 台灣Pay官網 。\n 來逛樂華夜市樂_熱門優惠頁面相關檔案下載表格 \n 檔案名稱 \n 下載 \n 來逛樂華夜市樂享回饋活動辦法\n PDF \n 附件為 PDF 格式之檔案，若您尚未安裝 PDF 檔案閱讀軟體 Adobe Reader 請至 http://get.adobe.com/tw/reader/ 下載安裝。\n ::: \n 第一商業銀行股份有限公司\n First Commercial Bank ©2020\n 台北市重慶南路一段30號\n 營業人：第一商業銀行股份有限公司\n 營利事業統一編號：05052322",
+          "startsAt": "20260201",
+          "endsAt": "20261231",
+          "publishedAt": "",
+          "officialOrder": 36
+        },
+        {
+          "title": "漫遊苗栗南庄老街，台灣Pay給你20%驚喜回饋！",
+          "category": "金融／綁卡回饋",
+          "stores": [
+            "官方支付服務"
+          ],
+          "paymentMethods": [
+            "台灣 Pay"
+          ],
+          "audience": "not-stated",
+          "rate": 0.2,
+          "cap": 2000,
+          "rewardLabel": "最高 20%／上限 2,000 點／元",
+          "status": "2026/01/19–2026/12/31",
+          "sourceUrl": "https://www.firstbank.com.tw/sites/fcb/zh_TW/1565710645637",
+          "image": "",
+          "rawText": "2026年01月19日\n 活動對象：透過本行「第e行動」、「iLEO」或「台灣行動支付」APP至活動地點以「台灣Pay」QR Code掃碼進行支付(金融卡/帳戶)之用戶。\n 活動期間：115年1月19日起至115年12月31日止。\n 活動地點：苗栗南庄商圈內受理「台灣Pay」交易之指定攤商店家，攤商店家資訊詳如活動辦法附表，如有異動以合作金庫官網公告為準。\n 活動內容：活動期間至活動地點使用「台灣 Pay」(限金融卡/帳戶)，以 QR Code 掃碼進行支付，單筆消費不限金額可享20%回饋(非即時回饋，小數點後四捨五入)，單筆交易回饋金上限新臺幣1,000元，活動期間每一金融卡號/帳戶最高回饋金以2,000元為限。本活動總回饋金額以47萬元為上限，額滿為止，並公告於合作金庫官網。\n 相關活動限制及注意事項 請詳閱台灣Pay官網 。\n 漫遊苗栗南庄老街台灣Pay_熱門優惠頁面相關檔案下載表格 \n 檔案名稱 \n 下載 \n 漫遊苗栗南庄老街，台灣Pay給你20%驚喜回饋活動辦法\n PDF \n 附件為 PDF 格式之檔案，若您尚未安裝 PDF 檔案閱讀軟體 Adobe Reader 請至 http://get.adobe.com/tw/reader/ 下載安裝。\n ::: \n 第一商業銀行股份有限公司\n First Commercial Bank ©2020\n 台北市重慶南路一段30號\n 營業人：第一商業銀行股份有限公司\n 營利事業統一編號：05052322",
+          "startsAt": "20260119",
+          "endsAt": "20261231",
+          "publishedAt": "",
+          "officialOrder": 37
+        },
+        {
+          "title": "筆筆台灣Pay 消費享1.5%回饋",
+          "category": "購物回饋",
+          "stores": [
+            "官方支付服務"
+          ],
+          "paymentMethods": [
+            "台灣 Pay"
+          ],
+          "audience": "not-stated",
+          "rate": 0.015,
+          "cap": 1000,
+          "rewardLabel": "最高 2%／上限 1,000 點／元",
+          "status": "2026/01/01–2026/12/31",
+          "sourceUrl": "https://www.firstbank.com.tw/sites/fcb/zh_TW/1565710313373",
+          "image": "",
+          "rawText": "2026年01月01日\n 活動對象：使用本行「第e行動 一銀行動支付」、「iLEO 台灣Pay」或「台灣行動支付」銀行帳戶/金融卡雲支付之本國自然人存款戶。\n 活動期間：自民國115年1月1日起至115年12月31日止。\n 活動內容：活動期間內，每筆「台灣Pay」帳戶扣款/金融卡掃碼之消費交易(不包括NFC感應支付或轉帳消費)即享1.5%等值紅利點數回饋，每月每一存戶(以ID歸戶)回饋紅利點數上限1,000點。\n 回饋方式：活動回饋紅利點數以實際成功消費扣款之金額核算，且當次消費所獲得的紅利點數不得折抵當次該筆消費金額，若回饋紅利點數有小數點時，將無條件捨去至整數，由系統立即回饋，本行不另行通知。\n 注意事項： \n 每10點紅利點數可折抵新臺幣1元，可用於台灣Pay之「消費購物」交易時做折抵，亦可用於兌換本行粉獅幣，詳細兌換粉獅幣之方式請詳閱《台灣Pay紅利積(兌)點辦法》及《粉獅幣平台使用規則與條款》。\n 存戶不得要求本行將紅利點數折算現金或為其他與本活動無關之給付或轉讓他人，並同意遵守本活動回饋相關之紅利點數使用條款及其他相關規定(如：本行《台灣Pay紅利積(兌)點辦法》及《粉獅幣集點平台使用規則與條款》，依本行官方網站公告為準)。\n 存戶使用台灣Pay之掃碼付款或出示付款碼掃碼消費時，可選擇使用台灣Pay紅利點數折抵，付款時將由系統自動扣除紅利點數，免自行選擇輸入折抵紅利點數或金額。\n 存戶同意所留存或產生之任何參與活動的資料及紀錄，一律以本行資訊系統所載紀錄為準。如有任何因電腦、網路、電話、技術或其他不可歸責於本行之事由，致資料有延遲、遺失、錯誤、無法辨識或毀損之情況，本行不負任何法律責任，存戶不得因此異議。\n 本行保留隨時修改、暫停或終止本活動之權利，亦有權對本活動之所有事項做出最終解釋及認定；本活動相關資訊均以第一銀行官網最新公告內容為準，不另行通知。\n 相關注意事項請詳閱2026年「筆筆台灣Pay 消費享1.5%回饋」活動辦法。\n 筆筆台灣Pay 消費享1.5回饋_熱門優惠頁面相關檔案下載表格 \n 檔案名稱 \n 下載 \n 筆筆台灣Pay 消費享1.5%回饋活動辦法\n PDF \n 「台灣Pay紅利積(兌)點辦法」2026\n PDF \n 附件為 PDF 格式之檔案，若您尚未安裝 PDF 檔案閱讀軟體 Adobe Reader 請至 http://get.adobe.com/tw/reader/ 下載安裝。\n ::: \n 第一商業銀行股份有限公司\n First Commercial Bank ©2020\n 台北市重慶南路一段30號\n 營業人：第一商業銀行股份有限公司\n 營利事業統一編號：05052322",
+          "startsAt": "20260101",
+          "endsAt": "20261231",
+          "publishedAt": "",
+          "officialOrder": 38
+        }
+      ]
+    },
+    {
       "name": "全支付 官方活動",
       "logo": "/logos/pxpay.png",
       "color": "#5f49a6",
@@ -8090,6 +9155,437 @@
       ]
     },
     {
+      "name": "橘子支付 官方活動",
+      "logo": "/logos/gama-pay.png",
+      "color": "#f58220",
+      "focus": "橘子支付官方活動、公告與服務異動。",
+      "freshness": "官方來源檢查 2026/10/06；依官方更新順序排列",
+      "campaigns": [
+        {
+          "title": "橘子支付店家幫手10/29起停止支援部分少數手機版本",
+          "category": "最新資訊",
+          "stores": [
+            "官方支付服務"
+          ],
+          "paymentMethods": [
+            "橘子支付"
+          ],
+          "audience": "not-stated",
+          "rate": 0,
+          "cap": 0,
+          "rewardLabel": "官方最新資訊",
+          "status": "2026/09/30；官方內容請見詳情頁",
+          "sourceUrl": "https://www.gamapay.com.tw/news.html?id=4974",
+          "image": "",
+          "rawText": "親愛的客戶您好： \n 橘子支付 店家幫手 APP 為提供更完善的服務體驗並提升使用安全性，將自 2026/10/29 起，停止支援以下手機作業系統版本： \n ● Android 系統：低於 7.0 版本 \n ● iOS 系統：低於 15.0 版本 \n 提醒您可至手機「設定」中的「關於本機 / 關於手機」查看目前作業系統版本； \n 若您的手機作業系統版本低於前述支援範圍，需先更新手機作業系統或更換可支援之裝置，始得繼續使用本服務。 \n 本次服務調整造成不便，敬請見諒 \n 未來橘子支付也將持續致力於提供更好的服務體驗，感謝您的理解與配合 \n 橘子支付營運團隊敬上 \n 客服信箱： CS@Service.gamapay.com.tw \n 客服專線： 02-21926082 \n 服務時間： 10:00~19:00 ( 週一至週日 )",
+          "startsAt": "20260930",
+          "endsAt": "20261029",
+          "publishedAt": "",
+          "officialOrder": 0
+        },
+        {
+          "title": "【重要公告】橘子支付將自2026/10/29起，停止提供「連結新光銀行帳戶」服務",
+          "category": "最新資訊",
+          "stores": [
+            "官方支付服務"
+          ],
+          "paymentMethods": [
+            "橘子支付"
+          ],
+          "audience": "not-stated",
+          "rate": 0,
+          "cap": 0,
+          "rewardLabel": "官方最新資訊",
+          "status": "2026/09/29；官方內容請見詳情頁",
+          "sourceUrl": "https://www.gamapay.com.tw/news.html?id=4971",
+          "image": "",
+          "rawText": "親愛的會員，您好： \n 感謝您長期以來對橘子支付的支持與愛護！ \n 因應新光銀行與台新銀行合併作業，橘子支付將配合自 2026 年 10 月 29 日 ( 四 ) 00:00 起，停止提供「橘子支付連結新光銀行帳戶」服務。 \n 一、影響範圍： \n l 停止「綁定新光銀行連結帳戶」功能 \n l 停止「新光銀行連結帳戶儲值」功能 \n l 停止「綁定新光銀行提領帳戶」功能 \n 二、溫馨提醒： \n 1. 如您目前使用新光銀行帳戶進行儲值或提領交易，請新增綁定其他合作銀行帳戶，以免影響相關服務之正常使用。 \n 2. 請於 2026/10/28( 三 )23:59 前，至橘子支付 APP 取消綁定新光銀行帳戶，操作步驟如下： \n 橘子支付 APP &rarr;「會員中心」&rarr;「支付設定」&rarr;「綁定銀行帳戶」&rarr;選擇「新光銀行」&rarr;右上角「刪除」 \n 3. 若您未在 2026/10/28( 三 )23:59 前取消綁定，系統將於 2026/10/29( 四 )00:00 起自動解除您所綁定的新光銀行帳戶。 \n 4. 敬請參考新光銀行公告： https://www.skbank.com.tw/news/announcement/302043 \n 本次服務調整造成不便，敬請見諒。 \n 未來橘子支付也將持續致力於提供更好的服務體驗，感謝您的理解與配合。 \n 橘子支付營運團隊敬上 \n 客服信箱： CS@Service.gamapay.com.tw \n 客服專線： 02-21926082 \n 服務時間： 10:00~19:00 ( 週一至週日 )",
+          "startsAt": "20260929",
+          "endsAt": "20261028",
+          "publishedAt": "",
+          "officialOrder": 1
+        },
+        {
+          "title": "【防詐宣導】切勿點擊「商品將自動扣款」、「帳單逾期未繳」等之釣魚簡訊或電子郵件！",
+          "category": "最新資訊",
+          "stores": [
+            "官方支付服務"
+          ],
+          "paymentMethods": [
+            "橘子支付"
+          ],
+          "audience": "not-stated",
+          "rate": 0,
+          "cap": 0,
+          "rewardLabel": "依官方條件回饋",
+          "status": "2026/09/24；官方內容請見詳情頁",
+          "sourceUrl": "https://www.gamapay.com.tw/news.html?id=4968",
+          "image": "",
+          "rawText": "圖片來源：警政署刑事警察局。 \n 親愛的橘子支付會員您好： \n 近期詐騙集團假冒常見之網路購物店家、物流公司、公營事業或金融機構等，發送釣魚簡訊或電子郵件，內文常以 「購買某商品將自動扣款」、「購買某商品尚未繳費」、「帳單逾期未繳」 等理由，誘騙民眾點擊簡訊或電子郵件所附之惡意網址。 \n 若於該假網站輸入 銀行帳號或信用卡 OTP 驗證碼 等個人資料， 易導致帳號遭盜用或財產損失。 \n 防詐提醒： \n 1. 請不要直接點選簡訊或電子郵件提供之連結， 更不要輸入重要個人資料、銀行帳號或信用卡號 等資訊。 \n 2. 收到疑似詐欺之簡訊或電子郵件時，請利用搜尋引擎確認是否為 正確之官方網站連結 或 官方電子郵件 。 \n 3. 如有疑問，請立即撥打「 165 」警政署反詐騙專線查詢，或可直接與發送簡訊或電子郵件之公司聯繫。",
+          "startsAt": "20260924",
+          "endsAt": "",
+          "publishedAt": "",
+          "officialOrder": 2
+        },
+        {
+          "title": "【重要公告】橘子支付將自9/1起暫停OK 超商的通路服務",
+          "category": "最新資訊",
+          "stores": [
+            "7-ELEVEN",
+            "全家便利商店",
+            "全家",
+            "萊爾富"
+          ],
+          "paymentMethods": [
+            "橘子支付"
+          ],
+          "audience": "not-stated",
+          "rate": 0,
+          "cap": 0,
+          "rewardLabel": "官方最新資訊",
+          "status": "2026/08/25；官方內容請見詳情頁",
+          "sourceUrl": "https://www.gamapay.com.tw/news.html?id=4956",
+          "image": "",
+          "rawText": "親愛的會員，您好： \n 因應 OK 超商進行相關系統轉換，橘子支付將自 2026 年 9 月 1 日起暫停提供 OK 超商的通路服務，屆時將無法於 OK 超商使用橘子支付進行付款。 \n 橘子支付於統一超商 (7-ELEVEN) 、全家便利商店及萊爾富等合作通路的付款服務皆維持正常，不受本次調整影響。後續如有服務異動，將另行公告通知。 \n 造成您的不便，敬請見諒，感謝您的理解與支持。 \n 橘子支付營運團隊敬上",
+          "startsAt": "20260825",
+          "endsAt": "",
+          "publishedAt": "",
+          "officialOrder": 3
+        },
+        {
+          "title": "【重要通知】8/10、8/13 14:30-15:00 政府行動網路降速演練，期間可能無法以行動網路使用橘子支付",
+          "category": "最新資訊",
+          "stores": [
+            "宜蘭",
+            "南投"
+          ],
+          "paymentMethods": [
+            "橘子支付"
+          ],
+          "audience": "not-stated",
+          "rate": 0,
+          "cap": 0,
+          "rewardLabel": "官方最新資訊",
+          "status": "2026/07/30；官方內容請見詳情頁",
+          "sourceUrl": "https://www.gamapay.com.tw/news.html?id=4944",
+          "image": "",
+          "rawText": "親愛的會員，您好： \n 因應 政府辦理「 2026 城鎮韌性(防空)演習-行動網路降速演練」 ， 演習期間部分地區可能因行動網路連線緩慢或不穩，而無法以行動網路使用橘子支付 APP 相關服務。 \n 如您於演習期間有支付需求，建議預先準備現金或實體信用卡等替代支付工具，避免因行動網路連線緩慢而無法使用電子支付工具。 \n l 影響範圍：會員註冊、付款、繳費、儲值、轉帳及查詢等功能 \n l 各區演習時間： \n 日期 \n 時間 \n 地區 \n 涵蓋縣市 \n 8 月 10 日（一） \n 14:30 &ndash; 15:00 \n 中部 \n 苗栗縣、臺中市、南投縣、彰化縣、雲林縣、嘉義市、嘉義縣 \n 8 月 13 日（四） \n 14:30 &ndash; 15:00 \n 北部 \n 宜蘭縣、基隆市、臺北市、新北市、桃園市、新竹市、新竹縣 \n l 演習詳細內容請參考：行政院公告 https://www.ey.gov.tw/Page/448DE008087A1971/096fb808-f775-47cd-bca9-9f3916680f54 \n 感謝您的理解與配合，造成不便，敬請見諒 \n 橘子支付營運團隊敬上",
+          "startsAt": "20260730",
+          "endsAt": "",
+          "publishedAt": "",
+          "officialOrder": 4
+        },
+        {
+          "title": "台中「AVI無紙化綁定自動扣繳」活動",
+          "category": "交通／旅遊回饋",
+          "stores": [
+            "官方支付服務"
+          ],
+          "paymentMethods": [
+            "橘子支付"
+          ],
+          "audience": "not-stated",
+          "rate": 0.04,
+          "cap": 0,
+          "rewardLabel": "最高 4% 回饋",
+          "status": "2026/07/14；官方內容請見詳情頁",
+          "sourceUrl": "https://www.gamapay.com.tw/news.html?id=4936",
+          "image": "",
+          "rawText": "115 年 7 月 22 日起於西區「國立臺灣美術館」周邊之五權西路、五權西三街、五權西四街等 3 條路段實施智慧停車無紙化，智慧化車格內皆標繪有綠底白字「 P 」及「無紙化收費」字樣，不開立紙本停車繳費單，提前綁定「電子支付自動代扣繳」，還可享最高 6 折停車優惠喔。 \n 智慧停車無紙化 (AVI) 懶人包詳下方連結 \n https://tcparking.taichung.gov.tw/ParkWeb/Pages/PublicService/AviTicketQA \n 停車費繳費方式詳下方連結 \n https://tcparking.taichung.gov.tw/ParkWeb/Pages/PublicService/PaymentWay",
+          "startsAt": "20260714",
+          "endsAt": "",
+          "publishedAt": "",
+          "officialOrder": 5
+        },
+        {
+          "title": "〈防詐宣導〉網路購物停看聽！別讓「假客服」、「假驗證」騙走你的辛苦錢",
+          "category": "最新資訊",
+          "stores": [
+            "官方支付服務"
+          ],
+          "paymentMethods": [
+            "橘子支付"
+          ],
+          "audience": "not-stated",
+          "rate": 0,
+          "cap": 0,
+          "rewardLabel": "官方最新資訊",
+          "status": "2026/06/26；官方內容請見詳情頁",
+          "sourceUrl": "https://www.gamapay.com.tw/news.html?id=4929",
+          "image": "",
+          "rawText": "圖片來源：警政署刑事警察局。 \n 親愛的橘子支付會員您好： \n 最近網路購物的相關詐騙手法越來越多變，有些詐騙集團甚至會假冒成常見的購物平台（如賣貨便、好賣+等）來設下陷阱。 \n 為了讓大家都能安心購物，本公司整理了 假網購、假客服 的常見套路，請花一分鐘看一下，保護好自己的錢包唷！ \n 第一步：用低價或限量商品吸引您的注意 \n 詐騙集團時常會在 Facebook、Instagram、LINE或Threads 等社群平台上，刊登低價商品、限量周邊或熱門演唱會門票，來吸引您的注意。 \n 第二步：提供假賣場網址，下單失敗後要您聯繫「假客服」 \n 當您決定要下單時，詐騙集團會提供一個看似正常的賣場連結，但您點擊連結下單後，網頁卻跳出 「未實名認證」、「訂單遭凍結」 或 「交易異常」 等語，這時對方就會假裝熱心地提供 QR Code 或連結，請您入指定的 LINE帳號或聯繫客服 幫忙解鎖， 注意這裡可能就是「假客服」 ！ \n 第三步：要求您進行「假驗證」，藉機騙取您的重要個資或簡訊驗證碼 \n 接著假客服會要求您進行身分驗證，可能會引導您到不明網站中 輸入 銀行帳號、 操作網銀或ATM轉帳、輸入手機簡訊驗證碼，甚至可能要求透過視訊、共享螢幕 來假裝核對身分，但實際上是要竊取您的重要個資！過程中，假賣家甚至會以「如果不弄好，我的帳戶會被扣錢、我要報警喔！」等話術威脅您，讓您在慌亂中就把重要個人資料、驗整馬提供給詐騙集團，或是依指示進行轉帳，導致財產損失！ \n 防詐提醒： \n 1. 正規網路購物平台通常 不會 要求您 跨平台加入LINE辦理實名認證！ \n 2. 絕對不要將手機簡訊驗證碼、OTP提供給任何人！ \n 3. 凡是要求您 登入網路銀行、網路/ATM轉帳、視訊或共享螢幕 ，才能完成交易、解除限制或驗證身分者， 高機率都是詐騙！ \n 4. 若您接到可疑的來電、簡訊或郵件，請立即撥打 「165」 警政署反詐騙專線查詢。",
+          "startsAt": "20260626",
+          "endsAt": "",
+          "publishedAt": "",
+          "officialOrder": 6
+        },
+        {
+          "title": "提醒！請勿任意將「付款碼QRcode」截圖提供給他人，極可能為詐騙，請務必提高警覺！",
+          "category": "最新資訊",
+          "stores": [
+            "官方支付服務"
+          ],
+          "paymentMethods": [
+            "橘子支付"
+          ],
+          "audience": "not-stated",
+          "rate": 0,
+          "cap": 0,
+          "rewardLabel": "官方最新資訊",
+          "status": "2026/05/20；官方內容請見詳情頁",
+          "sourceUrl": "https://www.gamapay.com.tw/news.html?id=4914",
+          "image": "",
+          "rawText": "近期常有詐騙集團誘騙被害人「提供付款碼截圖」或「以視訊方式螢幕共享付款碼」等方式，並利用該付款碼（即付款 QRcode ）進行大額或連續多筆交易。 \n ⚠ 為保障您的帳戶安全，提醒您注意以下事項： \n ●橘子支付 APP 付款碼僅供您結帳當下出示予店家掃碼使用 ，不會有其他用途！ \n ●若他人取得您的付款碼，您的橘子支付帳戶將可能被盜用進行 帳戶扣款 或 刷卡交易 ，請務必提高警覺並妥善保管付款碼！ \n ●本公司已於 橘子支付 APP 付款碼下方新增防詐跑馬燈警語 ，提醒您多加留意。 \n 如果您收到任何可疑的來電、電子郵件或簡訊，請向本 公司客服專線求證（ 02-21926082 ），或立即撥打「 １６５ 」警政署反詐騙專線查證，以確保自身權益。",
+          "startsAt": "20260520",
+          "endsAt": "",
+          "publishedAt": "",
+          "officialOrder": 7
+        },
+        {
+          "title": "【TWQR x 橘子支付】 逛越多，即可享不同回饋！",
+          "category": "一般回饋",
+          "stores": [
+            "官方支付服務"
+          ],
+          "paymentMethods": [
+            "橘子支付"
+          ],
+          "audience": "not-stated",
+          "rate": 0,
+          "cap": 0,
+          "rewardLabel": "依官方條件回饋",
+          "status": "2026/05/06；官方內容請見詳情頁",
+          "sourceUrl": "https://www.gamapay.com.tw/news.html?id=4909",
+          "image": "",
+          "rawText": "各活動詳情，請見TWQR官方活動網頁： \n https://www.twqr.com.tw/activity_35.html \n https://www.twqr.com.tw/activity_37.html \n https://www.twqr.com.tw/activity_41.html \n 注意：本活動實際執行皆以主辦/協辦單位為主",
+          "startsAt": "20260506",
+          "endsAt": "",
+          "publishedAt": "",
+          "officialOrder": 8
+        },
+        {
+          "title": "跨行轉帳更安心！橘子支付新增「顯示收款人遮罩戶名」功能",
+          "category": "最新資訊",
+          "stores": [
+            "官方支付服務"
+          ],
+          "paymentMethods": [
+            "橘子支付"
+          ],
+          "audience": "not-stated",
+          "rate": 0,
+          "cap": 0,
+          "rewardLabel": "官方最新資訊",
+          "status": "2026/04/21；官方內容請見詳情頁",
+          "sourceUrl": "https://www.gamapay.com.tw/news.html?id=4904",
+          "image": "",
+          "rawText": "親愛的會員，您好 , \n 為降低轉帳錯誤與詐騙風險，橘子支付於 2026 年 4 月 21 日起，跨行轉帳新增「轉帳戶名部分遮罩的服務」，說明如下： \n 1 、會員進行轉帳操作時，輸入銀行帳號後，畫面會顯示部分遮罩的戶名，例如「王○明」，協助使用者在轉帳前再次核對是否為預期的收款對象 \n 2 、提醒您，若銀行尚未支援戶名查詢或連線逾時，畫面將提示無法顯示戶名，會員仍可選擇是否繼續完成轉帳 \n 感謝您長期對橘子支付的支持與愛用 \n 橘子支付營運團隊敬上 \n 客服信箱： CS@Service.gamapay.com.tw \n 客服專線： 02-21926082 ；服務時間： 10:00~19:00 ( 週一至週日 )",
+          "startsAt": "20260421",
+          "endsAt": "",
+          "publishedAt": "",
+          "officialOrder": 9
+        },
+        {
+          "title": "橘子支付114年內部控制制度聲明書",
+          "category": "最新資訊",
+          "stores": [
+            "官方支付服務"
+          ],
+          "paymentMethods": [
+            "橘子支付"
+          ],
+          "audience": "not-stated",
+          "rate": 0,
+          "cap": 0,
+          "rewardLabel": "官方最新資訊",
+          "status": "2026/03/06；官方內容請見詳情頁",
+          "sourceUrl": "https://www.gamapay.com.tw/news.html?id=4884",
+          "image": "",
+          "rawText": "親愛的會員，您好：\n依專營電子支付機構內部控制及稽核制度實施辦法第 26 條，揭露本公司 114 年內部控制制度聲明書。\n 114 年度內部控制制度聲明書： https://www.gamapay.com.tw/events/ICS/橘子支_114年度內部控制制度聲明書.pdf",
+          "startsAt": "20260306",
+          "endsAt": "",
+          "publishedAt": "",
+          "officialOrder": 10
+        },
+        {
+          "title": "114年度營運報告書、114年度經會計師查核之財務報告",
+          "category": "最新資訊",
+          "stores": [
+            "官方支付服務"
+          ],
+          "paymentMethods": [
+            "橘子支付"
+          ],
+          "audience": "not-stated",
+          "rate": 0,
+          "cap": 0,
+          "rewardLabel": "官方最新資訊",
+          "status": "2026/03/05；官方內容請見詳情頁",
+          "sourceUrl": "https://www.gamapay.com.tw/news.html?id=4882",
+          "image": "",
+          "rawText": "親愛的會員，您好： \n 依據電子支付機構管理條例第 35 條規定，公告本公司 114 年度營業報告書暨財務報告 \n 114 年度營業報告書： https://www.gamapay.com.tw/events/ICS/114 年度營業報告書.pdf \n 114 年度經會計師查核之財務報告： https://www.gamapay.com.tw/events/ICS/114 年度經會計師查核之財務報告.pdf",
+          "startsAt": "20260305",
+          "endsAt": "",
+          "publishedAt": "",
+          "officialOrder": 11
+        },
+        {
+          "title": "《防詐宣導》橘子支付不會寄發電子郵件或簡訊請使用者及特約機構點擊連結並輸入機敏資訊",
+          "category": "最新資訊",
+          "stores": [
+            "官方支付服務"
+          ],
+          "paymentMethods": [
+            "橘子支付"
+          ],
+          "audience": "not-stated",
+          "rate": 0,
+          "cap": 0,
+          "rewardLabel": "官方最新資訊",
+          "status": "2026/01/29；官方內容請見詳情頁",
+          "sourceUrl": "https://www.gamapay.com.tw/news.html?id=4869",
+          "image": "",
+          "rawText": "親愛的會員您好，為避免不肖人士藉由以假亂真的情境，使人因稍不留神就誤入詐騙陷阱，橘子支付提醒您留意下列事項： \n 1 、透過電子郵件或簡訊的方式，以各種話術誘騙提供帳號、密碼、簡訊認證碼等機敏資訊，是屬於「 網路釣魚 」的詐騙手法。 \n 2 、橘子支付 不會 寄發電子郵件或簡訊請您點擊連結並輸入帳號、密碼、簡訊認證碼等機敏資訊。 \n 3 、請各位會員除於橘子支付官方網站或 APP 外， 切勿在其他網站或 APP 輸入您的帳號、密碼、簡訊認證碼或其他任何機敏資訊 。 \n 4 、如果您收到任何可疑的來電、電子郵件或簡訊，請向本公司客服專線求證（ 02-21926082 ），或立即撥打「 １６５ 」警政署反詐騙專線查證，以確保自身權益。",
+          "startsAt": "20260129",
+          "endsAt": "",
+          "publishedAt": "",
+          "officialOrder": 12
+        },
+        {
+          "title": "橘子支付客服專線服務時間調整公告",
+          "category": "最新資訊",
+          "stores": [
+            "官方支付服務"
+          ],
+          "paymentMethods": [
+            "橘子支付"
+          ],
+          "audience": "not-stated",
+          "rate": 0,
+          "cap": 0,
+          "rewardLabel": "官方最新資訊",
+          "status": "2025/10/23；官方內容請見詳情頁",
+          "sourceUrl": "https://www.gamapay.com.tw/news.html?id=4829",
+          "image": "",
+          "rawText": "親愛的客戶您好： \n 本公司客服專線服務時間將於 114 年 11 月 1 日起，調整為 週一至週日的上午 10 點至晚上 7 點 。 \n 其他時段您可以透過 常見問題 進行查詢，或利用客服信箱與我們聯繫。 \n 感謝您的理解與支持。 \n 客服專線： 02-21926082 \n 客服信箱： CS@Service.gamapay.com.tw",
+          "startsAt": "20251023",
+          "endsAt": "",
+          "publishedAt": "",
+          "officialOrder": 13
+        },
+        {
+          "title": "橘子支行動支付股份有限公司會員條款、隱私權條款調整公告",
+          "category": "最新資訊",
+          "stores": [
+            "官方支付服務"
+          ],
+          "paymentMethods": [
+            "橘子支付"
+          ],
+          "audience": "not-stated",
+          "rate": 0,
+          "cap": 0,
+          "rewardLabel": "官方最新資訊",
+          "status": "2025/10/15；官方內容請見詳情頁",
+          "sourceUrl": "https://www.gamapay.com.tw/news.html?id=4825",
+          "image": "",
+          "rawText": "親愛的客戶您好： \n 因應本公司客服專線服務時間異動，以及客服專線系統和防詐流程優化，茲公告修正本公司「會員條款」及「隱私權條款」，並自 114 年 11 月 1 日 起生效實施。 \n ● 會員條款： https://www.gamapay.com.tw/ver_1.html \n ● 隱私權條款： https://www.gamapay.com.tw/privacy.html \n 有關前述修訂之詳細內容，請參閱下方附件新舊條款之修正對照表。請會員詳細閱讀條款，若對於本次修訂內容有異議者，請通知本公司終止契約，若未於公告後 七日 內提出異議並通知本公司終止契約者，則將視為同意本次修訂內容，敬請知悉。 \n 感謝您對橘子支付的支持！ \n 附件：會員條款、隱私權條款 _ 修正對照表",
+          "startsAt": "20251015",
+          "endsAt": "",
+          "publishedAt": "",
+          "officialOrder": 14
+        },
+        {
+          "title": "【得獎名單公告】🎉7月橘子支付陪你 \"FUN暑假\" 抽獎得獎名單🎉",
+          "category": "最新資訊",
+          "stores": [
+            "官方支付服務"
+          ],
+          "paymentMethods": [
+            "橘子支付"
+          ],
+          "audience": "not-stated",
+          "rate": 0,
+          "cap": 0,
+          "rewardLabel": "官方最新資訊",
+          "status": "2025/08/21；官方內容請見詳情頁",
+          "sourceUrl": "https://www.gamapay.com.tw/news.html?id=4797",
+          "image": "",
+          "rawText": "【得獎名單公告】🎉7月橘子支付陪你 \"FUN暑假\" 抽獎得獎名單🎉",
+          "startsAt": "20250821",
+          "endsAt": "",
+          "publishedAt": "",
+          "officialOrder": 15
+        },
+        {
+          "title": "【得獎名單公告】🎉7月橘子支付陪你 \"楓暑假\" 抽獎得獎名單🎉",
+          "category": "最新資訊",
+          "stores": [
+            "官方支付服務"
+          ],
+          "paymentMethods": [
+            "橘子支付"
+          ],
+          "audience": "not-stated",
+          "rate": 0,
+          "cap": 0,
+          "rewardLabel": "官方最新資訊",
+          "status": "2025/08/21；官方內容請見詳情頁",
+          "sourceUrl": "https://www.gamapay.com.tw/news.html?id=4796",
+          "image": "",
+          "rawText": "【得獎名單公告】🎉7月橘子支付陪你 \"楓暑假\" 抽獎得獎名單🎉",
+          "startsAt": "20250821",
+          "endsAt": "",
+          "publishedAt": "",
+          "officialOrder": 16
+        },
+        {
+          "title": "⚠️防詐宣導⚠️ 橘子支付特別提醒您提高警覺，防範詐騙！",
+          "category": "最新資訊",
+          "stores": [
+            "官方支付服務"
+          ],
+          "paymentMethods": [
+            "橘子支付"
+          ],
+          "audience": "not-stated",
+          "rate": 0,
+          "cap": 0,
+          "rewardLabel": "官方最新資訊",
+          "status": "2025/06/27；官方內容請見詳情頁",
+          "sourceUrl": "https://www.gamapay.com.tw/news.html?id=4749",
+          "image": "",
+          "rawText": "親愛的會員您好， \n 詐騙手法日益多元，詐騙集團常假冒金融機構之名義，以 電話、簡訊、電子郵件 或其他手段 \n 誘導民眾提供個人資料或點擊不明連結，進而竊取個資或進行詐騙，請務必謹記「 ４個不要 」： \n 🚨 不要 點擊任何來源不明的連結。 \n 🚨不要 匯款至陌生帳號。 \n 🚨不要 將金融卡交給陌生人。 \n 🚨不要 將網銀帳號或密碼洩露給任何人。 \n 若您接到可疑的來電、簡訊或郵件，請立即撥打「 １６５ 」警政署反詐騙專線查詢，或於客服中心營業時間內與橘子支付聯繫，我們將竭誠為您服務。",
+          "startsAt": "20250627",
+          "endsAt": "",
+          "publishedAt": "",
+          "officialOrder": 17
+        },
+        {
+          "title": "🚗國道休息站「橘」點開通啦！🧡",
+          "category": "最新資訊",
+          "stores": [
+            "南投"
+          ],
+          "paymentMethods": [
+            "橘子支付"
+          ],
+          "audience": "not-stated",
+          "rate": 0,
+          "cap": 0,
+          "rewardLabel": "依官方條件回饋",
+          "status": "2025/05/30；官方內容請見詳情頁",
+          "sourceUrl": "https://www.gamapay.com.tw/news.html?id=3737",
+          "image": "",
+          "rawText": "🚗國道休息站「 橘 」點開通啦！🧡 \n 不只中油加油能用橘子支付，休息站也可以🙌\n 📍中壢、湖口、古坑、關西、西湖、南投、西螺、東草屯休息站 \n 通通都能用橘子支付～ 🎉🎉🎉\n 不管是買咖啡、買零食，還是肚子餓想吃一頓\n 通通快速付款，不用掏錢找零好便利 😍\n 中油活動詳情👉 https://lihi2.com/HImIz \n 🔜快來下載橘子支付 \n https://gamapay.onelink.me/9ZMY/i0265qfh \n #橘子支付 #行動支付 #國道休息站\n #中油加油站 #加油回饋 #休息也能賺回饋 #便利生活橘著來",
+          "startsAt": "20250530",
+          "endsAt": "",
+          "publishedAt": "",
+          "officialOrder": 18
+        }
+      ]
+    },
+    {
       "name": "歐付寶 O'Pay 官方活動",
       "logo": "/logos/opay-icon.png",
       "color": "#1388c9",
@@ -8097,26 +9593,51 @@
       "freshness": "官方來源檢查 2026/10/06；依官方更新順序排列",
       "campaigns": [
         {
-          "title": "2026/10/1~2026/12/31持歐付寶至萊爾富消費滿150元回饋紅利10%",
-          "category": "超商回饋",
+          "title": "活動專區 - 歐付寶O'Pay第三方支付",
+          "category": "新戶優惠",
           "stores": [
-            "萊爾富"
+            "萊爾富",
+            "馬祖",
+            "宜蘭",
+            "南投"
           ],
           "paymentMethods": [
             "歐付寶 O'Pay"
           ],
           "audience": "not-stated",
-          "rate": 0.1,
+          "rate": 0.13,
           "cap": 0,
-          "rewardLabel": "最高 10% 回饋",
+          "rewardLabel": "最高 13% 回饋",
           "status": "2026/10/01–2026/12/31",
-          "sourceUrl": "https://play.google.com/store/apps/details?id=com.allpay.tw&hl=zh_TW",
-          "image": "https://www.opay.tw/Content/themes/Banner20170510/images/frame/btn_ios_s.png",
-          "rawText": "2026/10/1~2026/12/31持歐付寶至萊爾富消費滿150元回饋紅利10%",
+          "sourceUrl": "https://www.opay.tw/banner/event#scw_01",
+          "image": "https://www.opay.tw/Content/images/AllPayLogo/logo_2.jpg",
+          "rawText": "歐付寶O'Pay \n 好康活動 \n 好友推薦活動 \n 好康活動 \n 歐付寶TWQR消費趣，台中新社大安兩區筆筆消費回饋10%！ \n 2026/10/1~2026/12/31持歐付寶至萊爾富消費滿150元回饋紅利10% \n 歐付寶暢遊馬祖，TWQR馬上PAY享10%回饋 \n 歐付寶漫遊宜蘭員山，TWQR輕鬆付享10%回饋 \n 歐付寶前進南投仁愛鄉，TWQR輕鬆付享10%回饋 \n 歐付寶TWQR東遊趣，台東地區消費回饋10% \n 歐付寶天天都回饋！美廉社消費滿199元享10%紅利回饋 \n 歐付寶悠遊聯名卡把回饋變日常！APP綁定交易最高13%回饋 \n 歐付寶TWQR今夜留給我，高雄夜市筆筆消費回饋10% \n 歐付寶TWQR十大商圈消費10%紅利回饋 \n 繳稅功能正式上路！繳納國稅、地方稅攏a通！ \n 【動物園行動支付上線】歐付寶Pay Taipei 暢遊動物園 \n 好友推薦活動 \n 立即下載 歐付寶APP\n 線上回報 \n 客服專線：(02)2655-0115\n 服務時間：平日9:00－18:00\n 本網站適用最新瀏覽器版本，若並非適用版本請更新您的瀏覽器。\n Copyright © 2026 O'Pay Electronic Payment Co., Ltd.",
           "startsAt": "20261001",
           "endsAt": "20261231",
           "publishedAt": "",
           "officialOrder": 0
+        },
+        {
+          "title": "歐付寶悠遊聯名卡",
+          "category": "新戶優惠",
+          "stores": [
+            "Apple"
+          ],
+          "paymentMethods": [
+            "歐付寶 O'Pay"
+          ],
+          "audience": "mixed",
+          "rate": 1,
+          "cap": 550,
+          "rewardLabel": "最高 100%／上限 550 點／元",
+          "status": "2026/01/01–2026/12/31",
+          "sourceUrl": "https://p.opay.tw/L16Rw",
+          "image": "https://www.opay.tw/Content/themes/WebStyle20131201/images/service/logo300x180.png",
+          "rawText": "GO TOP \n 電子支付平台\n APP下載 \n 登入 \n 註冊 \n 廠商後台 \n AppleStore下載 \n PlayStore下載 \n 建議您可安裝資安防護軟體，加強行動裝置的安全以降低交易風險\n 歐付寶O'Pay電子支付 \n 會員專區 \n 會員資訊\n 基本資料 \n 提領設定 \n 訊息中心 \n 會員級別總覽 \n 會員分級驗證 \n 申請特約會員 \n 好友推薦活動 \n 安全設定\n 忘記會員帳密 \n 忘記登入密碼 \n 登入歷程 \n 支付綁定\n 信用卡 \n 如何綁定銀行快付 \n 聯絡客服\n 線上回報 \n 回報記錄 \n 表單文件下載 \n 帳務管理 \n 歐付寶帳戶\n 帳戶總覽 \n 歐付寶帳戶收支明細 \n 儲值明細 \n 轉帳明細 \n 儲值流程與說明 \n 帳戶提領 \n 銷售管理\n 收款明細 \n 費率/撥款說明 \n 支出明細\n 付款明細 \n 停車繳費 \n 生活繳費 \n 我要收款 \n 快速收款\n 收款方式說明 \n 建立收款連結 \n 收款連結管理 \n 一址付\n 一址付使用說明 \n 新增一址付 \n 一址付連結管理 \n 實況主收款\n 實況主收款說明 \n 實況主收款設定 \n 實況主收款明細 \n 費率說明\n 金流收費總覽 \n 收款設定\n 收款設定 \n 商務專區 \n 服務項目\n 全方位金流 \n 消費發票查詢 \n Open ID \n 電子發票申請 \n 行動收據服務 \n 技術文件下載\n 金流規格 \n Open ID規格 \n 業務發展\n 合作推廣提案 \n 支援中心 \n 首頁 &gt \n 最新消息 \n 最新消息\n 活動 \n 歐付寶悠遊聯名卡，卡利害！2026年全新回饋報你知！ \n 2025-12-29 10:30 \n 歐付寶悠遊聯名卡\n 卡利害！\n 新戶首刷100%回饋，刷卡最高回饋13%\n 活動一：你刷卡我回饋，首筆消費回饋 100% 歐付寶紅利\n 活動期間：2026/01/01~2026/12/31\n首次申辦本聯名卡，核卡後第一筆消費交易，將 100%回饋歐付寶紅利點數 (上限333點)。 \n ※ 回饋卡友條件： \n僅適用自2026/01/01至2026/12/31(含) 核卡之正卡卡友，且第一筆消費需於2026/12/31 前完成，最後回饋日為2027/02/20。\n ※ 首次申辦係指核卡日前未曾持有歐付寶悠遊聯名卡正卡之客戶。\n※ 每位正卡持卡人限回饋乙次，歐付寶紅利回饋上限為333點。\n 活動二：新戶最高享 13% 回饋，每月最高 550 點\n 活動期間：2026/01/01~ 2026/06/30 延長至2026/12/31 \n 『歐付寶行動支付 APP 刷卡消費或網路購物』\n 新戶且申請使用電子帳單，核卡後12個月再加碼 10% 回饋，每月回饋上限100點。\n 申辦電子帳單，且最近一期帳單本卡新增一般消費滿2千元，筆筆享有 2% 回饋，每月回饋上限250點。\n 最近一期帳單自兆豐銀行存款帳戶自動扣款成功，且該期帳單本卡新增一般消費滿2千元，再加碼 1% 回饋，每月回饋上限200點。\n 『其他國內外之一般消費』\n 非網購之海外消費，筆筆回饋 1.5% 回饋，回饋無上限。\n 非前述之一般消費交易，筆筆回饋 0.5% 回饋，回饋無上限。\n 立即申辦 \n ➤ 紅利點數可折抵店家查詢 \n 【綜合活動注意事項】 \n 活動一及活動二持卡人需於回饋日前，將歐付寶悠遊聯名卡與歐付寶行動支付 APP 進行綁定，始能獲得紅利回饋。 如發送紅利回饋時持卡人已取消或尚未綁定，將視同放棄。\n 紅利點數效期為 180 天，一經折抵、取消訂單及退刷，本活動獲得回饋之歐付寶紅利將不返還。 折抵時依到期日較近點數優先折抵，不得要求兌換現金。\n 單筆消費紅利折抵無上限，手續費、菸、酒、點數商品、特殊產業、遞延性商品消費不適用。\n 持卡人若有違反信用卡約定條款，歐付寶及兆豐銀行有權暫停活動資格並追回點數。\n 活動如因不可歸責事由導致資料無效，歐付寶及兆豐銀行不負責任。\n 歐付寶電子支付股份有限公司及兆豐銀行保有修正、暫停或終止本活動之權利。\n 【活動一特別注意事項】 \n 僅限正卡持卡人參加，且正卡持卡人與綁定 APP 帳號人需為同一人。附卡無法獲得回饋。\n 以兆豐銀行刷卡消費記錄為準，符合者統一於次月20號回饋。\n 舉例：沛醬於 2026/01/05 核卡，01/10 第一筆消費 300 元，將於 2/20 回饋 300 點。\n 若第一筆消費退貨，紅利將追繳。 且再刷卡之消費將不認列為第一筆消費交易，不予提供紅利回饋。 \n 【活動二特別注意事項】 \n 「新戶」：111/1/1 後未持有兆豐信用卡正卡，且於 115/1/1 至 115/12/31 間核卡者。\n 「申辦電子帳單」：成功申辦且取消紙本帳單。\n 「自動扣款成功」：至少扣足最低應繳金額。\n 其餘詳見 兆豐銀行 網站。\n 謹慎理財 信用至上 \n 循環利率依本行「新臺幣一年期定期儲蓄存款固定利率」加碼年息 1%~15%，上限 15%，基準日：114/1/1。\n預借現金手續費：預借金額 X 3% + NT$150 / 等值之約定外幣；網路申辦：預借金額 X 3%，最低 NT$100 計。\n其他費用依 兆豐銀行 網站公告\n 立即下載歐付寶 APP\n 上一頁 \n | \n 回列表 \n | \n 下一頁 \n ; \n 合作銀行 \n 兆豐銀行、 土地銀行、 合作金庫、 第一銀行、 華南銀行、 彰化銀行、 上海銀行、 富邦銀行、 國泰銀行、 臺灣企銀、 渣打銀行、 台中銀行、 匯豐銀行、 新光銀行、 聯邦銀行、 遠東商銀、 元大銀行、 永豐銀行、 玉山銀行 \n 看更多銀行 \n 權益說明\n 使用者約定條款 \n 隱私權政策 \n 特約機構服務規範 \n 關於我們\n 公司簡介 \n 投資人專區 \n 資訊安全 \n 專業證書 \n 徵才訊息\n 搜尋與應徵 \n 聯絡我們\n 線上回報 \n 合作提案 \n 客服專線：(02)2655-0115\n 服務時間：平日9:00－18:00 \n 本網站適用最新瀏覽器版本，若並非適用版本請更新您的瀏覽器。\n Copyright © 2026 O'Pay Electronic Payment Co., Ltd. \n ;",
+          "startsAt": "20260101",
+          "endsAt": "20261231",
+          "publishedAt": "",
+          "officialOrder": 1
         }
       ]
     }
@@ -8130,7 +9651,7 @@
       "segment": "daily",
       "officialSite": "https://web-tw-pay.line.me/cms/event",
       "sourceUrl": "https://web-tw-pay.line.me/cms/event",
-      "checkedAt": "2026-10-06T06:57:27.872Z"
+      "checkedAt": "2026-10-06T12:19:57.878Z"
     },
     {
       "name": "街口支付",
@@ -8140,7 +9661,7 @@
       "segment": "daily",
       "officialSite": "https://mkt.jkopay.com/zh-TW/event",
       "sourceUrl": "https://mkt.jkopay.com/sitemap.xml",
-      "checkedAt": "2026-10-06T06:57:27.872Z"
+      "checkedAt": "2026-10-06T12:19:57.878Z"
     },
     {
       "name": "悠遊付",
@@ -8150,7 +9671,7 @@
       "segment": "daily",
       "officialSite": "https://easywallet.easycard.com.tw/benefit/",
       "sourceUrl": "https://easywallet.easycard.com.tw/benefit/?page=1",
-      "checkedAt": "2026-10-06T06:57:27.872Z"
+      "checkedAt": "2026-10-06T12:19:57.878Z"
     },
     {
       "name": "iPASS MONEY",
@@ -8160,7 +9681,7 @@
       "segment": "daily",
       "officialSite": "https://www.i-pass.com.tw/Preferential",
       "sourceUrl": "https://www.i-pass.com.tw/Preferential?page=1&type=0",
-      "checkedAt": "2026-10-06T06:57:27.872Z"
+      "checkedAt": "2026-10-06T12:19:57.878Z"
     },
     {
       "name": "icash Pay",
@@ -8170,7 +9691,7 @@
       "segment": "daily",
       "officialSite": "https://www.icashpay.com.tw/",
       "sourceUrl": "https://www.icashpay.com.tw/advertMessage/index?page=1",
-      "checkedAt": "2026-10-06T06:57:27.872Z"
+      "checkedAt": "2026-10-06T12:19:57.878Z"
     },
     {
       "name": "Pi 拍錢包",
@@ -8180,7 +9701,7 @@
       "segment": "merchant",
       "officialSite": "https://web.piapp.com.tw/events/",
       "sourceUrl": "https://web.piapp.com.tw/events/",
-      "checkedAt": "2026-10-06T06:57:27.872Z"
+      "checkedAt": "2026-10-06T12:19:57.878Z"
     },
     {
       "name": "全盈+PAY",
@@ -8190,7 +9711,7 @@
       "segment": "merchant",
       "officialSite": "https://event2023.pluspay.com.tw/",
       "sourceUrl": "https://event2023.pluspay.com.tw/",
-      "checkedAt": "2026-10-06T06:57:27.872Z"
+      "checkedAt": "2026-10-06T12:19:57.878Z"
     },
     {
       "name": "OPEN錢包",
@@ -8200,7 +9721,7 @@
       "segment": "merchant",
       "officialSite": "https://www.7-11.com.tw/service/Pay.aspx#tab1",
       "sourceUrl": "https://www.7-11.com.tw/service/Pay.aspx#tab1",
-      "checkedAt": "2026-10-06T06:57:27.872Z"
+      "checkedAt": "2026-10-06T12:19:57.878Z"
     },
     {
       "name": "7-ELEVEN",
@@ -8210,7 +9731,7 @@
       "segment": "merchant",
       "officialSite": "https://www.7-11.com.tw/index.aspx",
       "sourceUrl": "https://www.7-11.com.tw/index.aspx",
-      "checkedAt": "2026-10-06T06:57:27.872Z"
+      "checkedAt": "2026-10-06T12:19:57.878Z"
     },
     {
       "name": "台灣 Pay",
@@ -8220,7 +9741,7 @@
       "segment": "cross-network",
       "officialSite": "https://taiwanpay.firstbank.com.tw/sites/twpay/latestOffers",
       "sourceUrl": "https://taiwanpay.firstbank.com.tw/sites/twpay/latestOffers",
-      "checkedAt": "2026-10-06T06:57:27.872Z"
+      "checkedAt": "2026-10-06T12:19:57.878Z"
     },
     {
       "name": "全支付",
@@ -8230,7 +9751,7 @@
       "segment": "merchant",
       "officialSite": "https://www.pxpayplus.com.tw/",
       "sourceUrl": "https://www.pxpayplus.com.tw/",
-      "checkedAt": "2026-10-06T06:57:27.872Z"
+      "checkedAt": "2026-10-06T12:19:57.878Z"
     },
     {
       "name": "橘子支付",
@@ -8240,7 +9761,7 @@
       "segment": "cross-network",
       "officialSite": "https://www.gamapay.com.tw/news_list.html",
       "sourceUrl": "https://www.gamapay.com.tw/news_list.html",
-      "checkedAt": "2026-10-06T06:57:27.872Z"
+      "checkedAt": "2026-10-06T12:19:57.878Z"
     },
     {
       "name": "歐付寶 O'Pay",
@@ -8250,7 +9771,7 @@
       "segment": "cross-network",
       "officialSite": "https://www.opay.tw/banner/event",
       "sourceUrl": "https://www.opay.tw/banner/event",
-      "checkedAt": "2026-10-06T06:57:27.872Z"
+      "checkedAt": "2026-10-06T12:19:57.878Z"
     },
     {
       "name": "ezPay 簡單付",
@@ -8260,7 +9781,7 @@
       "segment": "cross-network",
       "officialSite": "https://www.ezpay.com.tw/",
       "sourceUrl": "https://www.ezpay.com.tw/",
-      "checkedAt": "2026-10-06T06:57:27.872Z"
+      "checkedAt": "2026-10-06T12:19:57.878Z"
     }
   ]
 }

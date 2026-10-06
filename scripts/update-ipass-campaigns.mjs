@@ -241,11 +241,11 @@ async function loadActiveCampaigns() {
     campaigns.push(...batch);
   }
 
-  return { campaigns, today };
+  return { campaigns, today, detailPagesChecked: candidates.length };
 }
 
 const data = JSON.parse(await readFile(outputPath, "utf8"));
-const { campaigns: activeCampaigns, today } = await loadActiveCampaigns();
+const { campaigns: activeCampaigns, today, detailPagesChecked } = await loadActiveCampaigns();
 const federatedStatus = await loadFederatedStatus();
 const campaigns = activeCampaigns.map((campaign) => {
   if (!/用 iPASS MONEY 消費[，,、 ]*最高享[ ]*10%[ ]*回饋/.test(campaign.title) || !federatedStatus.statuses.length) return campaign;
@@ -272,11 +272,13 @@ data.sources = [
     name: "iPASS MONEY 官方優惠活動",
     url: listUrl,
     officialSite: `${listOrigin}/Preferential`,
+    detailPagesChecked,
   },
   {
     name: "聯邦銀行 iPASS MONEY 額滿公告",
     url: federatedStatusUrl,
     officialSite: federatedStatusUrl,
+    detailPagesChecked: 1,
   },
 ];
 data.payments = payments;

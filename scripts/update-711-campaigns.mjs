@@ -4,6 +4,7 @@ import path from "node:path";
 const sourceUrl = "https://www.7-11.com.tw/include/SalesPromo.xml?12";
 const paymentSourceUrl = "https://www.7-11.com.tw/service/Pay.aspx#tab1";
 const siteOrigin = "https://www.7-11.com.tw";
+const DETAIL_USER_AGENT = "Mozilla/5.0 (compatible; PaymentRadarOfficialSync/1.0)";
 
 const typeMap = {
   Event: { label: "主題活動", color: "#00a651" },
@@ -242,40 +243,104 @@ function officialStatusSnippets(html) {
   return snippets.slice(0, 6).join("；");
 }
 
+function officialDetailText(html) {
+  const source = String(html || "");
+  const content = source.match(/<main\b[\s\S]*?<\/main>/i)?.[0]
+    || source.match(/<article\b[\s\S]*?<\/article>/i)?.[0]
+    || source.match(/<div[^>]+class=["'][^"']*(?:article|content|detail|event)[^"']*["'][\s\S]*?<\/div>/i)?.[0]
+    || source;
+  return pageText(content).slice(0, 6000);
+}
+
+async function fetchOfficialDetail(url) {
+  const response = await fetch(url, {
+    cache: "no-store",
+    redirect: "follow",
+    signal: AbortSignal.timeout(18000),
+    headers: {
+      "user-agent": DETAIL_USER_AGENT,
+      accept: "text/html,application/xhtml+xml",
+    },
+  });
+  if (!response.ok) throw new Error(`${response.status} ${response.statusText}`);
+  return response.text();
+}
+
+async function enrichOfficialCampaignDetails(campaigns) {
+  const enriched = [...campaigns];
+  const candidates = campaigns
+    .map((campaign, index) => ({ campaign, index }))
+    .filter(({ campaign }) => {
+      if (!campaign.sourceUrl || campaign.sourceUrl === sourceUrl || campaign.sourceUrl === paymentSourceUrl) return false;
+      try {
+        return new URL(campaign.sourceUrl).hostname.endsWith("7-11.com.tw");
+      } catch {
+        return false;
+      }
+    });
+  let failed = 0;
+
+  for (let start = 0; start < candidates.length; start += 4) {
+    const batch = await Promise.all(candidates.slice(start, start + 4).map(async ({ campaign, index }) => {
+      try {
+        const html = await fetchOfficialDetail(campaign.sourceUrl);
+        const detailText = officialDetailText(html);
+        const status = officialStatusSnippets(html);
+        const additions = [
+          detailText ? `官方活動詳情：${detailText}` : "",
+          status ? `官方頁額滿狀態：${status}` : "",
+        ].filter(Boolean);
+        return {
+          index,
+          campaign: additions.length
+            ? { ...campaign, rawText: `${campaign.rawText}；${additions.join("；")}`.slice(0, 9000) }
+            : campaign,
+        };
+      } catch (error) {
+        failed += 1;
+        console.warn(`7-ELEVEN official detail skipped: ${campaign.sourceUrl} (${error.message})`);
+        return { index, campaign };
+      }
+    }));
+    for (const item of batch) enriched[item.index] = item.campaign;
+  }
+  return { campaigns: enriched, detailPagesChecked: candidates.length, detailPagesFailed: failed };
+}
+
 async function enrichOpenWalletCampaigns(campaigns) {
   const enriched = [...campaigns];
   const candidates = campaigns
     .map((campaign, index) => ({ campaign, index }))
     .filter(({ campaign }) => campaign.paymentMethods?.includes("OPEN錢包") && campaign.sourceUrl && campaign.sourceUrl !== paymentSourceUrl);
+  let failed = 0;
 
   for (let start = 0; start < candidates.length; start += 4) {
     const batch = await Promise.all(candidates.slice(start, start + 4).map(async ({ campaign, index }) => {
       try {
-        const response = await fetch(campaign.sourceUrl, {
-          cache: "no-store",
-          headers: {
-            "user-agent": "Mozilla/5.0 paymentrader-official-sync/1.0",
-            accept: "text/html,application/xhtml+xml",
-          },
-        });
-        if (!response.ok) return { index, campaign };
-        const status = officialStatusSnippets(await response.text());
-        if (!status) return { index, campaign };
+        const html = await fetchOfficialDetail(campaign.sourceUrl);
+        const status = officialStatusSnippets(html);
+        const detailText = officialDetailText(html);
+        const additions = [
+          detailText ? `官方活動詳情：${detailText}` : "",
+          status ? `官方頁額滿狀態：${status}` : "",
+        ].filter(Boolean);
+        if (!additions.length) return { index, campaign };
         return {
           index,
           campaign: {
             ...campaign,
-            rawText: `${campaign.rawText}；官方頁額滿狀態：${status}`,
+            rawText: `${campaign.rawText}；${additions.join("；")}`.slice(0, 9000),
           },
         };
       } catch (error) {
+        failed += 1;
         console.warn(`OPEN錢包 official detail skipped: ${campaign.sourceUrl} (${error.message})`);
         return { index, campaign };
       }
     }));
     for (const item of batch) enriched[item.index] = item.campaign;
   }
-  return enriched;
+  return { campaigns: enriched, detailPagesChecked: candidates.length, detailPagesFailed: failed };
 }
 
 async function main() {
@@ -331,10 +396,14 @@ async function main() {
     })
     .filter((campaign) => campaign.title && (campaign.startsAt || campaign.endsAt) && (!campaign.startsAt || campaign.startsAt <= today) && (!campaign.endsAt || campaign.endsAt >= today));
 
+  const xmlDetailResult = await enrichOfficialCampaignDetails(xmlCampaigns);
   const paymentResponse = await fetch(paymentSourceUrl, { cache: "no-store" });
   const paymentHtml = paymentResponse.ok ? await paymentResponse.text() : "";
-  const paymentCampaigns = paymentHtml ? await enrichOpenWalletCampaigns(parsePaymentRows(paymentHtml, today)) : [];
-  const campaigns = [...xmlCampaigns, ...paymentCampaigns.map((campaign, index) => ({ ...campaign, officialOrder: xmlCampaigns.length + index }))]
+  const paymentDetailResult = paymentHtml
+    ? await enrichOpenWalletCampaigns(parsePaymentRows(paymentHtml, today))
+    : { campaigns: [], detailPagesChecked: 0, detailPagesFailed: 0 };
+  const paymentCampaigns = paymentDetailResult.campaigns;
+  const campaigns = [...xmlDetailResult.campaigns, ...paymentCampaigns.map((campaign, index) => ({ ...campaign, officialOrder: xmlCampaigns.length + index }))]
     .reduce((unique, campaign) => {
       const isBankPaymentCampaign = String(campaign.title || "").startsWith("OPEN錢包綁");
       const key = isBankPaymentCampaign
@@ -370,6 +439,8 @@ async function main() {
         url: sourceUrl,
         officialSite: "https://www.7-11.com.tw/index.aspx",
         status: "ok",
+        detailPagesChecked: xmlDetailResult.detailPagesChecked,
+        detailPagesFailed: xmlDetailResult.detailPagesFailed,
         checkedAt: new Date().toISOString(),
       },
       {
@@ -377,6 +448,8 @@ async function main() {
         url: paymentSourceUrl,
         officialSite: "https://www.7-11.com.tw/index.aspx",
         status: paymentResponse.ok ? "ok" : `http-${paymentResponse.status}`,
+        detailPagesChecked: paymentDetailResult.detailPagesChecked,
+        detailPagesFailed: paymentDetailResult.detailPagesFailed,
         checkedAt: new Date().toISOString(),
       },
     ],

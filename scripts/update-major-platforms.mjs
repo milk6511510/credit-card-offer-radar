@@ -425,6 +425,7 @@ async function scrapeLinePress(today) {
     campaigns: activeCampaigns,
     status: "ok",
     sourceUrls: [promotionUrl, listUrl],
+    detailPagesChecked: candidates.length,
   };
 }
 
@@ -613,12 +614,19 @@ async function scrapeLine(today) {
       return /回饋|優惠|活動|贈|券|點數/i.test(text) && !/財報|營收|EPS|董事會|交易量|獎項肯定/i.test(text);
     });
   if (!activeCampaigns.length && !eventResult.ok && pressResult.status === "unreachable") {
-    return { campaigns: [], status: "unreachable", error: `${eventResult.error || "集合頁無法讀取"}; ${pressResult.error || "新聞頁無法讀取"}`, sourceUrls: [eventUrl, ...pressResult.sourceUrls] };
+    return {
+      campaigns: [],
+      status: "unreachable",
+      error: `${eventResult.error || "集合頁無法讀取"}; ${pressResult.error || "新聞頁無法讀取"}`,
+      sourceUrls: [eventUrl, ...pressResult.sourceUrls],
+      detailPagesChecked: (eventCandidates.length || 0) + (pressResult.detailPagesChecked || 0),
+    };
   }
   return {
     campaigns: activeCampaigns,
     status: "ok",
     sourceUrls: ["https://web-tw-pay.line.me/cms/event", eventUrl, ...pressResult.sourceUrls],
+    detailPagesChecked: eventCandidates.length + (pressResult.detailPagesChecked || 0),
   };
 }
 
@@ -631,7 +639,8 @@ async function scrapeJko(today) {
     .filter((url) => /mkt\.jkopay\.com\/zh-TW\/(?:event|campaign)\//i.test(url))
     .filter((url) => /2026|h[12]|new|current|jkopayebill/i.test(url))
     .slice(0, 180);
-  const results = await mapLimit([...new Set(urls)], 8, async (url) => {
+  const uniqueUrls = [...new Set(urls)];
+  const results = await mapLimit(uniqueUrls, 8, async (url) => {
     const page = await safeFetchText(url);
     if (!page.ok) return null;
     const title = metaContent(page.text, "og:title") || cleanText(page.text.match(/<title[^>]*>([\s\S]*?)<\/title>/i)?.[1]);
@@ -639,7 +648,7 @@ async function scrapeJko(today) {
     if (!title || /404|找不到|page not found/i.test(`${title} ${description}`)) return null;
     return campaign({ provider: "街口支付", title: title.replace(/\s*[|｜].*$/, ""), rawText: description || title, sourceUrl: url, image: metaContent(page.text, "og:image"), dateText: `${title} ${description}` });
   });
-  return { campaigns: dedupeCampaigns(results, today), status: "ok", sourceUrls: [sitemapUrl] };
+  return { campaigns: dedupeCampaigns(results, today), status: "ok", sourceUrls: [sitemapUrl], detailPagesChecked: uniqueUrls.length };
 }
 
 async function scrapeEasyWallet(today) {
@@ -664,7 +673,7 @@ async function scrapeEasyWallet(today) {
     const detailText = detail.ok ? (cleanText(detailSection || "") || extractClassText(detail.text, "content-block")) : "";
     return campaign({ provider: "悠遊付", title: detailTitle || candidate.title, rawText: detailText || candidate.title, sourceUrl: candidate.sourceUrl, image: detail.ok ? metaContent(detail.text, "og:image") : "", dateText: `${candidate.date} ${detailPeriod}` });
   });
-  return { campaigns: dedupeCampaigns(results, today), status: "ok", sourceUrls: [`${listOrigin}/benefit/?page=1`] };
+  return { campaigns: dedupeCampaigns(results, today), status: "ok", sourceUrls: [`${listOrigin}/benefit/?page=1`], detailPagesChecked: unique.length };
 }
 
 async function scrapePi(today) {
@@ -691,7 +700,7 @@ async function scrapePi(today) {
     const fullText = detail.ok ? extractMainText(detail.text) : "";
     return campaign({ provider: "Pi 拍錢包", title: candidate.title, rawText: `${candidate.summary} ${fullText}`, sourceUrl: candidate.sourceUrl, image: candidate.image || (detail.ok ? metaContent(detail.text, "og:image") : ""), dateText: candidate.summary });
   });
-  return { campaigns: dedupeCampaigns(results, today), status: "ok", sourceUrls: [`${origin}/events/`] };
+  return { campaigns: dedupeCampaigns(results, today), status: "ok", sourceUrls: [`${origin}/events/`], detailPagesChecked: unique.length };
 }
 
 async function scrapeTaiwanPay(today) {
@@ -718,7 +727,7 @@ async function scrapeTaiwanPay(today) {
     if (!item || !item.title) return item;
     return item.startsAt > today || item.endsAt < today ? { ...item, startsAt: "", endsAt: "", status: "官方最新優惠清單；活動期間與名額請開啟官方詳情" } : item;
   });
-  return { campaigns: dedupeCampaigns(latest, today), status: "ok", sourceUrls: [listUrl] };
+  return { campaigns: dedupeCampaigns(latest, today), status: "ok", sourceUrls: [listUrl], detailPagesChecked: unique.length };
 }
 
 async function scrapeGama(today) {
@@ -748,33 +757,72 @@ async function scrapeGama(today) {
       statusText: `${item.PublishTime}；官方內容請見詳情頁`,
     });
   });
-  return { campaigns: dedupeCampaigns(results, today), status: "ok", sourceUrls: [listUrl, "https://www.gamapay.com.tw/api/NewsList"] };
+  return { campaigns: dedupeCampaigns(results, today), status: "ok", sourceUrls: [listUrl, "https://www.gamapay.com.tw/api/NewsList"], detailPagesChecked: news.length };
 }
 
 async function scrapeOpay(today) {
   const listUrl = "https://www.opay.tw/banner/event";
   const page = await safeFetchText(listUrl);
   if (!page.ok) return { campaigns: [], status: "unreachable", error: page.error, sourceUrls: [listUrl] };
-  const results = [];
+  const candidates = [];
   for (const match of page.text.matchAll(/<h3[^>]*>([\s\S]*?)<\/h3>/gi)) {
     const context = page.text.slice(Math.max(0, match.index - 1800), match.index + 2200);
     const title = cleanText(match[1]);
     const sourceUrl = absoluteUrl(context.match(/<a[^>]+href=["']([^"']+)["']/i)?.[1], listUrl);
     const image = absoluteUrl(context.match(/<img[^>]+src=["']([^"']+)["']/i)?.[1], listUrl);
     if (!title || !sourceUrl) continue;
-    results.push(campaign({ provider: "歐付寶 O'Pay", title, rawText: title, sourceUrl, image, dateText: title }));
+    candidates.push({ title, sourceUrl, image });
   }
-  return { campaigns: dedupeCampaigns(results, today), status: "ok", sourceUrls: [listUrl] };
+  const unique = [...new Map(candidates.map((item) => [item.sourceUrl, item])).values()];
+  const results = await mapLimit(unique, 6, async (candidate) => {
+    const detail = await safeFetchText(candidate.sourceUrl);
+    const detailText = detail.ok ? extractMainText(detail.text) : "";
+    const detailTitle = detail.ok ? extractHeading(detail.text) || metaContent(detail.text, "og:title") : "";
+    return campaign({
+      provider: "歐付寶 O'Pay",
+      title: detailTitle || candidate.title,
+      rawText: detailText || candidate.title,
+      sourceUrl: candidate.sourceUrl,
+      image: detail.ok ? metaContent(detail.text, "og:image") || candidate.image : candidate.image,
+      dateText: detailText || candidate.title,
+    });
+  });
+  return { campaigns: dedupeCampaigns(results, today), status: "ok", sourceUrls: [listUrl], detailPagesChecked: unique.length };
 }
 
 function extractIcashCandidates(html, origin) {
   return [...html.matchAll(/href=["']([^"']*\/advertMessage\/view\/id\/(\d+))["']/gi)].map((match) => ({ id: match[2], sourceUrl: absoluteUrl(match[1], origin) }));
 }
 
+function extractIcashListPages(html, origin) {
+  const pages = new Set([1]);
+  for (const match of String(html || "").matchAll(/href=["']([^"']*\/advertMessage\/index\?[^"']*)["']/gi)) {
+    try {
+      const url = new URL(match[1].replace(/&amp;/gi, "&"), origin);
+      if (url.pathname !== "/advertMessage/index") continue;
+      const page = Number(url.searchParams.get("page") || "1");
+      if (Number.isInteger(page) && page > 0 && page <= 24) pages.add(page);
+    } catch {
+      // Ignore malformed pagination links and keep the bounded scan below.
+    }
+  }
+  return [...pages].sort((a, b) => a - b);
+}
+
 async function scrapeIcash(today) {
   const origin = "https://www.icashpay.com.tw";
-  const listUrls = Array.from({ length: 6 }, (_, index) => `${origin}/advertMessage/index?page=${index + 1}`);
-  const pages = await mapLimit(listUrls, 3, async (url) => safeFetchText(url));
+  const monthlyUrl = `${origin}/advertMessage/view/id/2540`;
+  const firstListUrl = `${origin}/advertMessage/index?page=1`;
+  const firstPage = await safeFetchText(firstListUrl);
+  const discoveredPages = firstPage.ok ? extractIcashListPages(firstPage.text, origin) : [1];
+  const maxPage = Math.min(24, Math.max(6, ...discoveredPages));
+  const listUrls = Array.from({ length: maxPage }, (_, index) => `${origin}/advertMessage/index?page=${index + 1}`);
+  const listPages = [
+    firstPage,
+    ...(await mapLimit(listUrls.slice(1), 3, async (url) => safeFetchText(url))),
+  ];
+  const monthlyPage = await safeFetchText(monthlyUrl);
+  const pages = [...listPages, monthlyPage];
   const candidates = pages.flatMap((page) => page?.ok ? extractIcashCandidates(page.text, origin) : []);
   const unique = [...new Map(
     candidates
@@ -782,6 +830,7 @@ async function scrapeIcash(today) {
       .filter((item) => !["109", "2540"].includes(item.id))
       .map((item) => [item.id, item]),
   ).values()];
+  console.log(`icash Pay official detail crawl: ${unique.length} activity pages from ${listUrls.length} list pages plus ${monthlyUrl}`);
   const detailResults = await mapLimit(unique, 6, async (candidate) => {
     const detail = await safeFetchText(candidate.sourceUrl);
     if (!detail.ok) return null;
@@ -799,11 +848,9 @@ async function scrapeIcash(today) {
     });
   });
 
-  const monthlyUrl = `${origin}/advertMessage/view/id/2540`;
-  const monthly = await safeFetchText(monthlyUrl);
   const cardResults = [];
-  if (monthly.ok) {
-    for (const match of monthly.text.matchAll(/<article\b[^>]*class=["'][^"']*icash-offer-card[^"']*["'][\s\S]*?<\/article>/gi)) {
+  if (monthlyPage.ok) {
+    for (const match of monthlyPage.text.matchAll(/<article\b[^>]*class=["'][^"']*icash-offer-card[^"']*["'][\s\S]*?<\/article>/gi)) {
       const block = match[0];
       const title = extractHeading(block);
       const period = extractClassText(block, "icash-offer-card__period");
@@ -812,10 +859,12 @@ async function scrapeIcash(today) {
       if (title) cardResults.push(campaign({ provider: "icash Pay", title, rawText: `${period} ${body}`, sourceUrl: absoluteUrl(href, origin) || monthlyUrl, dateText: period }));
     }
   }
+  const detailUrls = new Set(detailResults.filter(Boolean).map((item) => item.sourceUrl));
   return {
-    campaigns: dedupeCampaigns([...detailResults, ...cardResults], today),
+    campaigns: dedupeCampaigns([...detailResults, ...cardResults.filter((item) => !detailUrls.has(item.sourceUrl))], today),
     status: pages.some((page) => page?.ok) ? "ok" : "unreachable",
-    sourceUrls: [...listUrls.slice(0, 1), monthlyUrl],
+    sourceUrls: [...listUrls, monthlyUrl],
+    detailPagesChecked: unique.length,
   };
 }
 
@@ -826,31 +875,118 @@ async function scrapePxPay(today) {
   const title = cleanText(page.text.match(/<title[^>]*>([\s\S]*?)<\/title>/i)?.[1]) || "全支付官方活動";
   const rawText = `${metaContent(page.text, "description")} ${extractMainText(page.text)}`;
   const item = campaign({ provider: "全支付", title, rawText, sourceUrl, dateText: "2026/08/01-2026/10/31", explicitCategory: "一般回饋" });
-  return { campaigns: dedupeCampaigns([item], today), status: "ok", sourceUrls: [sourceUrl] };
+  return { campaigns: dedupeCampaigns([item], today), status: "ok", sourceUrls: [sourceUrl], detailPagesChecked: 1 };
+}
+
+function plusPayPageContent(page) {
+  const values = [];
+  for (const slide of page?.pageSlideList || []) {
+    for (const component of slide.component || []) {
+      const data = component?.data || {};
+      for (const value of [data.text, data.initialValue, data.content, data.title]) {
+        const text = cleanText(value || "");
+        if (!text || /文字輸入框\(請選擇文字\)/.test(text)) continue;
+        values.push(text);
+      }
+    }
+  }
+  return [...new Set(values)].join("\n").slice(0, 9000);
+}
+
+function plusPayPageImage(page) {
+  for (const slide of page?.pageSlideList || []) {
+    for (const component of slide.component || []) {
+      const data = component?.data || {};
+      const candidate = data.url || data.externalUrl || data.imgUrl || "";
+      if (/^https?:\/\//i.test(candidate)) return candidate;
+    }
+  }
+  return "";
+}
+
+function plusPayPageTitle(page, content) {
+  const candidates = String(content || "")
+    .split(/\n+/)
+    .map((value) => cleanText(value))
+    .filter((value) => value.length >= 4 && value.length <= 180)
+    .filter((value) => /回饋|優惠|活動|消費|贈|點數|PayPay|全家|通路/i.test(value))
+    .filter((value) => !/注意事項|活動期間|活動辦法|文字輸入框/i.test(value));
+  return candidates.find((value) => /[\u4e00-\u9fff]/.test(value))
+    || candidates[0]
+    || cleanText(page?.name || "全盈+PAY 官方活動");
 }
 
 async function scrapePlusPay(today, fallback) {
   const sourceUrl = "https://event2023.pluspay.com.tw/";
-  const page = await safeFetchText(sourceUrl);
-  if (page.ok) {
-    const visible = extractMainText(page.text);
-    if (visible.length > 300 && /全盈|回饋|Fa 點|優惠/i.test(visible)) {
-      const item = campaign({ provider: "全盈+PAY", title: extractHeading(page.text) || "全盈+PAY 官方活動", rawText: visible, sourceUrl, dateText: visible });
-      return { campaigns: dedupeCampaigns([item], today), status: "ok", sourceUrls: [sourceUrl] };
+  const apiUrl = "https://event2023.pluspay.com.tw/api/weba/v3/site/publish/event2023.pluspay.com.tw";
+  try {
+    const payload = await fetchJson(apiUrl);
+    const structure = JSON.parse(payload?.structure_prod || "{}");
+    const pages = structure?.mobile?.pageMenegent || [];
+    const monthStart = `${today.slice(0, 6)}01`;
+    const campaigns = pages
+      .filter((page) => !/^(?:E|I|V|T)-/i.test(String(page?.name || "")))
+      .map((page, officialOrder) => {
+      const rawText = plusPayPageContent(page);
+      if (!rawText) return null;
+      const title = plusPayPageTitle(page, rawText);
+      const dateText = `${page.name || ""}\n${rawText}`;
+      const parsed = parseDateRange(dateText);
+      return campaign({
+        provider: "全盈+PAY",
+        title,
+        rawText,
+        sourceUrl: `${sourceUrl}${encodeURIComponent(page.name || "")}?deviceModeForBot=mobile`,
+        image: plusPayPageImage(page),
+        dateText,
+        officialOrder,
+        startsAtOverride: parsed.startsAt || "",
+        endsAtOverride: parsed.endsAt || "",
+      });
+      })
+      .filter(Boolean)
+      // A page with only a start date is treated as a current page only when
+      // it started in the current month; otherwise an old monthly page would
+      // look permanently active because no end date was published.
+      .filter((item) => item.endsAt || item.startsAt >= monthStart);
+    const active = dedupeCampaigns(campaigns, today);
+    if (active.length) {
+      return {
+        campaigns: active,
+        status: "ok",
+        sourceUrls: [sourceUrl, apiUrl],
+        detailPagesChecked: pages.length,
+      };
     }
+  } catch (error) {
+    console.warn(`全盈+PAY official detail API skipped: ${error.message}`);
   }
+
   const fallbackCampaigns = fallback?.length ? fallback : [
     campaign({ provider: "全盈+PAY", title: "滿 1,111 元享 11% 全盈儲值金", rawText: "全盈+PAY 官方活動：指定店家單筆消費滿 1,111 元享最高 11% 全盈儲值金，活動預算與適用通路以官方活動頁為準。", sourceUrl, dateText: "2026/09/18-2026/12/31" }),
     campaign({ provider: "全盈+PAY", title: "精選品牌滿 1,500 元回饋 10% 全盈儲值金", rawText: "指定實體與線上品牌單筆消費滿 1,500 元，享 10% 全盈儲值金，每會員每月最高 200 元；使用全盈+PAY 條碼或 QR Code。", sourceUrl, dateText: "2026/07/01-2026/12/31" }),
     campaign({ provider: "全盈+PAY", title: "註冊全盈+PAY 領全家咖啡", rawText: "符合資格的新註冊會員可領全家咖啡，領取資格與兌換期限以官方活動頁及 App 顯示為準。", sourceUrl, dateText: "2026/01/01-2026/12/31", explicitCategory: "新戶優惠" }),
     campaign({ provider: "全盈+PAY", title: "Fa 點驚喜，筆筆消費贈 Fa 點", rawText: "全家會員使用全盈+PAY 消費可依官方規則累積 Fa 點，實際會員資格與點數計算以官方頁最新規則為準。", sourceUrl, dateText: "2026/01/01-2026/12/31", explicitCategory: "會員回饋" }),
   ];
-  return { campaigns: dedupeCampaigns(fallbackCampaigns, today), status: page.ok ? "fallback" : "unreachable", error: page.ok ? "官方頁為 JavaScript 應用程式，未取得活動內容" : page.error, sourceUrls: [sourceUrl] };
+  return { campaigns: dedupeCampaigns(fallbackCampaigns, today), status: "fallback", error: "官方活動資料 API 未取得可解析內容", sourceUrls: [sourceUrl, apiUrl], detailPagesChecked: 0 };
 }
 
 function previousCampaigns(data, providerName) {
   const payment = (data.payments || []).find((item) => item.name === `${providerName} 官方活動`);
   return (payment?.campaigns || []).map((item) => ({ ...item, paymentMethods: item.paymentMethods?.length ? item.paymentMethods : [providerName] }));
+}
+
+function previousDetailPagesChecked(data, providerName) {
+  return Math.max(0, ...(data.sources || [])
+    .filter((source) => String(source.name || "").startsWith(providerName))
+    .map((source) => Number(source.detailPagesChecked) || 0));
+}
+
+function detailPagesFromCampaigns(campaigns, excludedUrls = []) {
+  const excluded = new Set(excludedUrls);
+  return new Set((campaigns || [])
+    .map((campaign) => campaign.sourceUrl)
+    .filter((url) => url && !excluded.has(url))).size;
 }
 
 const scraperByName = {
@@ -894,7 +1030,16 @@ for (const item of catalog) {
     const existing = item.name === "OPEN錢包"
       ? previousCampaigns(data, "7-ELEVEN").filter((entry) => entry.paymentMethods?.includes("OPEN錢包"))
       : previousCampaigns(data, item.name);
-    result = { campaigns: existing, status: "ok", sourceUrls: item.sourceUrls };
+    const detailProvider = item.name === "OPEN錢包" ? "7-ELEVEN" : item.name;
+    result = {
+      campaigns: existing,
+      status: "ok",
+      sourceUrls: item.sourceUrls,
+      detailPagesChecked: Math.max(
+        previousDetailPagesChecked(data, detailProvider),
+        detailPagesFromCampaigns(existing, item.name === "OPEN錢包" ? ["https://www.7-11.com.tw/service/Pay.aspx#tab1"] : item.sourceUrls),
+      ),
+    };
   }
   if (item.name === "ezPay 簡單付") {
     result = { campaigns: [], status: "blocked", error: "官方首頁拒絕自動讀取，暫不列入目前有效活動", sourceUrls: item.sourceUrls };
@@ -923,6 +1068,8 @@ for (const item of catalog) {
       officialSite: item.officialSite,
       status: result.status || "unchecked",
       ...(result.error ? { note: result.error } : {}),
+      ...(Number.isInteger(result.detailPagesChecked) ? { detailPagesChecked: result.detailPagesChecked } : {}),
+      ...(Number.isInteger(result.detailPagesFailed) ? { detailPagesFailed: result.detailPagesFailed } : {}),
       checkedAt,
     });
   }

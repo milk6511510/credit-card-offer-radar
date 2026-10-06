@@ -161,7 +161,7 @@ function extractDateRecords(platform, campaign, records) {
   const text = `${campaign.title || ""}\n${campaign.rawText || ""}`;
   if (platform === "OPEN錢包" && !String(campaign.title || "").startsWith("OPEN錢包綁")) return;
   if (platform === "iPASS MONEY" && !/(額滿|滿額|用罄|送完|售完)/.test(text)) return;
-  const pattern = /(20\d{2})\s*[/.\-]\s*(\d{1,2})\s*[/.\-]\s*(\d{1,2})(?:\s+(\d{1,2}):(\d{2})(?::(\d{2}))?\s*(a\.?m\.?|p\.?m\.?|am|pm)?)?[\s\S]{0,28}?(額滿|用罄|售完|送完)/gi;
+  const pattern = /(20\d{2})\s*[/.\-]\s*(\d{1,2})\s*[/.\-]\s*(\d{1,2})(?:\s+(\d{1,2}):(\d{2})(?::(\d{2}))?\s*(a\.?m\.?|p\.?m\.?|am|pm)?)?[\s\S]{0,28}?(額滿(?!提醒|時間|後|公告)|用罄|售完|送完)/gi;
   for (const match of text.matchAll(pattern)) {
     const index = Number(match.index || 0);
     const before = text.slice(Math.max(0, index - 72), index);
@@ -201,7 +201,7 @@ function extractFederatedMonthRecords(platform, campaign, records) {
   if (platform !== "iPASS MONEY" || !campaign.exhaustionSourceUrl || !/activity\.ubot\.com\.tw\/aws_act\/2026\/2026ipassmoney/i.test(campaign.exhaustionSourceUrl)) return;
   const text = `${campaign.title || ""}\n${campaign.rawText || ""}`;
   const year = dateFromCampaign(campaign);
-  for (const match of text.matchAll(/(\d{1,2})月活動已(?:於[^。；]{0,48})?(?:額滿|滿額|用罄|送完)/gi)) {
+  for (const match of text.matchAll(/(\d{1,2})月活動已(?:於[^。；]{0,48})?(?:額滿(?!提醒|時間|後|公告)|滿額|用罄|送完)/gi)) {
     const month = `${year}-${String(Number(match[1])).padStart(2, "0")}`;
     const alreadyRecorded = records.some((record) => record.platform === platform && record.month === month && record.bank === "聯邦銀行" && record.rewardLabel === "10% 回饋");
     if (alreadyRecorded) continue;
@@ -227,7 +227,7 @@ function extractOpenMonthRecords(platform, campaign, records) {
   if (platform !== "OPEN錢包") return;
   if (!String(campaign.title || "").startsWith("OPEN錢包綁")) return;
   const text = `${campaign.title || ""}\n${campaign.rawText || ""}`;
-  const pattern = /(\d{1,2})月(?:份)?[^。\n]{0,64}?已(?:於[^。\n]{0,40})?(?:額滿|滿額|兌換完畢|用罄|送完)/gi;
+  const pattern = /(\d{1,2})月(?:份)?[^。\n]{0,64}?已(?:於[^。\n]{0,40})?(?:額滿(?!提醒|時間|後|公告)|滿額|兌換完畢|用罄|送完)/gi;
   for (const match of text.matchAll(pattern)) {
     const monthNumber = String(Number(match[1])).padStart(2, "0");
     const year = dateFromCampaign(campaign);
@@ -254,6 +254,12 @@ function extractOpenMonthRecords(platform, campaign, records) {
 function keepHistoryRecord(record) {
   const evidence = String(record.evidence || "");
   if (/(?:額滿後(?:無論|均|一律)|額滿公告(?:以|為)|額滿活動即提前結束)/.test(evidence) && !/已(?:於[^。；\n]{0,60})?(?:額滿|滿額|兌換完畢|用罄|送完)/.test(evidence)) return false;
+  if (/^20\d{2}-\d{2}-\d{2}$/.test(String(record.exhaustedDate || "")) && /額滿提醒|最晚於|匯入|入點/.test(evidence)) {
+    const [year, month, day] = String(record.exhaustedDate).split("-");
+    const datePattern = year + "\\s*[/.-]\\s*0?" + Number(month) + "\\s*[/.-]\\s*0?" + Number(day);
+    const hasExplicitNotice = new RegExp("(?:已於|活動已於|贈點已於)[^\\n]{0,24}" + datePattern + "[\\s\\S]{0,80}(?:額滿(?!提醒|時間|後|公告)|用罄|售完|送完)", "i").test(evidence);
+    if (!hasExplicitNotice) return false;
+  }
   if (record.platform !== "OPEN錢包") return true;
   const title = String(record.campaignTitle || "");
   if (!title.startsWith("OPEN錢包綁")) return false;
