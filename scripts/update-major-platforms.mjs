@@ -1016,9 +1016,29 @@ for (const item of catalog) {
   if (!scraper) continue;
   try {
     const result = await scraper(today);
-    scraped.set(item.name, result);
+    const previous = previousCampaigns(data, item.name);
+    if (result.status === "unreachable" && previous.length) {
+      scraped.set(item.name, {
+        ...result,
+        campaigns: previous,
+        status: "stale-preserved",
+        detailPagesChecked: Math.max(Number(result.detailPagesChecked) || 0, previousDetailPagesChecked(data, item.name)),
+        note: `${result.error || "官方來源暫時無法連線"}；沿用上一次成功同步的 ${previous.length} 筆活動，避免暫時斷線造成資料消失。`,
+      });
+    } else {
+      scraped.set(item.name, result);
+    }
   } catch (error) {
-    scraped.set(item.name, { campaigns: [], status: "unreachable", error: error instanceof Error ? error.message : String(error), sourceUrls: item.sourceUrls });
+    const previous = previousCampaigns(data, item.name);
+    scraped.set(item.name, previous.length
+      ? {
+          campaigns: previous,
+          status: "stale-preserved",
+          error: `${error instanceof Error ? error.message : String(error)}；沿用上一次成功同步的 ${previous.length} 筆活動，避免暫時斷線造成資料消失。`,
+          sourceUrls: item.sourceUrls,
+          detailPagesChecked: previousDetailPagesChecked(data, item.name),
+        }
+      : { campaigns: [], status: "unreachable", error: error instanceof Error ? error.message : String(error), sourceUrls: item.sourceUrls });
   }
 }
 
