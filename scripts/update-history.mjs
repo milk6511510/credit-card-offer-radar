@@ -160,7 +160,7 @@ function dedupeHistoryRecords(records) {
 function extractDateRecords(platform, campaign, records) {
   const text = `${campaign.title || ""}\n${campaign.rawText || ""}`;
   if (platform === "OPEN錢包" && !String(campaign.title || "").startsWith("OPEN錢包綁")) return;
-  if (platform === "iPASS MONEY" && !/額滿/.test(campaign.title || "")) return;
+  if (platform === "iPASS MONEY" && !/(額滿|滿額|用罄|送完|售完)/.test(text)) return;
   const pattern = /(20\d{2})\s*[/.\-]\s*(\d{1,2})\s*[/.\-]\s*(\d{1,2})(?:\s+(\d{1,2}):(\d{2})(?::(\d{2}))?\s*(a\.?m\.?|p\.?m\.?|am|pm)?)?[\s\S]{0,28}?(額滿|用罄|售完|送完)/gi;
   for (const match of text.matchAll(pattern)) {
     const index = Number(match.index || 0);
@@ -191,7 +191,33 @@ function extractDateRecords(platform, campaign, records) {
       exhaustionType: "quota-full",
       confidence: parts.time ? "exact" : "date-only",
       evidence: context,
-      sourceUrl: campaign.sourceUrl || "",
+      sourceUrl: campaign.exhaustionSourceUrl || campaign.sourceUrl || "",
+      source: "official",
+    });
+  }
+}
+
+function extractFederatedMonthRecords(platform, campaign, records) {
+  if (platform !== "iPASS MONEY" || !campaign.exhaustionSourceUrl || !/activity\.ubot\.com\.tw\/aws_act\/2026\/2026ipassmoney/i.test(campaign.exhaustionSourceUrl)) return;
+  const text = `${campaign.title || ""}\n${campaign.rawText || ""}`;
+  const year = dateFromCampaign(campaign);
+  for (const match of text.matchAll(/(\d{1,2})月活動已(?:於[^。；]{0,48})?(?:額滿|滿額|用罄|送完)/gi)) {
+    const month = `${year}-${String(Number(match[1])).padStart(2, "0")}`;
+    const alreadyRecorded = records.some((record) => record.platform === platform && record.month === month && record.bank === "聯邦銀行" && record.rewardLabel === "10% 回饋");
+    if (alreadyRecorded) continue;
+    addRecord(records, {
+      platform,
+      month,
+      campaignTitle: "【聯邦銀行】綁定聯邦信用卡消費，最高享 10% 回饋！",
+      bank: "聯邦銀行",
+      rewardLabel: "10% 回饋",
+      rate: 0.1,
+      cap: 50,
+      exhaustedDate: month,
+      exhaustionType: "quota-full",
+      confidence: "month-only",
+      evidence: cleanText(match[0]),
+      sourceUrl: campaign.exhaustionSourceUrl,
       source: "official",
     });
   }
@@ -240,6 +266,7 @@ for (const payment of data.payments || []) {
   const platform = canonicalPlatform(payment.name);
   for (const campaign of payment.campaigns || []) {
     extractDateRecords(platform, campaign, records);
+    extractFederatedMonthRecords(platform, campaign, records);
     extractOpenMonthRecords(platform, campaign, records);
   }
 }

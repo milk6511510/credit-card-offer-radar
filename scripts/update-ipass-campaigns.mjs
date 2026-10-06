@@ -6,6 +6,7 @@ const root = path.dirname(path.dirname(fileURLToPath(import.meta.url)));
 const outputPath = path.join(root, "public", "data", "campaigns.json");
 const listOrigin = "https://www.i-pass.com.tw";
 const listUrl = `${listOrigin}/Preferential?page=1&type=0`;
+const federatedStatusUrl = "https://activity.ubot.com.tw/aws_act/2026/2026ipassmoney/index.htm";
 
 function cleanText(value) {
   return String(value || "")
@@ -129,7 +130,7 @@ function detailImage(html) {
   return html.match(/<meta[^>]+property=["']og:image["'][^>]+content=["']([^"']+)["']/i)?.[1] || "";
 }
 
-async function fetchText(url) {
+async function fetchText(url, redirectDepth = 0) {
   const response = await fetch(url, {
     cache: "no-store",
     headers: {
@@ -138,16 +139,45 @@ async function fetchText(url) {
     },
   });
   if (!response.ok) throw new Error(`${response.status} ${response.statusText}`);
-  return response.text();
+  const html = await response.text();
+  // Some official iPASS detail pages hand off to a CDN with a JavaScript
+  // redirect instead of an HTTP redirect. Follow it so the detail content
+  // and any exhaustion notice remain available to the history parser.
+  const redirect = html.match(/redirectUrl\s*=\s*["']([^"']+)["']/i)?.[1];
+  if (redirect && redirectDepth < 2) {
+    const target = decodeURIComponent(redirect);
+    if (target && target !== url) return fetchText(new URL(target, url).toString(), redirectDepth + 1);
+  }
+  return html;
 }
 
 async function discoverListPages(firstHtml) {
   const pages = new Set([1]);
-  for (const match of firstHtml.matchAll(/\/Preferential\?type=0&page=(\d+)/gi)) {
-    const page = Number(match[1]);
-    if (Number.isInteger(page) && page > 0 && page <= 8) pages.add(page);
+  for (const match of firstHtml.matchAll(/href=["']([^"']*\/Preferential\?[^"']*)["']/gi)) {
+    try {
+      const url = new URL(match[1].replace(/&amp;/gi, "&"), listOrigin);
+      if (url.pathname !== "/Preferential" || url.searchParams.get("type") !== "0") continue;
+      const page = Number(url.searchParams.get("page") || "1");
+      if (Number.isInteger(page) && page > 0 && page <= 8) pages.add(page);
+    } catch {
+      // Ignore malformed pagination links and continue with known pages.
+    }
   }
   return [...pages].sort((a, b) => a - b);
+}
+
+async function loadFederatedStatus() {
+  try {
+    const html = await fetchText(federatedStatusUrl);
+    const text = cleanText(html);
+    const statuses = [...text.matchAll(/(\d{1,2})月活動已(?:於[^。；]{0,48})?(?:額滿|滿額|用罄|送完)/gi)]
+      .map((match) => `${Number(match[1])}月活動已額滿`)
+      .filter((status, index, all) => all.indexOf(status) === index);
+    return { statuses, sourceUrl: federatedStatusUrl };
+  } catch (error) {
+    console.warn(`聯邦 iPASS MONEY 額滿頁 skipped: ${error.message}`);
+    return { statuses: [], sourceUrl: federatedStatusUrl };
+  }
 }
 
 async function loadActiveCampaigns() {
@@ -215,7 +245,16 @@ async function loadActiveCampaigns() {
 }
 
 const data = JSON.parse(await readFile(outputPath, "utf8"));
-const { campaigns, today } = await loadActiveCampaigns();
+const { campaigns: activeCampaigns, today } = await loadActiveCampaigns();
+const federatedStatus = await loadFederatedStatus();
+const campaigns = activeCampaigns.map((campaign) => {
+  if (!/用 iPASS MONEY 消費[，,、 ]*最高享[ ]*10%[ ]*回饋/.test(campaign.title) || !federatedStatus.statuses.length) return campaign;
+  return {
+    ...campaign,
+    exhaustionSourceUrl: federatedStatus.sourceUrl,
+    rawText: `${campaign.rawText} 官方聯邦活動頁額滿狀態：${federatedStatus.statuses.join("；")}`,
+  };
+});
 const payments = (data.payments || []).filter((payment) => payment.name !== "iPASS MONEY 官方活動");
 payments.push({
   name: "iPASS MONEY 官方活動",
@@ -233,6 +272,11 @@ data.sources = [
     name: "iPASS MONEY 官方優惠活動",
     url: listUrl,
     officialSite: `${listOrigin}/Preferential`,
+  },
+  {
+    name: "聯邦銀行 iPASS MONEY 額滿公告",
+    url: federatedStatusUrl,
+    officialSite: federatedStatusUrl,
   },
 ];
 data.payments = payments;
