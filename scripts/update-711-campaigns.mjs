@@ -397,7 +397,13 @@ async function main() {
     .filter((campaign) => campaign.title && (campaign.startsAt || campaign.endsAt) && (!campaign.startsAt || campaign.startsAt <= today) && (!campaign.endsAt || campaign.endsAt >= today));
 
   const xmlDetailResult = await enrichOfficialCampaignDetails(xmlCampaigns);
-  const paymentResponse = await fetch(paymentSourceUrl, { cache: "no-store" });
+  const paymentResponse = await fetch(paymentSourceUrl, {
+    cache: "no-store",
+    headers: {
+      "user-agent": DETAIL_USER_AGENT,
+      accept: "text/html,application/xhtml+xml",
+    },
+  });
   const paymentHtml = paymentResponse.ok ? await paymentResponse.text() : "";
   const paymentDetailResult = paymentHtml
     ? await enrichOpenWalletCampaigns(parsePaymentRows(paymentHtml, today))

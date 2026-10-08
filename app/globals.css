@@ -5821,6 +5821,11 @@ body {
   box-shadow: 0 0 0 3px rgba(49, 182, 108, 0.13), 0 0 8px rgba(49, 182, 108, 0.58);
 }
 
+.history-status-light.is-reported {
+  background: #e49a32;
+  box-shadow: 0 0 0 3px rgba(228, 154, 50, 0.14), 0 0 8px rgba(228, 154, 50, 0.42);
+}
+
 .history-status-light.is-muted {
   border: 1px solid #bdcbc3;
   background: #eef3f0;
@@ -5836,6 +5841,11 @@ body {
 .history-track-bank.is-exhausted {
   border-color: #c7e2d0;
   background: #f6fcf7;
+}
+
+.history-track-bank.is-reported {
+  border-color: #ecd5ad;
+  background: #fffaf1;
 }
 
 @media (max-width: 640px) {

@@ -66,7 +66,7 @@ type HistoryRecord = {
   confidence: HistoryConfidence;
   evidence: string;
   sourceUrl: string;
-  source: "official";
+  source: "official" | "app-report";
 };
 
 type HistoryTrackGroup = {
@@ -406,7 +406,9 @@ function normalizeHistoryCampaignTitle(record: HistoryRecord) {
   return record.campaignTitle.replace(/綁\s*[^｜|]+銀行\s*[｜|]/, "綁多家銀行｜");
 }
 
-function historyConfidenceLabel(confidence: HistoryConfidence) {
+function historyConfidenceLabel(record: HistoryRecord) {
+  if (record.source === "app-report") return "APP 顯示，官方未公布時間";
+  const { confidence } = record;
   if (confidence === "exact") return "官方公告到時間";
   if (confidence === "date-only") return "官方公告到日期";
   return "官方只公布月份";
@@ -672,8 +674,8 @@ function HistoryTrackGroupCard({ group, compact = false }: { group: HistoryTrack
       <p>{[group.merchant, group.rewardLabel].filter(Boolean).join(" · ") || "官方活動回饋"}</p>
       <div className="history-track-bank-list">
         {visibleRecords.map((record) => (
-          <span className="history-track-bank is-exhausted" key={record.id} title={formatHistoryDate(record)}>
-            <span className="history-track-bank-label"><i className="history-status-light is-lit" aria-hidden="true" /><strong>{record.bank || "全通路"}</strong></span>
+          <span className={`history-track-bank is-exhausted${record.source === "app-report" ? " is-reported" : ""}`} key={record.id} title={formatHistoryDate(record)}>
+            <span className="history-track-bank-label"><i className={`history-status-light ${record.source === "app-report" ? "is-reported" : "is-lit"}`} aria-hidden="true" /><strong>{record.bank || "全通路"}</strong></span>
             <small>{formatHistoryTrackDate(record)}</small>
           </span>
         ))}
@@ -724,6 +726,7 @@ function HistoryMonthSelector({ months, records, selectedMonth, onSelect }: { mo
       </div>
       <div className="history-status-legend" aria-label="額滿狀態說明">
         <span><i className="history-status-light is-lit" aria-hidden="true" />已確認額滿</span>
+        <span><i className="history-status-light is-reported" aria-hidden="true" />APP 顯示，官方未公布時間</span>
         <span><i className="history-status-light is-muted" aria-hidden="true" />尚未收到官方額滿公告</span>
       </div>
     </div>
@@ -1394,8 +1397,8 @@ export default function Home() {
                       <h4>{record.campaignTitle}</h4>
                       <p>{[record.merchant, record.rewardLabel].filter(Boolean).join(" · ") || "官方活動回饋"}</p>
                     </div>
-                    <div className="history-record-time"><span>官方額滿</span><strong>{formatHistoryDate(record)}</strong><small>{historyConfidenceLabel(record.confidence)}</small></div>
-                    <div className="history-record-evidence"><p>{record.evidence}</p>{record.sourceUrl ? <a href={record.sourceUrl} target="_blank" rel="noreferrer">看官方活動頁 <Icon name="external" size={13} /></a> : null}</div>
+                    <div className="history-record-time"><span>{record.source === "app-report" ? "APP 顯示額滿" : "官方額滿"}</span><strong>{formatHistoryDate(record)}</strong><small>{historyConfidenceLabel(record)}</small></div>
+                    <div className="history-record-evidence"><p>{record.evidence}</p>{record.sourceUrl ? <a href={record.sourceUrl} target="_blank" rel="noreferrer">{record.source === "app-report" ? "看活動條件頁" : "看官方活動頁"} <Icon name="external" size={13} /></a> : null}</div>
                   </article>
                 ))}
                 </div>

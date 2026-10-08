@@ -224,7 +224,10 @@ function extractFederatedMonthRecords(platform, campaign, records) {
 }
 
 function extractOpenMonthRecords(platform, campaign, records) {
-  if (platform !== "OPEN錢包") return;
+  const isOpenWalletCampaign = platform === "OPEN錢包"
+    || campaign.paymentMethods?.includes("OPEN錢包")
+    || /OPEN錢包綁/i.test(String(campaign.title || ""));
+  if (!isOpenWalletCampaign) return;
   if (!String(campaign.title || "").startsWith("OPEN錢包綁")) return;
   const text = `${campaign.title || ""}\n${campaign.rawText || ""}`;
   const pattern = /(\d{1,2})月(?:份)?[^。\n]{0,64}?已(?:於[^。\n]{0,40})?(?:額滿(?!提醒|時間|後|公告)|滿額|兌換完畢|用罄|送完)/gi;
@@ -233,7 +236,7 @@ function extractOpenMonthRecords(platform, campaign, records) {
     const year = dateFromCampaign(campaign);
     const bank = campaign.title.match(/OPEN錢包綁\s*([^｜|：:]+)/)?.[1]?.trim() || "";
     addRecord(records, {
-      platform,
+      platform: "OPEN錢包",
       month: `${year}-${monthNumber}`,
       campaignTitle: campaign.title,
       merchant: "7-ELEVEN",
@@ -249,6 +252,25 @@ function extractOpenMonthRecords(platform, campaign, records) {
       source: "official",
     });
   }
+}
+
+function addAppReportedRecords(records) {
+  addRecord(records, {
+    platform: "OPEN錢包",
+    month: "2026-10",
+    campaignTitle: "OPEN錢包綁 富邦銀行｜7-ELEVEN 回饋",
+    merchant: "7-ELEVEN",
+    bank: "富邦銀行",
+    rewardLabel: "10% 回饋",
+    rate: 0.1,
+    cap: 50,
+    exhaustedDate: "2026-10",
+    exhaustionType: "quota-full",
+    confidence: "month-only",
+    evidence: "OPENPOINT APP 顯示：2026/10 富邦銀行回饋已額滿；官方公開頁未提供額滿日期。",
+    sourceUrl: "https://cardpromote.taipeifubon.com.tw/promotion/Detail?sn=D000040",
+    source: "app-report",
+  });
 }
 
 function keepHistoryRecord(record) {
@@ -276,6 +298,7 @@ for (const payment of data.payments || []) {
     extractOpenMonthRecords(platform, campaign, records);
   }
 }
+addAppReportedRecords(records);
 
 data.history = dedupeHistoryRecords(records).sort((a, b) => {
   const monthOrder = String(b.month || "").localeCompare(String(a.month || ""));
