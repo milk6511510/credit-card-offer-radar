@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-10T19:00:29.242Z",
+  "updatedAt": "2026-10-10T22:15:16.322Z",
   "history": [
     {
       "platform": "悠遊付",
@@ -1288,7 +1288,7 @@
     "counts": {
       "一般回饋": 19,
       "購物回饋": 34,
-      "超商回饋": 36,
+      "超商回饋": 35,
       "交通／旅遊回饋": 24,
       "新戶優惠": 36,
       "金融／綁卡回饋": 73,
@@ -1324,7 +1324,7 @@
       "officialSite": "https://web-tw-pay.line.me/cms/event",
       "status": "ok",
       "detailPagesChecked": 79,
-      "checkedAt": "2026-10-10T19:00:29.242Z"
+      "checkedAt": "2026-10-10T22:15:16.322Z"
     },
     {
       "name": "LINE Pay 官方活動",
@@ -1332,7 +1332,7 @@
       "officialSite": "https://web-tw-pay.line.me/cms/event",
       "status": "ok",
       "detailPagesChecked": 79,
-      "checkedAt": "2026-10-10T19:00:29.242Z"
+      "checkedAt": "2026-10-10T22:15:16.322Z"
     },
     {
       "name": "LINE Pay 官方活動",
@@ -1340,7 +1340,7 @@
       "officialSite": "https://web-tw-pay.line.me/cms/event",
       "status": "ok",
       "detailPagesChecked": 79,
-      "checkedAt": "2026-10-10T19:00:29.242Z"
+      "checkedAt": "2026-10-10T22:15:16.322Z"
     },
     {
       "name": "LINE Pay 官方活動",
@@ -1348,7 +1348,7 @@
       "officialSite": "https://web-tw-pay.line.me/cms/event",
       "status": "ok",
       "detailPagesChecked": 79,
-      "checkedAt": "2026-10-10T19:00:29.242Z"
+      "checkedAt": "2026-10-10T22:15:16.322Z"
     },
     {
       "name": "街口支付 官方活動",
@@ -1356,7 +1356,7 @@
       "officialSite": "https://mkt.jkopay.com/zh-TW/event",
       "status": "ok",
       "detailPagesChecked": 95,
-      "checkedAt": "2026-10-10T19:00:29.242Z"
+      "checkedAt": "2026-10-10T22:15:16.322Z"
     },
     {
       "name": "悠遊付 官方活動",
@@ -1364,7 +1364,7 @@
       "officialSite": "https://easywallet.easycard.com.tw/benefit/",
       "status": "ok",
       "detailPagesChecked": 75,
-      "checkedAt": "2026-10-10T19:00:29.242Z"
+      "checkedAt": "2026-10-10T22:15:16.322Z"
     },
     {
       "name": "iPASS MONEY 官方活動",
@@ -1372,7 +1372,7 @@
       "officialSite": "https://www.i-pass.com.tw/Preferential",
       "status": "ok",
       "detailPagesChecked": 45,
-      "checkedAt": "2026-10-10T19:00:29.242Z"
+      "checkedAt": "2026-10-10T22:15:16.322Z"
     },
     {
       "name": "icash Pay 官方活動",
@@ -1380,7 +1380,7 @@
       "officialSite": "https://www.icashpay.com.tw/",
       "status": "ok",
       "detailPagesChecked": 36,
-      "checkedAt": "2026-10-10T19:00:29.242Z"
+      "checkedAt": "2026-10-10T22:15:16.322Z"
     },
     {
       "name": "icash Pay 官方活動",
@@ -1388,7 +1388,7 @@
       "officialSite": "https://www.icashpay.com.tw/",
       "status": "ok",
       "detailPagesChecked": 36,
-      "checkedAt": "2026-10-10T19:00:29.242Z"
+      "checkedAt": "2026-10-10T22:15:16.322Z"
     },
     {
       "name": "icash Pay 官方活動",
@@ -1396,7 +1396,7 @@
       "officialSite": "https://www.icashpay.com.tw/",
       "status": "ok",
       "detailPagesChecked": 36,
-      "checkedAt": "2026-10-10T19:00:29.242Z"
+      "checkedAt": "2026-10-10T22:15:16.322Z"
     },
     {
       "name": "icash Pay 官方活動",
@@ -1404,7 +1404,7 @@
       "officialSite": "https://www.icashpay.com.tw/",
       "status": "ok",
       "detailPagesChecked": 36,
-      "checkedAt": "2026-10-10T19:00:29.242Z"
+      "checkedAt": "2026-10-10T22:15:16.322Z"
     },
     {
       "name": "icash Pay 官方活動",
@@ -1412,7 +1412,7 @@
       "officialSite": "https://www.icashpay.com.tw/",
       "status": "ok",
       "detailPagesChecked": 36,
-      "checkedAt": "2026-10-10T19:00:29.242Z"
+      "checkedAt": "2026-10-10T22:15:16.322Z"
     },
     {
       "name": "icash Pay 官方活動",
@@ -1420,7 +1420,7 @@
       "officialSite": "https://www.icashpay.com.tw/",
       "status": "ok",
       "detailPagesChecked": 36,
-      "checkedAt": "2026-10-10T19:00:29.242Z"
+      "checkedAt": "2026-10-10T22:15:16.322Z"
     },
     {
       "name": "icash Pay 官方活動",
@@ -1428,7 +1428,7 @@
       "officialSite": "https://www.icashpay.com.tw/",
       "status": "ok",
       "detailPagesChecked": 36,
-      "checkedAt": "2026-10-10T19:00:29.242Z"
+      "checkedAt": "2026-10-10T22:15:16.322Z"
     },
     {
       "name": "Pi 拍錢包 官方活動",
@@ -1436,7 +1436,7 @@
       "officialSite": "https://web.piapp.com.tw/events/",
       "status": "ok",
       "detailPagesChecked": 36,
-      "checkedAt": "2026-10-10T19:00:29.242Z"
+      "checkedAt": "2026-10-10T22:15:16.322Z"
     },
     {
       "name": "全盈+PAY 官方活動",
@@ -1444,7 +1444,7 @@
       "officialSite": "https://event2023.pluspay.com.tw/",
       "status": "ok",
       "detailPagesChecked": 490,
-      "checkedAt": "2026-10-10T19:00:29.242Z"
+      "checkedAt": "2026-10-10T22:15:16.322Z"
     },
     {
       "name": "全盈+PAY 官方活動",
@@ -1452,7 +1452,7 @@
       "officialSite": "https://event2023.pluspay.com.tw/",
       "status": "ok",
       "detailPagesChecked": 490,
-      "checkedAt": "2026-10-10T19:00:29.242Z"
+      "checkedAt": "2026-10-10T22:15:16.322Z"
     },
     {
       "name": "OPEN錢包 官方活動",
@@ -1460,7 +1460,7 @@
       "officialSite": "https://www.7-11.com.tw/service/Pay.aspx#tab1",
       "status": "ok",
       "detailPagesChecked": 52,
-      "checkedAt": "2026-10-10T19:00:29.242Z"
+      "checkedAt": "2026-10-10T22:15:16.322Z"
     },
     {
       "name": "7-ELEVEN 官方活動",
@@ -1468,7 +1468,7 @@
       "officialSite": "https://www.7-11.com.tw/index.aspx",
       "status": "ok",
       "detailPagesChecked": 52,
-      "checkedAt": "2026-10-10T19:00:29.242Z"
+      "checkedAt": "2026-10-10T22:15:16.322Z"
     },
     {
       "name": "7-ELEVEN 官方活動",
@@ -1476,15 +1476,16 @@
       "officialSite": "https://www.7-11.com.tw/index.aspx",
       "status": "ok",
       "detailPagesChecked": 52,
-      "checkedAt": "2026-10-10T19:00:29.242Z"
+      "checkedAt": "2026-10-10T22:15:16.322Z"
     },
     {
       "name": "台灣 Pay 官方活動",
       "url": "https://taiwanpay.firstbank.com.tw/sites/twpay/latestOffers",
       "officialSite": "https://taiwanpay.firstbank.com.tw/sites/twpay/latestOffers",
-      "status": "ok",
+      "status": "stale-preserved",
+      "note": "The operation was aborted due to timeout",
       "detailPagesChecked": 53,
-      "checkedAt": "2026-10-10T19:00:29.242Z"
+      "checkedAt": "2026-10-10T22:15:16.322Z"
     },
     {
       "name": "全支付 官方活動",
@@ -1492,7 +1493,7 @@
       "officialSite": "https://www.pxpayplus.com.tw/",
       "status": "ok",
       "detailPagesChecked": 1,
-      "checkedAt": "2026-10-10T19:00:29.242Z"
+      "checkedAt": "2026-10-10T22:15:16.322Z"
     },
     {
       "name": "全支付 官方活動",
@@ -1500,7 +1501,7 @@
       "officialSite": "https://www.pxpayplus.com.tw/",
       "status": "ok",
       "detailPagesChecked": 1,
-      "checkedAt": "2026-10-10T19:00:29.242Z"
+      "checkedAt": "2026-10-10T22:15:16.322Z"
     },
     {
       "name": "橘子支付 官方活動",
@@ -1509,7 +1510,7 @@
       "status": "stale-preserved",
       "note": "fetch failed",
       "detailPagesChecked": 80,
-      "checkedAt": "2026-10-10T19:00:29.242Z"
+      "checkedAt": "2026-10-10T22:15:16.322Z"
     },
     {
       "name": "橘子支付 官方活動",
@@ -1518,7 +1519,7 @@
       "status": "stale-preserved",
       "note": "fetch failed",
       "detailPagesChecked": 80,
-      "checkedAt": "2026-10-10T19:00:29.242Z"
+      "checkedAt": "2026-10-10T22:15:16.322Z"
     },
     {
       "name": "歐付寶 O'Pay 官方活動",
@@ -1526,7 +1527,7 @@
       "officialSite": "https://www.opay.tw/banner/event",
       "status": "ok",
       "detailPagesChecked": 12,
-      "checkedAt": "2026-10-10T19:00:29.242Z"
+      "checkedAt": "2026-10-10T22:15:16.322Z"
     },
     {
       "name": "ezPay 簡單付 官方活動",
@@ -1534,7 +1535,7 @@
       "officialSite": "https://www.ezpay.com.tw/",
       "status": "blocked",
       "note": "官方首頁拒絕自動讀取，暫不列入目前有效活動",
-      "checkedAt": "2026-10-10T19:00:29.242Z"
+      "checkedAt": "2026-10-10T22:15:16.322Z"
     }
   ],
   "payments": [
@@ -10022,30 +10023,6 @@
           "officialOrder": 0
         },
         {
-          "title": "電子支付",
-          "category": "超商回饋",
-          "stores": [
-            "全家",
-            "萊爾富",
-            "宜蘭"
-          ],
-          "paymentMethods": [
-            "歐付寶 O'Pay"
-          ],
-          "audience": "existing-user",
-          "rate": 0,
-          "cap": 0,
-          "rewardLabel": "依官方條件回饋",
-          "status": "官方頁最新資訊；詳細條件請見官方頁",
-          "sourceUrl": "https://play.google.com/store/apps/details?id=com.allpay.tw&hl=zh_TW",
-          "image": "https://play-lh.googleusercontent.com/4VR44jCNf1U5Al13kQAukmiL8zgMhPkuj1aDwELQf04K4WEzsZxTs18RO7OhbOmeK1XURrWyKMwRAfCNIelqmA=s0-br30",
-          "rawText": "遊戲\n 應用程式\n 圖書\n 兒童\n google_logo Play 遊戲 \n 應用程式 \n 圖書 \n 兒童 \n none \n search \n help_outline \n 使用 Google 帳戶登入 \n play_apps 媒體庫和裝置 \n payment 付款與訂閱 \n reviews 我的 Play 動態 \n redeem 優惠 \n Play Pass \n Google Play 個人化功能 \n settings 設定 \n 隱私權政策 • 服務條款 \n 遊戲\n 應用程式\n 圖書\n 兒童\n 電子支付 \n 歐付寶電子支付股份有限公司 \n 適合所有人 info \n 10萬+\n 次下載\n 安裝 \n 分享 \n 加入願望清單 \n 適合所有人\n 使用者互動\n 瞭解詳情 \n 關於這個應用程式\n arrow_forward \n 【行動支付，隨手即付】\n快速的收、付款、轉帳、收帳分帳功能，整合超商、超市行動秒付，手機出示條碼立即付款並將發票存入載具；搭乘計程車掃描條碼立即付款，省時便利又安全。\n路邊停車繳費，北中南皆可隨時繳納；電子發票手機條碼載具申請、自動兌獎、中獎通知、獎金匯入等完整服務，體驗快速支付，簡單便利新生活。\n【主要功能】\n● 手機即是錢包 輕鬆儲值便利付\n　聰明消費一機搞定，出門在外不用帶錢包，「歐付寶帳戶」等於現金、「信用卡」多卡綁定一機、「銀行帳戶」直接付款；付款適用於「超商購物、餐廳用餐、逛夜市、商場百貨購物、搭計程車、好友分帳…」各種情境。輕鬆體驗安全無虞、更快、更便利的付款方式。\n「歐付寶帳戶」儲值方式：\n1.條碼儲值：萊爾富、OK便利商店、美廉社、三商大美超市、心樸市集\n2.轉帳儲值：ATM櫃員機轉帳\n3.多媒體機儲值：全家FamiPort\n4.銀行快付儲值：台新銀行、郵局帳戶綁定儲值\n5.信用卡儲值：兆豐信用卡綁定儲值及自動加值服務\n● 便利商店、超商行動秒付(easy pay)\n　全台5,200家以上全家、萊爾富、OK便利商店、美廉社、三商大美超市、心樸市集，全面接受行動付款，出示條碼提供給店員掃描，【嗶！】一聲，立即完成付款！(※目前行動支付不得使用於代收款項之繳費服務。如：垃圾袋、取貨付款、商品代收付)\n● TWQR 跨機構支付 　\n歐付寶配合《財金公司》提供國家級支付共用QR Code《TWQR》服務，不論是哪間行動支付的QR Code，只要有配合TWQR都可以掃描付款，立即下載使用歐付寶電子支付App即掃即付，省去切換或註冊其他App的麻煩事！\n● 快速收款 省時更方便\n　餐飲業者、市集攤販、販賣機台、零售店家、計程車司機、用餐費用分攤、展場活動…等，清楚記錄每筆收款交易及退款功能，有效理財對帳。\n　收款搭配專屬賣家的QRCode及收款貼紙(掃碼便利付)，便可以走到哪裡皆可輕鬆快速收款。\n● 掃碼便利付 輕鬆一掃 快速完成收與付\n　歐付寶會員專屬的QR Code收款條碼，設定完成後可用於桌次或分店管理，消費者可使用行動支付快速掃描、結帳付款。使用範例參考：\n【零售百貨、餐飲業者】將收款貼紙貼於餐桌上或櫃台，供消費者掃描付款。\n【計程車司機】可將收款貼紙貼於車內，供乘客掃描付款。\n【展場活動、夜市攤販】可將收款貼紙貼於展位及攤位前，供消費者掃描付款。\n● 好友聊天轉帳服務\n　整合「好友、聊天、轉帳」等功能介面，輕鬆選擇聊天或轉帳的對象。\n 可將電話簿好友匯入好友名單，亦支援非好友也可快速完成會員轉帳，更享轉帳零手續費。\n 亦可透過好友名單、QR code、搖一搖方式建立群組聊天室。\n● 收帳分帳 多人聚會分攤 快速搞定\n 無論是聚餐或團購分攤、房租管理、報名費繳納等各種情境場合，皆可快速發動請求，向群組或個人收取/支付款項。\n● 跨機構轉帳服務\n 透過驗證第二金融工具，可與其它金融機構與電子支付平台帳戶互相轉帳。\n 亦可將朋友的銀行帳號加入常用帳號，轉帳更方便!\n● 電子發票功能\n　可透過APP申請電子發票手機條碼載具，設定完成後於合作店家(全家、萊爾富、OK超商)消費，無需再出示手機條碼，即可將發票歸戶。\n　其他店家也可於結帳前出示手機條碼，便可將發票歸戶。\n 其他功能如發票自動兌獎、發票中獎通知、獎金匯入、附掛式載具查看等服務一次完整享有。\n● 生活繳費\n 新增電費、信用卡費、電信費、健保費、汽燃費、eTag儲值且陸續開放縣市公營或私營的停車費、水費、瓦斯費、醫療費、保險費、規費、地方稅…等各式費用，只要透過掃描繳費單或資訊綁定即可查詢付款，一指搞定您生活必要支出！\n● 路邊停車費繳納\n 不限各縣市的汽機車，只要持有【基隆市、台北市、新北市、桃園市、新竹縣、新竹市、苗栗市、頭份市、台中市、彰化縣、嘉義市、台南市、高雄市、花蓮市、宜蘭縣、臺東縣】區域所開立之「停車繳費通知單」，即可隨時使用以下服務進行付款：\n【停車單繳費】掃描停車單上的單號進行付款。\n【停車費查詢繳費】查詢待繳的停車費進行付款。\n【新增車籍資料】綁定汽機車號，可快速查詢待繳費用、系統智能通知待繳及即將到期費用。綁定一次享有未來合作區域之繳費通知服務。\n若查詢「停車單」或「車號」時，無待繳的費用，更提供了追蹤待繳的功能，讓你即時未綁定車號，也可享有待繳通知服務。(宜蘭縣、台南市、嘉義市目前僅提供綁定車號，系統智能通知待繳及繳費功能)\n● 台北市智慧停車功能\n　綁定車籍資料並設定自動扣款方式後，可於支援無卡進出的臺北市路外停車場（目前開放64處，陸續新增中）自動扣繳停車費，方便又快速！\n● 實名制加密、付款安全認證等雙重保護\n　確認使用者的真實身分，以便日後使用時更加快速方便；交易流程符合國際PCI DSS 認證，保護持卡人數據，不必擔心付款安全性，層層控管加倍安心。\n提醒您，為確保用戶體驗，請安裝至最新作業系統版本；基於帳戶安全，請於行動裝置安裝防護軟體。\n【跨機構轉帳服務】\n透過驗證第二金融工具，可與其它金融機構與電子支付平台帳戶互相轉帳。\n亦可將朋友的銀行帳號加入常用帳號，轉帳更方便!\n客服資訊：(線上回報)\nhttps://www.opay.tw/ServiceReply/Create\n 【行動支付 隨手即付】 快速收、付、轉帳功能 停車費、電費、信用卡費等生活開支 免帶錢包Easy Pay 發票載具整合條碼立即付 快捷、便利、安全的支付體驗\n 更新日期\n 2026年8月11日\n 財經 \n 資料安全性\n arrow_forward \n 想確保安全，就從瞭解開發人員如何收集與分享資料開始！根據你的使用情形、所在地區及年齡，資料的隱私權和安全性措施可能會有所不同。這項資訊由開發人員提供，可能會隨時間更新。 不會與第三方分享資料 進一步瞭解 開發人員如何聲明資料分享事宜\n 這個應用程式可能會收集以下類型的資料 位置、個人資訊和另外 6 種資料\n 資料在傳輸時會加密\n 你可以要求系統刪除資料\n 查看詳情 \n 新功能\n 更新項目\n- 效能優化及問題修正\n- 支援 Android 17\n flag 檢舉不當內容 \n 適合所有人\n 使用者互動\n 瞭解詳情 \n 應用程式支援\n expand_more \n public 網站\n email 支援服務電子郵件地址\n appstore@opay.tw\n shield 隱私權政策\n 開發人員資訊\n 歐付寶電子支付股份有限公司 \n appstore@opay.tw \n 115020台湾台北市南港區\n成功路一段58號3樓 \n +886 958 161 318 \n flag 檢舉不當內容 \n Google Play Play Pass\n Play 點數\n 禮物卡\n 兌換\n 退款政策\n 親子與家庭 家長指南\n 家庭共享\n 服務條款\n 隱私權\n 關於 Google Play\n 開發人員\n Google 商店\n 加拿大 (繁體中文)",
-          "startsAt": "20260811",
-          "endsAt": "",
-          "publishedAt": "",
-          "officialOrder": 1
-        },
-        {
           "title": "歐付寶悠遊聯名卡",
           "category": "新戶優惠",
           "stores": [
@@ -10065,7 +10042,7 @@
           "startsAt": "20260101",
           "endsAt": "20261231",
           "publishedAt": "",
-          "officialOrder": 2
+          "officialOrder": 1
         }
       ]
     }
@@ -10079,7 +10056,7 @@
       "segment": "daily",
       "officialSite": "https://web-tw-pay.line.me/cms/event",
       "sourceUrl": "https://web-tw-pay.line.me/cms/event",
-      "checkedAt": "2026-10-10T19:00:29.242Z"
+      "checkedAt": "2026-10-10T22:15:16.322Z"
     },
     {
       "name": "街口支付",
@@ -10089,7 +10066,7 @@
       "segment": "daily",
       "officialSite": "https://mkt.jkopay.com/zh-TW/event",
       "sourceUrl": "https://mkt.jkopay.com/sitemap.xml",
-      "checkedAt": "2026-10-10T19:00:29.242Z"
+      "checkedAt": "2026-10-10T22:15:16.322Z"
     },
     {
       "name": "悠遊付",
@@ -10099,7 +10076,7 @@
       "segment": "daily",
       "officialSite": "https://easywallet.easycard.com.tw/benefit/",
       "sourceUrl": "https://easywallet.easycard.com.tw/benefit/?page=1",
-      "checkedAt": "2026-10-10T19:00:29.242Z"
+      "checkedAt": "2026-10-10T22:15:16.322Z"
     },
     {
       "name": "iPASS MONEY",
@@ -10109,7 +10086,7 @@
       "segment": "daily",
       "officialSite": "https://www.i-pass.com.tw/Preferential",
       "sourceUrl": "https://www.i-pass.com.tw/Preferential?page=1&type=0",
-      "checkedAt": "2026-10-10T19:00:29.242Z"
+      "checkedAt": "2026-10-10T22:15:16.322Z"
     },
     {
       "name": "icash Pay",
@@ -10119,7 +10096,7 @@
       "segment": "daily",
       "officialSite": "https://www.icashpay.com.tw/",
       "sourceUrl": "https://www.icashpay.com.tw/advertMessage/index?page=1",
-      "checkedAt": "2026-10-10T19:00:29.242Z"
+      "checkedAt": "2026-10-10T22:15:16.322Z"
     },
     {
       "name": "Pi 拍錢包",
@@ -10129,7 +10106,7 @@
       "segment": "merchant",
       "officialSite": "https://web.piapp.com.tw/events/",
       "sourceUrl": "https://web.piapp.com.tw/events/",
-      "checkedAt": "2026-10-10T19:00:29.242Z"
+      "checkedAt": "2026-10-10T22:15:16.322Z"
     },
     {
       "name": "全盈+PAY",
@@ -10139,7 +10116,7 @@
       "segment": "merchant",
       "officialSite": "https://event2023.pluspay.com.tw/",
       "sourceUrl": "https://event2023.pluspay.com.tw/",
-      "checkedAt": "2026-10-10T19:00:29.242Z"
+      "checkedAt": "2026-10-10T22:15:16.322Z"
     },
     {
       "name": "OPEN錢包",
@@ -10149,7 +10126,7 @@
       "segment": "merchant",
       "officialSite": "https://www.7-11.com.tw/service/Pay.aspx#tab1",
       "sourceUrl": "https://www.7-11.com.tw/service/Pay.aspx#tab1",
-      "checkedAt": "2026-10-10T19:00:29.242Z"
+      "checkedAt": "2026-10-10T22:15:16.322Z"
     },
     {
       "name": "7-ELEVEN",
@@ -10159,7 +10136,7 @@
       "segment": "merchant",
       "officialSite": "https://www.7-11.com.tw/index.aspx",
       "sourceUrl": "https://www.7-11.com.tw/index.aspx",
-      "checkedAt": "2026-10-10T19:00:29.242Z"
+      "checkedAt": "2026-10-10T22:15:16.322Z"
     },
     {
       "name": "台灣 Pay",
@@ -10169,7 +10146,7 @@
       "segment": "cross-network",
       "officialSite": "https://taiwanpay.firstbank.com.tw/sites/twpay/latestOffers",
       "sourceUrl": "https://taiwanpay.firstbank.com.tw/sites/twpay/latestOffers",
-      "checkedAt": "2026-10-10T19:00:29.242Z"
+      "checkedAt": "2026-10-10T22:15:16.322Z"
     },
     {
       "name": "全支付",
@@ -10179,7 +10156,7 @@
       "segment": "merchant",
       "officialSite": "https://www.pxpayplus.com.tw/",
       "sourceUrl": "https://www.pxpayplus.com.tw/",
-      "checkedAt": "2026-10-10T19:00:29.242Z"
+      "checkedAt": "2026-10-10T22:15:16.322Z"
     },
     {
       "name": "橘子支付",
@@ -10189,7 +10166,7 @@
       "segment": "cross-network",
       "officialSite": "https://www.gamapay.com.tw/news_list.html",
       "sourceUrl": "https://www.gamapay.com.tw/news_list.html",
-      "checkedAt": "2026-10-10T19:00:29.242Z"
+      "checkedAt": "2026-10-10T22:15:16.322Z"
     },
     {
       "name": "歐付寶 O'Pay",
@@ -10199,7 +10176,7 @@
       "segment": "cross-network",
       "officialSite": "https://www.opay.tw/banner/event",
       "sourceUrl": "https://www.opay.tw/banner/event",
-      "checkedAt": "2026-10-10T19:00:29.242Z"
+      "checkedAt": "2026-10-10T22:15:16.322Z"
     },
     {
       "name": "ezPay 簡單付",
@@ -10209,7 +10186,7 @@
       "segment": "cross-network",
       "officialSite": "https://www.ezpay.com.tw/",
       "sourceUrl": "https://www.ezpay.com.tw/",
-      "checkedAt": "2026-10-10T19:00:29.242Z"
+      "checkedAt": "2026-10-10T22:15:16.322Z"
     }
   ]
 }
