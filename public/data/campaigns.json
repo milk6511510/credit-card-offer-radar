@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-11T23:16:41.511Z",
+  "updatedAt": "2026-10-12T02:52:09.752Z",
   "history": [
     {
       "platform": "悠遊付",
@@ -1291,7 +1291,7 @@
       "超商回饋": 35,
       "交通／旅遊回饋": 24,
       "新戶優惠": 36,
-      "金融／綁卡回饋": 69,
+      "金融／綁卡回饋": 66,
       "餐飲回饋": 18,
       "加油回饋": 7,
       "最新資訊": 20,
@@ -1324,7 +1324,7 @@
       "officialSite": "https://web-tw-pay.line.me/cms/event",
       "status": "ok",
       "detailPagesChecked": 75,
-      "checkedAt": "2026-10-11T23:16:41.511Z"
+      "checkedAt": "2026-10-12T02:52:09.752Z"
     },
     {
       "name": "LINE Pay 官方活動",
@@ -1332,7 +1332,7 @@
       "officialSite": "https://web-tw-pay.line.me/cms/event",
       "status": "ok",
       "detailPagesChecked": 75,
-      "checkedAt": "2026-10-11T23:16:41.511Z"
+      "checkedAt": "2026-10-12T02:52:09.752Z"
     },
     {
       "name": "LINE Pay 官方活動",
@@ -1340,7 +1340,7 @@
       "officialSite": "https://web-tw-pay.line.me/cms/event",
       "status": "ok",
       "detailPagesChecked": 75,
-      "checkedAt": "2026-10-11T23:16:41.511Z"
+      "checkedAt": "2026-10-12T02:52:09.752Z"
     },
     {
       "name": "LINE Pay 官方活動",
@@ -1348,7 +1348,7 @@
       "officialSite": "https://web-tw-pay.line.me/cms/event",
       "status": "ok",
       "detailPagesChecked": 75,
-      "checkedAt": "2026-10-11T23:16:41.511Z"
+      "checkedAt": "2026-10-12T02:52:09.752Z"
     },
     {
       "name": "街口支付 官方活動",
@@ -1356,7 +1356,7 @@
       "officialSite": "https://mkt.jkopay.com/zh-TW/event",
       "status": "ok",
       "detailPagesChecked": 95,
-      "checkedAt": "2026-10-11T23:16:41.511Z"
+      "checkedAt": "2026-10-12T02:52:09.752Z"
     },
     {
       "name": "悠遊付 官方活動",
@@ -1364,7 +1364,7 @@
       "officialSite": "https://easywallet.easycard.com.tw/benefit/",
       "status": "ok",
       "detailPagesChecked": 75,
-      "checkedAt": "2026-10-11T23:16:41.511Z"
+      "checkedAt": "2026-10-12T02:52:09.752Z"
     },
     {
       "name": "iPASS MONEY 官方活動",
@@ -1372,7 +1372,7 @@
       "officialSite": "https://www.i-pass.com.tw/Preferential",
       "status": "ok",
       "detailPagesChecked": 45,
-      "checkedAt": "2026-10-11T23:16:41.511Z"
+      "checkedAt": "2026-10-12T02:52:09.752Z"
     },
     {
       "name": "icash Pay 官方活動",
@@ -1380,7 +1380,7 @@
       "officialSite": "https://www.icashpay.com.tw/",
       "status": "ok",
       "detailPagesChecked": 36,
-      "checkedAt": "2026-10-11T23:16:41.511Z"
+      "checkedAt": "2026-10-12T02:52:09.752Z"
     },
     {
       "name": "icash Pay 官方活動",
@@ -1388,7 +1388,7 @@
       "officialSite": "https://www.icashpay.com.tw/",
       "status": "ok",
       "detailPagesChecked": 36,
-      "checkedAt": "2026-10-11T23:16:41.511Z"
+      "checkedAt": "2026-10-12T02:52:09.752Z"
     },
     {
       "name": "icash Pay 官方活動",
@@ -1396,7 +1396,7 @@
       "officialSite": "https://www.icashpay.com.tw/",
       "status": "ok",
       "detailPagesChecked": 36,
-      "checkedAt": "2026-10-11T23:16:41.511Z"
+      "checkedAt": "2026-10-12T02:52:09.752Z"
     },
     {
       "name": "icash Pay 官方活動",
@@ -1404,7 +1404,7 @@
       "officialSite": "https://www.icashpay.com.tw/",
       "status": "ok",
       "detailPagesChecked": 36,
-      "checkedAt": "2026-10-11T23:16:41.511Z"
+      "checkedAt": "2026-10-12T02:52:09.752Z"
     },
     {
       "name": "icash Pay 官方活動",
@@ -1412,7 +1412,7 @@
       "officialSite": "https://www.icashpay.com.tw/",
       "status": "ok",
       "detailPagesChecked": 36,
-      "checkedAt": "2026-10-11T23:16:41.511Z"
+      "checkedAt": "2026-10-12T02:52:09.752Z"
     },
     {
       "name": "icash Pay 官方活動",
@@ -1420,7 +1420,7 @@
       "officialSite": "https://www.icashpay.com.tw/",
       "status": "ok",
       "detailPagesChecked": 36,
-      "checkedAt": "2026-10-11T23:16:41.511Z"
+      "checkedAt": "2026-10-12T02:52:09.752Z"
     },
     {
       "name": "icash Pay 官方活動",
@@ -1428,7 +1428,7 @@
       "officialSite": "https://www.icashpay.com.tw/",
       "status": "ok",
       "detailPagesChecked": 36,
-      "checkedAt": "2026-10-11T23:16:41.511Z"
+      "checkedAt": "2026-10-12T02:52:09.752Z"
     },
     {
       "name": "Pi 拍錢包 官方活動",
@@ -1436,23 +1436,23 @@
       "officialSite": "https://web.piapp.com.tw/events/",
       "status": "ok",
       "detailPagesChecked": 36,
-      "checkedAt": "2026-10-11T23:16:41.511Z"
+      "checkedAt": "2026-10-12T02:52:09.752Z"
     },
     {
       "name": "全盈+PAY 官方活動",
       "url": "https://event2023.pluspay.com.tw/",
       "officialSite": "https://event2023.pluspay.com.tw/",
       "status": "ok",
-      "detailPagesChecked": 490,
-      "checkedAt": "2026-10-11T23:16:41.511Z"
+      "detailPagesChecked": 492,
+      "checkedAt": "2026-10-12T02:52:09.752Z"
     },
     {
       "name": "全盈+PAY 官方活動",
       "url": "https://event2023.pluspay.com.tw/api/weba/v3/site/publish/event2023.pluspay.com.tw",
       "officialSite": "https://event2023.pluspay.com.tw/",
       "status": "ok",
-      "detailPagesChecked": 490,
-      "checkedAt": "2026-10-11T23:16:41.511Z"
+      "detailPagesChecked": 492,
+      "checkedAt": "2026-10-12T02:52:09.752Z"
     },
     {
       "name": "OPEN錢包 官方活動",
@@ -1460,7 +1460,7 @@
       "officialSite": "https://www.7-11.com.tw/service/Pay.aspx#tab1",
       "status": "ok",
       "detailPagesChecked": 52,
-      "checkedAt": "2026-10-11T23:16:41.511Z"
+      "checkedAt": "2026-10-12T02:52:09.752Z"
     },
     {
       "name": "7-ELEVEN 官方活動",
@@ -1468,7 +1468,7 @@
       "officialSite": "https://www.7-11.com.tw/index.aspx",
       "status": "ok",
       "detailPagesChecked": 52,
-      "checkedAt": "2026-10-11T23:16:41.511Z"
+      "checkedAt": "2026-10-12T02:52:09.752Z"
     },
     {
       "name": "7-ELEVEN 官方活動",
@@ -1476,7 +1476,7 @@
       "officialSite": "https://www.7-11.com.tw/index.aspx",
       "status": "ok",
       "detailPagesChecked": 52,
-      "checkedAt": "2026-10-11T23:16:41.511Z"
+      "checkedAt": "2026-10-12T02:52:09.752Z"
     },
     {
       "name": "台灣 Pay 官方活動",
@@ -1484,7 +1484,7 @@
       "officialSite": "https://taiwanpay.firstbank.com.tw/sites/twpay/latestOffers",
       "status": "ok",
       "detailPagesChecked": 53,
-      "checkedAt": "2026-10-11T23:16:41.511Z"
+      "checkedAt": "2026-10-12T02:52:09.752Z"
     },
     {
       "name": "全支付 官方活動",
@@ -1492,7 +1492,7 @@
       "officialSite": "https://www.pxpayplus.com.tw/",
       "status": "ok",
       "detailPagesChecked": 1,
-      "checkedAt": "2026-10-11T23:16:41.511Z"
+      "checkedAt": "2026-10-12T02:52:09.752Z"
     },
     {
       "name": "全支付 官方活動",
@@ -1500,7 +1500,7 @@
       "officialSite": "https://www.pxpayplus.com.tw/",
       "status": "ok",
       "detailPagesChecked": 1,
-      "checkedAt": "2026-10-11T23:16:41.511Z"
+      "checkedAt": "2026-10-12T02:52:09.752Z"
     },
     {
       "name": "橘子支付 官方活動",
@@ -1509,7 +1509,7 @@
       "status": "stale-preserved",
       "note": "fetch failed",
       "detailPagesChecked": 80,
-      "checkedAt": "2026-10-11T23:16:41.511Z"
+      "checkedAt": "2026-10-12T02:52:09.752Z"
     },
     {
       "name": "橘子支付 官方活動",
@@ -1518,7 +1518,7 @@
       "status": "stale-preserved",
       "note": "fetch failed",
       "detailPagesChecked": 80,
-      "checkedAt": "2026-10-11T23:16:41.511Z"
+      "checkedAt": "2026-10-12T02:52:09.752Z"
     },
     {
       "name": "歐付寶 O'Pay 官方活動",
@@ -1526,7 +1526,7 @@
       "officialSite": "https://www.opay.tw/banner/event",
       "status": "ok",
       "detailPagesChecked": 12,
-      "checkedAt": "2026-10-11T23:16:41.511Z"
+      "checkedAt": "2026-10-12T02:52:09.752Z"
     },
     {
       "name": "ezPay 簡單付 官方活動",
@@ -1534,7 +1534,7 @@
       "officialSite": "https://www.ezpay.com.tw/",
       "status": "blocked",
       "note": "官方首頁拒絕自動讀取，暫不列入目前有效活動",
-      "checkedAt": "2026-10-11T23:16:41.511Z"
+      "checkedAt": "2026-10-12T02:52:09.752Z"
     }
   ],
   "payments": [
@@ -6712,7 +6712,7 @@
           "startsAt": "20261001",
           "endsAt": "20261231",
           "publishedAt": "",
-          "officialOrder": 44
+          "officialOrder": 45
         },
         {
           "title": "通路活動",
@@ -6734,7 +6734,7 @@
           "startsAt": "20261001",
           "endsAt": "20261231",
           "publishedAt": "",
-          "officialOrder": 45
+          "officialOrder": 46
         },
         {
           "title": "了解山隆加油站 加油優惠👉",
@@ -6756,7 +6756,7 @@
           "startsAt": "20261001",
           "endsAt": "20261231",
           "publishedAt": "",
-          "officialOrder": 47
+          "officialOrder": 48
         },
         {
           "title": "了解星舟快充 充電優惠👉",
@@ -6778,7 +6778,7 @@
           "startsAt": "20261001",
           "endsAt": "20261231",
           "publishedAt": "",
-          "officialOrder": 48
+          "officialOrder": 49
         },
         {
           "title": "1. 回饋方式：符合活動條件，每月1日至當月月底成功推薦會員註冊，將於次月25日(含)前收到推薦禮50元全盈儲值金。",
@@ -6800,7 +6800,7 @@
           "startsAt": "20260101",
           "endsAt": "20261231",
           "publishedAt": "",
-          "officialOrder": 273
+          "officialOrder": 274
         },
         {
           "title": "1. 全盈儲值金發放：當月消費於次月25日前發放至交易當下所綁定之 全盈+PAY 電支帳戶。 例，7/1-7/31符合活動資格的訂單，於 8/25前發放。",
@@ -6822,7 +6822,7 @@
           "startsAt": "20260612",
           "endsAt": "20261231",
           "publishedAt": "",
-          "officialOrder": 300
+          "officialOrder": 301
         },
         {
           "title": "點擊領取店家優惠券，於結帳時出示優惠條碼並使用全盈+PAY透過PayPay完成付款，即可享優惠。",
@@ -6844,7 +6844,7 @@
           "startsAt": "20261001",
           "endsAt": "20261231",
           "publishedAt": "",
-          "officialOrder": 424
+          "officialOrder": 426
         },
         {
           "title": "PayPay綁定國泰世華銀行 消費最高享15%回饋",
@@ -6866,13 +6866,13 @@
           "startsAt": "20261001",
           "endsAt": "20261231",
           "publishedAt": "",
-          "officialOrder": 441
+          "officialOrder": 443
         },
         {
-          "title": "綁定玉山銀行，不分國內外 筆筆回饋 13%",
+          "title": "綁定玉山銀行，國內/外支付 筆筆回饋13%",
           "category": "金融／綁卡回饋",
           "stores": [
-            "官方指定通路"
+            "官方支付服務"
           ],
           "paymentMethods": [
             "全盈+PAY"
@@ -6884,11 +6884,11 @@
           "status": "2026/10/01–2026/12/31",
           "sourceUrl": "https://event2023.pluspay.com.tw/2026paypay_esun_Q4?deviceModeForBot=mobile",
           "image": "https://s3.ryzoweba.io/ryzo/4541B2D4-B3C0-4E3F-80E3-B7FEDD61EF73/CAED119E-487E-4680-AD8D-47A39F4AA9A5/20260922144958_1065X800.jpg",
-          "rawText": "2026/10/01-2026/12/31\n綁定玉山銀行，不分國內外 筆筆回饋 13%\n＼更多回饋攻略∕\n點擊查看常見問題",
+          "rawText": "2026/10/01-2026/12/31\n綁定玉山銀行，國內/外支付 筆筆回饋13%\n＼更多回饋攻略∕\n點擊查看常見問題",
           "startsAt": "20261001",
           "endsAt": "20261231",
           "publishedAt": "",
-          "officialOrder": 450
+          "officialOrder": 452
         }
       ]
     },
@@ -8634,28 +8634,6 @@
           "officialOrder": 10
         },
         {
-          "title": "CITYLINK消費購划算，台灣Pay享20%回饋",
-          "category": "金融／綁卡回饋",
-          "stores": [
-            "CITYLINK"
-          ],
-          "paymentMethods": [
-            "台灣 Pay"
-          ],
-          "audience": "not-stated",
-          "rate": 0.2,
-          "cap": 1000,
-          "rewardLabel": "最高 20%／上限 1,000 點／元",
-          "status": "2026/09/01–2027/02/28",
-          "sourceUrl": "https://www.firstbank.com.tw/sites/fcb/zh_TW/1565713698687",
-          "image": "",
-          "rawText": "2026年09月01日\n 活動對象：使用「台灣Pay」透過參與金融機構「行動銀行」APP或「台灣行動支付」APP)於活動地點消費，以「台灣Pay」付款條碼(金融卡/帳戶/信用卡)進行支付之用戶。\n 活動期間：115年9月1日起至116年2月28日止。\n 活動地點：CITYLINK南港店、松山壹號店、內湖店、三重店內受理「台灣Pay」之櫃位，不參加之櫃位資訊詳如本活動辦法附表，如有異動以兆豐銀行官網公告為準。\n 活動內容：活動期間至活動地點消費出示「台灣Pay」付款碼(信用卡/金融卡/帳戶)進行支付(即被掃交易)，單筆消費不限金額享20%現金回饋（非即時回饋，回饋金計算採小數點後無條件捨去，單筆交易金額不得拆付）。每一信用卡/金融卡/帳戶於活動期間最高回饋新臺幣1,000元為限，本活動回饋總金額上限57.5萬元，額滿為止，並公告於兆豐銀行官網。\n 相關活動限制及注意事項請詳閱 台灣Pay官網 。\n CITYLINK消費購划算台灣Pay享回饋_熱門優惠頁面相關檔案下載表格 \n 檔案名稱 \n 下載 \n CITYLINK消費購划算台灣Pay享回饋活動辦法\n PDF \n 附件為 PDF 格式之檔案，若您尚未安裝 PDF 檔案閱讀軟體 Adobe Reader 請至 http://get.adobe.com/tw/reader/ 下載安裝。\n ::: \n 第一商業銀行股份有限公司\n First Commercial Bank ©2020\n 台北市重慶南路一段30號\n 營業人：第一商業銀行股份有限公司\n 營利事業統一編號：05052322",
-          "startsAt": "20260901",
-          "endsAt": "20270228",
-          "publishedAt": "",
-          "officialOrder": 11
-        },
-        {
           "title": "TWQR玩澎湖，10%加碼帶回家",
           "category": "金融／綁卡回饋",
           "stores": [
@@ -8675,7 +8653,7 @@
           "startsAt": "20260901",
           "endsAt": "20261231",
           "publishedAt": "",
-          "officialOrder": 12
+          "officialOrder": 11
         },
         {
           "title": "台灣Pay在漢神洲際強棒出擊滿2000送200元電子商品券",
@@ -8697,7 +8675,7 @@
           "startsAt": "20260901",
           "endsAt": "20261130",
           "publishedAt": "",
-          "officialOrder": 13
+          "officialOrder": 12
         },
         {
           "title": "走入雲林好厝邊用TWQR消費享優惠",
@@ -8719,7 +8697,7 @@
           "startsAt": "20260831",
           "endsAt": "20270430",
           "publishedAt": "",
-          "officialOrder": 14
+          "officialOrder": 13
         },
         {
           "title": "墊腳石Pay你樂購一夏，台灣Pay好康20%回饋",
@@ -8741,7 +8719,7 @@
           "startsAt": "20260821",
           "endsAt": "20261130",
           "publishedAt": "",
-          "officialOrder": 15
+          "officialOrder": 14
         },
         {
           "title": "微碧愛點餐X台灣Pay 餐餐美味、樂享回饋",
@@ -8763,29 +8741,7 @@
           "startsAt": "20260817",
           "endsAt": "20261231",
           "publishedAt": "",
-          "officialOrder": 16
-        },
-        {
-          "title": "迺延三夜市就用TWQR『台灣Pay』樂享20%回饋",
-          "category": "金融／綁卡回饋",
-          "stores": [
-            "官方支付服務"
-          ],
-          "paymentMethods": [
-            "台灣 Pay"
-          ],
-          "audience": "not-stated",
-          "rate": 0.2,
-          "cap": 500,
-          "rewardLabel": "最高 20%／上限 500 點／元",
-          "status": "2026/08/13–2027/01/31",
-          "sourceUrl": "https://www.firstbank.com.tw/sites/fcb/zh_TW/1565713580723",
-          "image": "",
-          "rawText": "2026年08月13日\n 活動對象：透過本行「第e行動」、「iLEO」或「台灣行動支付」APP至活動地點以「台灣Pay」QR Code掃碼進行支付(金融卡/帳戶)之用戶。\n 活動期間：115年8月13日起至116年1月31日止。\n 活動地點：大橋頭延三商圈受理「台灣Pay」交易之店家(參與本活動之店家據點以彰化銀行官網為準，惟用戶於實際交易時，仍應以該活動攤商得受理支付之方式或狀態為準)。\n 活動內容：用戶於活動期間至活動地點消費，使用「台灣Pay」QR Code掃碼支付成功者，單筆消費不限金額可享20%之現金回饋(小數點後四捨五入，非即時回饋)，活動期間內每金融卡/帳戶最高回饋以500元為限，本活動回饋總金額上限30萬元，如達回饋總金額上限，即停止回饋，並公告於彰化銀行官網。\n 相關活動限制及注意事項請詳閱 台灣Pay官網 。\n 迺延三夜市就用TWQR台灣Pay_熱門優惠頁面相關檔案下載表格 \n 檔案名稱 \n 下載 \n 迺延三夜市就用TWQR台灣Pay樂享回饋\n PDF \n 附件為 PDF 格式之檔案，若您尚未安裝 PDF 檔案閱讀軟體 Adobe Reader 請至 http://get.adobe.com/tw/reader/ 下載安裝。\n ::: \n 第一商業銀行股份有限公司\n First Commercial Bank ©2020\n 台北市重慶南路一段30號\n 營業人：第一商業銀行股份有限公司\n 營利事業統一編號：05052322",
-          "startsAt": "20260813",
-          "endsAt": "20270131",
-          "publishedAt": "",
-          "officialOrder": 17
+          "officialOrder": 15
         },
         {
           "title": "漫遊高雄．墨凡站前商圈 台灣Pay樂享10%回饋",
@@ -8807,7 +8763,7 @@
           "startsAt": "20260801",
           "endsAt": "20261130",
           "publishedAt": "",
-          "officialOrder": 18
+          "officialOrder": 16
         },
         {
           "title": "漫遊員山鄉 TWQR輕鬆付享10%回饋",
@@ -8829,7 +8785,7 @@
           "startsAt": "20260801",
           "endsAt": "20270331",
           "publishedAt": "",
-          "officialOrder": 19
+          "officialOrder": 17
         },
         {
           "title": "前進仁愛鄉TWQR輕鬆付享10%回饋",
@@ -8851,7 +8807,7 @@
           "startsAt": "20260801",
           "endsAt": "20270331",
           "publishedAt": "",
-          "officialOrder": 20
+          "officialOrder": 18
         },
         {
           "title": "永康國際商圈 x 台灣 Pay 消費拿回饋20%",
@@ -8873,7 +8829,7 @@
           "startsAt": "20260801",
           "endsAt": "20261130",
           "publishedAt": "",
-          "officialOrder": 21
+          "officialOrder": 19
         },
         {
           "title": "蘭州就用台灣Pay 市場20%高回饋",
@@ -8895,7 +8851,7 @@
           "startsAt": "20260715",
           "endsAt": "20261130",
           "publishedAt": "",
-          "officialOrder": 22
+          "officialOrder": 20
         },
         {
           "title": "TWQR東遊趣 10%加碼Pay",
@@ -8917,7 +8873,7 @@
           "startsAt": "20260715",
           "endsAt": "20261031",
           "publishedAt": "",
-          "officialOrder": 23
+          "officialOrder": 21
         },
         {
           "title": "TWQR金門風華Pay享10%回饋",
@@ -8939,7 +8895,7 @@
           "startsAt": "20260701",
           "endsAt": "20261130",
           "publishedAt": "",
-          "officialOrder": 24
+          "officialOrder": 22
         },
         {
           "title": "采盟免稅店、采盟/誠盟餐飲 TWQR最高享20%回饋",
@@ -8961,29 +8917,7 @@
           "startsAt": "20260701",
           "endsAt": "20261130",
           "publishedAt": "",
-          "officialOrder": 25
-        },
-        {
-          "title": "寧夏夜市愛逮玩 台灣Pay享20%回饋",
-          "category": "金融／綁卡回饋",
-          "stores": [
-            "官方支付服務"
-          ],
-          "paymentMethods": [
-            "台灣 Pay"
-          ],
-          "audience": "not-stated",
-          "rate": 0.2,
-          "cap": 500,
-          "rewardLabel": "最高 20%／上限 500 點／元",
-          "status": "2026/07/01–2026/12/31",
-          "sourceUrl": "https://www.firstbank.com.tw/sites/fcb/zh_TW/1565712400123",
-          "image": "",
-          "rawText": "2026年07月01日\n 活動對象：透過本行「第e行動」、「iLEO」或「台灣行動支付」APP至活動地點以「台灣Pay」QR Code掃碼進行支付(金融卡/帳戶/信用卡)之用戶。\n 活動期間：115年7月1日起至115年12月31日止。\n 活動地點：台北寧夏觀光夜市指定店家。(參與本活動之店家據點詳彰化銀行官網，惟用戶於實際交易時，仍應以該活動店家得受理支付之方式或狀態為準)。\n 活動內容：用戶於活動期間至活動地點消費，使用「台灣 Pay」QR Code掃碼支付成功者，單筆消費不限金額可享20%之現金回饋(小數點後四捨五入，非即時回饋)，活動期間每一金融卡號/帳戶最高回饋500元為限，本活動回饋總金額上限30萬元，如達回饋總金額上限，即停止回饋，並公告於彰化銀行官網。\n 相關活動限制及注意事項請詳閱 台灣Pay官網 。\n 寧夏夜市愛逮玩_熱門優惠頁面相關檔案下載表格 \n 檔案名稱 \n 下載 \n 寧夏夜市愛逮玩 台灣Pay享回饋活動辦法\n PDF \n 附件為 PDF 格式之檔案，若您尚未安裝 PDF 檔案閱讀軟體 Adobe Reader 請至 http://get.adobe.com/tw/reader/ 下載安裝。\n ::: \n 第一商業銀行股份有限公司\n First Commercial Bank ©2020\n 台北市重慶南路一段30號\n 營業人：第一商業銀行股份有限公司\n 營利事業統一編號：05052322",
-          "startsAt": "20260701",
-          "endsAt": "20261231",
-          "publishedAt": "",
-          "officialOrder": 26
+          "officialOrder": 23
         },
         {
           "title": "耐斯購物Pay你享回饋",
@@ -9005,7 +8939,7 @@
           "startsAt": "20260701",
           "endsAt": "20261227",
           "publishedAt": "",
-          "officialOrder": 27
+          "officialOrder": 24
         },
         {
           "title": "臨江街觀光夜市超給利 台灣Pay單筆享20%現金回饋",
@@ -9027,7 +8961,7 @@
           "startsAt": "20260630",
           "endsAt": "20261231",
           "publishedAt": "",
-          "officialOrder": 28
+          "officialOrder": 25
         },
         {
           "title": "Autopass麻吉神助攻 用台灣Pay加油停車享20%回饋",
@@ -9049,7 +8983,7 @@
           "startsAt": "20260629",
           "endsAt": "20261231",
           "publishedAt": "",
-          "officialOrder": 29
+          "officialOrder": 26
         },
         {
           "title": "美十樂連鎖藥局-台灣Pay 20%回饋",
@@ -9071,7 +9005,7 @@
           "startsAt": "20260625",
           "endsAt": "20261130",
           "publishedAt": "",
-          "officialOrder": 30
+          "officialOrder": 27
         },
         {
           "title": "福容大飯店度假絕Pay 不限金額享20%回饋",
@@ -9093,7 +9027,7 @@
           "startsAt": "20260618",
           "endsAt": "20261231",
           "publishedAt": "",
-          "officialOrder": 31
+          "officialOrder": 28
         },
         {
           "title": "三峽 X 八里攜手趴趴走 揪用台灣Pay享20%大回饋",
@@ -9115,7 +9049,7 @@
           "startsAt": "20260616",
           "endsAt": "20261215",
           "publishedAt": "",
-          "officialOrder": 32
+          "officialOrder": 29
         },
         {
           "title": "清涼一夏．台灣PAY喝小仁泉享20%回饋！",
@@ -9137,7 +9071,7 @@
           "startsAt": "20260615",
           "endsAt": "20261031",
           "publishedAt": "",
-          "officialOrder": 33
+          "officialOrder": 30
         },
         {
           "title": "Focus百貨放鬆購 台灣Pay享20%回饋",
@@ -9159,7 +9093,7 @@
           "startsAt": "20260605",
           "endsAt": "20261231",
           "publishedAt": "",
-          "officialOrder": 34
+          "officialOrder": 31
         },
         {
           "title": "微風集團【TWQR限定5%超回饋】",
@@ -9181,7 +9115,7 @@
           "startsAt": "20260601",
           "endsAt": "20261231",
           "publishedAt": "",
-          "officialOrder": 35
+          "officialOrder": 32
         },
         {
           "title": "TWQR今夜留給我，高雄兩大夜市消費最高享15%回饋",
@@ -9203,7 +9137,7 @@
           "startsAt": "20260501",
           "endsAt": "20261231",
           "publishedAt": "",
-          "officialOrder": 36
+          "officialOrder": 33
         },
         {
           "title": "十大商圈掃全支付TWQR單筆不限金額享10%回饋",
@@ -9225,7 +9159,7 @@
           "startsAt": "20260415",
           "endsAt": "20261231",
           "publishedAt": "",
-          "officialOrder": 37
+          "officialOrder": 34
         },
         {
           "title": "長春商圈X台灣Pay消費20%回饋",
@@ -9247,7 +9181,7 @@
           "startsAt": "20260316",
           "endsAt": "20261231",
           "publishedAt": "",
-          "officialOrder": 38
+          "officialOrder": 35
         },
         {
           "title": "來逛樂華夜市樂享10%回饋",
@@ -9269,7 +9203,7 @@
           "startsAt": "20260201",
           "endsAt": "20261231",
           "publishedAt": "",
-          "officialOrder": 39
+          "officialOrder": 36
         },
         {
           "title": "漫遊苗栗南庄老街，台灣Pay給你20%驚喜回饋！",
@@ -9291,7 +9225,7 @@
           "startsAt": "20260119",
           "endsAt": "20261231",
           "publishedAt": "",
-          "officialOrder": 40
+          "officialOrder": 37
         },
         {
           "title": "筆筆台灣Pay 消費享1.5%回饋",
@@ -9313,7 +9247,7 @@
           "startsAt": "20260101",
           "endsAt": "20261231",
           "publishedAt": "",
-          "officialOrder": 41
+          "officialOrder": 38
         }
       ]
     },
@@ -9867,7 +9801,7 @@
       "segment": "daily",
       "officialSite": "https://web-tw-pay.line.me/cms/event",
       "sourceUrl": "https://web-tw-pay.line.me/cms/event",
-      "checkedAt": "2026-10-11T23:16:41.511Z"
+      "checkedAt": "2026-10-12T02:52:09.752Z"
     },
     {
       "name": "街口支付",
@@ -9877,7 +9811,7 @@
       "segment": "daily",
       "officialSite": "https://mkt.jkopay.com/zh-TW/event",
       "sourceUrl": "https://mkt.jkopay.com/sitemap.xml",
-      "checkedAt": "2026-10-11T23:16:41.511Z"
+      "checkedAt": "2026-10-12T02:52:09.752Z"
     },
     {
       "name": "悠遊付",
@@ -9887,7 +9821,7 @@
       "segment": "daily",
       "officialSite": "https://easywallet.easycard.com.tw/benefit/",
       "sourceUrl": "https://easywallet.easycard.com.tw/benefit/?page=1",
-      "checkedAt": "2026-10-11T23:16:41.511Z"
+      "checkedAt": "2026-10-12T02:52:09.752Z"
     },
     {
       "name": "iPASS MONEY",
@@ -9897,7 +9831,7 @@
       "segment": "daily",
       "officialSite": "https://www.i-pass.com.tw/Preferential",
       "sourceUrl": "https://www.i-pass.com.tw/Preferential?page=1&type=0",
-      "checkedAt": "2026-10-11T23:16:41.511Z"
+      "checkedAt": "2026-10-12T02:52:09.752Z"
     },
     {
       "name": "icash Pay",
@@ -9907,7 +9841,7 @@
       "segment": "daily",
       "officialSite": "https://www.icashpay.com.tw/",
       "sourceUrl": "https://www.icashpay.com.tw/advertMessage/index?page=1",
-      "checkedAt": "2026-10-11T23:16:41.511Z"
+      "checkedAt": "2026-10-12T02:52:09.752Z"
     },
     {
       "name": "Pi 拍錢包",
@@ -9917,7 +9851,7 @@
       "segment": "merchant",
       "officialSite": "https://web.piapp.com.tw/events/",
       "sourceUrl": "https://web.piapp.com.tw/events/",
-      "checkedAt": "2026-10-11T23:16:41.511Z"
+      "checkedAt": "2026-10-12T02:52:09.752Z"
     },
     {
       "name": "全盈+PAY",
@@ -9927,7 +9861,7 @@
       "segment": "merchant",
       "officialSite": "https://event2023.pluspay.com.tw/",
       "sourceUrl": "https://event2023.pluspay.com.tw/",
-      "checkedAt": "2026-10-11T23:16:41.511Z"
+      "checkedAt": "2026-10-12T02:52:09.752Z"
     },
     {
       "name": "OPEN錢包",
@@ -9937,7 +9871,7 @@
       "segment": "merchant",
       "officialSite": "https://www.7-11.com.tw/service/Pay.aspx#tab1",
       "sourceUrl": "https://www.7-11.com.tw/service/Pay.aspx#tab1",
-      "checkedAt": "2026-10-11T23:16:41.511Z"
+      "checkedAt": "2026-10-12T02:52:09.752Z"
     },
     {
       "name": "7-ELEVEN",
@@ -9947,7 +9881,7 @@
       "segment": "merchant",
       "officialSite": "https://www.7-11.com.tw/index.aspx",
       "sourceUrl": "https://www.7-11.com.tw/index.aspx",
-      "checkedAt": "2026-10-11T23:16:41.511Z"
+      "checkedAt": "2026-10-12T02:52:09.752Z"
     },
     {
       "name": "台灣 Pay",
@@ -9957,7 +9891,7 @@
       "segment": "cross-network",
       "officialSite": "https://taiwanpay.firstbank.com.tw/sites/twpay/latestOffers",
       "sourceUrl": "https://taiwanpay.firstbank.com.tw/sites/twpay/latestOffers",
-      "checkedAt": "2026-10-11T23:16:41.511Z"
+      "checkedAt": "2026-10-12T02:52:09.752Z"
     },
     {
       "name": "全支付",
@@ -9967,7 +9901,7 @@
       "segment": "merchant",
       "officialSite": "https://www.pxpayplus.com.tw/",
       "sourceUrl": "https://www.pxpayplus.com.tw/",
-      "checkedAt": "2026-10-11T23:16:41.511Z"
+      "checkedAt": "2026-10-12T02:52:09.752Z"
     },
     {
       "name": "橘子支付",
@@ -9977,7 +9911,7 @@
       "segment": "cross-network",
       "officialSite": "https://www.gamapay.com.tw/news_list.html",
       "sourceUrl": "https://www.gamapay.com.tw/news_list.html",
-      "checkedAt": "2026-10-11T23:16:41.511Z"
+      "checkedAt": "2026-10-12T02:52:09.752Z"
     },
     {
       "name": "歐付寶 O'Pay",
@@ -9987,7 +9921,7 @@
       "segment": "cross-network",
       "officialSite": "https://www.opay.tw/banner/event",
       "sourceUrl": "https://www.opay.tw/banner/event",
-      "checkedAt": "2026-10-11T23:16:41.511Z"
+      "checkedAt": "2026-10-12T02:52:09.752Z"
     },
     {
       "name": "ezPay 簡單付",
@@ -9997,7 +9931,7 @@
       "segment": "cross-network",
       "officialSite": "https://www.ezpay.com.tw/",
       "sourceUrl": "https://www.ezpay.com.tw/",
-      "checkedAt": "2026-10-11T23:16:41.511Z"
+      "checkedAt": "2026-10-12T02:52:09.752Z"
     }
   ]
 }
