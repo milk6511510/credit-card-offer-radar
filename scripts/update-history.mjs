@@ -34,8 +34,8 @@ function normalizeHour(hour, meridiem) {
   const value = Number(hour);
   if (!meridiem || value > 12) return value;
   const normalized = meridiem.toLowerCase().replace(/\./g, "");
-  if (normalized === "pm" && value < 12) return value + 12;
-  if (normalized === "am" && value === 12) return 0;
+  if (["pm", "下午", "晚上"].includes(normalized) && value < 12) return value + 12;
+  if (["am", "上午", "早上"].includes(normalized) && value === 12) return 0;
   return value;
 }
 
@@ -94,19 +94,38 @@ function inferMerchant(platform, title, context) {
   return "";
 }
 
-function buildDateParts(match) {
-  const year = Number(match[1]);
-  const month = Number(match[2]);
-  const day = Number(match[3]);
+function buildDateParts(values) {
+  const year = Number(values.year ?? values[1]);
+  const month = Number(values.month ?? values[2]);
+  const day = Number(values.day ?? values[3]);
+  const rawHour = values.hour ?? values[4];
+  const rawMinute = values.minute ?? values[5];
+  const rawSecond = values.second ?? values[6];
+  const meridiem = values.meridiem ?? values[7];
+  if (!year || month < 1 || month > 12 || day < 1 || day > 31) return null;
   const date = `${year}-${String(month).padStart(2, "0")}-${String(day).padStart(2, "0")}`;
-  const hour = match[4] ? normalizeHour(match[4], match[7]) : null;
-  const time = hour === null ? "" : `${String(hour).padStart(2, "0")}:${match[5]}${match[6] ? `:${match[6]}` : ""}`;
+  const hour = rawHour === undefined || rawHour === null || rawHour === "" ? null : normalizeHour(rawHour, meridiem);
+  const minute = rawMinute === undefined || rawMinute === null || rawMinute === "" ? "" : String(rawMinute).padStart(2, "0");
+  const second = rawSecond === undefined || rawSecond === null || rawSecond === "" ? "" : String(rawSecond).padStart(2, "0");
+  const time = hour === null ? "" : `${String(hour).padStart(2, "0")}:${minute}${second ? `:${second}` : ""}`;
   return {
     month: `${year}-${String(month).padStart(2, "0")}`,
     date,
     time,
-    exhaustedAt: time ? `${date}T${time}${match[6] ? "" : ":00"}+08:00` : "",
+    exhaustedAt: time ? `${date}T${time}${second ? "" : ":00"}+08:00` : "",
   };
+}
+
+function contextSupportsExhaustion(text, index, matchText) {
+  const before = text.slice(Math.max(0, index - 72), index);
+  const contextBeforeMatch = `${before} ${matchText}`;
+  if (/例如|範例|舉例/.test(before)) return false;
+  const hasExplicitIntro = /(?:已(?:於|額滿)|提前額滿|回饋上限|贈點.*(?:額滿|用罄|送完)|名額.*(?:額滿|用罄|送完))/.test(contextBeforeMatch)
+    || /(?:^|[，,、：:])\s*於\s*$/.test(before);
+  if (!hasExplicitIntro) return false;
+  if (/(?:額滿後(?:無論|均|一律)|額滿公告(?:以|為)|額滿活動即提前結束)/.test(contextBeforeMatch)
+    && !/已(?:於[^。；\n]{0,60})?(?:額滿|滿額|兌換完畢|用罄|送完)/.test(contextBeforeMatch)) return false;
+  return true;
 }
 
 function addRecord(records, record) {
@@ -157,6 +176,39 @@ function dedupeHistoryRecords(records) {
   return unique;
 }
 
+function addDateHistoryRecord(platform, campaign, records, text, index, matchText, parts, requireExplicitDateIntro = false) {
+  if (!parts || !contextSupportsExhaustion(text, index, matchText)) return;
+  if (requireExplicitDateIntro) {
+    const before = text.slice(Math.max(0, index - 72), index);
+    if (!/已於|(?:^|[，,、：:])\s*於\s*$/.test(before)) return;
+  }
+  const context = cleanText(text.slice(Math.max(0, index - 115), index + matchText.length + 80));
+  const lineStart = text.lastIndexOf("\n", Math.max(0, index - 1));
+  const lineContext = text.slice(lineStart + 1, index);
+  const nearbyContext = text.slice(Math.max(0, index - 360), index);
+  const rate = rateFromText(nearbyContext) || rateFromText(lineContext) || rateFromText(campaign.title);
+  const bank = inferBank(text, index);
+  const merchant = inferMerchant(platform, campaign.title, lineContext);
+  addRecord(records, {
+    platform,
+    month: parts.month,
+    campaignTitle: campaign.title,
+    merchant: merchant || undefined,
+    bank: bank || undefined,
+    rewardLabel: rate ? `${formatRate(rate)} 回饋` : "活動回饋",
+    rate: rate || undefined,
+    cap: campaign.cap || undefined,
+    exhaustedAt: parts.exhaustedAt || undefined,
+    exhaustedDate: parts.date,
+    exhaustedTime: parts.time || undefined,
+    exhaustionType: "quota-full",
+    confidence: parts.time ? "exact" : "date-only",
+    evidence: context,
+    sourceUrl: campaign.exhaustionSourceUrl || campaign.sourceUrl || "",
+    source: "official",
+  });
+}
+
 function extractDateRecords(platform, campaign, records) {
   const text = `${campaign.title || ""}\n${campaign.rawText || ""}`;
   if (platform === "OPEN錢包" && !String(campaign.title || "").startsWith("OPEN錢包綁")) return;
@@ -194,6 +246,31 @@ function extractDateRecords(platform, campaign, records) {
       sourceUrl: campaign.exhaustionSourceUrl || campaign.sourceUrl || "",
       source: "official",
     });
+  }
+
+  // Easy Wallet official pages also copy APP notices as short dates, such as
+  // "10/10下午14:21:18額滿" or "10/1(四) 08:21額滿".
+  const year = dateFromCampaign(campaign);
+  const shortTimePattern = /(?<!\d)(\d{1,2})\s*[/\.\-]\s*(\d{1,2})(?:\s*[\(（][^\)）\n]{1,4}[\)）])?\s*(?:(上午|下午|晚上|早上|中午)\s*)?(\d{1,2}):(\d{2})(?::(\d{2}))?\s*(a\.?m\.?|p\.?m\.?|am|pm|上午|下午|晚上|早上|中午)?[\s\S]{0,28}?(額滿(?!提醒|時間|後|公告)|用罄|售完|送完)/gi;
+  for (const match of text.matchAll(shortTimePattern)) {
+    const index = Number(match.index || 0);
+    const parts = buildDateParts({
+      year,
+      month: match[1],
+      day: match[2],
+      hour: match[4],
+      minute: match[5],
+      second: match[6],
+      meridiem: match[3] || match[7],
+    });
+    addDateHistoryRecord(platform, campaign, records, text, index, match[0], parts, true);
+  }
+
+  const shortDatePattern = /(?<!\d)(\d{1,2})\s*[/\.\-]\s*(\d{1,2})(?:\s*[\(（][^\)）\n]{1,4}[\)）])?[\s\S]{0,28}?(額滿(?!提醒|時間|後|公告)|用罄|售完|送完)/gi;
+  for (const match of text.matchAll(shortDatePattern)) {
+    const index = Number(match.index || 0);
+    const parts = buildDateParts({ year, month: match[1], day: match[2] });
+    addDateHistoryRecord(platform, campaign, records, text, index, match[0], parts, true);
   }
 }
 

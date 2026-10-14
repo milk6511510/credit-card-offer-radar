@@ -653,11 +653,20 @@ async function scrapeJko(today) {
 
 async function scrapeEasyWallet(today) {
   const listOrigin = "https://easywallet.easycard.com.tw";
-  const listPages = await mapLimit(Array.from({ length: 8 }, (_, index) => `${listOrigin}/benefit/?page=${index + 1}`), 4, async (url) => safeFetchText(url));
+  const listUrl = `${listOrigin}/benefit/`;
+  const firstPage = await safeFetchText(listUrl);
+  const discoveredPages = firstPage.ok
+    ? [...firstPage.text.matchAll(/href=["'][^"']*[?&]page=(\d+)[^"']*["']/gi)].map((match) => Number(match[1])).filter((page) => page > 0 && page <= 50)
+    : [];
+  const pageNumbers = [...new Set([1, ...discoveredPages])].sort((a, b) => a - b);
+  const listPages = await mapLimit(pageNumbers.map((page) => page === 1 ? listUrl : `${listOrigin}/benefit/?page=${page}`), 4, async (url) => {
+    if (url === listUrl && firstPage.ok) return firstPage;
+    return safeFetchText(url);
+  });
   const candidates = [];
   for (const page of listPages) {
     if (!page?.ok) continue;
-    for (const match of page.text.matchAll(/<a[^>]+href=["']([^"']*benefit\/content\.php\?id=\d+)["'][\s\S]*?<\/a>/gi)) {
+    for (const match of page.text.matchAll(/<a[^>]+href=["']([^"']*benefit\/content(?:\.php)?[?&]id=\d+)["'][\s\S]*?<\/a>/gi)) {
       const block = match[0];
       const title = extractClassText(block, "title");
       const date = extractClassText(block, "date");
@@ -673,7 +682,7 @@ async function scrapeEasyWallet(today) {
     const detailText = detail.ok ? (cleanText(detailSection || "") || extractClassText(detail.text, "content-block")) : "";
     return campaign({ provider: "悠遊付", title: detailTitle || candidate.title, rawText: detailText || candidate.title, sourceUrl: candidate.sourceUrl, image: detail.ok ? metaContent(detail.text, "og:image") : "", dateText: `${candidate.date} ${detailPeriod}` });
   });
-  return { campaigns: dedupeCampaigns(results, today), status: "ok", sourceUrls: [`${listOrigin}/benefit/?page=1`], detailPagesChecked: unique.length };
+  return { campaigns: dedupeCampaigns(results, today), status: "ok", sourceUrls: [listUrl], detailPagesChecked: unique.length };
 }
 
 async function scrapePi(today) {

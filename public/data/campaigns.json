@@ -1,19 +1,21 @@
 {
-  "updatedAt": "2026-10-14T00:42:09.615Z",
+  "updatedAt": "2026-10-14T03:22:11.494Z",
   "history": [
     {
-      "platform": "悠遊付",
-      "month": "2026-12",
-      "campaignTitle": "限時加碼！王道新戶綁悠遊付賺$888 指定行動支付最高12.8%現金回饋",
-      "rewardLabel": "12.8% 回饋",
-      "rate": 0.128,
-      "exhaustedDate": "2026-12-31",
+      "platform": "iPASS MONEY",
+      "month": "2026-10",
+      "campaignTitle": "【聯邦銀行】綁定聯邦信用卡消費，最高享 10% 回饋！",
+      "bank": "聯邦銀行",
+      "rewardLabel": "10% 回饋",
+      "rate": 0.1,
+      "cap": 50,
+      "exhaustedDate": "2026-10",
       "exhaustionType": "quota-full",
-      "confidence": "date-only",
-      "evidence": "2026/09/30前 2026/08/01–2026/08/31 2026/10/31前 2026/09/01–2026/09/30 2026/11/30前 2026/10/01–2026/10/31 2026/12/31前 ※活動二限前300名客戶參與，額滿將於活動網頁公告。 回饋時間為2026/12/31前，回饋至符合資格之王道銀行存款帳戶中，實際回饋時間依王道銀行作業時間為準。 注意事項 活動詳情及注意事",
-      "sourceUrl": "https://easywallet.easycard.com.tw/benefit/content.php?id=1773728616",
+      "confidence": "month-only",
+      "evidence": "10月活動已額滿",
+      "sourceUrl": "https://activity.ubot.com.tw/aws_act/2026/2026ipassmoney/index.htm",
       "source": "official",
-      "id": "悠遊付|https://easywallet.easycard.com.tw/benefit/content.php?id=1773728616|2026-12||2026-12-31|"
+      "id": "iPASS MONEY|https://activity.ubot.com.tw/aws_act/2026/2026ipassmoney/index.htm|2026-10|聯邦銀行|2026-10|"
     },
     {
       "platform": "OPEN錢包",
@@ -67,39 +69,6 @@
       "id": "OPEN錢包|https://www.esunbank.com/zh-tw/personal/credit-card/discount/shopinfo?sno=8019|2026-10|玉山銀行|2026-10|"
     },
     {
-      "platform": "iPASS MONEY",
-      "month": "2026-10",
-      "campaignTitle": "【聯邦銀行】綁定聯邦信用卡消費，最高享 10% 回饋！",
-      "bank": "聯邦銀行",
-      "rewardLabel": "10% 回饋",
-      "rate": 0.1,
-      "cap": 50,
-      "exhaustedDate": "2026-10",
-      "exhaustionType": "quota-full",
-      "confidence": "month-only",
-      "evidence": "10月活動已額滿",
-      "sourceUrl": "https://activity.ubot.com.tw/aws_act/2026/2026ipassmoney/index.htm",
-      "source": "official",
-      "id": "iPASS MONEY|https://activity.ubot.com.tw/aws_act/2026/2026ipassmoney/index.htm|2026-10|聯邦銀行|2026-10|"
-    },
-    {
-      "platform": "OPEN錢包",
-      "month": "2026-10",
-      "campaignTitle": "OPEN錢包綁 富邦銀行｜7-ELEVEN 回饋",
-      "merchant": "7-ELEVEN",
-      "bank": "富邦銀行",
-      "rewardLabel": "10% 回饋",
-      "rate": 0.1,
-      "cap": 50,
-      "exhaustedDate": "2026-10",
-      "exhaustionType": "quota-full",
-      "confidence": "month-only",
-      "evidence": "OPENPOINT APP 顯示：2026/10 富邦銀行回饋已額滿；官方公開頁未提供額滿日期。",
-      "sourceUrl": "https://cardpromote.taipeifubon.com.tw/promotion/Detail?sn=D000040",
-      "source": "app-report",
-      "id": "OPEN錢包|https://cardpromote.taipeifubon.com.tw/promotion/Detail?sn=D000040|2026-10|富邦銀行|2026-10|"
-    },
-    {
       "platform": "OPEN錢包",
       "month": "2026-10",
       "campaignTitle": "OPEN錢包綁 兆豐銀行｜7-ELEVEN 回饋",
@@ -131,6 +100,40 @@
       "sourceUrl": "https://www.linebank.com.tw/notice/events/1192469",
       "source": "official",
       "id": "OPEN錢包|https://www.linebank.com.tw/notice/events/1192469|2026-10|LINE Bank|2026-10|"
+    },
+    {
+      "platform": "OPEN錢包",
+      "month": "2026-10",
+      "campaignTitle": "OPEN錢包綁 富邦銀行｜7-ELEVEN 回饋",
+      "merchant": "7-ELEVEN",
+      "bank": "富邦銀行",
+      "rewardLabel": "10% 回饋",
+      "rate": 0.1,
+      "cap": 50,
+      "exhaustedDate": "2026-10",
+      "exhaustionType": "quota-full",
+      "confidence": "month-only",
+      "evidence": "OPENPOINT APP 顯示：2026/10 富邦銀行回饋已額滿；官方公開頁未提供額滿日期。",
+      "sourceUrl": "https://cardpromote.taipeifubon.com.tw/promotion/Detail?sn=D000040",
+      "source": "app-report",
+      "id": "OPEN錢包|https://cardpromote.taipeifubon.com.tw/promotion/Detail?sn=D000040|2026-10|富邦銀行|2026-10|"
+    },
+    {
+      "platform": "悠遊付",
+      "month": "2026-10",
+      "campaignTitle": "悠遊付繳學雜費最高10%回饋，綁定玉山信用卡滿額登錄享3期0利率",
+      "rewardLabel": "10% 回饋",
+      "rate": 0.1,
+      "cap": 500,
+      "exhaustedAt": "2026-10-01T08:21:00+08:00",
+      "exhaustedDate": "2026-10-01",
+      "exhaustedTime": "08:21",
+      "exhaustionType": "quota-full",
+      "confidence": "exact",
+      "evidence": "付生活繳費扣款交易(不含學雜費)，贈500元現金回饋券一份， 9月份限量500名，於9/1(二) 09:05額滿。謝謝您的支持! 提醒您~成功繳費者，請於當月活動結束9/30前完成生活繳費交易，方享回饋! 10月份限量500名，於10/1(四) 08:21額滿。謝謝您的支持! 提醒您~成功繳費者，請於當月活動結束10/31前完成生活繳費交易，方享回饋! 2.玉山銀行信用卡滿額 加碼享 3期0利率: 活動期間使用悠",
+      "sourceUrl": "https://easywallet.easycard.com.tw/benefit/content.php?id=1785477114",
+      "source": "official",
+      "id": "悠遊付|https://easywallet.easycard.com.tw/benefit/content.php?id=1785477114|2026-10||2026-10-01|08:21"
     },
     {
       "platform": "icash Pay",
@@ -183,6 +186,23 @@
       "sourceUrl": "https://easywallet.easycard.com.tw/benefit/content.php?id=1787715465",
       "source": "official",
       "id": "悠遊付|https://easywallet.easycard.com.tw/benefit/content.php?id=1787715465|2026-10||2026-10-04|21:04:15"
+    },
+    {
+      "platform": "Pi 拍錢包",
+      "month": "2026-10",
+      "campaignTitle": "PChome24h購物📱購新機⚡️綁定玉山 Pi 拍錢包信用卡最高贈7517Ｐ幣",
+      "bank": "玉山銀行",
+      "rewardLabel": "活動回饋",
+      "cap": 7517,
+      "exhaustedAt": "2026-10-05T16:52:00+08:00",
+      "exhaustedDate": "2026-10-05",
+      "exhaustedTime": "16:52",
+      "exhaustionType": "quota-full",
+      "confidence": "exact",
+      "evidence": "本活動 活動期間內，使用 Pi 拍錢包綁定玉山 Pi 拍錢包信用卡，於PChome 24h購物單筆消費滿 NT$70,000元 (含)以上 贈 3,500P幣 。 (9月活動二已於9/18上午8:01額滿) (10月活動二已於10/5下午16:52額滿) ＊活動1、活動2 擇優回饋，每人每月限贈點一次 ＊活動2 9-10月每月預算7萬元，額滿為止，額滿將於 Pi 拍錢包官網活動頁標示公告 ＊PCh",
+      "sourceUrl": "https://web.piapp.com.tw/2609p24/",
+      "source": "official",
+      "id": "Pi 拍錢包|https://web.piapp.com.tw/2609p24/|2026-10|玉山銀行|2026-10-05|16:52"
     },
     {
       "platform": "悠遊付",
@@ -250,22 +270,6 @@
       "id": "iPASS MONEY|https://www.i-pass.com.tw/Preferential/Detail/GMZTSMIHZAX2I64Cw4rE|2026-10|王道銀行|2026-10-07|"
     },
     {
-      "platform": "LINE Pay",
-      "month": "2026-10",
-      "campaignTitle": "【91APP精選大牌】指定品牌用LINE Pay，單筆滿額享最高LINE POINTS 20%回饋！",
-      "rewardLabel": "20% 回饋",
-      "rate": 0.2,
-      "exhaustedAt": "2026-10-07T23:30:00+08:00",
-      "exhaustedDate": "2026-10-07",
-      "exhaustedTime": "23:30",
-      "exhaustionType": "quota-full",
-      "confidence": "exact",
-      "evidence": "【91APP精選大牌】指定品牌用LINE Pay，單筆滿額享最高LINE POINTS 20%回饋！ Announcements [額滿公告]10/7 每日限量5萬點，已於2026/10/7 23:30額滿。 點數回饋 指定付款方法 【91APP精選大牌】指定品牌用LINE Pay，單筆滿額享最高LINE POINTS 20%回饋！ 發布日期：2026年",
-      "sourceUrl": "https://web-tw-pay.line.me/cms/event/template1.3/e2c69a2b-c6c9-45ef-bac7-14e25d014923",
-      "source": "official",
-      "id": "LINE Pay|https://web-tw-pay.line.me/cms/event/template1.3/e2c69a2b-c6c9-45ef-bac7-14e25d014923|2026-10||2026-10-07|23:30"
-    },
-    {
       "platform": "悠遊付",
       "month": "2026-10",
       "campaignTitle": "悠遊付繳學雜費最高10%回饋，綁定玉山信用卡滿額登錄享3期0利率",
@@ -299,6 +303,23 @@
       "id": "悠遊付|https://easywallet.easycard.com.tw/benefit/content.php?id=1785403330|2026-10||2026-10-08|08:38:37"
     },
     {
+      "platform": "Pi 拍錢包",
+      "month": "2026-10",
+      "campaignTitle": "PChome24h購物📱購新機⚡️綁定玉山 Pi 拍錢包信用卡最高贈7517Ｐ幣",
+      "bank": "玉山銀行",
+      "rewardLabel": "活動回饋",
+      "cap": 7517,
+      "exhaustedAt": "2026-10-08T12:52:00+08:00",
+      "exhaustedDate": "2026-10-08",
+      "exhaustedTime": "12:52",
+      "exhaustionType": "quota-full",
+      "confidence": "exact",
+      "evidence": "0P 活動期間內，使用 Pi 拍錢包綁定玉山 Pi 拍錢包信用卡，於PChome 24h購物單筆消費滿 NT$45,000元 (含)以上 贈 2,250P幣 。 (9月活動一已於9/18上午8:58額滿) (10月活動一已於10/8中午12:52額滿) ＊活動1、活動2 擇優回饋，每人每月限贈點一次 ＊活動1 9-10月每月預算27萬元，額滿為止，額滿將於 Pi 拍錢包官網活動頁標示公告 ＊PC",
+      "sourceUrl": "https://web.piapp.com.tw/2609p24/",
+      "source": "official",
+      "id": "Pi 拍錢包|https://web.piapp.com.tw/2609p24/|2026-10|玉山銀行|2026-10-08|12:52"
+    },
+    {
       "platform": "iPASS MONEY",
       "month": "2026-10",
       "campaignTitle": "【高雄巨蛋智慧杆】登錄活動-捷運巨蛋站進出站筆筆交易享 5 點回饋並加碼領最高 100 回饋",
@@ -316,36 +337,87 @@
       "id": "iPASS MONEY|https://www.i-pass.com.tw/Preferential/Detail/GM2DCNIY373GB64XdhwG|2026-10|國泰世華銀行|2026-10-08|16:00"
     },
     {
-      "platform": "LINE Pay",
+      "platform": "Pi 拍錢包",
       "month": "2026-10",
-      "campaignTitle": "【91APP精選大牌】指定品牌用LINE Pay，單筆滿額享最高LINE POINTS 20%回饋！",
-      "rewardLabel": "20% 回饋",
-      "rate": 0.2,
-      "exhaustedAt": "2026-10-08T23:22:00+08:00",
-      "exhaustedDate": "2026-10-08",
-      "exhaustedTime": "23:22",
+      "campaignTitle": "Pi 拍錢包⚡️ 9-10月指定電商、手機通路📱單筆滿額最高贈1800Ｐ幣",
+      "rewardLabel": "活動回饋",
+      "cap": 3000,
+      "exhaustedAt": "2026-10-09T09:00:00+08:00",
+      "exhaustedDate": "2026-10-09",
+      "exhaustedTime": "09:00",
       "exhaustionType": "quota-full",
       "confidence": "exact",
-      "evidence": "享最高LINE POINTS 20%回饋！ Announcements [額滿公告]10/7 每日限量5萬點，已於2026/10/7 23:30額滿。 Announcements [額滿公告]10/8 每日限量5萬點，已於2026/10/8 23:22額滿。 點數回饋 指定付款方法 【91APP精選大牌】指定品牌用LINE Pay，單筆滿額享最高LINE POINTS 20%回饋！ 發布日期：2026年",
-      "sourceUrl": "https://web-tw-pay.line.me/cms/event/template1.3/e2c69a2b-c6c9-45ef-bac7-14e25d014923",
+      "evidence": "i 拍錢包綁定玉山 Pi 拍錢包信用卡，不含綁定玉山 Pi 拍兔簽帳金融卡及慢點付 🔥活動二： 指定手機通路單筆實付滿36,000元贈1,800 P幣 (9月活動二已於9/14凌晨00:30額滿) (10月活動二已於10/9早上09:00額滿) 活動期間內，持 Pi 拍錢包綁定玉山 Pi 拍錢包信用卡於指定手機通路「全國電子」、「東森購物」、「神腦數位」消費，單筆實付滿36,000元(含)以上贈",
+      "sourceUrl": "https://web.piapp.com.tw/260910bonus/",
       "source": "official",
-      "id": "LINE Pay|https://web-tw-pay.line.me/cms/event/template1.3/e2c69a2b-c6c9-45ef-bac7-14e25d014923|2026-10||2026-10-08|23:22"
+      "id": "Pi 拍錢包|https://web.piapp.com.tw/260910bonus/|2026-10||2026-10-09|09:00"
     },
     {
-      "platform": "LINE Pay",
+      "platform": "悠遊付",
       "month": "2026-10",
-      "campaignTitle": "【91APP精選大牌】指定品牌用LINE Pay，單筆滿額享最高LINE POINTS 20%回饋！",
-      "rewardLabel": "20% 回饋",
-      "rate": 0.2,
-      "exhaustedAt": "2026-10-09T23:30:00+08:00",
-      "exhaustedDate": "2026-10-09",
-      "exhaustedTime": "23:30",
+      "campaignTitle": "momo購物網雙十開心購｜滿千最高8%｜滿額再加碼最高$1,500回饋",
+      "rewardLabel": "8% 回饋",
+      "rate": 0.08,
+      "cap": 120,
+      "exhaustedAt": "2026-10-10T14:21:18+08:00",
+      "exhaustedDate": "2026-10-10",
+      "exhaustedTime": "14:21:18",
       "exhaustionType": "quota-full",
       "confidence": "exact",
-      "evidence": "於2026/10/7 23:30額滿。 Announcements [額滿公告]10/8 每日限量5萬點，已於2026/10/8 23:22額滿。 Announcements [額滿公告]10/9 每日限量5萬點，已於2026/10/9 23:30額滿。 點數回饋 指定付款方法 【91APP精選大牌】指定品牌用LINE Pay，單筆滿額享最高LINE POINTS 20%回饋！ 發布日期：2026年",
-      "sourceUrl": "https://web-tw-pay.line.me/cms/event/template1.3/e2c69a2b-c6c9-45ef-bac7-14e25d014923",
+      "evidence": "00~23:59。 指定週五當天單筆滿5,000元以上，回饋「300元momo購物網專用現金回饋券」1張。 本活動單筆不累贈，每悠遊付會員於每個指定週五回饋上限1張。每指定週五各限量100張。 ▌額滿公告 -活動一回饋已於10/10下午14:21:18額滿。 -活動二回饋已於10/10下午16:53:38額滿。 注意事項 本活動名稱「滿千最高8%｜滿額再加碼最高$1,500回饋」，係指悠遊付會員於10/9當天",
+      "sourceUrl": "https://easywallet.easycard.com.tw/benefit/content.php?id=1789390040",
       "source": "official",
-      "id": "LINE Pay|https://web-tw-pay.line.me/cms/event/template1.3/e2c69a2b-c6c9-45ef-bac7-14e25d014923|2026-10||2026-10-09|23:30"
+      "id": "悠遊付|https://easywallet.easycard.com.tw/benefit/content.php?id=1789390040|2026-10||2026-10-10|14:21:18"
+    },
+    {
+      "platform": "悠遊付",
+      "month": "2026-10",
+      "campaignTitle": "momo購物網雙十開心購｜滿千最高8%｜滿額再加碼最高$1,500回饋",
+      "rewardLabel": "8% 回饋",
+      "rate": 0.08,
+      "cap": 120,
+      "exhaustedAt": "2026-10-10T16:53:38+08:00",
+      "exhaustedDate": "2026-10-10",
+      "exhaustedTime": "16:53:38",
+      "exhaustionType": "quota-full",
+      "confidence": "exact",
+      "evidence": "上，回饋「300元momo購物網專用現金回饋券」1張。 本活動單筆不累贈，每悠遊付會員於每個指定週五回饋上限1張。每指定週五各限量100張。 ▌額滿公告 -活動一回饋已於10/10下午14:21:18額滿。 -活動二回饋已於10/10下午16:53:38額滿。 注意事項 本活動名稱「滿千最高8%｜滿額再加碼最高$1,500回饋」，係指悠遊付會員於10/9當天消費滿額可同時獲得活動一最高8%回饋金、活動二滿8,0",
+      "sourceUrl": "https://easywallet.easycard.com.tw/benefit/content.php?id=1789390040",
+      "source": "official",
+      "id": "悠遊付|https://easywallet.easycard.com.tw/benefit/content.php?id=1789390040|2026-10||2026-10-10|16:53:38"
+    },
+    {
+      "platform": "悠遊付",
+      "month": "2026-10",
+      "campaignTitle": "PChome秋冬購物季｜滿千最高8%｜滿額再拿$400",
+      "rewardLabel": "8% 回饋",
+      "rate": 0.08,
+      "cap": 400,
+      "exhaustedAt": "2026-10-10T17:21:24+08:00",
+      "exhaustedDate": "2026-10-10",
+      "exhaustedTime": "17:21:24",
+      "exhaustionType": "quota-full",
+      "confidence": "exact",
+      "evidence": "遊付回饋金。 10/9回饋名額限量200份， 依10/9 00:00起使用現金回饋券之交易時間排序 ，先用先得，額滿即止，並於領券頁面公告。 ★前往領券>>> ☆本活動詳情>>> ▌額滿公告 -活動二10月份回饋已於10/10下午17:21:24額滿。 注意事項 活動期間於PChome 24h購物使用悠遊付消費之人，視同參加活動，為活動參加人，即同意接受本活動之活動辦法及注意事項，如有違反，悠遊卡股份有",
+      "sourceUrl": "https://easywallet.easycard.com.tw/benefit/content.php?id=1789388498",
+      "source": "official",
+      "id": "悠遊付|https://easywallet.easycard.com.tw/benefit/content.php?id=1789388498|2026-10||2026-10-10|17:21:24"
+    },
+    {
+      "platform": "iPASS MONEY",
+      "month": "2026-09",
+      "campaignTitle": "【聯邦銀行】綁定聯邦信用卡消費，最高享 10% 回饋！",
+      "bank": "聯邦銀行",
+      "rewardLabel": "10% 回饋",
+      "rate": 0.1,
+      "cap": 50,
+      "exhaustedDate": "2026-09",
+      "exhaustionType": "quota-full",
+      "confidence": "month-only",
+      "evidence": "9月活動已額滿",
+      "sourceUrl": "https://activity.ubot.com.tw/aws_act/2026/2026ipassmoney/index.htm",
+      "source": "official",
+      "id": "iPASS MONEY|https://activity.ubot.com.tw/aws_act/2026/2026ipassmoney/index.htm|2026-09|聯邦銀行|2026-09|"
     },
     {
       "platform": "OPEN錢包",
@@ -363,6 +435,23 @@
       "sourceUrl": "https://card.ubot.com.tw/eCard/activity/2026Q3OPWALLET/index.htm",
       "source": "official",
       "id": "OPEN錢包|https://card.ubot.com.tw/eCard/activity/2026Q3OPWALLET/index.htm|2026-09|聯邦銀行|2026-09|"
+    },
+    {
+      "platform": "悠遊付",
+      "month": "2026-09",
+      "campaignTitle": "悠遊付繳學雜費最高10%回饋，綁定玉山信用卡滿額登錄享3期0利率",
+      "rewardLabel": "10% 回饋",
+      "rate": 0.1,
+      "cap": 500,
+      "exhaustedAt": "2026-09-01T09:05:00+08:00",
+      "exhaustedDate": "2026-09-01",
+      "exhaustedTime": "09:05",
+      "exhaustionType": "quota-full",
+      "confidence": "exact",
+      "evidence": "、有線電視費、健保費、學雜費、停車費、台北市聯合醫院醫療費、台北市國/社宅租金維管費。 [額滿通知] *繳納學雜費累計滿10,000元及任2筆悠遊付生活繳費扣款交易(不含學雜費)，贈500元現金回饋券一份， 9月份限量500名，於9/1(二) 09:05額滿。謝謝您的支持! 提醒您~成功繳費者，請於當月活動結束9/30前完成生活繳費交易，方享回饋! 10月份限量500名，於10/1(四) 08:21額滿。謝謝您的支",
+      "sourceUrl": "https://easywallet.easycard.com.tw/benefit/content.php?id=1785477114",
+      "source": "official",
+      "id": "悠遊付|https://easywallet.easycard.com.tw/benefit/content.php?id=1785477114|2026-09||2026-09-01|09:05"
     },
     {
       "platform": "icash Pay",
@@ -383,23 +472,6 @@
       "id": "icash Pay|https://www.icashpay.com.tw/advertMessage/view/id/2340|2026-09||2026-09-03|10:00"
     },
     {
-      "platform": "iPASS MONEY",
-      "month": "2026-09",
-      "campaignTitle": "[ 9 月份回饋上限已於 2026/9/3 12:00 額滿 ]【聯邦銀行】綁定聯邦信用卡消費，最高享 10% 回饋！",
-      "bank": "聯邦銀行",
-      "rewardLabel": "10% 回饋",
-      "rate": 0.1,
-      "exhaustedAt": "2026-09-03T12:00:00+08:00",
-      "exhaustedDate": "2026-09-03",
-      "exhaustedTime": "12:00",
-      "exhaustionType": "quota-full",
-      "confidence": "exact",
-      "evidence": "[ 9 月份回饋上限已於 2026/9/3 12:00 額滿 ]【聯邦銀行】綁定聯邦信用卡消費，最高享 10% 回饋！ 活動期間：2026/7/1 (三) - 2026/12/31 (四)。詳細活動條件請以 iPASS",
-      "sourceUrl": "https://www.i-pass.com.tw/Preferential/Detail/GMZTONQ2BJSWC64ic2dQ",
-      "source": "official",
-      "id": "iPASS MONEY|https://www.i-pass.com.tw/Preferential/Detail/GMZTONQ2BJSWC64ic2dQ|2026-09|聯邦銀行|2026-09-03|12:00"
-    },
-    {
       "platform": "icash Pay",
       "month": "2026-09",
       "campaignTitle": "icash Pay超強支付 綁uniopen聯名卡滿額最高回饋11%",
@@ -412,7 +484,7 @@
       "exhaustedTime": "11:00",
       "exhaustionType": "quota-full",
       "confidence": "exact",
-      "evidence": "ay綁定uniopen聯名卡，全通路單筆消費滿199元，享4% OPENPOINT回饋，每一icash Pay用戶每月回饋上限150點，活動每月回饋上限300萬點。 2026年9月【全通路單筆消費滿199元享4%】活動贈點已於2026/9/6 11:00 am額滿 (回饋資格及入點時間認定依icash Pay資訊系統紀錄認定為準，系統將以符合活動資格者之消費優先順序匯入該icash Pay綁定之uniopen會員帳戶，",
+      "evidence": "ay綁定uniopen聯名卡，全通路單筆消費滿199元，享4% OPENPOINT回饋，每一icash Pay用戶每月回饋上限150點，活動每月回饋上限300萬點。 2026年9月【全通路單筆消費滿199元享4%】活動贈點已於2026/9/6 11:00額滿 2026年10月【全通路單筆消費滿199元享4%】活動贈點已於2026/10/6 15:00額滿 (回饋資格及入點時間認定依icash Pay資訊系統",
       "sourceUrl": "https://www.icashpay.com.tw/advertMessage/view/id/2461",
       "source": "official",
       "id": "icash Pay|https://www.icashpay.com.tw/advertMessage/view/id/2461|2026-09||2026-09-06|11:00"
@@ -429,7 +501,7 @@
       "exhaustedTime": "09:10:11",
       "exhaustionType": "quota-full",
       "confidence": "exact",
-      "evidence": "付錢包或銀行帳戶扣款，除享活動一「悠遊付滿百回饋」外，單筆消費金額滿1,000 元（含）以上，加贈50 元悠遊付現金回饋券。單筆消費不累贈，每戶每月限贈送乙張，回饋券限量1,500 張/ 月，送完為止。 *本活動二 9月份已於2026/09/07 09:10:11額滿，感謝您的支持！ ▌活動三：記名悠遊卡扣款滿120 元送10 元悠遊付現金回饋券 活動期間悠遊付會員持記名悠遊卡或悠遊聯名卡於全台中油直營加油站，以悠遊卡",
+      "evidence": "付錢包或銀行帳戶扣款，除享活動一「悠遊付滿百回饋」外，單筆消費金額滿1,000 元（含）以上，加贈50 元悠遊付現金回饋券。單筆消費不累贈，每戶每月限贈送乙張，回饋券限量1,500 張/ 月，送完為止。 *本活動二 9月份已於2026/09/07 09:10:11額滿，感謝您的支持！ *本活動二 10月份已於2026/10/04 21:04:15額滿，感謝您的支持！ ▌活動三：記名悠遊卡扣款滿120 元送10 元悠遊付現",
       "sourceUrl": "https://easywallet.easycard.com.tw/benefit/content.php?id=1787715465",
       "source": "official",
       "id": "悠遊付|https://easywallet.easycard.com.tw/benefit/content.php?id=1787715465|2026-09||2026-09-07|09:10:11"
@@ -446,7 +518,7 @@
       "exhaustedTime": "09:24:42",
       "exhaustionType": "quota-full",
       "confidence": "exact",
-      "evidence": "用悠遊付錢包或綁定銀行帳戶扣款，享5% 回饋，每月每戶回饋上限100 元，總回饋上限15 萬元/ 月。 * 活動期間同享「 月級挑戰- 筆筆最高3% 回饋 」活動回饋，疊加優惠享最高8% 悠遊付回饋金。 *本活動一 9月份已於2026/09/07 09:24:42額滿，感謝您的支持！ ▌活動二：悠遊付滿1,000 元贈50 元悠遊付現金回饋券 活動期間於台灣中油直營加油站及指定加盟站使用悠遊付加油，使用悠遊付錢包或銀行",
+      "evidence": "用悠遊付錢包或綁定銀行帳戶扣款，享5% 回饋，每月每戶回饋上限100 元，總回饋上限15 萬元/ 月。 * 活動期間同享「 月級挑戰- 筆筆最高3% 回饋 」活動回饋，疊加優惠享最高8% 悠遊付回饋金。 *本活動一 9月份已於2026/09/07 09:24:42額滿，感謝您的支持！ *本活動一 10月份已於2026/10/05 17:45:59額滿，感謝您的支持！ ▌活動二：悠遊付滿1,000 元贈50 元悠遊付現金回",
       "sourceUrl": "https://easywallet.easycard.com.tw/benefit/content.php?id=1787715465",
       "source": "official",
       "id": "悠遊付|https://easywallet.easycard.com.tw/benefit/content.php?id=1787715465|2026-09||2026-09-07|09:24:42"
@@ -469,36 +541,18 @@
       "id": "悠遊付|https://easywallet.easycard.com.tw/benefit/content.php?id=1785736053|2026-09||2026-09-07|18:06"
     },
     {
-      "platform": "iPASS MONEY",
+      "platform": "Pi 拍錢包",
       "month": "2026-09",
-      "campaignTitle": "[ 9 月份回饋上限已於 2026/9/8 額滿 ]【王道銀行】綁王道卡消費，最高享 5% 回饋！",
-      "bank": "王道銀行",
-      "rewardLabel": "5% 回饋",
-      "rate": 0.05,
-      "exhaustedDate": "2026-09-08",
+      "campaignTitle": "PChome24h購物📱購新機⚡️綁定玉山 Pi 拍錢包信用卡最高贈7517Ｐ幣",
+      "rewardLabel": "活動回饋",
+      "cap": 7517,
+      "exhaustedDate": "2026-09-10",
       "exhaustionType": "quota-full",
       "confidence": "date-only",
-      "evidence": "[ 9 月份回饋上限已於 2026/9/8 額滿 ]【王道銀行】綁王道卡消費，最高享 5% 回饋！ 活動期間：2026/8/1 (六) - 2026/12/31 (四)。詳細活動條件請以 iPASS MONE",
-      "sourceUrl": "https://www.i-pass.com.tw/Preferential/Detail/GMZTSMIHZAX2I64Cw4rE",
+      "evidence": "單筆消費滿 NT$45,000元 (含)以上 贈 2,250P幣 。 (9月活動一已於9/18上午8:58額滿) (10月活動一已於10/8中午12:52額滿) ＊活動1、活動2 擇優回饋，每人每月限贈點一次 ＊活動1 9-10月每月預算27萬元，額滿為止，額滿將於 Pi 拍錢包官網活動頁標示公告 ＊PChome儲值與電子票券不適用本活動 活動期間內，使用 Pi 拍錢包綁定玉山 Pi 拍錢包信用卡，於",
+      "sourceUrl": "https://web.piapp.com.tw/2609p24/",
       "source": "official",
-      "id": "iPASS MONEY|https://www.i-pass.com.tw/Preferential/Detail/GMZTSMIHZAX2I64Cw4rE|2026-09|王道銀行|2026-09-08|"
-    },
-    {
-      "platform": "悠遊付",
-      "month": "2026-09",
-      "campaignTitle": "喜美超市悠遊付 消費滿額享最高回饋8%",
-      "rewardLabel": "8% 回饋",
-      "rate": 0.08,
-      "cap": 40,
-      "exhaustedAt": "2026-09-10T17:53:00+08:00",
-      "exhaustedDate": "2026-09-10",
-      "exhaustedTime": "17:53",
-      "exhaustionType": "quota-full",
-      "confidence": "exact",
-      "evidence": "單筆滿500元(含)以上，即贈送悠遊付40元現金回饋券1份（限下次於喜美超市單筆消費滿40元使用），單筆不累贈，每悠遊付會員總回饋上限3份，總限量2,000份。總回饋份數如達上限，則活動提前結束並於悠遊付APP公告。 *本活動已於2026/9/10 17:53額滿，感謝您的支持。 ※活動期間同享「悠遊付月級挑戰錢包/帳戶最高回饋3%」活動回饋，疊加優惠最高享11%悠遊付回饋金>> 詳情請見 ※7/3-9/25同享悠遊付",
-      "sourceUrl": "https://easywallet.easycard.com.tw/benefit/content.php?id=1784797318",
-      "source": "official",
-      "id": "悠遊付|https://easywallet.easycard.com.tw/benefit/content.php?id=1784797318|2026-09||2026-09-10|17:53"
+      "id": "Pi 拍錢包|https://web.piapp.com.tw/2609p24/|2026-09||2026-09-10|"
     },
     {
       "platform": "icash Pay",
@@ -535,6 +589,70 @@
       "sourceUrl": "https://www.icashpay.com.tw/advertMessage/view/id/2284",
       "source": "official",
       "id": "icash Pay|https://www.icashpay.com.tw/advertMessage/view/id/2284|2026-09||2026-09-13|20:19"
+    },
+    {
+      "platform": "Pi 拍錢包",
+      "month": "2026-09",
+      "campaignTitle": "Pi 拍錢包⚡️ 9-10月指定電商、手機通路📱單筆滿額最高贈1800Ｐ幣",
+      "rewardLabel": "活動回饋",
+      "cap": 3000,
+      "exhaustedDate": "2026-09-14",
+      "exhaustionType": "quota-full",
+      "confidence": "date-only",
+      "evidence": "於 Pi 拍錢包官網之活動網頁 ＊本活動門檻限使用 Pi 拍錢包綁定玉山 Pi 拍錢包信用卡，不含綁定玉山 Pi 拍兔簽帳金融卡及慢點付 🔥活動二： 指定手機通路單筆實付滿36,000元贈1,800 P幣 (9月活動二已於9/14凌晨00:30額滿) (10月活動二已於10/9早上09:00額滿) 活動期間內，持 Pi 拍錢包綁定玉山 Pi 拍錢包信用卡於指定手機通路「全國電子」、「東森購物」",
+      "sourceUrl": "https://web.piapp.com.tw/260910bonus/",
+      "source": "official",
+      "id": "Pi 拍錢包|https://web.piapp.com.tw/260910bonus/|2026-09||2026-09-14|"
+    },
+    {
+      "platform": "Pi 拍錢包",
+      "month": "2026-09",
+      "campaignTitle": "PChome24h購物📱購新機⚡️綁定玉山 Pi 拍錢包信用卡最高贈7517Ｐ幣",
+      "bank": "玉山銀行",
+      "rewardLabel": "活動回饋",
+      "cap": 7517,
+      "exhaustedAt": "2026-09-18T08:01:00+08:00",
+      "exhaustedDate": "2026-09-18",
+      "exhaustedTime": "08:01",
+      "exhaustionType": "quota-full",
+      "confidence": "exact",
+      "evidence": "示公告 ＊PChome儲值與電子票券不適用本活動 活動期間內，使用 Pi 拍錢包綁定玉山 Pi 拍錢包信用卡，於PChome 24h購物單筆消費滿 NT$70,000元 (含)以上 贈 3,500P幣 。 (9月活動二已於9/18上午8:01額滿) (10月活動二已於10/5下午16:52額滿) ＊活動1、活動2 擇優回饋，每人每月限贈點一次 ＊活動2 9-10月每月預算7萬元，額滿為止，額滿將",
+      "sourceUrl": "https://web.piapp.com.tw/2609p24/",
+      "source": "official",
+      "id": "Pi 拍錢包|https://web.piapp.com.tw/2609p24/|2026-09|玉山銀行|2026-09-18|08:01"
+    },
+    {
+      "platform": "Pi 拍錢包",
+      "month": "2026-09",
+      "campaignTitle": "PChome24h購物📱購新機⚡️綁定玉山 Pi 拍錢包信用卡最高贈7517Ｐ幣",
+      "bank": "玉山銀行",
+      "rewardLabel": "活動回饋",
+      "cap": 7517,
+      "exhaustedAt": "2026-09-18T08:58:00+08:00",
+      "exhaustedDate": "2026-09-18",
+      "exhaustedTime": "08:58",
+      "exhaustionType": "quota-full",
+      "confidence": "exact",
+      "evidence": "0P 活動二、單筆滿$70,000贈3,500P 活動期間內，使用 Pi 拍錢包綁定玉山 Pi 拍錢包信用卡，於PChome 24h購物單筆消費滿 NT$45,000元 (含)以上 贈 2,250P幣 。 (9月活動一已於9/18上午8:58額滿) (10月活動一已於10/8中午12:52額滿) ＊活動1、活動2 擇優回饋，每人每月限贈點一次 ＊活動1 9-10月每月預算27萬元，額滿為止，額",
+      "sourceUrl": "https://web.piapp.com.tw/2609p24/",
+      "source": "official",
+      "id": "Pi 拍錢包|https://web.piapp.com.tw/2609p24/|2026-09|玉山銀行|2026-09-18|08:58"
+    },
+    {
+      "platform": "Pi 拍錢包",
+      "month": "2026-09",
+      "campaignTitle": "Pi 拍錢包⚡️ 9-10月指定電商、手機通路📱單筆滿額最高贈1800Ｐ幣",
+      "rewardLabel": "活動回饋",
+      "cap": 3000,
+      "exhaustedAt": "2026-09-18T18:00:00+08:00",
+      "exhaustedDate": "2026-09-18",
+      "exhaustedTime": "18:00",
+      "exhaustionType": "quota-full",
+      "confidence": "exact",
+      "evidence": "2026 / 9 / 1（二 ）- 2026 / 10 / 31（六 ） 二、指定銀行卡 玉山 Pi 拍錢包信用卡 三、活動內容 🔥活動一： 指定電商通路 單筆實付滿10,000元贈500 P幣 (9月活動一已於9/18 18:00額滿) 活動期間內，持 Pi 拍錢包綁定玉山 Pi 拍錢包信用卡於指定電商通路「比比昂」、「露天市集」、「拍享券」，單筆實付滿10,000元(含)以上贈500",
+      "sourceUrl": "https://web.piapp.com.tw/260910bonus/",
+      "source": "official",
+      "id": "Pi 拍錢包|https://web.piapp.com.tw/260910bonus/|2026-09||2026-09-18|18:00"
     },
     {
       "platform": "icash Pay",
@@ -592,24 +710,6 @@
       "sourceUrl": "https://www.icashpay.com.tw/advertMessage/view/id/2373",
       "source": "official",
       "id": "icash Pay|https://www.icashpay.com.tw/advertMessage/view/id/2373|2026-09|兆豐銀行|2026-09-23|01:02"
-    },
-    {
-      "platform": "LINE Pay",
-      "month": "2026-09",
-      "campaignTitle": "【精選飯店/餐廳】用LINE Pay首筆消費滿額贈優惠券，累計滿額兩筆再贈LINE POINTS 250點！綁定中信LINE Pay卡付款，再享加碼5%點數回饋！",
-      "bank": "中信銀行",
-      "rewardLabel": "5% 回饋",
-      "rate": 0.05,
-      "cap": 250,
-      "exhaustedAt": "2026-09-23T10:00:00+08:00",
-      "exhaustedDate": "2026-09-23",
-      "exhaustedTime": "10:00",
-      "exhaustionType": "quota-full",
-      "confidence": "exact",
-      "evidence": "[額滿公告] 優惠四：中信LINE Pay JCB卡加碼活動(9月份)，已於2026/9/26 10:00額滿。 Announcements [額滿公告] 優惠三：中信LINE Pay Visa卡加碼活動(9月份)，將於2026/9/23 10:00額滿。 Announcements [額滿公告] 優惠三：中信LINE Pay Visa卡加碼活動(8月份)，已於2026/8/26 15:00額滿。 A",
-      "sourceUrl": "https://web-tw-pay.line.me/cms/event/template1.3/abe1dd00-34be-4bb4-800a-68daff4207f5",
-      "source": "official",
-      "id": "LINE Pay|https://web-tw-pay.line.me/cms/event/template1.3/abe1dd00-34be-4bb4-800a-68daff4207f5|2026-09|中信銀行|2026-09-23|10:00"
     },
     {
       "platform": "icash Pay",
@@ -687,6 +787,23 @@
       "id": "LINE Pay|https://web-tw-pay.line.me/cms/event/template1.3/abe1dd00-34be-4bb4-800a-68daff4207f5|2026-09|中信銀行|2026-09-26|10:00"
     },
     {
+      "platform": "悠遊付",
+      "month": "2026-09",
+      "campaignTitle": "韓國旅遊｜悠遊付現金回饋最高12%",
+      "rewardLabel": "12% 回饋",
+      "rate": 0.12,
+      "cap": 600,
+      "exhaustedAt": "2026-09-26T17:05:54+08:00",
+      "exhaustedDate": "2026-09-26",
+      "exhaustedTime": "17:05:54",
+      "exhaustionType": "quota-full",
+      "confidence": "exact",
+      "evidence": "換國家為韓國→出示QRCODE支付即可！ 本服務為「新臺幣」扣款，交易完成後可即時確認新臺幣扣款金額。 (匯率說明) 詳細支付流程請見 本頁說明 。 ▌額滿公告 -活動二9月份「100元韓國樂天免稅店現金回饋券」已於9/26 17:05:54額滿。 注意事項 活動期間於韓國標示TWQR店家，使用悠遊付付款碼功能消費之人，並以悠遊付錢包或綁定銀行帳戶扣款支付，視同參加活動，為活動參加人，即同意接受本活",
+      "sourceUrl": "https://easywallet.easycard.com.tw/benefit/content.php?id=1786529493",
+      "source": "official",
+      "id": "悠遊付|https://easywallet.easycard.com.tw/benefit/content.php?id=1786529493|2026-09||2026-09-26|17:05:54"
+    },
+    {
       "platform": "icash Pay",
       "month": "2026-09",
       "campaignTitle": "7-ELEVEN實體門市10%活動",
@@ -706,6 +823,22 @@
       "id": "icash Pay|https://www.icashpay.com.tw/advertMessage/view/id/2373|2026-09|台中銀行|2026-09-30|09:38"
     },
     {
+      "platform": "iPASS MONEY",
+      "month": "2026-08",
+      "campaignTitle": "【聯邦銀行】綁定聯邦信用卡消費，最高享 10% 回饋！",
+      "bank": "聯邦銀行",
+      "rewardLabel": "10% 回饋",
+      "rate": 0.1,
+      "cap": 50,
+      "exhaustedDate": "2026-08",
+      "exhaustionType": "quota-full",
+      "confidence": "month-only",
+      "evidence": "8月活動已額滿",
+      "sourceUrl": "https://activity.ubot.com.tw/aws_act/2026/2026ipassmoney/index.htm",
+      "source": "official",
+      "id": "iPASS MONEY|https://activity.ubot.com.tw/aws_act/2026/2026ipassmoney/index.htm|2026-08|聯邦銀行|2026-08|"
+    },
+    {
       "platform": "OPEN錢包",
       "month": "2026-08",
       "campaignTitle": "OPEN錢包綁 聯邦銀行｜7-ELEVEN 回饋",
@@ -721,22 +854,6 @@
       "sourceUrl": "https://card.ubot.com.tw/eCard/activity/2026Q3OPWALLET/index.htm",
       "source": "official",
       "id": "OPEN錢包|https://card.ubot.com.tw/eCard/activity/2026Q3OPWALLET/index.htm|2026-08|聯邦銀行|2026-08|"
-    },
-    {
-      "platform": "iPASS MONEY",
-      "month": "2026-08",
-      "campaignTitle": "【聯邦銀行】綁定聯邦信用卡消費，最高享 10% 回饋！",
-      "bank": "聯邦銀行",
-      "rewardLabel": "10% 回饋",
-      "rate": 0.1,
-      "cap": 50,
-      "exhaustedDate": "2026-08",
-      "exhaustionType": "quota-full",
-      "confidence": "month-only",
-      "evidence": "8月活動已額滿",
-      "sourceUrl": "https://activity.ubot.com.tw/aws_act/2026/2026ipassmoney/index.htm",
-      "source": "official",
-      "id": "iPASS MONEY|https://activity.ubot.com.tw/aws_act/2026/2026ipassmoney/index.htm|2026-08|聯邦銀行|2026-08|"
     },
     {
       "platform": "icash Pay",
@@ -769,7 +886,7 @@
       "exhaustedTime": "17:01",
       "exhaustionType": "quota-full",
       "confidence": "exact",
-      "evidence": "《點我前往登錄頁面》 額滿提醒： 此訊息揭露僅為提醒之用，揭露作業時間會晚於活動回饋額滿時間，實際仍依交易之時間順序為準判定符合資格，活動參與者不得以未獲知本活動回饋額滿訊息為理由要求補贈點。 玉山08月份贈點已於2026/08/09 17:01 p.m.額滿 玉山07月份贈點已於2026/07/12 19:31 p.m.額滿 注意事項： 本活動各適用銀行如已達活動總回饋上限，將依icash Pay交易之時間",
+      "evidence": "，揭露作業時間會晚於活動回饋額滿時間，實際仍依交易之時間順序為準判定符合資格，活動參與者不得以未獲知本活動回饋額滿訊息為理由要求補贈點。 玉山09月份贈點已於2026/09/11 20:01 p.m.額滿 玉山08月份贈點已於2026/08/09 17:01 p.m.額滿 玉山07月份贈點已於2026/07/12 19:31 p.m.額滿 注意事項： 本活動各適用銀行如已達活動總回饋上限，將依icash Pay交易之時間",
       "sourceUrl": "https://www.icashpay.com.tw/advertMessage/view/id/2375",
       "source": "official",
       "id": "icash Pay|https://www.icashpay.com.tw/advertMessage/view/id/2375|2026-08|玉山銀行|2026-08-09|17:01"
@@ -962,6 +1079,22 @@
       "id": "LINE Pay|https://web-tw-pay.line.me/cms/event/template1.3/abe1dd00-34be-4bb4-800a-68daff4207f5|2026-08|中信銀行|2026-08-26|15:00"
     },
     {
+      "platform": "iPASS MONEY",
+      "month": "2026-07",
+      "campaignTitle": "【聯邦銀行】綁定聯邦信用卡消費，最高享 10% 回饋！",
+      "bank": "聯邦銀行",
+      "rewardLabel": "10% 回饋",
+      "rate": 0.1,
+      "cap": 50,
+      "exhaustedDate": "2026-07",
+      "exhaustionType": "quota-full",
+      "confidence": "month-only",
+      "evidence": "7月活動已額滿",
+      "sourceUrl": "https://activity.ubot.com.tw/aws_act/2026/2026ipassmoney/index.htm",
+      "source": "official",
+      "id": "iPASS MONEY|https://activity.ubot.com.tw/aws_act/2026/2026ipassmoney/index.htm|2026-07|聯邦銀行|2026-07|"
+    },
+    {
       "platform": "OPEN錢包",
       "month": "2026-07",
       "campaignTitle": "OPEN錢包綁 聯邦銀行｜7-ELEVEN 回饋",
@@ -977,39 +1110,6 @@
       "sourceUrl": "https://card.ubot.com.tw/eCard/activity/2026Q3OPWALLET/index.htm",
       "source": "official",
       "id": "OPEN錢包|https://card.ubot.com.tw/eCard/activity/2026Q3OPWALLET/index.htm|2026-07|聯邦銀行|2026-07|"
-    },
-    {
-      "platform": "OPEN錢包",
-      "month": "2026-07",
-      "campaignTitle": "OPEN錢包綁 兆豐銀行｜7-ELEVEN 回饋",
-      "merchant": "7-ELEVEN",
-      "bank": "兆豐銀行",
-      "rewardLabel": "10% 回饋",
-      "rate": 0.1,
-      "cap": 50,
-      "exhaustedDate": "2026-07",
-      "exhaustionType": "quota-full",
-      "confidence": "month-only",
-      "evidence": "7月活動已於115/7/6 PM5:33:04滿額",
-      "sourceUrl": "https://www.megabank.com.tw/personal/credit-card/event/overview/115h2open",
-      "source": "official",
-      "id": "OPEN錢包|https://www.megabank.com.tw/personal/credit-card/event/overview/115h2open|2026-07|兆豐銀行|2026-07|"
-    },
-    {
-      "platform": "iPASS MONEY",
-      "month": "2026-07",
-      "campaignTitle": "【聯邦銀行】綁定聯邦信用卡消費，最高享 10% 回饋！",
-      "bank": "聯邦銀行",
-      "rewardLabel": "10% 回饋",
-      "rate": 0.1,
-      "cap": 50,
-      "exhaustedDate": "2026-07",
-      "exhaustionType": "quota-full",
-      "confidence": "month-only",
-      "evidence": "7月活動已額滿",
-      "sourceUrl": "https://activity.ubot.com.tw/aws_act/2026/2026ipassmoney/index.htm",
-      "source": "official",
-      "id": "iPASS MONEY|https://activity.ubot.com.tw/aws_act/2026/2026ipassmoney/index.htm|2026-07|聯邦銀行|2026-07|"
     },
     {
       "platform": "icash Pay",
@@ -1042,7 +1142,7 @@
       "exhaustedTime": "19:31",
       "exhaustionType": "quota-full",
       "confidence": "exact",
-      "evidence": "，揭露作業時間會晚於活動回饋額滿時間，實際仍依交易之時間順序為準判定符合資格，活動參與者不得以未獲知本活動回饋額滿訊息為理由要求補贈點。 玉山08月份贈點已於2026/08/09 17:01 p.m.額滿 玉山07月份贈點已於2026/07/12 19:31 p.m.額滿 注意事項： 本活動各適用銀行如已達活動總回饋上限，將依icash Pay交易之時間順序為準判定符合資格，不另行公告或通知，活動參與者不得以未獲知本活動",
+      "evidence": "符合資格，活動參與者不得以未獲知本活動回饋額滿訊息為理由要求補贈點。 玉山09月份贈點已於2026/09/11 20:01 p.m.額滿 玉山08月份贈點已於2026/08/09 17:01 p.m.額滿 玉山07月份贈點已於2026/07/12 19:31 p.m.額滿 注意事項： 本活動各適用銀行如已達活動總回饋上限，將依icash Pay交易之時間順序為準判定符合資格，不另行公告或通知，活動參與者不得以未獲知本活動",
       "sourceUrl": "https://www.icashpay.com.tw/advertMessage/view/id/2375",
       "source": "official",
       "id": "icash Pay|https://www.icashpay.com.tw/advertMessage/view/id/2375|2026-07|玉山銀行|2026-07-12|19:31"
@@ -1279,6 +1379,21 @@
       "sourceUrl": "https://web-tw-pay.line.me/cms/event/template1.3/276dff92-a14f-4553-bfea-1be0f75f176a",
       "source": "official",
       "id": "LINE Pay|https://web-tw-pay.line.me/cms/event/template1.3/276dff92-a14f-4553-bfea-1be0f75f176a|2026-05||2026-05-09|21:30"
+    },
+    {
+      "platform": "iPASS MONEY",
+      "month": "2021-10",
+      "campaignTitle": "【iPASS MONEY】連結銀行帳戶／信用卡享優惠！",
+      "bank": "聯邦銀行",
+      "rewardLabel": "活動回饋",
+      "cap": 150,
+      "exhaustedDate": "2021-10-07",
+      "exhaustionType": "quota-full",
+      "confidence": "date-only",
+      "evidence": ".1 - 2026.12.31 優惠活動詳情 樂天網銀新戶，用 iPASS MONEY 付款任 3 筆享 800 點回饋！ 活動日期：2026.9.1 - 2026.11.30 優惠活動詳情 [ 10 月份回饋上限已於 2026/10/7 額滿 ] 綁定王道Debit卡消費最高享 5% 回饋！ 活動日期：2026.8.1 - 2026.12.31 優惠活動詳情 指定連結開立王道帳戶，並符合條件享 60",
+      "sourceUrl": "https://www.i-pass.com.tw/Preferential/Detail/GI2TSNQHW7ZKA64RZbVj",
+      "source": "official",
+      "id": "iPASS MONEY|https://www.i-pass.com.tw/Preferential/Detail/GI2TSNQHW7ZKA64RZbVj|2021-10|聯邦銀行|2021-10-07|"
     }
   ],
   "source": {
@@ -1324,7 +1439,7 @@
       "officialSite": "https://web-tw-pay.line.me/cms/event",
       "status": "ok",
       "detailPagesChecked": 77,
-      "checkedAt": "2026-10-14T00:42:09.615Z"
+      "checkedAt": "2026-10-14T03:22:11.494Z"
     },
     {
       "name": "LINE Pay 官方活動",
@@ -1332,7 +1447,7 @@
       "officialSite": "https://web-tw-pay.line.me/cms/event",
       "status": "ok",
       "detailPagesChecked": 77,
-      "checkedAt": "2026-10-14T00:42:09.615Z"
+      "checkedAt": "2026-10-14T03:22:11.494Z"
     },
     {
       "name": "LINE Pay 官方活動",
@@ -1340,7 +1455,7 @@
       "officialSite": "https://web-tw-pay.line.me/cms/event",
       "status": "ok",
       "detailPagesChecked": 77,
-      "checkedAt": "2026-10-14T00:42:09.615Z"
+      "checkedAt": "2026-10-14T03:22:11.494Z"
     },
     {
       "name": "LINE Pay 官方活動",
@@ -1348,7 +1463,7 @@
       "officialSite": "https://web-tw-pay.line.me/cms/event",
       "status": "ok",
       "detailPagesChecked": 77,
-      "checkedAt": "2026-10-14T00:42:09.615Z"
+      "checkedAt": "2026-10-14T03:22:11.494Z"
     },
     {
       "name": "街口支付 官方活動",
@@ -1356,7 +1471,15 @@
       "officialSite": "https://mkt.jkopay.com/zh-TW/event",
       "status": "ok",
       "detailPagesChecked": 95,
-      "checkedAt": "2026-10-14T00:42:09.615Z"
+      "checkedAt": "2026-10-14T03:22:11.494Z"
+    },
+    {
+      "name": "悠遊付 官方活動",
+      "url": "https://easywallet.easycard.com.tw/benefit/",
+      "officialSite": "https://easywallet.easycard.com.tw/benefit/",
+      "status": "ok",
+      "detailPagesChecked": 76,
+      "checkedAt": "2026-10-14T03:22:11.494Z"
     },
     {
       "name": "悠遊付 官方活動",
@@ -1364,7 +1487,7 @@
       "officialSite": "https://easywallet.easycard.com.tw/benefit/",
       "status": "ok",
       "detailPagesChecked": 76,
-      "checkedAt": "2026-10-14T00:42:09.615Z"
+      "checkedAt": "2026-10-14T03:22:11.494Z"
     },
     {
       "name": "iPASS MONEY 官方活動",
@@ -1372,7 +1495,7 @@
       "officialSite": "https://www.i-pass.com.tw/Preferential",
       "status": "ok",
       "detailPagesChecked": 45,
-      "checkedAt": "2026-10-14T00:42:09.615Z"
+      "checkedAt": "2026-10-14T03:22:11.494Z"
     },
     {
       "name": "icash Pay 官方活動",
@@ -1380,7 +1503,7 @@
       "officialSite": "https://www.icashpay.com.tw/",
       "status": "ok",
       "detailPagesChecked": 36,
-      "checkedAt": "2026-10-14T00:42:09.615Z"
+      "checkedAt": "2026-10-14T03:22:11.494Z"
     },
     {
       "name": "icash Pay 官方活動",
@@ -1388,7 +1511,7 @@
       "officialSite": "https://www.icashpay.com.tw/",
       "status": "ok",
       "detailPagesChecked": 36,
-      "checkedAt": "2026-10-14T00:42:09.615Z"
+      "checkedAt": "2026-10-14T03:22:11.494Z"
     },
     {
       "name": "icash Pay 官方活動",
@@ -1396,7 +1519,7 @@
       "officialSite": "https://www.icashpay.com.tw/",
       "status": "ok",
       "detailPagesChecked": 36,
-      "checkedAt": "2026-10-14T00:42:09.615Z"
+      "checkedAt": "2026-10-14T03:22:11.494Z"
     },
     {
       "name": "icash Pay 官方活動",
@@ -1404,7 +1527,7 @@
       "officialSite": "https://www.icashpay.com.tw/",
       "status": "ok",
       "detailPagesChecked": 36,
-      "checkedAt": "2026-10-14T00:42:09.615Z"
+      "checkedAt": "2026-10-14T03:22:11.494Z"
     },
     {
       "name": "icash Pay 官方活動",
@@ -1412,7 +1535,7 @@
       "officialSite": "https://www.icashpay.com.tw/",
       "status": "ok",
       "detailPagesChecked": 36,
-      "checkedAt": "2026-10-14T00:42:09.615Z"
+      "checkedAt": "2026-10-14T03:22:11.494Z"
     },
     {
       "name": "icash Pay 官方活動",
@@ -1420,7 +1543,7 @@
       "officialSite": "https://www.icashpay.com.tw/",
       "status": "ok",
       "detailPagesChecked": 36,
-      "checkedAt": "2026-10-14T00:42:09.615Z"
+      "checkedAt": "2026-10-14T03:22:11.494Z"
     },
     {
       "name": "icash Pay 官方活動",
@@ -1428,7 +1551,7 @@
       "officialSite": "https://www.icashpay.com.tw/",
       "status": "ok",
       "detailPagesChecked": 36,
-      "checkedAt": "2026-10-14T00:42:09.615Z"
+      "checkedAt": "2026-10-14T03:22:11.494Z"
     },
     {
       "name": "Pi 拍錢包 官方活動",
@@ -1436,7 +1559,7 @@
       "officialSite": "https://web.piapp.com.tw/events/",
       "status": "ok",
       "detailPagesChecked": 36,
-      "checkedAt": "2026-10-14T00:42:09.615Z"
+      "checkedAt": "2026-10-14T03:22:11.494Z"
     },
     {
       "name": "全盈+PAY 官方活動",
@@ -1444,7 +1567,7 @@
       "officialSite": "https://event2023.pluspay.com.tw/",
       "status": "ok",
       "detailPagesChecked": 492,
-      "checkedAt": "2026-10-14T00:42:09.615Z"
+      "checkedAt": "2026-10-14T03:22:11.494Z"
     },
     {
       "name": "全盈+PAY 官方活動",
@@ -1452,7 +1575,7 @@
       "officialSite": "https://event2023.pluspay.com.tw/",
       "status": "ok",
       "detailPagesChecked": 492,
-      "checkedAt": "2026-10-14T00:42:09.615Z"
+      "checkedAt": "2026-10-14T03:22:11.494Z"
     },
     {
       "name": "OPEN錢包 官方活動",
@@ -1460,7 +1583,7 @@
       "officialSite": "https://www.7-11.com.tw/service/Pay.aspx#tab1",
       "status": "ok",
       "detailPagesChecked": 52,
-      "checkedAt": "2026-10-14T00:42:09.615Z"
+      "checkedAt": "2026-10-14T03:22:11.494Z"
     },
     {
       "name": "7-ELEVEN 官方活動",
@@ -1468,7 +1591,7 @@
       "officialSite": "https://www.7-11.com.tw/index.aspx",
       "status": "ok",
       "detailPagesChecked": 52,
-      "checkedAt": "2026-10-14T00:42:09.615Z"
+      "checkedAt": "2026-10-14T03:22:11.494Z"
     },
     {
       "name": "7-ELEVEN 官方活動",
@@ -1476,16 +1599,15 @@
       "officialSite": "https://www.7-11.com.tw/index.aspx",
       "status": "ok",
       "detailPagesChecked": 52,
-      "checkedAt": "2026-10-14T00:42:09.615Z"
+      "checkedAt": "2026-10-14T03:22:11.494Z"
     },
     {
       "name": "台灣 Pay 官方活動",
       "url": "https://taiwanpay.firstbank.com.tw/sites/twpay/latestOffers",
       "officialSite": "https://taiwanpay.firstbank.com.tw/sites/twpay/latestOffers",
-      "status": "stale-preserved",
-      "note": "The operation was aborted due to timeout",
+      "status": "ok",
       "detailPagesChecked": 53,
-      "checkedAt": "2026-10-14T00:42:09.615Z"
+      "checkedAt": "2026-10-14T03:22:11.494Z"
     },
     {
       "name": "全支付 官方活動",
@@ -1493,7 +1615,7 @@
       "officialSite": "https://www.pxpayplus.com.tw/",
       "status": "ok",
       "detailPagesChecked": 1,
-      "checkedAt": "2026-10-14T00:42:09.615Z"
+      "checkedAt": "2026-10-14T03:22:11.494Z"
     },
     {
       "name": "全支付 官方活動",
@@ -1501,7 +1623,7 @@
       "officialSite": "https://www.pxpayplus.com.tw/",
       "status": "ok",
       "detailPagesChecked": 1,
-      "checkedAt": "2026-10-14T00:42:09.615Z"
+      "checkedAt": "2026-10-14T03:22:11.494Z"
     },
     {
       "name": "橘子支付 官方活動",
@@ -1510,7 +1632,7 @@
       "status": "stale-preserved",
       "note": "fetch failed",
       "detailPagesChecked": 80,
-      "checkedAt": "2026-10-14T00:42:09.615Z"
+      "checkedAt": "2026-10-14T03:22:11.494Z"
     },
     {
       "name": "橘子支付 官方活動",
@@ -1519,7 +1641,7 @@
       "status": "stale-preserved",
       "note": "fetch failed",
       "detailPagesChecked": 80,
-      "checkedAt": "2026-10-14T00:42:09.615Z"
+      "checkedAt": "2026-10-14T03:22:11.494Z"
     },
     {
       "name": "歐付寶 O'Pay 官方活動",
@@ -1527,7 +1649,7 @@
       "officialSite": "https://www.opay.tw/banner/event",
       "status": "ok",
       "detailPagesChecked": 12,
-      "checkedAt": "2026-10-14T00:42:09.615Z"
+      "checkedAt": "2026-10-14T03:22:11.494Z"
     },
     {
       "name": "ezPay 簡單付 官方活動",
@@ -1535,7 +1657,7 @@
       "officialSite": "https://www.ezpay.com.tw/",
       "status": "blocked",
       "note": "官方首頁拒絕自動讀取，暫不列入目前有效活動",
-      "checkedAt": "2026-10-14T00:42:09.615Z"
+      "checkedAt": "2026-10-14T03:22:11.494Z"
     }
   ],
   "payments": [
@@ -9956,7 +10078,7 @@
       "segment": "daily",
       "officialSite": "https://web-tw-pay.line.me/cms/event",
       "sourceUrl": "https://web-tw-pay.line.me/cms/event",
-      "checkedAt": "2026-10-14T00:42:09.615Z"
+      "checkedAt": "2026-10-14T03:22:11.494Z"
     },
     {
       "name": "街口支付",
@@ -9966,7 +10088,7 @@
       "segment": "daily",
       "officialSite": "https://mkt.jkopay.com/zh-TW/event",
       "sourceUrl": "https://mkt.jkopay.com/sitemap.xml",
-      "checkedAt": "2026-10-14T00:42:09.615Z"
+      "checkedAt": "2026-10-14T03:22:11.494Z"
     },
     {
       "name": "悠遊付",
@@ -9976,7 +10098,7 @@
       "segment": "daily",
       "officialSite": "https://easywallet.easycard.com.tw/benefit/",
       "sourceUrl": "https://easywallet.easycard.com.tw/benefit/?page=1",
-      "checkedAt": "2026-10-14T00:42:09.615Z"
+      "checkedAt": "2026-10-14T03:22:11.494Z"
     },
     {
       "name": "iPASS MONEY",
@@ -9986,7 +10108,7 @@
       "segment": "daily",
       "officialSite": "https://www.i-pass.com.tw/Preferential",
       "sourceUrl": "https://www.i-pass.com.tw/Preferential?page=1&type=0",
-      "checkedAt": "2026-10-14T00:42:09.615Z"
+      "checkedAt": "2026-10-14T03:22:11.494Z"
     },
     {
       "name": "icash Pay",
@@ -9996,7 +10118,7 @@
       "segment": "daily",
       "officialSite": "https://www.icashpay.com.tw/",
       "sourceUrl": "https://www.icashpay.com.tw/advertMessage/index?page=1",
-      "checkedAt": "2026-10-14T00:42:09.615Z"
+      "checkedAt": "2026-10-14T03:22:11.494Z"
     },
     {
       "name": "Pi 拍錢包",
@@ -10006,7 +10128,7 @@
       "segment": "merchant",
       "officialSite": "https://web.piapp.com.tw/events/",
       "sourceUrl": "https://web.piapp.com.tw/events/",
-      "checkedAt": "2026-10-14T00:42:09.615Z"
+      "checkedAt": "2026-10-14T03:22:11.494Z"
     },
     {
       "name": "全盈+PAY",
@@ -10016,7 +10138,7 @@
       "segment": "merchant",
       "officialSite": "https://event2023.pluspay.com.tw/",
       "sourceUrl": "https://event2023.pluspay.com.tw/",
-      "checkedAt": "2026-10-14T00:42:09.615Z"
+      "checkedAt": "2026-10-14T03:22:11.494Z"
     },
     {
       "name": "OPEN錢包",
@@ -10026,7 +10148,7 @@
       "segment": "merchant",
       "officialSite": "https://www.7-11.com.tw/service/Pay.aspx#tab1",
       "sourceUrl": "https://www.7-11.com.tw/service/Pay.aspx#tab1",
-      "checkedAt": "2026-10-14T00:42:09.615Z"
+      "checkedAt": "2026-10-14T03:22:11.494Z"
     },
     {
       "name": "7-ELEVEN",
@@ -10036,7 +10158,7 @@
       "segment": "merchant",
       "officialSite": "https://www.7-11.com.tw/index.aspx",
       "sourceUrl": "https://www.7-11.com.tw/index.aspx",
-      "checkedAt": "2026-10-14T00:42:09.615Z"
+      "checkedAt": "2026-10-14T03:22:11.494Z"
     },
     {
       "name": "台灣 Pay",
@@ -10046,7 +10168,7 @@
       "segment": "cross-network",
       "officialSite": "https://taiwanpay.firstbank.com.tw/sites/twpay/latestOffers",
       "sourceUrl": "https://taiwanpay.firstbank.com.tw/sites/twpay/latestOffers",
-      "checkedAt": "2026-10-14T00:42:09.615Z"
+      "checkedAt": "2026-10-14T03:22:11.494Z"
     },
     {
       "name": "全支付",
@@ -10056,7 +10178,7 @@
       "segment": "merchant",
       "officialSite": "https://www.pxpayplus.com.tw/",
       "sourceUrl": "https://www.pxpayplus.com.tw/",
-      "checkedAt": "2026-10-14T00:42:09.615Z"
+      "checkedAt": "2026-10-14T03:22:11.494Z"
     },
     {
       "name": "橘子支付",
@@ -10066,7 +10188,7 @@
       "segment": "cross-network",
       "officialSite": "https://www.gamapay.com.tw/news_list.html",
       "sourceUrl": "https://www.gamapay.com.tw/news_list.html",
-      "checkedAt": "2026-10-14T00:42:09.615Z"
+      "checkedAt": "2026-10-14T03:22:11.494Z"
     },
     {
       "name": "歐付寶 O'Pay",
@@ -10076,7 +10198,7 @@
       "segment": "cross-network",
       "officialSite": "https://www.opay.tw/banner/event",
       "sourceUrl": "https://www.opay.tw/banner/event",
-      "checkedAt": "2026-10-14T00:42:09.615Z"
+      "checkedAt": "2026-10-14T03:22:11.494Z"
     },
     {
       "name": "ezPay 簡單付",
@@ -10086,7 +10208,7 @@
       "segment": "cross-network",
       "officialSite": "https://www.ezpay.com.tw/",
       "sourceUrl": "https://www.ezpay.com.tw/",
-      "checkedAt": "2026-10-14T00:42:09.615Z"
+      "checkedAt": "2026-10-14T03:22:11.494Z"
     }
   ]
 }
