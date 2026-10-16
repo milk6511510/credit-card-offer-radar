@@ -318,7 +318,7 @@ function rewardLabel(rate, cap, text) {
   return "官方最新資訊";
 }
 
-function campaign({ provider, title, rawText, sourceUrl, image = "", dateText = "", explicitCategory, statusText = "", publishedAt = "", officialOrder, startsAtOverride = "", endsAtOverride = "" }) {
+function campaign({ provider, title, rawText, sourceUrl, image = "", dateText = "", explicitCategory, statusText = "", publishedAt = "", officialOrder, startsAtOverride = "", endsAtOverride = "", rateOverride, capOverride, rewardLabelOverride = "" }) {
   const safeTitle = cleanText(title).replace(/\s+/g, " ");
   const cleanRaw = cleanText(rawText || safeTitle).slice(0, 5000);
   const combined = `${safeTitle} ${cleanRaw}`;
@@ -326,8 +326,8 @@ function campaign({ provider, title, rawText, sourceUrl, image = "", dateText = 
   const startsAt = startsAtOverride || parsedDates.startsAt;
   const endsAt = endsAtOverride || parsedDates.endsAt;
   const inferredCategory = explicitCategory || inferCategory(combined);
-  const rate = inferredCategory === "最新資訊" ? 0 : inferRate(combined);
-  const cap = inferredCategory === "最新資訊" ? 0 : inferCap(combined);
+  const rate = rateOverride ?? (inferredCategory === "最新資訊" ? 0 : inferRate(combined));
+  const cap = capOverride ?? (inferredCategory === "最新資訊" ? 0 : inferCap(combined));
   return {
     title: safeTitle,
     category: inferredCategory,
@@ -336,7 +336,7 @@ function campaign({ provider, title, rawText, sourceUrl, image = "", dateText = 
     audience: inferAudience(combined),
     rate,
     cap,
-    rewardLabel: rewardLabel(rate, cap, combined),
+    rewardLabel: rewardLabelOverride || rewardLabel(rate, cap, combined),
     status: cleanText(statusText || (startsAt && endsAt ? `${formatDateKey(startsAt)}–${formatDateKey(endsAt)}` : "官方頁最新資訊；詳細條件請見官方頁")),
     sourceUrl,
     image,
@@ -651,6 +651,111 @@ async function scrapeJko(today) {
   return { campaigns: dedupeCampaigns(results, today), status: "ok", sourceUrls: [sitemapUrl], detailPagesChecked: uniqueUrls.length };
 }
 
+function parseEasyWalletMembershipRewards(detailText) {
+  const text = cleanText(detailText);
+  const rewardSection = text.match(/會員等級專屬優惠[\s\S]*?(?=會員任務活動|金級會員專屬優惠|白金級會員專屬交通回饋)/i)?.[0] || text;
+  const rates = [...rewardSection.matchAll(/筆筆回饋\s*(\d+(?:\.\d+)?)\s*%/gi)]
+    .map((match) => Number(match[1]) / 100)
+    .filter((rate) => rate > 0 && rate <= 1);
+  const capRow = rewardSection.match(/每戶回饋上限\s*[\/／]\s*月([\s\S]*?)(?=免費提領次數|$)/i)?.[1] || "";
+  const caps = [...capRow.matchAll(/([\d,]+)\s*元/g)]
+    .map((match) => Number(match[1].replace(/,/g, "")))
+    .filter((cap) => cap > 0);
+  return {
+    rates: rates.length >= 3 ? rates.slice(0, 3) : [0.02, 0.025, 0.03],
+    caps: caps.length >= 3 ? caps.slice(0, 3) : [150, 200, 300],
+  };
+}
+
+function expandEasyWalletMembershipCampaign(baseCampaign, detailText) {
+  if (!/月級挑戰|筆筆最高\s*3%回饋/i.test(baseCampaign.title)) return [baseCampaign];
+
+  const { rates, caps } = parseEasyWalletMembershipRewards(detailText);
+  const common = {
+    provider: "悠遊付",
+    sourceUrl: baseCampaign.sourceUrl,
+    image: baseCampaign.image,
+    startsAtOverride: baseCampaign.startsAt,
+    endsAtOverride: baseCampaign.endsAt,
+    statusText: baseCampaign.status,
+    publishedAt: baseCampaign.publishedAt,
+    officialOrder: baseCampaign.officialOrder,
+    explicitCategory: "會員回饋",
+  };
+  const appNotice = "額滿狀態請以悠遊付 APP 首頁「筆筆享回饋」內的對應活動頁為準；官方公開頁未提供實際額滿時間。";
+  const tierDefinitions = [
+    {
+      label: "銀級",
+      title: "月級挑戰｜銀級會員筆筆回饋2%",
+      qualification: "前月累計3筆(含)以上且累計1元(含)以上",
+      rate: rates[0],
+      cap: caps[0],
+      withdrawals: 3,
+    },
+    {
+      label: "金級",
+      title: "月級挑戰｜金級會員筆筆回饋2.5%",
+      qualification: "前月累計10筆(含)以上且累計5,000元(含)以上",
+      rate: rates[1],
+      cap: caps[1],
+      withdrawals: 5,
+    },
+    {
+      label: "白金級",
+      title: "月級挑戰｜白金級會員筆筆回饋3%",
+      qualification: "前月累計20筆(含)以上且累計10,000元(含)以上",
+      rate: rates[2],
+      cap: caps[2],
+      withdrawals: 10,
+    },
+  ];
+  const tierCampaigns = tierDefinitions.map((tier) => campaign({
+    ...common,
+    title: tier.title,
+    rawText: `會員等級：${tier.label}；資格判定：${tier.qualification}。當月使用悠遊付錢包或綁定銀行帳戶扣款交易，筆筆享 ${Number(tier.rate * 100).toFixed(1).replace(/\.0$/, "")}% 回饋，每戶每月上限 ${tier.cap} 元，免費提領 ${tier.withdrawals} 次。${appNotice}`,
+    rateOverride: tier.rate,
+    capOverride: tier.cap,
+    rewardLabelOverride: `${Number(tier.rate * 100).toFixed(1).replace(/\.0$/, "")}% 回饋／上限 ${tier.cap.toLocaleString("zh-TW")} 元／月`,
+  }));
+
+  const additionalCampaigns = [
+    campaign({
+      ...common,
+      startsAtOverride: "20261001",
+      endsAtOverride: "20261231",
+      statusText: "2026/10/01–2026/12/31",
+      title: "會員任務｜首次自動儲值送$50回饋券",
+      rawText: "當月符合銀級、金級或白金級會員資格，並於當月開啟自動儲值且完成首次自動儲值交易，即可獲得50元現金回饋券；每月限量2,000名，依首次自動儲值成功時間排序，額滿為止。回饋資格與發券時間以悠遊付官方規則及 APP 顯示為準。",
+      dateText: "2026/10/1 00:00–2026/12/31 23:59",
+      rateOverride: 0,
+      capOverride: 50,
+      rewardLabelOverride: "50元現金回饋券／每月限量2,000名",
+    }),
+    campaign({
+      ...common,
+      startsAtOverride: "20261001",
+      endsAtOverride: "20261231",
+      statusText: "2026/10/01–2026/12/31",
+      title: "金級會員專屬｜首次生活繳費送$50回饋券",
+      rawText: "當月符合金級會員資格，並完成首次生活繳費，即可獲得50元現金回饋券；每月限量2,000名，依符合資格的生活繳費交易成功時間排序，額滿為止。詳細資格、回饋進度與額滿狀態請以悠遊付 APP「筆筆享回饋 > 金級回饋」為準。",
+      dateText: "2026/10/1 00:00–2026/12/31 23:59",
+      rateOverride: 0,
+      capOverride: 50,
+      rewardLabelOverride: "50元現金回饋券／每月限量2,000名",
+    }),
+    campaign({
+      ...common,
+      title: "白金級會員專屬｜停車／加油筆筆加碼3%",
+      rawText: "當月符合白金級會員資格，於指定停車場、加油站使用悠遊付錢包或綁定銀行帳戶扣款交易，享筆筆加碼3%悠遊付回饋金；每戶每月加碼回饋上限100元。指定通路與排除項目依悠遊付官方頁公告，額滿狀態請以 APP 活動頁為準。",
+      dateText: "2026/10/1 02:00–2027/1/1 01:59",
+      rateOverride: 0.03,
+      capOverride: 100,
+      rewardLabelOverride: "加碼3%回饋／上限100元／月",
+    }),
+  ];
+  return [...tierCampaigns, ...additionalCampaigns];
+}
+
 async function scrapeEasyWallet(today) {
   const listOrigin = "https://easywallet.easycard.com.tw";
   const listUrl = `${listOrigin}/benefit/`;
@@ -680,9 +785,10 @@ async function scrapeEasyWallet(today) {
     const detailSection = detail.ok ? detail.text.match(/<section[^>]+class=["'][^"']*content-block[^"']*["'][^>]*>([\s\S]*?)<\/section>/i)?.[1] : "";
     const detailPeriod = detail.ok ? cleanText(detail.text.match(/<h6[^>]*>([\s\S]*?)<\/h6>/i)?.[1] || "") : "";
     const detailText = detail.ok ? (cleanText(detailSection || "") || extractClassText(detail.text, "content-block")) : "";
-    return campaign({ provider: "悠遊付", title: detailTitle || candidate.title, rawText: detailText || candidate.title, sourceUrl: candidate.sourceUrl, image: detail.ok ? metaContent(detail.text, "og:image") : "", dateText: `${candidate.date} ${detailPeriod}` });
+    const baseCampaign = campaign({ provider: "悠遊付", title: detailTitle || candidate.title, rawText: detailText || candidate.title, sourceUrl: candidate.sourceUrl, image: detail.ok ? metaContent(detail.text, "og:image") : "", dateText: `${candidate.date} ${detailPeriod}` });
+    return expandEasyWalletMembershipCampaign(baseCampaign, detailText || candidate.title);
   });
-  return { campaigns: dedupeCampaigns(results, today), status: "ok", sourceUrls: [listUrl], detailPagesChecked: unique.length };
+  return { campaigns: dedupeCampaigns(results.flat(), today), status: "ok", sourceUrls: [listUrl], detailPagesChecked: unique.length };
 }
 
 async function scrapePi(today) {

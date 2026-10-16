@@ -348,6 +348,21 @@ function addAppReportedRecords(records) {
     sourceUrl: "https://cardpromote.taipeifubon.com.tw/promotion/Detail?sn=D000040",
     source: "app-report",
   });
+  addRecord(records, {
+    platform: "悠遊付",
+    month: "2026-10",
+    campaignTitle: "月級挑戰｜金級會員筆筆回饋2.5%",
+    merchant: "悠遊付錢包／綁定銀行帳戶",
+    rewardLabel: "2.5% 回饋",
+    rate: 0.025,
+    cap: 200,
+    exhaustedDate: "2026-10",
+    exhaustionType: "quota-full",
+    confidence: "month-only",
+    evidence: "使用者回報：悠遊付 APP 顯示金級會員回饋已完結；官方公開頁未提供實際額滿日期，待 APP 狀態或官方公告補足。",
+    sourceUrl: "https://easywallet.easycard.com.tw/benefit/content?id=1790160236",
+    source: "app-report",
+  });
 }
 
 function keepHistoryRecord(record) {
