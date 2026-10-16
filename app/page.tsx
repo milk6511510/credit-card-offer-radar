@@ -1343,7 +1343,7 @@ export default function Home() {
             <section className="history-trail-preview" aria-labelledby="history-trail-preview-title">
               <div className="history-trail-preview-heading">
                 <div className="history-trail-title-wrap">
-                  <span className="history-trail-icon"><Icon name="timeline" size={19} /></span>
+                <span className="history-trail-icon"><Icon name="timeline" size={19} /></span>
                   <div>
                     <span className="eyebrow">HISTORY TRACK</span>
                     <h2 id="history-trail-preview-title">歷史耗盡軌跡</h2>
@@ -1357,7 +1357,7 @@ export default function Home() {
               <HistoryMonthSelector months={historyMonths} records={historyRecords} selectedMonth={historyMonth} onSelect={setHistoryMonth} />
               <div className="history-trail-metrics" aria-label="歷史耗盡摘要">
                 <span><strong>{historyTrackGroupsForMonth.length}</strong> 個活動軌跡</span>
-                <span><strong>{historyTrackRecordCount}</strong> 筆官方紀錄</span>
+                <span><strong>{historyTrackRecordCount}</strong> 筆額滿紀錄</span>
               </div>
             </section>
 
@@ -1387,7 +1387,7 @@ export default function Home() {
             </div>
 
             <div id="history-records" className="history-records-section">
-              <div className="history-record-heading"><div><span className="eyebrow"><Icon name="database" size={14} />OFFICIAL LOG</span><h3>完整額滿紀錄</h3></div><span>{filteredHistoryRecords.length} 筆符合</span></div>
+              <div className="history-record-heading"><div><span className="eyebrow"><Icon name="database" size={14} />EXHAUSTION LOG</span><h3>完整額滿紀錄</h3></div><span>{filteredHistoryRecords.length} 筆符合</span></div>
               {filteredHistoryRecords.length ? (
                 <div className="history-record-list">
                 {filteredHistoryRecords.map((record) => (
