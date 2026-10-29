@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-29T10:29:57.025Z",
+  "updatedAt": "2026-10-29T17:08:20.238Z",
   "history": [
     {
       "platform": "iPASS MONEY",
@@ -1954,14 +1954,14 @@
     "officialSite": "https://www.7-11.com.tw/index.aspx",
     "counts": {
       "一般回饋": 20,
-      "金融／綁卡回饋": 73,
+      "金融／綁卡回饋": 76,
+      "超商回饋": 35,
+      "新戶優惠": 44,
       "交通／旅遊回饋": 25,
-      "超商回饋": 34,
-      "新戶優惠": 43,
       "購物回饋": 33,
       "餐飲回饋": 18,
       "加油回饋": 7,
-      "最新資訊": 19,
+      "最新資訊": 18,
       "會員回饋": 6,
       "生活服務": 4,
       "iPASS MONEY 活動": 2,
@@ -1991,32 +1991,32 @@
       "url": "https://web-tw-pay.line.me/cms/event",
       "officialSite": "https://web-tw-pay.line.me/cms/event",
       "status": "ok",
-      "detailPagesChecked": 76,
-      "checkedAt": "2026-10-29T10:29:57.025Z"
+      "detailPagesChecked": 82,
+      "checkedAt": "2026-10-29T17:08:20.238Z"
     },
     {
       "name": "LINE Pay 官方活動",
       "url": "https://web-tw-pay.line.me/svc/event/display2/ce715b92-8150-406b-bf42-c71cb56eb427",
       "officialSite": "https://web-tw-pay.line.me/cms/event",
       "status": "ok",
-      "detailPagesChecked": 76,
-      "checkedAt": "2026-10-29T10:29:57.025Z"
+      "detailPagesChecked": 82,
+      "checkedAt": "2026-10-29T17:08:20.238Z"
     },
     {
       "name": "LINE Pay 官方活動",
       "url": "https://pay.line.me/portal/tw/about/promotions?progressType=ONGOING",
       "officialSite": "https://web-tw-pay.line.me/cms/event",
       "status": "ok",
-      "detailPagesChecked": 76,
-      "checkedAt": "2026-10-29T10:29:57.025Z"
+      "detailPagesChecked": 82,
+      "checkedAt": "2026-10-29T17:08:20.238Z"
     },
     {
       "name": "LINE Pay 官方活動",
       "url": "https://pay.line.me/portal/tw/customer/press",
       "officialSite": "https://web-tw-pay.line.me/cms/event",
       "status": "ok",
-      "detailPagesChecked": 76,
-      "checkedAt": "2026-10-29T10:29:57.025Z"
+      "detailPagesChecked": 82,
+      "checkedAt": "2026-10-29T17:08:20.238Z"
     },
     {
       "name": "街口支付 官方活動",
@@ -2024,7 +2024,7 @@
       "officialSite": "https://mkt.jkopay.com/zh-TW/event",
       "status": "ok",
       "detailPagesChecked": 80,
-      "checkedAt": "2026-10-29T10:29:57.025Z"
+      "checkedAt": "2026-10-29T17:08:20.238Z"
     },
     {
       "name": "悠遊付 官方活動",
@@ -2032,7 +2032,7 @@
       "officialSite": "https://easywallet.easycard.com.tw/benefit/",
       "status": "ok",
       "detailPagesChecked": 77,
-      "checkedAt": "2026-10-29T10:29:57.025Z"
+      "checkedAt": "2026-10-29T17:08:20.238Z"
     },
     {
       "name": "悠遊付 官方活動",
@@ -2040,7 +2040,7 @@
       "officialSite": "https://easywallet.easycard.com.tw/benefit/",
       "status": "ok",
       "detailPagesChecked": 77,
-      "checkedAt": "2026-10-29T10:29:57.025Z"
+      "checkedAt": "2026-10-29T17:08:20.238Z"
     },
     {
       "name": "iPASS MONEY 官方活動",
@@ -2048,63 +2048,63 @@
       "officialSite": "https://www.i-pass.com.tw/Preferential",
       "status": "ok",
       "detailPagesChecked": 49,
-      "checkedAt": "2026-10-29T10:29:57.025Z"
+      "checkedAt": "2026-10-29T17:08:20.238Z"
     },
     {
       "name": "icash Pay 官方活動",
       "url": "https://www.icashpay.com.tw/advertMessage/index?page=1",
       "officialSite": "https://www.icashpay.com.tw/",
       "status": "ok",
-      "detailPagesChecked": 37,
-      "checkedAt": "2026-10-29T10:29:57.025Z"
+      "detailPagesChecked": 36,
+      "checkedAt": "2026-10-29T17:08:20.238Z"
     },
     {
       "name": "icash Pay 官方活動",
       "url": "https://www.icashpay.com.tw/advertMessage/index?page=2",
       "officialSite": "https://www.icashpay.com.tw/",
       "status": "ok",
-      "detailPagesChecked": 37,
-      "checkedAt": "2026-10-29T10:29:57.025Z"
+      "detailPagesChecked": 36,
+      "checkedAt": "2026-10-29T17:08:20.238Z"
     },
     {
       "name": "icash Pay 官方活動",
       "url": "https://www.icashpay.com.tw/advertMessage/index?page=3",
       "officialSite": "https://www.icashpay.com.tw/",
       "status": "ok",
-      "detailPagesChecked": 37,
-      "checkedAt": "2026-10-29T10:29:57.025Z"
+      "detailPagesChecked": 36,
+      "checkedAt": "2026-10-29T17:08:20.238Z"
     },
     {
       "name": "icash Pay 官方活動",
       "url": "https://www.icashpay.com.tw/advertMessage/index?page=4",
       "officialSite": "https://www.icashpay.com.tw/",
       "status": "ok",
-      "detailPagesChecked": 37,
-      "checkedAt": "2026-10-29T10:29:57.025Z"
+      "detailPagesChecked": 36,
+      "checkedAt": "2026-10-29T17:08:20.238Z"
     },
     {
       "name": "icash Pay 官方活動",
       "url": "https://www.icashpay.com.tw/advertMessage/index?page=5",
       "officialSite": "https://www.icashpay.com.tw/",
       "status": "ok",
-      "detailPagesChecked": 37,
-      "checkedAt": "2026-10-29T10:29:57.025Z"
+      "detailPagesChecked": 36,
+      "checkedAt": "2026-10-29T17:08:20.238Z"
     },
     {
       "name": "icash Pay 官方活動",
       "url": "https://www.icashpay.com.tw/advertMessage/index?page=6",
       "officialSite": "https://www.icashpay.com.tw/",
       "status": "ok",
-      "detailPagesChecked": 37,
-      "checkedAt": "2026-10-29T10:29:57.025Z"
+      "detailPagesChecked": 36,
+      "checkedAt": "2026-10-29T17:08:20.238Z"
     },
     {
       "name": "icash Pay 官方活動",
       "url": "https://www.icashpay.com.tw/advertMessage/view/id/2540",
       "officialSite": "https://www.icashpay.com.tw/",
       "status": "ok",
-      "detailPagesChecked": 37,
-      "checkedAt": "2026-10-29T10:29:57.025Z"
+      "detailPagesChecked": 36,
+      "checkedAt": "2026-10-29T17:08:20.238Z"
     },
     {
       "name": "Pi 拍錢包 官方活動",
@@ -2112,7 +2112,7 @@
       "officialSite": "https://web.piapp.com.tw/events/",
       "status": "ok",
       "detailPagesChecked": 36,
-      "checkedAt": "2026-10-29T10:29:57.025Z"
+      "checkedAt": "2026-10-29T17:08:20.238Z"
     },
     {
       "name": "全盈+PAY 官方活動",
@@ -2120,7 +2120,7 @@
       "officialSite": "https://event2023.pluspay.com.tw/",
       "status": "ok",
       "detailPagesChecked": 496,
-      "checkedAt": "2026-10-29T10:29:57.025Z"
+      "checkedAt": "2026-10-29T17:08:20.238Z"
     },
     {
       "name": "全盈+PAY 官方活動",
@@ -2128,7 +2128,7 @@
       "officialSite": "https://event2023.pluspay.com.tw/",
       "status": "ok",
       "detailPagesChecked": 496,
-      "checkedAt": "2026-10-29T10:29:57.025Z"
+      "checkedAt": "2026-10-29T17:08:20.238Z"
     },
     {
       "name": "OPEN錢包 官方活動",
@@ -2136,7 +2136,7 @@
       "officialSite": "https://www.7-11.com.tw/service/Pay.aspx#tab1",
       "status": "ok",
       "detailPagesChecked": 52,
-      "checkedAt": "2026-10-29T10:29:57.025Z"
+      "checkedAt": "2026-10-29T17:08:20.238Z"
     },
     {
       "name": "7-ELEVEN 官方活動",
@@ -2144,7 +2144,7 @@
       "officialSite": "https://www.7-11.com.tw/index.aspx",
       "status": "ok",
       "detailPagesChecked": 52,
-      "checkedAt": "2026-10-29T10:29:57.025Z"
+      "checkedAt": "2026-10-29T17:08:20.238Z"
     },
     {
       "name": "7-ELEVEN 官方活動",
@@ -2152,7 +2152,7 @@
       "officialSite": "https://www.7-11.com.tw/index.aspx",
       "status": "ok",
       "detailPagesChecked": 52,
-      "checkedAt": "2026-10-29T10:29:57.025Z"
+      "checkedAt": "2026-10-29T17:08:20.238Z"
     },
     {
       "name": "台灣 Pay 官方活動",
@@ -2160,7 +2160,7 @@
       "officialSite": "https://taiwanpay.firstbank.com.tw/sites/twpay/latestOffers",
       "status": "ok",
       "detailPagesChecked": 59,
-      "checkedAt": "2026-10-29T10:29:57.025Z"
+      "checkedAt": "2026-10-29T17:08:20.238Z"
     },
     {
       "name": "全支付 官方活動",
@@ -2168,7 +2168,7 @@
       "officialSite": "https://www.pxpayplus.com.tw/",
       "status": "ok",
       "detailPagesChecked": 1,
-      "checkedAt": "2026-10-29T10:29:57.025Z"
+      "checkedAt": "2026-10-29T17:08:20.238Z"
     },
     {
       "name": "全支付 官方活動",
@@ -2176,7 +2176,7 @@
       "officialSite": "https://www.pxpayplus.com.tw/",
       "status": "ok",
       "detailPagesChecked": 1,
-      "checkedAt": "2026-10-29T10:29:57.025Z"
+      "checkedAt": "2026-10-29T17:08:20.238Z"
     },
     {
       "name": "橘子支付 官方活動",
@@ -2185,7 +2185,7 @@
       "status": "stale-preserved",
       "note": "fetch failed",
       "detailPagesChecked": 80,
-      "checkedAt": "2026-10-29T10:29:57.025Z"
+      "checkedAt": "2026-10-29T17:08:20.238Z"
     },
     {
       "name": "橘子支付 官方活動",
@@ -2194,7 +2194,7 @@
       "status": "stale-preserved",
       "note": "fetch failed",
       "detailPagesChecked": 80,
-      "checkedAt": "2026-10-29T10:29:57.025Z"
+      "checkedAt": "2026-10-29T17:08:20.238Z"
     },
     {
       "name": "歐付寶 O'Pay 官方活動",
@@ -2202,7 +2202,7 @@
       "officialSite": "https://www.opay.tw/banner/event",
       "status": "ok",
       "detailPagesChecked": 13,
-      "checkedAt": "2026-10-29T10:29:57.025Z"
+      "checkedAt": "2026-10-29T17:08:20.238Z"
     },
     {
       "name": "ezPay 簡單付 官方活動",
@@ -2210,7 +2210,7 @@
       "officialSite": "https://www.ezpay.com.tw/",
       "status": "blocked",
       "note": "官方首頁拒絕自動讀取，暫不列入目前有效活動",
-      "checkedAt": "2026-10-29T10:29:57.025Z"
+      "checkedAt": "2026-10-29T17:08:20.238Z"
     }
   ],
   "payments": [
@@ -2219,7 +2219,7 @@
       "logo": "/logos/line-pay.svg",
       "color": "#00c300",
       "focus": "LINE Pay、LINE Pay Money 與官方通路優惠。",
-      "freshness": "官方來源檢查 2026/10/29；依官方更新順序排列",
+      "freshness": "官方來源檢查 2026/10/30；依官方更新順序排列",
       "campaigns": [
         {
           "title": "【365天優惠不間斷】 天天LINE Pay，好康來配！",
@@ -2266,6 +2266,116 @@
           "officialOrder": 0
         },
         {
+          "title": "【SAHOLEA森歐黎漾官網】LINE Pay享LINE POINTS 11%回饋！",
+          "category": "金融／綁卡回饋",
+          "stores": [
+            "官方支付服務"
+          ],
+          "paymentMethods": [
+            "LINE Pay"
+          ],
+          "audience": "not-stated",
+          "rate": 0.11,
+          "cap": 0,
+          "rewardLabel": "最高 11% 回饋",
+          "status": "活動期間 2026/10/30–2026/11/13；官方發布 2026年10月29日16:00 GMT+00",
+          "sourceUrl": "https://web-tw-pay.line.me/cms/event/template1.3/023b7454-a146-4c25-b213-340a489048f6",
+          "image": "https://linepaytw-cms.line-scdn.net/v0/d4644c57f002e53b623363682b14383768a45042e884362d822b1a8822df0a54.png",
+          "rawText": "點數回饋\n 任一付款方法\n 指定付款方法\n 【SAHOLEA森歐黎漾官網】LINE Pay享LINE POINTS 11%回饋！\n 發布日期：2026年10月29日16:00 GMT+00\n 活動日期\n 2026/10/29 16:00 -\n 2026/11/13 15:59 (GMT+00)\n 活動店家\n SAHOLEA森歐黎漾官網\n 前往SAHOLEA森歐黎漾官網\n 活動提醒\n 參加活動前請務必先進入LINE\n Pay，依序點選「設定」＞「服務條款」＞「行銷資訊提供政策」，確認頁面上方是否已勾選同意，未同意將不符活動資格。\n 付款前請務必再次留意選擇的付款方式是否正確；若選擇錯誤，後續能否取消再重新交易將依店家規定為準。\n 活動內容\n 活動期間內已註冊LINE Pay的用戶於SAHOLEA森歐黎漾官網，結帳時透過LINE Pay付款，可享以下優惠：\n 活動期間內已註冊LINE Pay的用戶於SAHOLEA森歐黎漾官網消費，結帳時透過LINE Pay使用已綁定的任一發卡銀行信用卡/簽帳金融卡付款，享LINE POINTS 11％回饋！\n ※若商店及活動參加者皆已開通LINE Pay Money，則選用LINE Pay Money帳戶付款同享回饋。\n ※自行了解LINE Pay付款操作方式及活動內容為活動參加者的義務，參加活動視同同意本活動規則，不因個人認知、星座生肖、宗教信仰、身分地位、疾病、威脅等而有特例，LINE Pay保有對本活動所有事宜做出最終解釋及決定的權利。\n 活動注意事項\n 立即下載 LINE Pay App\n 追蹤更多 LINE Pay 動態",
+          "startsAt": "20261030",
+          "endsAt": "20261113",
+          "publishedAt": "20261029",
+          "officialOrder": 1
+        },
+        {
+          "title": "【allyoung官網】LINE Pay付款享LINE POINTS 15%回饋！",
+          "category": "超商回饋",
+          "stores": [
+            "官方支付服務"
+          ],
+          "paymentMethods": [
+            "LINE Pay"
+          ],
+          "audience": "not-stated",
+          "rate": 0.15,
+          "cap": 0,
+          "rewardLabel": "最高 15% 回饋",
+          "status": "活動期間 2026/10/29–2026/11/12；官方發布 2026年10月29日16:00 GMT+00",
+          "sourceUrl": "https://web-tw-pay.line.me/cms/event/template1.3/e72d70b0-08fd-4cd4-8f04-0326806f4188",
+          "image": "https://linepaytw-cms.line-scdn.net/v0/0137b10aa9ddceef4d9d5e162dd08f302d2addc1d96ea6e460f9fb19deda9de0.jpeg",
+          "rawText": "點數回饋\n 任一付款方法\n 【allyoung官網】LINE Pay付款享LINE POINTS 15%回饋！\n 發布日期：2026年10月29日16:00 GMT+00\n 活動日期\n 2026/10/29 16:00 -\n 2026/11/12 15:59 (GMT+00)\n 活動店家\n allyoung官網\n ※若因超商未取貨而遭退回，視同放棄回饋權益，重新消費的訂單不補發點數，敬請留意。\n 前往allyoung官網\n 活動提醒\n 參加活動前請務必先進入LINE\n Pay，依序點選「設定」＞「服務條款」＞「行銷資訊提供政策」，確認頁面上方是否已勾選同意，未同意將不符活動資格。\n 付款前請務必再次留意選擇的付款方式是否正確；若選擇錯誤，後續能否取消再重新交易將依店家規定為準。\n 活動內容\n 活動期間內已註冊LINE Pay的用戶於allyoung官網消費，結帳時透過LINE Pay使用已綁定的任一發卡銀行信用卡/簽帳金融卡或LINE Pay Money帳戶付款，享LINE POINTS 15%回饋！ \n ※若因超商未取貨而遭退回，視同放棄回饋權益，重新消費的訂單不補發點數，敬請留意。\n 若商店及活動參加者皆已開通LINE Pay Money，則選用LINE Pay Money帳戶付款同享回饋。\n 自行了解LINE Pay付款操作方式及活動內容為活動參加者的義務，參加活動視同同意本活動規則，不因個人認知、星座生肖、宗教信仰、身分地位、疾病、威脅等而有特例，LINE Pay保有對本活動所有事宜做出最終解釋及決定的權利。\n 活動注意事項\n 立即下載 LINE Pay App\n 追蹤更多 LINE Pay 動態",
+          "startsAt": "20261029",
+          "endsAt": "20261112",
+          "publishedAt": "20261029",
+          "officialOrder": 2
+        },
+        {
+          "title": "【蕾黛絲官網】LINE Pay付款享LINE POINTS 3%回饋，單筆滿額再享LINE POINTS 7%回饋，首次消費再享LINE POINTS 100點回饋！",
+          "category": "新戶優惠",
+          "stores": [
+            "官方支付服務"
+          ],
+          "paymentMethods": [
+            "LINE Pay"
+          ],
+          "audience": "new-user",
+          "rate": 0.07,
+          "cap": 0,
+          "rewardLabel": "最高 7% 回饋",
+          "status": "活動期間 2026/10/30–2026/11/01；官方發布 2026年10月29日16:00 GMT+00",
+          "sourceUrl": "https://web-tw-pay.line.me/cms/event/template1.3/acf8a485-c7db-4c75-80d1-c61fce2c6719",
+          "image": "https://linepaytw-cms.line-scdn.net/v0/68cc45dab642c1c1488805a1a6726a8687a746d2c7fa2c9cc8407f962205848d.png",
+          "rawText": "點數回饋\n 任一付款方法\n 【蕾黛絲官網】LINE Pay付款享LINE POINTS 3%回饋，單筆滿額再享LINE POINTS 7%回饋，首次消費再享LINE POINTS 100點回饋！\n 發布日期：2026年10月29日16:00 GMT+00\n 活動日期\n 2026/10/29 16:00 -\n 2026/11/1 15:59 (GMT+00)\n 活動店家\n 蕾黛絲官網\n 前往蕾黛絲官網\n 活動提醒\n 參加活動前請務必先進入LINE\n Pay，依序點選「設定」＞「服務條款」＞「行銷資訊提供政策」，確認頁面上方是否已勾選同意，未同意將不符活動資格。\n 付款前請務必再次留意選擇的付款方式是否正確；若選擇錯誤，後續能否取消再重新交易將依店家規定為準。\n 活動內容\n 活動期間內已註冊LINE Pay的用戶於蕾黛絲官網結帳時透過LINE Pay使用已綁定的任一發卡銀行信用卡/簽帳金融卡付款，可享以下優惠：\n 優惠一：享LINE POINTS 3%回饋！\n 優惠二：單筆交易實際支付金額滿新台幣2,999元(LINE POINTS及優惠券折抵金額不計入)，享LINE POINTS 7%回饋！\n 優惠三：「首次」消費，再享LINE POINTS 100點回饋！\n 以上優惠合計限量10萬點，發完為止，額滿訊息將公告於LINE Pay官方帳號貼文專區：\n ① 請加入 LINE Pay官方帳號 並解除封鎖。\n ② 開啟手機版LINE應用程式＞進入聊天室列表＞搜尋並進入「LINE Pay」官方帳號＞點選「活動額滿公告」查看是否額滿( 圖片說明 )。\n ③ 已結束活動或跨月活動的額滿通知，也可至LINE Pay官方帳號 活動額滿公告頁 查看。\n ※若商店及活動參加者皆已開通LINE Pay Money，則選用LINE Pay Money帳戶付款同享回饋。\n ※自行了解LINE Pay付款操作方式及活動內容為活動參加者的義務，參加活動視同同意本活動規則，不因個人認知、星座生肖、宗教信仰、身分地位、疾病、威脅等而有特例，LINE Pay保有對本活動所有事宜做出最終解釋及決定的權利。\n 活動注意事項\n 立即下載 LINE Pay App\n 追蹤更多 LINE Pay 動態",
+          "startsAt": "20261030",
+          "endsAt": "20261101",
+          "publishedAt": "20261029",
+          "officialOrder": 3
+        },
+        {
+          "title": "【黛安芬官網】LINE Pay付款享LINE POINTS 3%回饋，單筆滿額再享LINE POINTS 7%回饋，首次消費再享LINE POINTS 100點回饋！",
+          "category": "新戶優惠",
+          "stores": [
+            "官方支付服務"
+          ],
+          "paymentMethods": [
+            "LINE Pay"
+          ],
+          "audience": "new-user",
+          "rate": 0.07,
+          "cap": 0,
+          "rewardLabel": "最高 7% 回饋",
+          "status": "活動期間 2026/10/30–2026/11/01；官方發布 2026年10月29日16:00 GMT+00",
+          "sourceUrl": "https://web-tw-pay.line.me/cms/event/template1.3/9c53a55a-feac-4c91-947d-a9f57571fbdc",
+          "image": "https://obs.line-scdn.net/0h8SGr1yA3Z3x6C3Nz2ZAYKyVWYRMDenBiWCxrRhoVaxdWfkt2JW1URl9PaSk0ZUhxIm1TRSMDaRMnO1t1JmV6UjQLWCkjO3VfJShDRTRSRzkgeEthNjF4f15DRTw",
+          "rawText": "點數回饋\n 任一付款方法\n 【黛安芬官網】LINE Pay付款享LINE POINTS 3%回饋，單筆滿額再享LINE POINTS 7%回饋，首次消費再享LINE POINTS 100點回饋！\n 發布日期：2026年10月29日16:00 GMT+00\n 活動日期\n 2026/10/29 16:00 -\n 2026/11/1 15:59 (GMT+00)\n 活動店家\n 黛安芬官網\n 前往黛安芬官網\n 活動提醒\n 參加活動前請務必先進入LINE\n Pay，依序點選「設定」＞「服務條款」＞「行銷資訊提供政策」，確認頁面上方是否已勾選同意，未同意將不符活動資格。\n 付款前請務必再次留意選擇的付款方式是否正確；若選擇錯誤，後續能否取消再重新交易將依店家規定為準。\n 活動內容\n 活動期間內已註冊LINE Pay的用戶於黛安芬官網結帳時透過LINE Pay使用已綁定的任一發卡銀行信用卡/簽帳金融卡付款，可享以下優惠：\n 優惠一：享LINE POINTS 3%回饋！\n 優惠二：單筆交易實際支付金額滿新台幣2,999元(LINE POINTS及優惠券折抵金額不計入)，享LINE POINTS 7%回饋！\n 優惠三：「首次」消費，再享LINE POINTS 100點回饋！\n 以上優惠合計限量10萬點，發完為止，額滿訊息將公告於LINE Pay官方帳號貼文專區：\n ① 請加入 LINE Pay官方帳號 並解除封鎖。\n ② 開啟手機版LINE應用程式＞進入聊天室列表＞搜尋並進入「LINE Pay」官方帳號＞點選「活動額滿公告」查看是否額滿( 圖片說明 )。\n ③ 已結束活動或跨月活動的額滿通知，也可至LINE Pay官方帳號 活動額滿公告頁 查看。\n ※若商店及活動參加者皆已開通LINE Pay Money，則選用LINE Pay Money帳戶付款同享回饋。\n ※自行了解LINE Pay付款操作方式及活動內容為活動參加者的義務，參加活動視同同意本活動規則，不因個人認知、星座生肖、宗教信仰、身分地位、疾病、威脅等而有特例，LINE Pay保有對本活動所有事宜做出最終解釋及決定的權利。\n 活動注意事項\n 立即下載 LINE Pay App\n 追蹤更多 LINE Pay 動態",
+          "startsAt": "20261030",
+          "endsAt": "20261101",
+          "publishedAt": "20261029",
+          "officialOrder": 4
+        },
+        {
+          "title": "【克蘭詩官網】指定日期用LINE Pay，單筆滿額享最高LINE POINTS 8%回饋！",
+          "category": "金融／綁卡回饋",
+          "stores": [
+            "官方支付服務"
+          ],
+          "paymentMethods": [
+            "LINE Pay"
+          ],
+          "audience": "not-stated",
+          "rate": 0.08,
+          "cap": 0,
+          "rewardLabel": "最高 8% 回饋",
+          "status": "活動期間 2026/10/29–2026/12/15；官方發布 2026年10月29日12:00 GMT+00",
+          "sourceUrl": "https://web-tw-pay.line.me/cms/event/template1.3/07194bd8-7417-4673-b7a4-a664ca03fd74",
+          "image": "https://linepaytw-cms.line-scdn.net/v0/c1c3e999908583d56faa205bad21e3ddda91943a940e580f2093f0d36090e8ee.jpg",
+          "rawText": "點數回饋\n 任一付款方法\n 【克蘭詩官網】指定日期用LINE Pay，單筆滿額享最高LINE POINTS 8%回饋！\n 發布日期：2026年10月29日12:00 GMT+00\n 活動日期\n 2026/10/29 12:00 -\n 2026/12/15 15:59 (GMT+00)\n ※限活動期間內的指定日期付款成功且後續未取消的交易，實際優惠依付款成功日期而定，請見活動內容說明※\n 活動店家\n 克蘭詩官網\n 前往克蘭詩官網\n 活動提醒\n 參加活動前請務必先進入LINE\n Pay，依序點選「設定」＞「服務條款」＞「行銷資訊提供政策」，確認頁面上方是否已勾選同意，未同意將不符活動資格。\n 付款前請務必再次留意選擇的付款方式是否正確；若選擇錯誤，後續能否取消再重新交易將依店家規定為準。\n 活動內容\n 活動期間內已註冊LINE Pay的用戶於克蘭詩官網消費，結帳時透過LINE Pay付款使用已綁定的任一發卡銀行信用卡/簽帳金融卡付款，可享以下優惠：\n 優惠一：[10/29 20:00-10/31]單筆交易實際支付金額滿新台幣5,000元(LINE POINTS及優惠折抵金額不計入)，享LINE POINTS 8%回饋！\n 優惠二：[11/10-11/12]單筆交易實際支付金額滿新台幣5,000元(LINE POINTS及優惠折抵金額不計入)，享LINE POINTS 5%回饋！\n 優惠三：[12/1-12/2]單筆交易實際支付金額滿新台幣5,000元(LINE POINTS及優惠折抵金額不計入)，享LINE POINTS 200點！\n 優惠四：[12/3-12/15]單筆交易實際支付金額滿新台幣3,500元(LINE POINTS及優惠折抵金額不計入)，享LINE POINTS 150點！\n ※若商店及活動參加者皆已開通LINE Pay Money，則選用LINE Pay Money帳戶付款同享回饋。\n ※自行了解LINE Pay付款操作方式及活動內容為活動參加者的義務，參加活動視同同意本活動規則，不因個人認知、星座生肖、宗教信仰、身分地位、疾病、威脅等而有特例，LINE Pay保有對本活動所有事宜做出最終解釋及決定的權利。\n 活動注意事項\n 立即下載 LINE Pay App\n 追蹤更多 LINE Pay 動態",
+          "startsAt": "20261029",
+          "endsAt": "20261215",
+          "publishedAt": "20261029",
+          "officialOrder": 5
+        },
+        {
           "title": "2026 ITF 【旅展就要用 LINE Pay】",
           "category": "一般回饋",
           "stores": [
@@ -2285,7 +2395,29 @@
           "startsAt": "20261028",
           "endsAt": "20261110",
           "publishedAt": "20261029",
-          "officialOrder": 1
+          "officialOrder": 6
+        },
+        {
+          "title": "【Simply新普利酵素官方網站】用LINE Pay付款享LINE POINTS 12%回饋！",
+          "category": "金融／綁卡回饋",
+          "stores": [
+            "官方支付服務"
+          ],
+          "paymentMethods": [
+            "LINE Pay"
+          ],
+          "audience": "not-stated",
+          "rate": 0.12,
+          "cap": 0,
+          "rewardLabel": "最高 12% 回饋",
+          "status": "活動期間 2026/10/30–2026/11/12；官方發布 2026年10月29日16:00 GMT+00",
+          "sourceUrl": "https://web-tw-pay.line.me/cms/event/template1.3/2f3ec4f4-f9ec-4f11-bdeb-b42438b4e71f",
+          "image": "https://linepaytw-cms.line-scdn.net/v0/f6cebc5837da60d59102264f3023dfb1e6429f8aeebf69d7e69a2cb1134509a2.png",
+          "rawText": "點數回饋\n 任一付款方法\n 【Simply新普利酵素官方網站】用LINE Pay付款享LINE POINTS 12%回饋！\n 發布日期：2026年10月29日16:00 GMT+00\n 活動日期\n 2026/10/29 16:00 -\n 2026/11/12 15:59 (GMT+00)\n 活動店家\n Simply新普利酵素官方網站\n 前往Simply新普利酵素官方網站\n 活動提醒\n 參加活動前請務必先進入LINE\n Pay，依序點選「設定」＞「服務條款」＞「行銷資訊提供政策」，確認頁面上方是否已勾選同意，未同意將不符活動資格。\n 付款前請務必再次留意選擇的付款方式是否正確；若選擇錯誤，後續能否取消再重新交易將依店家規定為準。\n 活動內容\n 活動期間內已註冊LINE Pay的用戶於Simply新普利酵素官方網站消費，結帳時透過LINE Pay使用已綁定的任一發卡銀行信用卡/簽帳金融卡或LINE Pay Money帳戶付款，享LINE POINTS 12%回饋！\n ※自行了解LINE Pay付款操作方式及活動內容為活動參加者的義務，參加活動視同同意本活動規則，不因個人認知、星座生肖、宗教信仰、身分地位、疾病、威脅等而有特例，LINE Pay保有對本活動所有事宜做出最終解釋及決定的權利。\n ※若商店及活動參加者皆已開通LINE Pay Money，則選用LINE Pay Money帳戶付款同享回饋。\n 活動注意事項\n 立即下載 LINE Pay App\n 追蹤更多 LINE Pay 動態",
+          "startsAt": "20261030",
+          "endsAt": "20261112",
+          "publishedAt": "20261029",
+          "officialOrder": 7
         },
         {
           "title": "【LINE Pay Money】 使用乘車碼搭乘，月月最高享LINE POINTS 30%回饋！",
@@ -2307,7 +2439,7 @@
           "startsAt": "20260930",
           "endsAt": "20261231",
           "publishedAt": "20260930",
-          "officialOrder": 2
+          "officialOrder": 8
         },
         {
           "title": "【LINE Pay Money】 未成年用戶開通LINE Pay Money帳戶享7-ELEVEN總價值100元優惠券！",
@@ -2329,7 +2461,7 @@
           "startsAt": "20260930",
           "endsAt": "20261231",
           "publishedAt": "20260930",
-          "officialOrder": 3
+          "officialOrder": 9
         },
         {
           "title": "【週週領】好康地圖領 八大主題優惠券",
@@ -2351,7 +2483,7 @@
           "startsAt": "20260930",
           "endsAt": "20261231",
           "publishedAt": "20260930",
-          "officialOrder": 4
+          "officialOrder": 10
         },
         {
           "title": "【LINE Pay Money】 透過邀請好友的連結推薦親友成功開通LINE Pay Money享LINE POINTS 50點回饋，親友可得LINE Pay 50元優惠券！",
@@ -2373,7 +2505,7 @@
           "startsAt": "20260930",
           "endsAt": "20261231",
           "publishedAt": "20260930",
-          "officialOrder": 5
+          "officialOrder": 11
         },
         {
           "title": "【誠品生活】領取先用先贏50元優惠券，單筆消費滿500元即可使用！",
@@ -2395,7 +2527,7 @@
           "startsAt": "20260917",
           "endsAt": "20261031",
           "publishedAt": "20260917",
-          "officialOrder": 6
+          "officialOrder": 12
         },
         {
           "title": "【LG官方線上商城】LINE Pay付款單筆滿額享LINE POINTS 15%回饋，綁定中信LINE Pay卡付款再享500點！",
@@ -2417,7 +2549,7 @@
           "startsAt": "20261014",
           "endsAt": "20261031",
           "publishedAt": "20261022",
-          "officialOrder": 7
+          "officialOrder": 13
         },
         {
           "title": "【寶雅門市】每週三用LINE Pay，單筆消費滿650元享LINE POINTS 3%回饋！",
@@ -2439,7 +2571,7 @@
           "startsAt": "20261007",
           "endsAt": "20261230",
           "publishedAt": "20261006",
-          "officialOrder": 8
+          "officialOrder": 14
         },
         {
           "title": "【Agoda x LINE Pay專屬網站】每週一用LINE Pay，單筆不限金額消費享最高LINE POINTS 12%回饋！",
@@ -2461,7 +2593,7 @@
           "startsAt": "20261005",
           "endsAt": "20261228",
           "publishedAt": "20261004",
-          "officialOrder": 9
+          "officialOrder": 15
         },
         {
           "title": "【萬家福/樂家康門市】每週一用LINE Pay，單筆消費滿600元享LINE POINTS 8%回饋！滿650元再贈優惠券！",
@@ -2483,7 +2615,7 @@
           "startsAt": "20261005",
           "endsAt": "20261228",
           "publishedAt": "20261004",
-          "officialOrder": 10
+          "officialOrder": 16
         },
         {
           "title": "【指定計程車】每週六日用LINE Pay，單筆滿200元且單月累計4筆，享幸運轉轉樂機會，抽最高300點！",
@@ -2505,7 +2637,7 @@
           "startsAt": "20261003",
           "endsAt": "20261227",
           "publishedAt": "20261002",
-          "officialOrder": 11
+          "officialOrder": 17
         },
         {
           "title": "【IKEA宜家家居門市】每週六日用LINE Pay，單筆消費滿2,000元享LINE POINTS 4%回饋！",
@@ -2527,7 +2659,7 @@
           "startsAt": "20261003",
           "endsAt": "20261227",
           "publishedAt": "20261002",
-          "officialOrder": 12
+          "officialOrder": 18
         },
         {
           "title": "【LINE Pay星巴克隨行卡】每週五經由LINE Pay 儲值，單筆滿額贈50元線上優惠券！",
@@ -2549,7 +2681,7 @@
           "startsAt": "20261002",
           "endsAt": "20261225",
           "publishedAt": "20261001",
-          "officialOrder": 13
+          "officialOrder": 19
         },
         {
           "title": "【指定加油站】每週一至週五用LINE Pay，單筆滿500元且單月累計3筆享幸運轉轉樂機會，抽最高500點！",
@@ -2571,7 +2703,7 @@
           "startsAt": "20261001",
           "endsAt": "20261231",
           "publishedAt": "20260930",
-          "officialOrder": 14
+          "officialOrder": 20
         },
         {
           "title": "【永豐DAWAY卡】領 優惠券，LINE Pay付款單筆滿額現折300元！",
@@ -2593,7 +2725,7 @@
           "startsAt": "20260930",
           "endsAt": "20261231",
           "publishedAt": "20261001",
-          "officialOrder": 15
+          "officialOrder": 21
         },
         {
           "title": "【Uber Eats】每週一至週五用LINE Pay，單筆滿199元且單月累計5筆享幸運轉轉樂機會，抽最高300點！",
@@ -2615,7 +2747,7 @@
           "startsAt": "20261001",
           "endsAt": "20261231",
           "publishedAt": "20260930",
-          "officialOrder": 16
+          "officialOrder": 22
         },
         {
           "title": "【指定停車場】用LINE Pay單筆滿100元且單月累計4筆，享幸運轉轉樂機會，抽最高LINE POINTS 300點！",
@@ -2637,7 +2769,7 @@
           "startsAt": "20260930",
           "endsAt": "20261231",
           "publishedAt": "20260930",
-          "officialOrder": 17
+          "officialOrder": 23
         },
         {
           "title": "【LOPIA】每週三四用LINE Pay，單筆消費滿700元享LINE POINTS 6%回饋！",
@@ -2659,7 +2791,7 @@
           "startsAt": "20261001",
           "endsAt": "20261231",
           "publishedAt": "20260930",
-          "officialOrder": 18
+          "officialOrder": 24
         },
         {
           "title": "【LINE Pay App 精選商店】用LINE Pay付款滿35元且累計3筆，抽最高LINE POINTS 500點！單筆付款滿100元，再贈 50元優惠券一張！",
@@ -2681,7 +2813,7 @@
           "startsAt": "20260930",
           "endsAt": "20261231",
           "publishedAt": "20260930",
-          "officialOrder": 19
+          "officialOrder": 25
         },
         {
           "title": "【迪卡儂門市】每週四五用LINE Pay，單筆消費滿2,000元享LINE POINTS 6%回饋！",
@@ -2703,7 +2835,7 @@
           "startsAt": "20261001",
           "endsAt": "20261231",
           "publishedAt": "20260930",
-          "officialOrder": 20
+          "officialOrder": 26
         },
         {
           "title": "【LINE Pay App 】指定日用LINE Pay，享最高LINE POINTS 18%回饋！綁定永豐DAWAY卡付款再享最高10%回饋！",
@@ -2725,7 +2857,7 @@
           "startsAt": "20260930",
           "endsAt": "20261231",
           "publishedAt": "20260930",
-          "officialOrder": 21
+          "officialOrder": 27
         },
         {
           "title": "【山隆加油站】LINE Pay付款單筆滿額享LINE POINTS 1%回饋！",
@@ -2747,7 +2879,7 @@
           "startsAt": "20261001",
           "endsAt": "20261231",
           "publishedAt": "20260930",
-          "officialOrder": 22
+          "officialOrder": 28
         },
         {
           "title": "【長髮公主的秘密官網】LINE Pay付款享LINE POINTS 5%回饋，單筆滿額再享15%！",
@@ -2769,7 +2901,7 @@
           "startsAt": "20261001",
           "endsAt": "20261031",
           "publishedAt": "20260930",
-          "officialOrder": 23
+          "officialOrder": 29
         },
         {
           "title": "【LINE Pay Money 用戶專屬】 66張 「好樂投」 抽獎券霸氣送，抽大獎 16,888 點！",
@@ -2791,7 +2923,7 @@
           "startsAt": "20260922",
           "endsAt": "20261231",
           "publishedAt": "20260922",
-          "officialOrder": 24
+          "officialOrder": 30
         },
         {
           "title": "【簡單JAN DAN官網】指定日期用LINE Pay，享最高LINE POINTS 15%回饋！",
@@ -2813,7 +2945,7 @@
           "startsAt": "20260908",
           "endsAt": "20261113",
           "publishedAt": "20260908",
-          "officialOrder": 25
+          "officialOrder": 31
         },
         {
           "title": "【韓國樂天世界】用LINE Pay享LINE POINTS 15%回饋！綁定指定卡種付款享最高30%回饋！",
@@ -2835,7 +2967,7 @@
           "startsAt": "20260901",
           "endsAt": "20261130",
           "publishedAt": "20260831",
-          "officialOrder": 28
+          "officialOrder": 34
         },
         {
           "title": "【陽光基金會】用LINE Pay捐款單筆滿600元，贈迷客夏35元優惠券1張！",
@@ -2857,7 +2989,7 @@
           "startsAt": "20260801",
           "endsAt": "20261031",
           "publishedAt": "20260731",
-          "officialOrder": 29
+          "officialOrder": 35
         },
         {
           "title": "【三星商城 SAMSUNG】每週四、五用LINE Pay綁定中國信託LINE Pay信用卡或LINE Pay簽帳金融卡付款，單筆滿額享LINE POINTS 1,000點回饋！",
@@ -2879,7 +3011,7 @@
           "startsAt": "20260730",
           "endsAt": "20261231",
           "publishedAt": "20260729",
-          "officialOrder": 30
+          "officialOrder": 36
         },
         {
           "title": "【遊韓用 LINE Pay】 韓國必逛品牌，累計2筆抽最高666點，綁指定卡享最高25%回饋！",
@@ -2901,7 +3033,7 @@
           "startsAt": "20240610",
           "endsAt": "",
           "publishedAt": "20261020",
-          "officialOrder": 32
+          "officialOrder": 38
         },
         {
           "title": "【遊韓用 LINE Pay】 OLIVE YOUNG Global 享最高10%回饋！",
@@ -2923,7 +3055,7 @@
           "startsAt": "20240610",
           "endsAt": "20261112",
           "publishedAt": "20261023",
-          "officialOrder": 33
+          "officialOrder": 39
         },
         {
           "title": "【遊韓用 LINE Pay】 韓國指定商店綁指定卡種付款享最高 15%回饋！",
@@ -2945,7 +3077,7 @@
           "startsAt": "20261022",
           "endsAt": "20261211",
           "publishedAt": "20261022",
-          "officialOrder": 34
+          "officialOrder": 40
         },
         {
           "title": "[樂天線上免稅店] 歡慶 LINE Pay 上線 滿額優惠券大放送",
@@ -2967,7 +3099,7 @@
           "startsAt": "20261014",
           "endsAt": "20261231",
           "publishedAt": "20261014",
-          "officialOrder": 35
+          "officialOrder": 41
         },
         {
           "title": "【指定夜市】LINE Pay付款送5張5元優惠券！每月於指定夜市及商圈綁永豐DAWAY卡消費滿額累計5筆，再抽最高LINE POINTS 555點！",
@@ -2989,7 +3121,7 @@
           "startsAt": "20260630",
           "endsAt": "20261231",
           "publishedAt": "20260630",
-          "officialOrder": 36
+          "officialOrder": 42
         },
         {
           "title": "【精選飯店/餐廳】用LINE Pay首筆消費滿額贈優惠券，累計滿額兩筆再贈LINE POINTS 250點！綁定中信LINE Pay卡付款，再享加碼5%點數回饋！",
@@ -3011,7 +3143,7 @@
           "startsAt": "20260630",
           "endsAt": "20261231",
           "publishedAt": "20260630",
-          "officialOrder": 37
+          "officialOrder": 43
         },
         {
           "title": "【GREENGOLD美妝保健購物商城】指定日期用LINE Pay，享最高LINE POINTS 10%回饋！",
@@ -3033,7 +3165,7 @@
           "startsAt": "20261009",
           "endsAt": "20261212",
           "publishedAt": "20261009",
-          "officialOrder": 38
+          "officialOrder": 44
         },
         {
           "title": "【LINE Pay Money】 完成跨機構轉帳手機門號綁定享LINE Pay 20元優惠券！",
@@ -3055,7 +3187,7 @@
           "startsAt": "20260731",
           "endsAt": "20261231",
           "publishedAt": "20260731",
-          "officialOrder": 39
+          "officialOrder": 45
         },
         {
           "title": "【遊韓用 LINE Pay】 OLIVE YOUNG 抽最高888點！",
@@ -3077,7 +3209,7 @@
           "startsAt": "20240610",
           "endsAt": "20270531",
           "publishedAt": "20261019",
-          "officialOrder": 40
+          "officialOrder": 46
         },
         {
           "title": "【Coupang酷澎】每週三用LINE Pay綁定永豐DAWAY卡付款，享最高LINE POINTS 7%回饋！新戶再享6%回饋！",
@@ -3099,7 +3231,7 @@
           "startsAt": "20261007",
           "endsAt": "20261230",
           "publishedAt": "20261006",
-          "officialOrder": 41
+          "officialOrder": 47
         },
         {
           "title": "【星展銀行】每週三金豬食堂用LINE Pay綁定星展銀行信用卡付款，筆筆享最高LINE POINTS 5%回饋！",
@@ -3121,7 +3253,7 @@
           "startsAt": "20260701",
           "endsAt": "20261231",
           "publishedAt": "20260630",
-          "officialOrder": 42
+          "officialOrder": 48
         },
         {
           "title": "【永豐DAWAY卡】LOUISA 路易莎咖啡用​LINE Pay，享最高LINE POINTS 7%回饋！新戶再享6%回饋！",
@@ -3143,7 +3275,7 @@
           "startsAt": "20260630",
           "endsAt": "20261231",
           "publishedAt": "20250630",
-          "officialOrder": 43
+          "officialOrder": 49
         },
         {
           "title": "【LINE Pay 信用卡平台】",
@@ -3165,7 +3297,7 @@
           "startsAt": "20260901",
           "endsAt": "20261031",
           "publishedAt": "20260907",
-          "officialOrder": 44
+          "officialOrder": 50
         },
         {
           "title": "【長髮公主的秘密官網】指定日期用LINE Pay，單筆滿額享最高LINE POINTS 15%回饋！",
@@ -3187,7 +3319,7 @@
           "startsAt": "20260430",
           "endsAt": "20261231",
           "publishedAt": "20260430",
-          "officialOrder": 45
+          "officialOrder": 51
         },
         {
           "title": "【ovie官網】指定日期用LINE Pay，享最高LINE POINTS 10%回饋！",
@@ -3209,7 +3341,7 @@
           "startsAt": "20260508",
           "endsAt": "20261111",
           "publishedAt": "20260508",
-          "officialOrder": 46
+          "officialOrder": 52
         },
         {
           "title": "【PapaOligo糖老爹官網】指定日期用LINE Pay付款享LINE POINTS 5%回饋！",
@@ -3231,7 +3363,7 @@
           "startsAt": "20260331",
           "endsAt": "20270110",
           "publishedAt": "20260331",
-          "officialOrder": 47
+          "officialOrder": 53
         },
         {
           "title": "樂天 Outlet 三星物產特別優惠",
@@ -3253,7 +3385,7 @@
           "startsAt": "20260601",
           "endsAt": "20261231",
           "publishedAt": "20260531",
-          "officialOrder": 48
+          "officialOrder": 54
         },
         {
           "title": "樂天 Outlet 東釜山店三星物產特別優惠",
@@ -3275,7 +3407,7 @@
           "startsAt": "20260601",
           "endsAt": "20261231",
           "publishedAt": "20260531",
-          "officialOrder": 49
+          "officialOrder": 55
         },
         {
           "title": "【LINE Pay 貸款平台】 秋季成功貸最高回饋1,999點！",
@@ -3297,7 +3429,7 @@
           "startsAt": "20260901",
           "endsAt": "20261031",
           "publishedAt": "20260907",
-          "officialOrder": 50
+          "officialOrder": 56
         },
         {
           "title": "三星物產時尚品牌 10% 特別優惠",
@@ -3319,7 +3451,7 @@
           "startsAt": "20260825",
           "endsAt": "20261231",
           "publishedAt": "20260824",
-          "officialOrder": 51
+          "officialOrder": 57
         },
         {
           "title": "三星物產時尚品牌 10% 特別優惠",
@@ -3341,7 +3473,7 @@
           "startsAt": "20260518",
           "endsAt": "20261231",
           "publishedAt": "20260517",
-          "officialOrder": 52
+          "officialOrder": 58
         },
         {
           "title": "樂天世界專屬優惠 現場購票享八折！",
@@ -3363,7 +3495,7 @@
           "startsAt": "20260201",
           "endsAt": "20261231",
           "publishedAt": "20260131",
-          "officialOrder": 53
+          "officialOrder": 59
         },
         {
           "title": "活動額滿公告方式調整",
@@ -3385,7 +3517,7 @@
           "startsAt": "20220101",
           "endsAt": "20291231",
           "publishedAt": "20260914",
-          "officialOrder": 54
+          "officialOrder": 60
         },
         {
           "title": "LINE Pay合作通路「不適用櫃位/門市」及「回饋/折抵例外項目」",
@@ -3414,7 +3546,7 @@
           "startsAt": "20211005",
           "endsAt": "20301231",
           "publishedAt": "20260907",
-          "officialOrder": 55
+          "officialOrder": 61
         },
         {
           "title": "【永豐DAWAY卡】指定夜市及商圈用LINE Pay綁定永豐DAWAY卡付款，單筆滿100元且單月累計5筆享幸運轉轉樂機會，抽最高555點！",
@@ -3436,7 +3568,7 @@
           "startsAt": "20260630",
           "endsAt": "20261231",
           "publishedAt": "20260630",
-          "officialOrder": 56
+          "officialOrder": 62
         },
         {
           "title": "【指定商圈】用LINE Pay付款就送總價值50元優惠券！每月於指定夜市及商圈綁永豐DAWAY卡消費滿額累計5筆，再抽最高LINE POINTS 555點！",
@@ -3458,7 +3590,7 @@
           "startsAt": "20261001",
           "endsAt": "20261231",
           "publishedAt": "20260930",
-          "officialOrder": 57
+          "officialOrder": 63
         },
         {
           "title": "【週週領】好康地圖 早餐咖啡10元優惠券",
@@ -3480,7 +3612,7 @@
           "startsAt": "20260930",
           "endsAt": "20261231",
           "publishedAt": "20260930",
-          "officialOrder": 58
+          "officialOrder": 64
         },
         {
           "title": "【週週領】好康地圖 品牌餐廳20元優惠券",
@@ -3502,7 +3634,7 @@
           "startsAt": "20260930",
           "endsAt": "20261231",
           "publishedAt": "20260930",
-          "officialOrder": 59
+          "officialOrder": 65
         },
         {
           "title": "【週週領】好康地圖 生活日用40元優惠券",
@@ -3524,7 +3656,7 @@
           "startsAt": "20260930",
           "endsAt": "20261231",
           "publishedAt": "20260930",
-          "officialOrder": 60
+          "officialOrder": 66
         },
         {
           "title": "【週週領】好康地圖 寵物生活80元優惠券",
@@ -3546,7 +3678,7 @@
           "startsAt": "20260930",
           "endsAt": "20261231",
           "publishedAt": "20260930",
-          "officialOrder": 61
+          "officialOrder": 67
         },
         {
           "title": "【週週領】好康地圖 休閒娛樂50元優惠券",
@@ -3568,7 +3700,7 @@
           "startsAt": "20260930",
           "endsAt": "20261231",
           "publishedAt": "20260930",
-          "officialOrder": 62
+          "officialOrder": 68
         },
         {
           "title": "【週週領】每週六日到好康地圖領 百貨購物優惠券，當週六日消費滿額折100元！",
@@ -3590,7 +3722,7 @@
           "startsAt": "20260930",
           "endsAt": "20261231",
           "publishedAt": "20260930",
-          "officialOrder": 63
+          "officialOrder": 69
         },
         {
           "title": "【週週領】每週六日到好康地圖領 人氣OUTLET優惠券，當週六日消費滿額折120元！",
@@ -3612,7 +3744,7 @@
           "startsAt": "20260930",
           "endsAt": "20261231",
           "publishedAt": "20260930",
-          "officialOrder": 64
+          "officialOrder": 70
         },
         {
           "title": "【週週領】 風格選品80元優惠券",
@@ -3634,7 +3766,7 @@
           "startsAt": "20260930",
           "endsAt": "20261231",
           "publishedAt": "20260930",
-          "officialOrder": 65
+          "officialOrder": 71
         },
         {
           "title": "迎年底旅遊、消費旺季 第四季「天天LINE Pay」優惠延續 指定商圈夜市消費抽最高555點 找體驗最高18%點數回饋",
@@ -3753,7 +3885,7 @@
       "logo": "/logos/jkos-pay.png",
       "color": "#eb6a2a",
       "focus": "街口支付官方行銷活動、街口幣與指定通路折扣。",
-      "freshness": "官方來源檢查 2026/10/29；依官方更新順序排列",
+      "freshness": "官方來源檢查 2026/10/30；依官方更新順序排列",
       "campaigns": [
         {
           "title": "2026/10/1 - 12/31 週一飲料主題日，最高享 33.5%",
@@ -4092,7 +4224,7 @@
       "logo": "/logos/easywallet.png",
       "color": "#007c70",
       "focus": "悠遊付官方優惠、交通與日常採買回饋。",
-      "freshness": "官方來源檢查 2026/10/29；依官方更新順序排列",
+      "freshness": "官方來源檢查 2026/10/30；依官方更新順序排列",
       "campaigns": [
         {
           "title": "悠遊付繳地價稅筆筆3% 滿額最高回饋7%",
@@ -5880,7 +6012,7 @@
       "logo": "/logos/ipass-money.png",
       "color": "#00a6d6",
       "focus": "iPASS MONEY 官方優惠活動與使用條件。",
-      "freshness": "官方來源檢查 2026/10/29；依官方更新順序排列",
+      "freshness": "官方來源檢查 2026/10/30；依官方更新順序排列",
       "campaigns": [
         {
           "title": "【 TWQR 掃碼繳稅】用 iPASS MONEY APP 繳地價稅即贈 50 元數位券",
@@ -6916,30 +7048,8 @@
       "logo": "/logos/icash-pay.png",
       "color": "#e95e22",
       "focus": "icash Pay 官方活動卡、合作通路與 OPENPOINT 回饋。",
-      "freshness": "官方來源檢查 2026/10/29；依官方更新順序排列",
+      "freshness": "官方來源檢查 2026/10/30；依官方更新順序排列",
       "campaigns": [
-        {
-          "title": "icash Pay博客來購物最好Pay 單筆滿額贈",
-          "category": "新戶優惠",
-          "stores": [
-            "官方支付服務"
-          ],
-          "paymentMethods": [
-            "icash Pay"
-          ],
-          "audience": "new-user",
-          "rate": 0.07,
-          "cap": 300,
-          "rewardLabel": "最高 7%／上限 300 點／元",
-          "status": "2026/10/27–2026/10/29",
-          "sourceUrl": "https://www.icashpay.com.tw/advertMessage/view/id/2574",
-          "image": "https://www.icashpay.com.tw/images/backend/advertMessage/2b36ee9ec43a3d296ae8e0efd1a6c7cc.jpg",
-          "rawText": "icash Pay博客來購物最好Pay 單筆滿額贈 \n 活動期間： 2026/10/27-10/29\n 活動方式： \n 活動一： \n活動期間不限新舊戶，於博客來以icash Pay支付單筆消費滿NT2,500元，即可享100點OPENPOINT點數回饋，單筆可累贈，每戶活動期間回饋上限200點。活動期間總回饋上限10萬點。 \n 活動二：【icash Pay綁定uniopen聯名卡再加碼】 \n活動期間於博客來以icash Pay綁定uniopen聯名卡支付單筆消費滿NT2,500元，即可享100點OPENPOINT點數回饋，單筆可累贈，每戶活動期間回饋上限300點。活動期間總回饋上限30萬點。 \n 【新戶首購最好PAY】 活動詳請請見活動網頁 。\n活動期間首次註冊icash Pay之新用戶，首次交易於博客來以icash Pay支付消費不限金額(NT1元以上)，即贈50點OPENPOINT及博客來NT50元E-Coupon各一次，每戶點數及E-Coupon限回饋乙次，活動期間總回饋上限1萬點及200份。\n 【uniopen聯名卡最高回饋7%】 \n綁定icash Pay適用uniopen聯名卡指定任務最高回饋7%。 活動詳請請見活動網頁 。\n 注意事項： \n 如活動期間內已達活動總回饋上限，將依 icash Pay 交易之時間順序為準判定符合資格，不另行公告或通知，活動參與者不得以未獲知本活動回饋額滿訊息為理由要求補贈點，請視情況評估參與。 \n icash Pay註冊流程請參考： https://pse.is/6345vx 立即下載icash Pay \n 本活動之消費認定將分別依博客來線上購物支付實際交易金額、發票為主，回饋之加碼OPENPOINT計算至小數點後第二位(依小數點後第三位四捨五入計)。交易金額僅限一般商品交易，不含OPENPOINT點數折抵金額等，且須為單筆全額使用icash Pay 支付。如交易經取消、退貨及退款，將不予贈點，若於活動贈點發送後退貨(包含部分退貨)，將會回扣以該筆交易計算之全額活動點數。\n 商店端進行交易退貨之流程(例如進行交易/退貨之順序、作業時間)可能影響本活動點數之計算判斷，如因此而影響所獲得之點數，不另外進行點數回補。\n 使用icash Pay參與本活動應使用具備Android作業系統6.0以上或iOS作業系統13.0以上的手機，並請將OPENPOINTAPP或icash Pay APP之應用程式及手機內建瀏覽器更新至最新版本。icash Pay用戶於獲得本活動回饋前及回饋當下仍應具有uniopen會員資格及icash Pay使用者資格，入點時應符合本活動資格等相關規範。其他聯名卡加碼需依各聯名卡活動頁公告為準。\n 本活動單筆消費滿NT2,500元即可享100點，單筆消費滿NT5,000元即可享200點，以此類推，每戶活動期間回饋上限200點。本活動及新戶點數最晚將於活動結束次次月底前贈送，其餘請參照活動網頁公告準。\n 詳細活動辦法以主辦單位(愛金卡)網站公告為準。活動如遇有任何因電腦系統、網路、電話等故障或傳輸異常、或有不可抗力事由，主辦單位得暫時停止相關服務，參與者同意取消當次消費支付指示。如因而致參加者之資料有延遲、遺失、錯誤或無法辨識等情況，主辦單位不負任何法律責任，參加者亦不得因此異議。其他未盡事宜，悉依主辦單位相關規定辦理。\n 參加本活動即表示同意接受本活動注意事項；若有違反者，主辦單位有權取消參加者之參加資格並追回獲得之點數，如對本活動有任何疑義，可撥打愛金卡公司客服專線0800-233-888 (手機請撥02-2657-6388)。\n OPENPOINT由統一超商發行，紅利點數相關規則(例如使用效期/範圍/方式)、累兌紀錄或問題，請至OPENPOINT App查詢或電洽OPENPOINT客服中心0800-711-177(手機請撥02-2627-1650)或請mail 至service@mail.openpoint.com.tw 並留下您的icash Pay用戶手機號碼、icash Pay 帳號、問題等以供查詢回覆。\n 本活動如遇不可抗力或不可歸責之事由，博客來、愛金卡公司得保留修改、變更、或終止本活動及對本活動之所有事宜做出最終解釋及決定之權利。",
-          "startsAt": "20261027",
-          "endsAt": "20261029",
-          "publishedAt": "",
-          "officialOrder": 0
-        },
         {
           "title": "週日最好Pay 全通路消費滿額回饋7%",
           "category": "超商回饋",
@@ -6960,7 +7070,7 @@
           "startsAt": "20260701",
           "endsAt": "20261231",
           "publishedAt": "",
-          "officialOrder": 1
+          "officialOrder": 0
         },
         {
           "title": "萬家福、樂家康、Mia C‘bon 5%活動",
@@ -6982,7 +7092,7 @@
           "startsAt": "20260910",
           "endsAt": "20261231",
           "publishedAt": "",
-          "officialOrder": 2
+          "officialOrder": 1
         },
         {
           "title": "icash Pay綁uniopen聯名卡 COLD STONE最高享17%",
@@ -7004,7 +7114,7 @@
           "startsAt": "20261001",
           "endsAt": "20261231",
           "publishedAt": "",
-          "officialOrder": 3
+          "officialOrder": 2
         },
         {
           "title": "icash Pay綁uniopen聯名卡 Mister Donut最高享17%",
@@ -7026,7 +7136,7 @@
           "startsAt": "20261001",
           "endsAt": "20261231",
           "publishedAt": "",
-          "officialOrder": 4
+          "officialOrder": 3
         },
         {
           "title": "台亞石油icash Pay最高回饋5%",
@@ -7049,7 +7159,7 @@
           "startsAt": "20261001",
           "endsAt": "20261231",
           "publishedAt": "",
-          "officialOrder": 5
+          "officialOrder": 4
         },
         {
           "title": "icash Pay新戶登錄贈酷聖石冰淇淋兌換券",
@@ -7071,7 +7181,7 @@
           "startsAt": "20260801",
           "endsAt": "20261031",
           "publishedAt": "",
-          "officialOrder": 6
+          "officialOrder": 5
         },
         {
           "title": "萬家福、樂家康、Mia C‘bon每週五六日最高回饋17%",
@@ -7093,7 +7203,7 @@
           "startsAt": "20261010",
           "endsAt": "20261231",
           "publishedAt": "",
-          "officialOrder": 7
+          "officialOrder": 6
         },
         {
           "title": "icash Pay超強支付 綁uniopen聯名卡滿額最高回饋11%",
@@ -7115,7 +7225,7 @@
           "startsAt": "20260901",
           "endsAt": "20261231",
           "publishedAt": "",
-          "officialOrder": 8
+          "officialOrder": 7
         },
         {
           "title": "2026下半年uniopen 聯名卡x ICP疊加攻略",
@@ -7139,7 +7249,7 @@
           "startsAt": "20260901",
           "endsAt": "20261231",
           "publishedAt": "",
-          "officialOrder": 9
+          "officialOrder": 8
         },
         {
           "title": "icash Pay乘車碼點數折抵享30%回饋",
@@ -7161,7 +7271,7 @@
           "startsAt": "20261001",
           "endsAt": "20261231",
           "publishedAt": "",
-          "officialOrder": 10
+          "officialOrder": 9
         },
         {
           "title": "歡慶高雄捷運乘車碼上線 icash Pay最高贈60點",
@@ -7183,7 +7293,7 @@
           "startsAt": "20260920",
           "endsAt": "20261031",
           "publishedAt": "",
-          "officialOrder": 11
+          "officialOrder": 10
         },
         {
           "title": "ikari怡客x icash Pay單筆滿200元最高回饋17%",
@@ -7205,7 +7315,7 @@
           "startsAt": "20261012",
           "endsAt": "20261231",
           "publishedAt": "",
-          "officialOrder": 12
+          "officialOrder": 11
         },
         {
           "title": "2026【500碗】、【500甜】全台週末PAY你吃",
@@ -7227,7 +7337,7 @@
           "startsAt": "20261001",
           "endsAt": "20261231",
           "publishedAt": "",
-          "officialOrder": 13
+          "officialOrder": 12
         },
         {
           "title": "i預購& i划算支付最好Pay 最高回饋15%",
@@ -7250,7 +7360,7 @@
           "startsAt": "20261001",
           "endsAt": "20261231",
           "publishedAt": "",
-          "officialOrder": 14
+          "officialOrder": 13
         },
         {
           "title": "uniopen聯名卡icash2.0完成首次自動加值 搭北捷享7%回饋",
@@ -7272,7 +7382,7 @@
           "startsAt": "20260701",
           "endsAt": "20261231",
           "publishedAt": "",
-          "officialOrder": 15
+          "officialOrder": 14
         },
         {
           "title": "icash Pay博客來購物週六新戶最好PAY",
@@ -7294,7 +7404,7 @@
           "startsAt": "20261001",
           "endsAt": "20261031",
           "publishedAt": "",
-          "officialOrder": 16
+          "officialOrder": 15
         },
         {
           "title": "7-ELEVEN實體門市10%活動",
@@ -7317,7 +7427,7 @@
           "startsAt": "20260701",
           "endsAt": "20261231",
           "publishedAt": "",
-          "officialOrder": 17
+          "officialOrder": 16
         },
         {
           "title": "享鑽生活11%活動",
@@ -7341,7 +7451,7 @@
           "startsAt": "20260701",
           "endsAt": "20261231",
           "publishedAt": "",
-          "officialOrder": 18
+          "officialOrder": 17
         },
         {
           "title": "icash Pay 康是美門市週一享5%",
@@ -7363,7 +7473,7 @@
           "startsAt": "20260701",
           "endsAt": "20261231",
           "publishedAt": "",
-          "officialOrder": 19
+          "officialOrder": 18
         },
         {
           "title": "icash Pay 康是美門市雙喜享回饋",
@@ -7385,7 +7495,7 @@
           "startsAt": "20260701",
           "endsAt": "20261231",
           "publishedAt": "",
-          "officialOrder": 20
+          "officialOrder": 19
         },
         {
           "title": "星巴克指定日最高回饋16%",
@@ -7408,7 +7518,7 @@
           "startsAt": "20260701",
           "endsAt": "20261231",
           "publishedAt": "",
-          "officialOrder": 21
+          "officialOrder": 20
         },
         {
           "title": "週二獨享日! foodomo滿額最高回饋16%",
@@ -7430,7 +7540,7 @@
           "startsAt": "20260701",
           "endsAt": "20261231",
           "publishedAt": "",
-          "officialOrder": 22
+          "officialOrder": 21
         },
         {
           "title": "聖德科斯專屬回饋日，週三週六滿500最高回饋16% OPENPOINT",
@@ -7452,7 +7562,7 @@
           "startsAt": "20260701",
           "endsAt": "20261231",
           "publishedAt": "",
-          "officialOrder": 23
+          "officialOrder": 22
         },
         {
           "title": "21Plus/21風味館每週五六日單筆滿150元回饋5%",
@@ -7474,7 +7584,7 @@
           "startsAt": "20260701",
           "endsAt": "20261231",
           "publishedAt": "",
-          "officialOrder": 24
+          "officialOrder": 23
         },
         {
           "title": "週日購物日！美廉社x icash Pay滿額最高回饋12%",
@@ -7496,7 +7606,7 @@
           "startsAt": "20260701",
           "endsAt": "20261231",
           "publishedAt": "",
-          "officialOrder": 25
+          "officialOrder": 24
         },
         {
           "title": "週日購物日！美麗華x icash Pay滿額最高回饋12%",
@@ -7518,7 +7628,7 @@
           "startsAt": "20260701",
           "endsAt": "20261231",
           "publishedAt": "",
-          "officialOrder": 26
+          "officialOrder": 25
         },
         {
           "title": "週日購物日！環球購物中心x icash Pay滿666元最高回饋12%",
@@ -7540,7 +7650,7 @@
           "startsAt": "20260701",
           "endsAt": "20261231",
           "publishedAt": "",
-          "officialOrder": 27
+          "officialOrder": 26
         },
         {
           "title": "台塑石油APP-F幣兌換OPENPOINT uniopen會員專屬優惠活動",
@@ -7562,7 +7672,7 @@
           "startsAt": "20261001",
           "endsAt": "20261231",
           "publishedAt": "",
-          "officialOrder": 28
+          "officialOrder": 27
         },
         {
           "title": "icash Pay x 統一獅台南主場最高回饋14%",
@@ -7584,7 +7694,7 @@
           "startsAt": "20260329",
           "endsAt": "20261117",
           "publishedAt": "",
-          "officialOrder": 29
+          "officialOrder": 28
         },
         {
           "title": "icash Pay網路投保富邦產險指定險種 最高回饋880點",
@@ -7606,7 +7716,7 @@
           "startsAt": "20260701",
           "endsAt": "20261231",
           "publishedAt": "",
-          "officialOrder": 30
+          "officialOrder": 29
         },
         {
           "title": "\\icash Pay限時回饋大方送/ 網路投保明台產險指定險種，立即享OPENPOINT回饋!",
@@ -7628,7 +7738,7 @@
           "startsAt": "20261001",
           "endsAt": "20261231",
           "publishedAt": "",
-          "officialOrder": 31
+          "officialOrder": 30
         }
       ]
     },
@@ -7637,7 +7747,7 @@
       "logo": "/logos/pi-wallet.svg",
       "color": "#ed6b31",
       "focus": "Pi 拍錢包 P 幣、電商與指定通路活動。",
-      "freshness": "官方來源檢查 2026/10/29；依官方更新順序排列",
+      "freshness": "官方來源檢查 2026/10/30；依官方更新順序排列",
       "campaigns": [
         {
           "title": "PChome24h購物📱購新機⚡️綁定玉山 Pi 拍錢包信用卡最高贈7517Ｐ幣",
@@ -7738,7 +7848,7 @@
       "logo": "/logos/pluspay.png",
       "color": "#ef7d32",
       "focus": "全盈+PAY 儲值金、Fa 點與全家通路活動。",
-      "freshness": "官方來源檢查 2026/10/29；依官方更新順序排列",
+      "freshness": "官方來源檢查 2026/10/30；依官方更新順序排列",
       "campaigns": [
         {
           "title": "全家行動購",
@@ -7967,7 +8077,7 @@
       "logo": "/logos/open-wallet.png",
       "color": "#ef5a24",
       "focus": "OPEN錢包於 7-ELEVEN 與合作銀行的 OPENPOINT 活動。",
-      "freshness": "官方來源檢查 2026/10/29；依官方更新順序排列",
+      "freshness": "官方來源檢查 2026/10/30；依官方更新順序排列",
       "campaigns": [
         {
           "title": "OPENPOINT點數加贈活動說明",
@@ -8157,7 +8267,7 @@
       "logo": "/logos/7-eleven.png",
       "color": "#00a651",
       "focus": "7-ELEVEN 官方活動與支付工具回饋。",
-      "freshness": "官方來源檢查 2026/10/29；依官方更新順序排列",
+      "freshness": "官方來源檢查 2026/10/30；依官方更新順序排列",
       "campaigns": [
         {
           "title": "你運動7-ELEVEN加碼10%購物金",
@@ -9369,7 +9479,7 @@
       "logo": "/logos/taiwan-pay.png",
       "color": "#b22637",
       "focus": "台灣 Pay、TWQR 與銀行合作通路回饋。",
-      "freshness": "官方來源檢查 2026/10/29；依官方更新順序排列",
+      "freshness": "官方來源檢查 2026/10/30；依官方更新順序排列",
       "campaigns": [
         {
           "title": "GREEN & SAFE真食物專賣店，用台灣Pay享優惠",
@@ -10390,7 +10500,7 @@
       "logo": "/logos/pxpay.png",
       "color": "#5f49a6",
       "focus": "全支付全點、消費回饋與指定通路活動。",
-      "freshness": "官方來源檢查 2026/10/29；依官方更新順序排列",
+      "freshness": "官方來源檢查 2026/10/30；依官方更新順序排列",
       "campaigns": [
         {
           "title": "收益進帳全支付 消費回饋最高1200全點",
@@ -10421,7 +10531,7 @@
       "logo": "/logos/gama-pay.png",
       "color": "#f58220",
       "focus": "橘子支付官方活動、公告與服務異動。",
-      "freshness": "官方來源檢查 2026/10/29；依官方更新順序排列",
+      "freshness": "官方來源檢查 2026/10/30；依官方更新順序排列",
       "campaigns": [
         {
           "title": "📢 台中市 | 智慧停車無紙化，綁定橘子支付繳費享6折優惠 🚗",
@@ -10444,28 +10554,6 @@
           "endsAt": "20261231",
           "publishedAt": "",
           "officialOrder": 0
-        },
-        {
-          "title": "橘子支付店家幫手10/29起停止支援部分少數手機版本",
-          "category": "最新資訊",
-          "stores": [
-            "官方支付服務"
-          ],
-          "paymentMethods": [
-            "橘子支付"
-          ],
-          "audience": "not-stated",
-          "rate": 0,
-          "cap": 0,
-          "rewardLabel": "官方最新資訊",
-          "status": "2026/09/30；官方內容請見詳情頁",
-          "sourceUrl": "https://www.gamapay.com.tw/news.html?id=4974",
-          "image": "",
-          "rawText": "親愛的客戶您好： \n 橘子支付 店家幫手 APP 為提供更完善的服務體驗並提升使用安全性，將自 2026/10/29 起，停止支援以下手機作業系統版本： \n ● Android 系統：低於 7.0 版本 \n ● iOS 系統：低於 15.0 版本 \n 提醒您可至手機「設定」中的「關於本機 / 關於手機」查看目前作業系統版本； \n 若您的手機作業系統版本低於前述支援範圍，需先更新手機作業系統或更換可支援之裝置，始得繼續使用本服務。 \n 本次服務調整造成不便，敬請見諒 \n 未來橘子支付也將持續致力於提供更好的服務體驗，感謝您的理解與配合 \n 橘子支付營運團隊敬上 \n 客服信箱： CS@Service.gamapay.com.tw \n 客服專線： 02-21926082 \n 服務時間： 10:00~19:00 ( 週一至週日 )",
-          "startsAt": "20260930",
-          "endsAt": "20261029",
-          "publishedAt": "",
-          "officialOrder": 1
         },
         {
           "title": "【防詐宣導】切勿點擊「商品將自動扣款」、「帳單逾期未繳」等之釣魚簡訊或電子郵件！",
@@ -10852,7 +10940,7 @@
       "logo": "/logos/opay-icon.png",
       "color": "#1388c9",
       "focus": "歐付寶 O'Pay 官方好康活動與合作通路。",
-      "freshness": "官方來源檢查 2026/10/29；依官方更新順序排列",
+      "freshness": "官方來源檢查 2026/10/30；依官方更新順序排列",
       "campaigns": [
         {
           "title": "活動專區 - 歐付寶O'Pay第三方支付",
@@ -10913,7 +11001,7 @@
       "segment": "daily",
       "officialSite": "https://web-tw-pay.line.me/cms/event",
       "sourceUrl": "https://web-tw-pay.line.me/cms/event",
-      "checkedAt": "2026-10-29T10:29:57.025Z"
+      "checkedAt": "2026-10-29T17:08:20.238Z"
     },
     {
       "name": "街口支付",
@@ -10923,7 +11011,7 @@
       "segment": "daily",
       "officialSite": "https://mkt.jkopay.com/zh-TW/event",
       "sourceUrl": "https://mkt.jkopay.com/sitemap.xml",
-      "checkedAt": "2026-10-29T10:29:57.025Z"
+      "checkedAt": "2026-10-29T17:08:20.238Z"
     },
     {
       "name": "悠遊付",
@@ -10933,7 +11021,7 @@
       "segment": "daily",
       "officialSite": "https://easywallet.easycard.com.tw/benefit/",
       "sourceUrl": "https://easywallet.easycard.com.tw/benefit/?page=1",
-      "checkedAt": "2026-10-29T10:29:57.025Z"
+      "checkedAt": "2026-10-29T17:08:20.238Z"
     },
     {
       "name": "iPASS MONEY",
@@ -10943,7 +11031,7 @@
       "segment": "daily",
       "officialSite": "https://www.i-pass.com.tw/Preferential",
       "sourceUrl": "https://www.i-pass.com.tw/Preferential?page=1&type=0",
-      "checkedAt": "2026-10-29T10:29:57.025Z"
+      "checkedAt": "2026-10-29T17:08:20.238Z"
     },
     {
       "name": "icash Pay",
@@ -10953,7 +11041,7 @@
       "segment": "daily",
       "officialSite": "https://www.icashpay.com.tw/",
       "sourceUrl": "https://www.icashpay.com.tw/advertMessage/index?page=1",
-      "checkedAt": "2026-10-29T10:29:57.025Z"
+      "checkedAt": "2026-10-29T17:08:20.238Z"
     },
     {
       "name": "Pi 拍錢包",
@@ -10963,7 +11051,7 @@
       "segment": "merchant",
       "officialSite": "https://web.piapp.com.tw/events/",
       "sourceUrl": "https://web.piapp.com.tw/events/",
-      "checkedAt": "2026-10-29T10:29:57.025Z"
+      "checkedAt": "2026-10-29T17:08:20.238Z"
     },
     {
       "name": "全盈+PAY",
@@ -10973,7 +11061,7 @@
       "segment": "merchant",
       "officialSite": "https://event2023.pluspay.com.tw/",
       "sourceUrl": "https://event2023.pluspay.com.tw/",
-      "checkedAt": "2026-10-29T10:29:57.025Z"
+      "checkedAt": "2026-10-29T17:08:20.238Z"
     },
     {
       "name": "OPEN錢包",
@@ -10983,7 +11071,7 @@
       "segment": "merchant",
       "officialSite": "https://www.7-11.com.tw/service/Pay.aspx#tab1",
       "sourceUrl": "https://www.7-11.com.tw/service/Pay.aspx#tab1",
-      "checkedAt": "2026-10-29T10:29:57.025Z"
+      "checkedAt": "2026-10-29T17:08:20.238Z"
     },
     {
       "name": "7-ELEVEN",
@@ -10993,7 +11081,7 @@
       "segment": "merchant",
       "officialSite": "https://www.7-11.com.tw/index.aspx",
       "sourceUrl": "https://www.7-11.com.tw/index.aspx",
-      "checkedAt": "2026-10-29T10:29:57.025Z"
+      "checkedAt": "2026-10-29T17:08:20.238Z"
     },
     {
       "name": "台灣 Pay",
@@ -11003,7 +11091,7 @@
       "segment": "cross-network",
       "officialSite": "https://taiwanpay.firstbank.com.tw/sites/twpay/latestOffers",
       "sourceUrl": "https://taiwanpay.firstbank.com.tw/sites/twpay/latestOffers",
-      "checkedAt": "2026-10-29T10:29:57.025Z"
+      "checkedAt": "2026-10-29T17:08:20.238Z"
     },
     {
       "name": "全支付",
@@ -11013,7 +11101,7 @@
       "segment": "merchant",
       "officialSite": "https://www.pxpayplus.com.tw/",
       "sourceUrl": "https://www.pxpayplus.com.tw/",
-      "checkedAt": "2026-10-29T10:29:57.025Z"
+      "checkedAt": "2026-10-29T17:08:20.238Z"
     },
     {
       "name": "橘子支付",
@@ -11023,7 +11111,7 @@
       "segment": "cross-network",
       "officialSite": "https://www.gamapay.com.tw/news_list.html",
       "sourceUrl": "https://www.gamapay.com.tw/news_list.html",
-      "checkedAt": "2026-10-29T10:29:57.025Z"
+      "checkedAt": "2026-10-29T17:08:20.238Z"
     },
     {
       "name": "歐付寶 O'Pay",
@@ -11033,7 +11121,7 @@
       "segment": "cross-network",
       "officialSite": "https://www.opay.tw/banner/event",
       "sourceUrl": "https://www.opay.tw/banner/event",
-      "checkedAt": "2026-10-29T10:29:57.025Z"
+      "checkedAt": "2026-10-29T17:08:20.238Z"
     },
     {
       "name": "ezPay 簡單付",
@@ -11043,7 +11131,7 @@
       "segment": "cross-network",
       "officialSite": "https://www.ezpay.com.tw/",
       "sourceUrl": "https://www.ezpay.com.tw/",
-      "checkedAt": "2026-10-29T10:29:57.025Z"
+      "checkedAt": "2026-10-29T17:08:20.238Z"
     }
   ]
 }
