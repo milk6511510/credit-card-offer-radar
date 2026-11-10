@@ -1,7 +1,8 @@
 "use client";
 
-import { useEffect, useLayoutEffect, useMemo, useRef, useState } from "react";
+import { useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState } from "react";
 import bundledCampaignData from "../public/data/campaigns.json";
+import { authClient } from "../lib/auth-client";
 
 type Audience = "new-user" | "existing-user" | "mixed" | "not-stated";
 
@@ -133,6 +134,7 @@ const PREFERRED_PLATFORMS_STORAGE_KEY = "paymentrader:preferred-platforms";
 const LAST_SYNC_STORAGE_KEY = "paymentrader:last-sync";
 const INITIAL_VISIBLE_OFFERS = 24;
 type NotificationStatus = NotificationPermission | "unsupported";
+type AccountSyncStatus = "idle" | "syncing" | "synced" | "offline";
 
 const paymentLogos: Record<string, string> = {
   "LINE Pay": "/logos/line-pay.svg",
@@ -750,8 +752,14 @@ export default function Home() {
   const [historyMonth, setHistoryMonth] = useState("全部月份");
   const [historyQuery, setHistoryQuery] = useState("");
   const [visibleOfferState, setVisibleOfferState] = useState({ key: "", count: INITIAL_VISIBLE_OFFERS });
+  const [preferencesHydrated, setPreferencesHydrated] = useState(false);
+  const [accountSyncAccountId, setAccountSyncAccountId] = useState<string | null>(null);
+  const [accountSyncStatus, setAccountSyncStatus] = useState<AccountSyncStatus>("idle");
   const favoriteIdsRef = useRef<string[]>([]);
+  const preferredPlatformsRef = useRef<string[]>([]);
   const notificationStatusRef = useRef<NotificationStatus>("unsupported");
+  const { data: session } = authClient.useSession();
+  const accountUser = session?.user;
 
   const isFavoritesView = activeView === "favorites";
   const isHistoryView = activeView === "history";
@@ -790,6 +798,8 @@ export default function Home() {
       } catch {
         setFavoriteIds([]);
         setPreferredPlatforms([]);
+      } finally {
+        setPreferencesHydrated(true);
       }
     };
     const hydrateTimer = window.setTimeout(hydratePreferences, 0);
@@ -824,6 +834,85 @@ export default function Home() {
   useEffect(() => {
     favoriteIdsRef.current = favoriteIds;
   }, [favoriteIds]);
+
+  useEffect(() => {
+    preferredPlatformsRef.current = preferredPlatforms;
+  }, [preferredPlatforms]);
+
+  const persistAccountPreferences = useCallback(async (nextFavoriteIds: string[], nextPreferredPlatforms: string[]) => {
+    if (!accountUser?.id) return;
+    setAccountSyncStatus("syncing");
+    try {
+      const response = await fetch("/api/preferences", {
+        method: "PUT",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify({
+          favoriteIds: nextFavoriteIds,
+          preferredPlatforms: nextPreferredPlatforms,
+          notificationsEnabled: notificationStatusRef.current === "granted",
+        }),
+      });
+      if (!response.ok) throw new Error("Preference sync failed");
+      setAccountSyncStatus("synced");
+    } catch {
+      setAccountSyncStatus("offline");
+    }
+  }, [accountUser?.id]);
+
+  useEffect(() => {
+    if (!preferencesHydrated || !accountUser?.id) {
+      return;
+    }
+
+    let cancelled = false;
+
+    const mergeRemotePreferences = async () => {
+      try {
+        setAccountSyncStatus("syncing");
+        const response = await fetch("/api/preferences", { cache: "no-store" });
+        if (!response.ok) throw new Error("Preference load failed");
+        const payload = await response.json() as {
+          preferences?: { favoriteIds?: unknown; preferredPlatforms?: unknown } | null;
+        };
+        if (cancelled) return;
+
+        const remoteFavoriteIds = Array.isArray(payload.preferences?.favoriteIds)
+          ? payload.preferences.favoriteIds.filter((value): value is string => typeof value === "string")
+          : [];
+        const remotePreferredPlatforms = Array.isArray(payload.preferences?.preferredPlatforms)
+          ? payload.preferences.preferredPlatforms.filter((value): value is string => typeof value === "string")
+          : [];
+        const mergedFavoriteIds = Array.from(new Set([...favoriteIdsRef.current, ...remoteFavoriteIds]));
+        const mergedPreferredPlatforms = Array.from(new Set([...preferredPlatformsRef.current, ...remotePreferredPlatforms]));
+        favoriteIdsRef.current = mergedFavoriteIds;
+        preferredPlatformsRef.current = mergedPreferredPlatforms;
+        setFavoriteIds(mergedFavoriteIds);
+        setPreferredPlatforms(mergedPreferredPlatforms);
+        window.localStorage.setItem(FAVORITES_STORAGE_KEY, JSON.stringify(mergedFavoriteIds));
+        window.localStorage.setItem(PREFERRED_PLATFORMS_STORAGE_KEY, JSON.stringify(mergedPreferredPlatforms));
+        setAccountSyncAccountId(accountUser.id);
+        setAccountSyncStatus("synced");
+      } catch {
+        if (!cancelled) {
+          setAccountSyncAccountId(null);
+          setAccountSyncStatus("offline");
+        }
+      }
+    };
+
+    void mergeRemotePreferences();
+    return () => {
+      cancelled = true;
+    };
+  }, [accountUser?.id, preferencesHydrated]);
+
+  useEffect(() => {
+    if (!accountUser?.id || accountSyncAccountId !== accountUser.id) return;
+    const saveTimer = window.setTimeout(() => {
+      void persistAccountPreferences(favoriteIds, preferredPlatforms);
+    }, 450);
+    return () => window.clearTimeout(saveTimer);
+  }, [accountSyncAccountId, accountUser?.id, favoriteIds, persistAccountPreferences, preferredPlatforms]);
 
   useEffect(() => {
     notificationStatusRef.current = notificationStatus;
@@ -1093,6 +1182,8 @@ export default function Home() {
         ? "瀏覽器不支援通知"
         : "開啟更新通知";
   const notificationDisabled = notificationStatus !== "default";
+  const accountLabel = accountUser?.name?.trim() || accountUser?.email?.split("@")[0] || "登入";
+  const accountSyncLabel = accountSyncStatus === "syncing" ? "同步中" : accountSyncStatus === "offline" ? "待同步" : accountSyncStatus === "synced" ? "已同步" : "僅本機";
 
   return (
     <main className="app-shell light-theme">
@@ -1115,6 +1206,10 @@ export default function Home() {
               <span className="hidden sm:inline">官方資料同步</span>
               <time dateTime={data.updatedAt}>{updatedTime}</time>
             </div>
+            <a className="account-chip" href={accountUser ? "/account" : "/auth/sign-in"} title={accountUser ? "開啟帳號與同步狀態" : "使用 Google 或 Email 登入"}>
+              <span className="account-chip-icon"><Icon name="user" size={14} /></span>
+              <span>{accountUser ? accountLabel : "登入"}</span>
+            </a>
             {!isHistoryView ? (
               <button type="button" className={`topbar-filter-button${filtersOpen ? " is-open" : ""}`} onClick={() => setFiltersOpen((open) => !open)} aria-expanded={filtersOpen} aria-controls="platform-filter-panel">
                 <Icon name="sliders" size={15} />
@@ -1158,7 +1253,7 @@ export default function Home() {
               <div className="favorites-strip-copy">
                 <span className="eyebrow">MY WATCHLIST</span>
                 <strong>我的最愛</strong>
-                <p>{favoriteOfferCount ? `已追蹤 ${favoriteOfferCount} 筆活動，資料會保留在這部裝置。` : "在活動卡片點選愛心，就能把重要活動集中在這裡。"}</p>
+                <p>{favoriteOfferCount ? `已追蹤 ${favoriteOfferCount} 筆活動${accountUser ? "，已同步至帳號。" : "，目前保存在這部裝置。"}` : "在活動卡片點選愛心，就能把重要活動集中在這裡。"}</p>
               </div>
               <div className="favorites-strip-actions">
                 <button type="button" className="favorites-notification" onClick={enableNotifications} disabled={notificationDisabled} title="允許此瀏覽器在活動資料更新時提醒你">
@@ -1176,9 +1271,9 @@ export default function Home() {
                   <div>
                     <span className="eyebrow"><Icon name="sliders" size={14} />DEVICE PROFILE</span>
                     <h3 id="local-preferences-title">本機偏好</h3>
-                    <p>選定平台後，新的活動會優先出現在清單前段。資料只保存在這部裝置的瀏覽器。</p>
+                    <p>{accountUser ? "選定平台後，新的活動會優先出現在清單前段，收藏與偏好會同步到你的帳號。" : "選定平台後，新的活動會優先出現在清單前段。登入後即可跨裝置同步。"}</p>
                   </div>
-                  <span className="local-save-badge"><Icon name="check" size={13} />僅本機</span>
+                  <span className={`local-save-badge${accountUser ? " is-account" : ""}`}><Icon name={accountUser ? "database" : "check"} size={13} />{accountUser ? accountSyncLabel : "僅本機"}</span>
                 </div>
                 <div className="preference-platforms">
                   {platformCatalog.map((platform) => {

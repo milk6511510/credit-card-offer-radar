@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import "@neondatabase/auth-ui/css";
 import "./globals.css";
+import { Providers } from "./providers";
 
 const paymentraderIcon = "/branding/paymentrader/paymentrader-option-05-final.png";
 
@@ -46,7 +48,7 @@ export default function RootLayout({
   return (
     <html lang="zh-Hant">
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
-        {children}
+        <Providers>{children}</Providers>
       </body>
     </html>
   );
