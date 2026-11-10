@@ -1,14 +1,24 @@
 "use client";
 
-import { createAuthClient } from "@neondatabase/auth/next";
+import type { createAuthClient } from "@neondatabase/auth/next";
 
-export const authClient = createAuthClient();
+type AuthClient = ReturnType<typeof createAuthClient>;
+
+let authClientPromise: Promise<AuthClient> | null = null;
+
+export function getAuthClient() {
+  if (typeof window === "undefined") {
+    return Promise.reject(new Error("Neon Auth is only available in the browser."));
+  }
+  authClientPromise ??= import("@neondatabase/auth/next").then(({ createAuthClient: createClient }) => createClient());
+  return authClientPromise;
+}
 
 export async function getSessionWithTimeout(timeoutMs = 8_000) {
   let timeoutId: ReturnType<typeof setTimeout> | undefined;
   try {
     const result = await Promise.race([
-      authClient.getSession(),
+      getAuthClient().then((client) => client.getSession()),
       new Promise<never>((_, reject) => {
         timeoutId = setTimeout(() => reject(new Error("Session request timed out.")), timeoutMs);
       }),

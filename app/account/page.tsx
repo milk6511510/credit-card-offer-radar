@@ -3,7 +3,7 @@
 import { useCallback, useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { authClient, getSessionWithTimeout } from "../../lib/auth-client";
+import { getAuthClient, getSessionWithTimeout } from "../../lib/auth-client";
 
 type AccountUser = { id: string; name?: string | null; email: string };
 type StoredPreferences = { favoriteIds: string[]; preferredPlatforms: string[]; notificationsEnabled: boolean; updatedAt: string | null };
@@ -50,6 +50,7 @@ export default function AccountPage() {
       }
 
       try {
+        const authClient = await getAuthClient();
         const accountsResult = await authClient.listAccounts();
         if (accountsResult.error) throw new Error(accountsResult.error.message);
         setGoogleLinkState(accountsResult.data?.some((account) => account.providerId === "google") ? "linked" : "not-linked");
@@ -142,6 +143,7 @@ export default function AccountPage() {
     setIsSigningOut(true);
     setNotice("");
     try {
+      const authClient = await getAuthClient();
       await authClient.signOut();
       window.location.assign("/account");
     } catch {
@@ -155,6 +157,7 @@ export default function AccountPage() {
     setGoogleLinkState("linking");
     setNotice("");
     try {
+      const authClient = await getAuthClient();
       const result = await authClient.linkSocial({ provider: "google", callbackURL: "/account" });
       if (result.error) {
         setGoogleLinkState("not-linked");

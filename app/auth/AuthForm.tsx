@@ -3,7 +3,7 @@
 import { useEffect, useState, type FormEvent } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { authClient, getSessionWithTimeout } from "../../lib/auth-client";
+import { getAuthClient, getSessionWithTimeout } from "../../lib/auth-client";
 
 type AuthMode = "sign-in" | "sign-up";
 type FormView = AuthMode | "verify-email" | "forgot-password" | "reset-password";
@@ -101,6 +101,7 @@ export function AuthForm({ initialMode, initialView }: { initialMode: AuthMode; 
     const normalizedEmail = email.trim().toLowerCase();
 
     try {
+      const authClient = await getAuthClient();
       if (view === "sign-up") {
         const result = await authClient.signUp.email({ name: name.trim(), email: normalizedEmail, password });
         if (result.error) {
@@ -133,6 +134,7 @@ export function AuthForm({ initialMode, initialView }: { initialMode: AuthMode; 
     setIsSubmitting(true);
     setNotice("");
     try {
+      const authClient = await getAuthClient();
       const result = await authClient.requestPasswordReset({
         email: email.trim().toLowerCase(),
         redirectTo: `${window.location.origin}/auth/reset-password`,
@@ -164,6 +166,7 @@ export function AuthForm({ initialMode, initialView }: { initialMode: AuthMode; 
     setIsSubmitting(true);
     setNotice("");
     try {
+      const authClient = await getAuthClient();
       const result = await authClient.resetPassword({ newPassword: password, token });
       if (result.error) {
         setNotice(authErrorMessage(result.error.message || "無法更新密碼，請重新申請重設信。"), "error");
@@ -186,6 +189,7 @@ export function AuthForm({ initialMode, initialView }: { initialMode: AuthMode; 
     setIsSubmitting(true);
     setNotice("");
     try {
+      const authClient = await getAuthClient();
       const result = await authClient.emailOtp.sendVerificationOtp({ email: normalizedEmail, type: "email-verification" });
       if (result.error) {
         setNotice(result.error.message || "目前無法寄送驗證碼，請稍後再試。", "error");
@@ -205,6 +209,7 @@ export function AuthForm({ initialMode, initialView }: { initialMode: AuthMode; 
     setIsSubmitting(true);
     setNotice("");
     try {
+      const authClient = await getAuthClient();
       const result = await authClient.emailOtp.verifyEmail({ email: email.trim().toLowerCase(), otp: otp.trim() });
       if (result.error) {
         setNotice(result.error.message || "驗證碼無效或已過期，請確認後重試或重新寄送。", "error");
@@ -234,6 +239,7 @@ export function AuthForm({ initialMode, initialView }: { initialMode: AuthMode; 
     setIsSubmitting(true);
     setNotice("");
     try {
+      const authClient = await getAuthClient();
       const callbackURL = getCallbackUrl();
       const result = await authClient.signIn.social({ provider: "google", callbackURL, newUserCallbackURL: callbackURL });
       if (result.error) setNotice(authErrorMessage(result.error.message || "Google 登入目前無法使用，請改用 Email 登入。"), "error");
