@@ -767,14 +767,27 @@ export default function Home() {
 
   useEffect(() => {
     let cancelled = false;
-    void getSessionWithTimeout().then(({ data: session }) => {
-      if (cancelled) return;
-      setAccountUser(session?.user ? { id: session.user.id, name: session.user.name, email: session.user.email } : null);
-    }).catch(() => {
-      if (!cancelled) setAccountUser(null);
-    });
+    const refreshSession = () => {
+      void getSessionWithTimeout().then(({ data: session }) => {
+        if (cancelled) return;
+        setAccountUser(session?.user ? { id: session.user.id, name: session.user.name, email: session.user.email } : null);
+      }).catch(() => {
+        if (!cancelled) setAccountUser(null);
+      });
+    };
+
+    refreshSession();
+    const refreshWhenVisible = () => {
+      if (document.visibilityState === "visible") refreshSession();
+    };
+    window.addEventListener("focus", refreshSession);
+    window.addEventListener("pageshow", refreshSession);
+    document.addEventListener("visibilitychange", refreshWhenVisible);
     return () => {
       cancelled = true;
+      window.removeEventListener("focus", refreshSession);
+      window.removeEventListener("pageshow", refreshSession);
+      document.removeEventListener("visibilitychange", refreshWhenVisible);
     };
   }, []);
 
@@ -1220,9 +1233,9 @@ export default function Home() {
               <span className="hidden sm:inline">官方資料同步</span>
               <time dateTime={data.updatedAt}>{updatedTime}</time>
             </div>
-            <a className="account-chip" href={accountUser ? "/account" : "/auth/sign-in?callbackURL=%2Faccount"} title={accountUser ? "開啟帳號與同步狀態" : "使用 Google 或 Email 登入"}>
+            <a className="account-chip" href="/account" title="開啟個人使用專區" aria-label="開啟個人使用專區">
               <span className="account-chip-icon"><Icon name="user" size={14} /></span>
-              <span>{accountUser ? accountLabel : "登入"}</span>
+              <span>{accountUser ? accountLabel : "個人專區"}</span>
             </a>
             {!isHistoryView ? (
               <button type="button" className={`topbar-filter-button${filtersOpen ? " is-open" : ""}`} onClick={() => setFiltersOpen((open) => !open)} aria-expanded={filtersOpen} aria-controls="platform-filter-panel">

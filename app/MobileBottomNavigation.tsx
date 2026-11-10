@@ -29,21 +29,21 @@ export function MobileBottomNavigation({ activeView, favoriteCount }: { activeVi
     const indicator = indicatorRef.current;
     const selectedIndex = items.findIndex((item) => item.view === activeView);
     const selectedItem = itemRefs.current[selectedIndex];
-    if (!nav || !indicator || !selectedItem) return;
+    if (!nav || !indicator || !selectedItem || selectedItem.getBoundingClientRect().width === 0) return;
 
     if (frameRef.current) cancelAnimationFrame(frameRef.current);
     frameRef.current = requestAnimationFrame(() => {
       const navRect = nav.getBoundingClientRect();
       const itemRect = selectedItem.getBoundingClientRect();
-      const targetX = itemRect.left - navRect.left;
+      const targetX = (itemRect.left - navRect.left) / itemRect.width;
       const position = positionRef.current;
       indicator.style.width = `${itemRect.width}px`;
       indicator.style.opacity = "1";
 
       const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
       const render = (x: number, velocity: number) => {
-        const stretch = Math.min(Math.abs(velocity) / 1500, 0.13);
-        indicator.style.transform = `translate3d(${x}px, 0, 0) scaleX(${1 + stretch}) scaleY(${1 - stretch * 0.68})`;
+        const stretch = Math.min(Math.abs(velocity) / 45, 0.13);
+        indicator.style.transform = `translate3d(${x * 100}%, 0, 0) scale3d(${1 + stretch}, ${1 - stretch * 0.68}, 1)`;
       };
 
       if (!position.initialized || reducedMotion) {
@@ -92,11 +92,12 @@ export function MobileBottomNavigation({ activeView, favoriteCount }: { activeVi
       if (!indicator || !selectedItem || !positionRef.current.initialized) return;
       const navRect = nav.getBoundingClientRect();
       const itemRect = selectedItem.getBoundingClientRect();
-      const x = itemRect.left - navRect.left;
+      if (itemRect.width === 0) return;
+      const x = (itemRect.left - navRect.left) / itemRect.width;
       positionRef.current.x = x;
       positionRef.current.velocity = 0;
       indicator.style.width = `${itemRect.width}px`;
-      indicator.style.transform = `translate3d(${x}px, 0, 0)`;
+      indicator.style.transform = `translate3d(${x * 100}%, 0, 0)`;
     };
 
     const observer = new ResizeObserver(reposition);
@@ -109,8 +110,8 @@ export function MobileBottomNavigation({ activeView, favoriteCount }: { activeVi
   }, [activeView]);
 
   return (
-    <nav ref={navRef} className="mobile-tabbar" aria-label="手機版快速導覽">
-      <span ref={indicatorRef} className="mobile-tabbar-indicator" aria-hidden="true" />
+    <nav ref={navRef} className="mobile-tabbar liquid-tab-bar" aria-label="手機版快速導覽">
+      <span ref={indicatorRef} className="mobile-tabbar-indicator liquid-tab-highlight" aria-hidden="true" />
       {items.map((item, index) => {
         const selected = activeView === item.view;
         const label = item.view === "favorites" && favoriteCount ? `最愛 ${favoriteCount}` : item.label;
