@@ -1,11 +1,28 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import { authClient } from "../../lib/auth-client";
 
+type AccountUser = { id: string; name?: string | null; email: string };
+
 export default function AccountPage() {
-  const { data: session, isPending } = authClient.useSession();
-  const user = session?.user;
+  const [user, setUser] = useState<AccountUser | null>(null);
+  const [isPending, setIsPending] = useState(true);
+
+  useEffect(() => {
+    let cancelled = false;
+    void authClient.getSession().then(({ data }) => {
+      if (cancelled) return;
+      setUser(data?.user ? { id: data.user.id, name: data.user.name, email: data.user.email } : null);
+      setIsPending(false);
+    }).catch(() => {
+      if (!cancelled) setIsPending(false);
+    });
+    return () => {
+      cancelled = true;
+    };
+  }, []);
 
   if (isPending) {
     return <main className="account-page"><div className="account-panel"><span className="eyebrow">PAYMENTRADER ACCOUNT</span><h1>載入帳號中</h1></div></main>;
