@@ -135,6 +135,7 @@ const LAST_SYNC_STORAGE_KEY = "paymentrader:last-sync";
 const INITIAL_VISIBLE_OFFERS = 24;
 type NotificationStatus = NotificationPermission | "unsupported";
 type AccountSyncStatus = "idle" | "syncing" | "synced" | "offline";
+type AccountUser = { id: string; name?: string | null; email: string };
 
 const paymentLogos: Record<string, string> = {
   "LINE Pay": "/logos/line-pay.svg",
@@ -758,11 +759,23 @@ export default function Home() {
   const favoriteIdsRef = useRef<string[]>([]);
   const preferredPlatformsRef = useRef<string[]>([]);
   const notificationStatusRef = useRef<NotificationStatus>("unsupported");
-  const { data: session } = authClient.useSession();
-  const accountUser = session?.user;
+  const [accountUser, setAccountUser] = useState<AccountUser | null>(null);
 
   const isFavoritesView = activeView === "favorites";
   const isHistoryView = activeView === "history";
+
+  useEffect(() => {
+    let cancelled = false;
+    void authClient.getSession().then(({ data: session }) => {
+      if (cancelled) return;
+      setAccountUser(session?.user ? { id: session.user.id, name: session.user.name, email: session.user.email } : null);
+    }).catch(() => {
+      if (!cancelled) setAccountUser(null);
+    });
+    return () => {
+      cancelled = true;
+    };
+  }, []);
 
   useEffect(() => {
     const syncView = () => {

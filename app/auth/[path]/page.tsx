@@ -1,14 +1,8 @@
-import { AuthView } from "@neondatabase/auth-ui";
-import { authViewPaths, type AuthViewPath } from "@neondatabase/auth-ui/server";
-
-export const dynamicParams = false;
-
-export function generateStaticParams() {
-  return Object.values(authViewPaths).map((path) => ({ path }));
-}
+import { AuthForm } from "../AuthForm";
 
 export default async function AuthPage({ params }: { params: Promise<{ path: string }> }) {
   const { path } = await params;
+  const mode = path === "sign-up" ? "sign-up" : "sign-in";
 
   return (
     <main className="auth-route-shell">
@@ -21,9 +15,9 @@ export default async function AuthPage({ params }: { params: Promise<{ path: str
       <section className="auth-route-panel" aria-label="帳號登入">
         <div className="auth-route-panel-heading">
           <span className="auth-route-panel-kicker">paymentrader account</span>
-          <strong>安全登入</strong>
+          <strong>{mode === "sign-up" ? "建立帳號" : "安全登入"}</strong>
         </div>
-        <AuthView path={path as AuthViewPath} />
+        <AuthForm initialMode={mode} />
       </section>
     </main>
   );
