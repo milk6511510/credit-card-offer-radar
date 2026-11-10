@@ -5301,31 +5301,35 @@ body {
 
   .filter-popover-backdrop {
     z-index: 95;
-    background: rgba(22, 43, 34, 0.42);
+    background: transparent;
   }
 
   .filter-popover {
     position: fixed;
-    top: 0;
-    right: 0;
-    bottom: 0;
+    top: calc(68px + env(safe-area-inset-top));
+    right: 12px;
+    bottom: auto;
     z-index: 100;
-    width: min(380px, calc(100vw - 16px));
-    max-height: none;
-    padding: 14px 13px max(14px, env(safe-area-inset-bottom));
-    border-radius: 16px 0 0 16px;
+    width: min(360px, calc(100vw - 24px));
+    max-height: min(68vh, 560px);
+    padding: 13px 13px 12px;
+    border-radius: 21px;
     overflow-x: hidden;
     overflow-y: auto;
     overscroll-behavior: contain;
+    animation: filter-popover-in 180ms cubic-bezier(0.22, 1, 0.36, 1) both;
   }
 
   .filter-popover-header {
     position: sticky;
-    top: -14px;
+    top: -13px;
     z-index: 2;
-    margin: -14px -13px 0;
-    padding: 14px 13px 12px;
-    background: rgba(255, 255, 255, 0.98);
+    margin: -13px -13px 0;
+    padding: 13px 13px 11px;
+    border-radius: 21px 21px 0 0;
+    background: rgba(255, 255, 255, 0.94);
+    backdrop-filter: blur(18px) saturate(150%);
+    -webkit-backdrop-filter: blur(18px) saturate(150%);
   }
 
   .filter-popover-header h3 {
@@ -5376,8 +5380,11 @@ body {
     bottom: 0;
     z-index: 2;
     margin-inline: -13px;
-    padding: 10px 13px max(10px, env(safe-area-inset-bottom));
-    background: rgba(255, 255, 255, 0.98);
+    padding: 10px 13px 0;
+    border-radius: 0 0 21px 21px;
+    background: rgba(255, 255, 255, 0.94);
+    backdrop-filter: blur(18px) saturate(150%);
+    -webkit-backdrop-filter: blur(18px) saturate(150%);
   }
 
   .filter-popover-footer .clear-filter,
@@ -5538,8 +5545,9 @@ body {
     backdrop-filter: blur(24px) saturate(165%);
     -webkit-backdrop-filter: blur(24px) saturate(165%);
     transform: translateX(-50%);
-    transition: transform 280ms cubic-bezier(0.22, 1, 0.36, 1), opacity 220ms ease, box-shadow 220ms ease;
-    will-change: transform;
+    transition: box-shadow 220ms ease;
+    animation: mobile-glass-breathe 5.8s ease-in-out infinite;
+    will-change: box-shadow;
   }
 
   .mobile-tabbar::before {
@@ -5552,12 +5560,6 @@ body {
     pointer-events: none;
     transform: translateX(-125%);
     animation: mobile-glass-sheen 7s ease-in-out infinite;
-  }
-
-  .mobile-tabbar.is-hidden {
-    opacity: 0.08;
-    pointer-events: none;
-    transform: translate(-50%, calc(100% + 28px));
   }
 
   .mobile-tabbar a,
@@ -5609,14 +5611,33 @@ body {
   65%, 100% { transform: translateX(125%); }
 }
 
+@keyframes mobile-glass-breathe {
+  0%, 100% {
+    box-shadow: 0 18px 42px rgba(38, 72, 57, 0.16), 0 4px 12px rgba(38, 72, 57, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.94), inset 0 -1px 0 rgba(117, 155, 137, 0.14);
+  }
+  50% {
+    box-shadow: 0 21px 48px rgba(38, 72, 57, 0.2), 0 5px 16px rgba(38, 72, 57, 0.11), inset 0 1px 0 rgba(255, 255, 255, 0.98), inset 0 -1px 0 rgba(117, 155, 137, 0.18);
+  }
+}
+
+@keyframes filter-popover-in {
+  from { opacity: 0; transform: translateY(-8px) scale(0.98); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .mobile-tabbar,
   .mobile-tabbar a,
   .mobile-tabbar button {
     transition: none;
+    animation: none;
   }
 
   .mobile-tabbar::before {
+    animation: none;
+  }
+
+  .filter-popover {
     animation: none;
   }
 }
