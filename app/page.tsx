@@ -2,7 +2,8 @@
 
 import { useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState } from "react";
 import bundledCampaignData from "../public/data/campaigns.json";
-import { authClient } from "../lib/auth-client";
+import { getSessionWithTimeout } from "../lib/auth-client";
+import { MobileBottomNavigation } from "./MobileBottomNavigation";
 
 type Audience = "new-user" | "existing-user" | "mixed" | "not-stated";
 
@@ -766,7 +767,7 @@ export default function Home() {
 
   useEffect(() => {
     let cancelled = false;
-    void authClient.getSession().then(({ data: session }) => {
+    void getSessionWithTimeout().then(({ data: session }) => {
       if (cancelled) return;
       setAccountUser(session?.user ? { id: session.user.id, name: session.user.name, email: session.user.email } : null);
     }).catch(() => {
@@ -1219,7 +1220,7 @@ export default function Home() {
               <span className="hidden sm:inline">官方資料同步</span>
               <time dateTime={data.updatedAt}>{updatedTime}</time>
             </div>
-            <a className="account-chip" href={accountUser ? "/account" : "/auth/sign-in"} title={accountUser ? "開啟帳號與同步狀態" : "使用 Google 或 Email 登入"}>
+            <a className="account-chip" href={accountUser ? "/account" : "/auth/sign-in?callbackURL=%2Faccount"} title={accountUser ? "開啟帳號與同步狀態" : "使用 Google 或 Email 登入"}>
               <span className="account-chip-icon"><Icon name="user" size={14} /></span>
               <span>{accountUser ? accountLabel : "登入"}</span>
             </a>
@@ -1549,12 +1550,7 @@ export default function Home() {
           </footer>
         </div>
       </div>
-      <nav className="mobile-tabbar" aria-label="手機版快速導覽">
-        <a className={activeView === "latest" ? "active" : ""} href="#latest"><Icon name="database" size={18} /><span>活動</span></a>
-        <a className={isFavoritesView ? "active" : ""} href="#favorites"><Icon name="heart" size={18} /><span>最愛{favoriteOfferCount ? ` ${favoriteOfferCount}` : ""}</span></a>
-        <a className={isHistoryView ? "active" : ""} href="#history"><Icon name="clock" size={18} /><span>歷史</span></a>
-        <button type="button" className={`mobile-filter-shortcut${filtersOpen ? " active" : ""}`} onClick={() => setFiltersOpen((open) => !open)} aria-expanded={filtersOpen} aria-controls="platform-filter-panel" aria-label={activeFilterCount ? `篩選，已套用 ${activeFilterCount} 個條件` : "開啟平台與分類篩選"}><Icon name="sliders" size={18} /><span>篩選</span>{activeFilterCount ? <b>{activeFilterCount}</b> : null}</button>
-      </nav>
+      <MobileBottomNavigation activeView={activeView} favoriteCount={favoriteOfferCount} />
     </main>
   );
 }
