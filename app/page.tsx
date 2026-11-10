@@ -750,7 +750,6 @@ export default function Home() {
   const [historyMonth, setHistoryMonth] = useState("全部月份");
   const [historyQuery, setHistoryQuery] = useState("");
   const [visibleOfferState, setVisibleOfferState] = useState({ key: "", count: INITIAL_VISIBLE_OFFERS });
-  const [mobileDockHidden, setMobileDockHidden] = useState(false);
   const favoriteIdsRef = useRef<string[]>([]);
   const notificationStatusRef = useRef<NotificationStatus>("unsupported");
 
@@ -771,34 +770,6 @@ export default function Home() {
     if (activeView === "latest") return;
     requestAnimationFrame(() => document.getElementById(activeView)?.scrollIntoView({ behavior: "smooth", block: "start" }));
   }, [activeView]);
-
-  useEffect(() => {
-    const mediaQuery = window.matchMedia("(max-width: 760px)");
-    const reducedMotionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
-    if (!mediaQuery.matches || reducedMotionQuery.matches) return;
-
-    let lastScrollY = window.scrollY;
-    let frame = 0;
-    const handleScroll = () => {
-      if (frame) return;
-      frame = window.requestAnimationFrame(() => {
-        const currentScrollY = window.scrollY;
-        const delta = currentScrollY - lastScrollY;
-        if (currentScrollY <= 32) {
-          setMobileDockHidden(false);
-        } else if (Math.abs(delta) >= 8) {
-          setMobileDockHidden(delta > 0);
-          lastScrollY = currentScrollY;
-        }
-        frame = 0;
-      });
-    };
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-      if (frame) window.cancelAnimationFrame(frame);
-    };
-  }, []);
 
   useEffect(() => {
     const hydratePreferences = () => {
@@ -1470,11 +1441,11 @@ export default function Home() {
           </footer>
         </div>
       </div>
-      <nav className={`mobile-tabbar${mobileDockHidden ? " is-hidden" : ""}`} aria-label="手機版快速導覽">
+      <nav className="mobile-tabbar" aria-label="手機版快速導覽">
         <a className={activeView === "latest" ? "active" : ""} href="#latest"><Icon name="database" size={18} /><span>活動</span></a>
-        <button type="button" className={`mobile-filter-shortcut${filtersOpen ? " active" : ""}`} onClick={() => { setFiltersOpen(true); document.getElementById("platforms")?.scrollIntoView({ behavior: "smooth", block: "start" }); }} aria-label={activeFilterCount ? `篩選，已套用 ${activeFilterCount} 個條件` : "開啟平台與分類篩選"}><Icon name="sliders" size={18} /><span>篩選</span>{activeFilterCount ? <b>{activeFilterCount}</b> : null}</button>
         <a className={isFavoritesView ? "active" : ""} href="#favorites"><Icon name="heart" size={18} /><span>最愛{favoriteOfferCount ? ` ${favoriteOfferCount}` : ""}</span></a>
         <a className={isHistoryView ? "active" : ""} href="#history"><Icon name="clock" size={18} /><span>歷史</span></a>
+        <button type="button" className={`mobile-filter-shortcut${filtersOpen ? " active" : ""}`} onClick={() => setFiltersOpen((open) => !open)} aria-expanded={filtersOpen} aria-controls="platform-filter-panel" aria-label={activeFilterCount ? `篩選，已套用 ${activeFilterCount} 個條件` : "開啟平台與分類篩選"}><Icon name="sliders" size={18} /><span>篩選</span>{activeFilterCount ? <b>{activeFilterCount}</b> : null}</button>
       </nav>
     </main>
   );
