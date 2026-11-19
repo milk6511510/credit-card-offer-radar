@@ -379,9 +379,8 @@ const catalog = [
 
 async function scrapeLinePress(today) {
   const listUrl = "https://pay.line.me/portal/tw/customer/press";
-  const promotionUrl = "https://pay.line.me/portal/tw/about/promotions?progressType=ONGOING";
   const listResult = await safeFetchText(listUrl);
-  if (!listResult.ok) return { campaigns: [], status: "unreachable", error: listResult.error, sourceUrls: [promotionUrl, listUrl] };
+  if (!listResult.ok) return { campaigns: [], status: "unreachable", error: listResult.error, sourceUrls: [listUrl] };
   const items = [...listResult.text.matchAll(/<li[^>]+class=["'][^"']*customer-center__item[^"']*["'][\s\S]*?<\/li>/gi)].map((match) => match[0]);
   const candidates = items.map((item, officialOrder) => ({
     title: cleanText(item.match(/class=["'][^"']*customer-center__title[^"']*["'][\s\S]*?class=["'][^"']*\btext\b[^"']*["'][^>]*>([\s\S]*?)<\/span>/i)?.[1] || ""),
@@ -424,7 +423,7 @@ async function scrapeLinePress(today) {
   return {
     campaigns: activeCampaigns,
     status: "ok",
-    sourceUrls: [promotionUrl, listUrl],
+    sourceUrls: [listUrl],
     detailPagesChecked: candidates.length,
   };
 }
@@ -435,12 +434,14 @@ async function fetchLineCmsEventIndex(today) {
   const limit = 30;
   const candidates = [];
   const seenUrls = new Set();
+  const checkedUrls = [];
   let offset = 0;
   let pageCount = 0;
   let firstError = "";
 
   while (pageCount < 20) {
     const listUrl = `${apiUrl}?runningStatusList=PROGRESSING&projectCode=CMS&limit=${limit}&offset=${offset}`;
+    checkedUrls.push(listUrl);
     const result = await safeFetchText(listUrl, {
       accept: "application/json,text/plain;q=0.9,*/*;q=0.7",
       headers: { referer: eventListUrl },
@@ -491,7 +492,7 @@ async function fetchLineCmsEventIndex(today) {
     candidates,
     status: candidates.length || !firstError ? "ok" : "unreachable",
     ...(firstError ? { error: firstError } : {}),
-    sourceUrl: eventListUrl,
+    sourceUrls: checkedUrls,
   };
 }
 
@@ -618,14 +619,14 @@ async function scrapeLine(today) {
       campaigns: [],
       status: "unreachable",
       error: `${eventResult.error || "集合頁無法讀取"}; ${pressResult.error || "新聞頁無法讀取"}`,
-      sourceUrls: [eventUrl, ...pressResult.sourceUrls],
+      sourceUrls: [eventUrl, ...(cmsIndex.sourceUrls || []), ...pressResult.sourceUrls],
       detailPagesChecked: (eventCandidates.length || 0) + (pressResult.detailPagesChecked || 0),
     };
   }
   return {
     campaigns: activeCampaigns,
     status: "ok",
-    sourceUrls: ["https://web-tw-pay.line.me/cms/event", eventUrl, ...pressResult.sourceUrls],
+    sourceUrls: [eventUrl, ...(cmsIndex.sourceUrls || []), ...pressResult.sourceUrls],
     detailPagesChecked: eventCandidates.length + (pressResult.detailPagesChecked || 0),
   };
 }
@@ -820,7 +821,8 @@ async function scrapePi(today) {
 
 async function scrapeTaiwanPay(today) {
   const listUrl = "https://taiwanpay.firstbank.com.tw/sites/twpay/latestOffers";
-  const list = await safeFetchText(listUrl);
+  let list = await safeFetchText(listUrl);
+  if (!list.ok) list = await safeFetchText(listUrl, { timeout: 30000 });
   if (!list.ok) return { campaigns: [], status: "unreachable", error: list.error, sourceUrls: [listUrl] };
   const candidates = [];
   const anchors = [...list.text.matchAll(/<a[^>]+href=["']([^"']+)["'][^>]*>([\s\S]*?)<\/a>/gi)];
@@ -903,6 +905,31 @@ async function scrapeOpay(today) {
     });
   });
   return { campaigns: dedupeCampaigns(results, today), status: "ok", sourceUrls: [listUrl], detailPagesChecked: unique.length };
+}
+
+async function scrapeEzPay() {
+  const homeUrl = "https://www.ezpay.com.tw/";
+  const newsUrl = "https://www.ezpay.com.tw/info/Announcement/lastest_news/person";
+  const [home, news] = await Promise.all([safeFetchText(homeUrl), safeFetchText(newsUrl)]);
+  const sourceUrls = [home.ok ? homeUrl : "", news.ok ? newsUrl : ""].filter(Boolean);
+  if (!sourceUrls.length) {
+    const accessDenied = [home.error, news.error].some((error) => /\b(?:401|403)\b|access.?denied/i.test(error || ""));
+    return {
+      campaigns: [],
+      status: accessDenied ? "blocked" : "unreachable",
+      error: accessDenied
+        ? "官方網站對本次自動化讀取回覆 401/403；尊重網站限制，不嘗試繞過。"
+        : `${home.error || "官方首頁無法讀取"}; ${news.error || "官方最新消息頁無法讀取"}`,
+      sourceUrls: [homeUrl, newsUrl],
+    };
+  }
+  return {
+    campaigns: [],
+    status: "unparsed",
+    error: "官方入口可讀取，但目前抓取到的是服務／公告頁，尚無可解析的有效優惠活動清單；不把公告誤列成回饋活動。",
+    sourceUrls,
+    detailPagesChecked: 0,
+  };
 }
 
 function extractIcashCandidates(html, origin) {
@@ -989,8 +1016,25 @@ async function scrapePxPay(today) {
   if (!page.ok) return { campaigns: [], status: "unreachable", error: page.error, sourceUrls: [sourceUrl] };
   const title = cleanText(page.text.match(/<title[^>]*>([\s\S]*?)<\/title>/i)?.[1]) || "全支付官方活動";
   const rawText = `${metaContent(page.text, "description")} ${extractMainText(page.text)}`;
-  const item = campaign({ provider: "全支付", title, rawText, sourceUrl, dateText: "2026/08/01-2026/10/31", explicitCategory: "一般回饋" });
-  return { campaigns: dedupeCampaigns([item], today), status: "ok", sourceUrls: [sourceUrl], detailPagesChecked: 1 };
+  const period = rawText.match(/(?:消費回饋期間|活動期間)\s*[：:]?\s*((?:20\d{2})\s*[./-]\s*\d{1,2}\s*[./-]\s*\d{1,2}\s*(?:至|到|~|～|-|–|—)\s*(?:20\d{2})\s*[./-]\s*\d{1,2}\s*[./-]\s*\d{1,2})/i)?.[1] || "";
+  if (!period) {
+    return {
+      campaigns: [],
+      status: "unparsed",
+      error: "官方活動頁可讀，但未能辨識活動期間；不將未確認日期的內容列為有效優惠。",
+      sourceUrls: [sourceUrl],
+      detailPagesChecked: 1,
+    };
+  }
+  const item = campaign({ provider: "全支付", title, rawText, sourceUrl, dateText: period, explicitCategory: "一般回饋" });
+  const campaigns = dedupeCampaigns([item], today);
+  return {
+    campaigns,
+    status: campaigns.length ? "ok" : "no-current-campaigns",
+    ...(!campaigns.length ? { error: `官方頁可讀；目前唯一可確認的活動期間為 ${period}，已結束。未找到可讀取的全支付官方總活動清單，故不推定平台沒有其他活動。` } : {}),
+    sourceUrls: [sourceUrl],
+    detailPagesChecked: 1,
+  };
 }
 
 function plusPayPageContent(page) {
@@ -1114,6 +1158,7 @@ const scraperByName = {
   "歐付寶 O'Pay": scrapeOpay,
   "icash Pay": scrapeIcash,
   "全支付": scrapePxPay,
+  "ezPay 簡單付": scrapeEzPay,
 };
 
 const data = JSON.parse(await readFile(outputPath, "utf8"));
@@ -1126,7 +1171,7 @@ for (const item of catalog) {
     scraped.set(item.name, await scrapePlusPay(today, previousCampaigns(data, item.name)));
     continue;
   }
-  if (item.name === "iPASS MONEY" || item.name === "OPEN錢包" || item.name === "7-ELEVEN" || item.name === "ezPay 簡單付") continue;
+  if (item.name === "iPASS MONEY" || item.name === "OPEN錢包" || item.name === "7-ELEVEN") continue;
   const scraper = scraperByName[item.name];
   if (!scraper) continue;
   try {
@@ -1159,6 +1204,7 @@ for (const item of catalog) {
 
 const generatedPayments = [];
 const generatedSources = [];
+const delegatedSourceNames = new Set(["iPASS MONEY", "OPEN錢包", "7-ELEVEN"]);
 for (const item of catalog) {
   let result = scraped.get(item.name);
   if (item.name === "iPASS MONEY" || item.name === "OPEN錢包" || item.name === "7-ELEVEN") {
@@ -1176,9 +1222,6 @@ for (const item of catalog) {
       ),
     };
   }
-  if (item.name === "ezPay 簡單付") {
-    result = { campaigns: [], status: "blocked", error: "官方首頁拒絕自動讀取，暫不列入目前有效活動", sourceUrls: item.sourceUrls };
-  }
   if (!result) continue;
   const campaigns = dedupeCampaigns(result.campaigns, today).map((entry, index) => ({
     ...entry,
@@ -1195,17 +1238,22 @@ for (const item of catalog) {
       campaigns,
     });
   }
+  if (delegatedSourceNames.has(item.name)) continue;
   const sourceUrls = [...new Set([...(result.sourceUrls || []), ...item.sourceUrls])];
+  const checkedUrls = new Set(result.sourceUrls || []);
+  const noCurrentCampaigns = result.status === "ok" && campaigns.length === 0;
   for (const url of sourceUrls) {
+    const checked = checkedUrls.has(url);
     generatedSources.push({
       name: `${item.name} 官方活動`,
       url,
       officialSite: item.officialSite,
-      status: result.status || "unchecked",
-      ...(result.error ? { note: result.error } : {}),
-      ...(Number.isInteger(result.detailPagesChecked) ? { detailPagesChecked: result.detailPagesChecked } : {}),
-      ...(Number.isInteger(result.detailPagesFailed) ? { detailPagesFailed: result.detailPagesFailed } : {}),
-      checkedAt,
+      status: checked ? (noCurrentCampaigns ? "no-current-campaigns" : result.status || "unchecked") : "reference-only",
+      ...(checked && result.error ? { note: result.error } : {}),
+      ...(!checked ? { note: "官方參考入口；本次排程未直接讀取此網址。" } : {}),
+      ...(checked && Number.isInteger(result.detailPagesChecked) ? { detailPagesChecked: result.detailPagesChecked } : {}),
+      ...(checked && Number.isInteger(result.detailPagesFailed) ? { detailPagesFailed: result.detailPagesFailed } : {}),
+      ...(checked ? { checkedAt } : {}),
     });
   }
 }
@@ -1231,7 +1279,10 @@ for (const item of catalog) {
 }
 data.platforms = [...platformMap.values()];
 
-const legacySources = (data.sources || [data.source].filter(Boolean)).filter((source) => !catalog.some((item) => source.name?.startsWith(item.name)));
+const legacySources = (data.sources || [data.source].filter(Boolean)).filter((source) => {
+  const owner = catalog.find((item) => source.name?.startsWith(item.name));
+  return !owner || delegatedSourceNames.has(owner.name);
+});
 data.sources = [...legacySources, ...generatedSources]
   .filter((source, index, all) => all.findIndex((item) => item.url === source.url) === index);
 data.updatedAt = checkedAt;

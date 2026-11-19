@@ -402,6 +402,12 @@ function taiwanDateKey() {
   return `${values.year}-${values.month}-${values.day}`;
 }
 
+function hasNotExpired(offer: Campaign) {
+  const endDate = String(offer.endsAt || "").replace(/\D/g, "").slice(0, 8);
+  if (!/^\d{8}$/.test(endDate)) return true;
+  return endDate >= taiwanDateKey().replaceAll("-", "");
+}
+
 function isObservedHistoryRecord(record: HistoryRecord) {
   return !record.exhaustedDate || record.exhaustedDate <= taiwanDateKey();
 }
@@ -952,7 +958,8 @@ export default function Home() {
           ...campaign,
           payment,
         })),
-      );
+      )
+      .filter(hasNotExpired);
   }, [data]);
 
   const syncCampaignData = () => {

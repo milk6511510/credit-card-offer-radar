@@ -167,16 +167,29 @@ async function discoverListPages(firstHtml) {
 }
 
 async function loadFederatedStatus() {
+  const checkedAt = new Date().toISOString();
   try {
     const html = await fetchText(federatedStatusUrl);
     const text = cleanText(html);
     const statuses = [...text.matchAll(/(\d{1,2})月活動已(?:於[^。；]{0,48})?(?:額滿|滿額|用罄|送完)/gi)]
       .map((match) => `${Number(match[1])}月活動已額滿`)
       .filter((status, index, all) => all.indexOf(status) === index);
-    return { statuses, sourceUrl: federatedStatusUrl };
+    return {
+      statuses,
+      sourceUrl: federatedStatusUrl,
+      status: statuses.length ? "ok" : "checked-no-exhaustion-announcement",
+      ...(statuses.length ? { note: `官方公告：${statuses.join("、")}` } : { note: "官方頁已成功讀取，但未解析到額滿公告；不可據此判定尚未額滿。" }),
+      checkedAt,
+    };
   } catch (error) {
     console.warn(`聯邦 iPASS MONEY 額滿頁 skipped: ${error.message}`);
-    return { statuses: [], sourceUrl: federatedStatusUrl };
+    return {
+      statuses: [],
+      sourceUrl: federatedStatusUrl,
+      status: "unreachable",
+      note: error instanceof Error ? error.message : String(error),
+      checkedAt,
+    };
   }
 }
 
@@ -196,6 +209,7 @@ async function loadActiveCampaigns() {
     .filter((campaign, index, all) => all.findIndex((item) => item.sourceUrl === campaign.sourceUrl) === index);
 
   const campaigns = [];
+  let detailPagesFailed = 0;
   for (let index = 0; index < candidates.length; index += 4) {
     const batch = await Promise.all(candidates.slice(index, index + 4).map(async (candidate) => {
       const fallback = `活動期間：${candidate.startLabel} - ${candidate.endLabel}。詳細活動條件請以 iPASS MONEY 官方活動頁為準。`;
@@ -219,6 +233,7 @@ async function loadActiveCampaigns() {
           endsAt: candidate.endsAt,
         };
       } catch (error) {
+        detailPagesFailed += 1;
         console.warn(`iPASS MONEY detail skipped: ${candidate.sourceUrl} (${error.message})`);
         return {
           title: candidate.title,
@@ -241,11 +256,11 @@ async function loadActiveCampaigns() {
     campaigns.push(...batch);
   }
 
-  return { campaigns, today, detailPagesChecked: candidates.length };
+  return { campaigns, today, detailPagesChecked: candidates.length, detailPagesFailed };
 }
 
 const data = JSON.parse(await readFile(outputPath, "utf8"));
-const { campaigns: activeCampaigns, today, detailPagesChecked } = await loadActiveCampaigns();
+const { campaigns: activeCampaigns, today, detailPagesChecked, detailPagesFailed } = await loadActiveCampaigns();
 const federatedStatus = await loadFederatedStatus();
 const campaigns = activeCampaigns.map((campaign) => {
   if (!/用 iPASS MONEY 消費[，,、 ]*最高享[ ]*10%[ ]*回饋/.test(campaign.title) || !federatedStatus.statuses.length) return campaign;
@@ -267,18 +282,25 @@ payments.push({
 
 const sourceEntries = data.sources?.length ? data.sources : [data.source].filter(Boolean);
 data.sources = [
-  ...sourceEntries.filter((source) => source.name !== "iPASS MONEY 官方優惠活動"),
+  ...sourceEntries.filter((source) => !["iPASS MONEY 官方優惠活動", "聯邦銀行 iPASS MONEY 額滿公告"].includes(source.name)),
   {
     name: "iPASS MONEY 官方優惠活動",
     url: listUrl,
     officialSite: `${listOrigin}/Preferential`,
+    status: detailPagesFailed ? "partial" : "ok",
+    ...(detailPagesFailed ? { note: `${detailPagesFailed} 筆活動明細無法讀取，保留官方列表資料。` } : {}),
     detailPagesChecked,
+    detailPagesFailed,
+    checkedAt: new Date().toISOString(),
   },
   {
     name: "聯邦銀行 iPASS MONEY 額滿公告",
     url: federatedStatusUrl,
     officialSite: federatedStatusUrl,
+    status: federatedStatus.status,
+    note: federatedStatus.note,
     detailPagesChecked: 1,
+    checkedAt: federatedStatus.checkedAt,
   },
 ];
 data.payments = payments;

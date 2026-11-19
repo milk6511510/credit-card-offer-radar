@@ -345,11 +345,13 @@ async function enrichOpenWalletCampaigns(campaigns) {
 
 async function main() {
   const outputPath = path.join(process.cwd(), "public", "data", "campaigns.json");
+  let previousData = {};
   let previousHistory = [];
   try {
-    const previous = JSON.parse(await readFile(outputPath, "utf8"));
-    previousHistory = Array.isArray(previous.history) ? previous.history : [];
+    previousData = JSON.parse(await readFile(outputPath, "utf8"));
+    previousHistory = Array.isArray(previousData.history) ? previousData.history : [];
   } catch {
+    previousData = {};
     previousHistory = [];
   }
 
@@ -359,7 +361,14 @@ async function main() {
   }
 
   const xml = new TextDecoder("utf-8").decode(Buffer.from(await response.arrayBuffer()));
-  const today = new Date().toISOString().slice(0, 10).replaceAll("-", "");
+  const dateParts = new Intl.DateTimeFormat("en-US", {
+    timeZone: "Asia/Taipei",
+    year: "numeric",
+    month: "2-digit",
+    day: "2-digit",
+  }).formatToParts(new Date());
+  const dateValues = Object.fromEntries(dateParts.map((part) => [part.type, part.value]));
+  const today = `${dateValues.year}${dateValues.month}${dateValues.day}`;
   const items = [...xml.matchAll(/<Item\b[^>]*>[\s\S]*?<\/Item>/gi)].map((match) => match[0]);
 
   const xmlCampaigns = items
@@ -433,6 +442,7 @@ async function main() {
   const data = {
     updatedAt: new Date().toISOString(),
     history: previousHistory,
+    platforms: previousData.platforms || [],
     source: {
       name: "7-ELEVEN 官方活動 XML",
       url: sourceUrl,
@@ -440,6 +450,7 @@ async function main() {
       counts: groupedCounts,
     },
     sources: [
+      ...(previousData.sources || []).filter((source) => !/^(?:7-ELEVEN|OPEN錢包)/.test(source.name || "")),
       {
         name: "7-ELEVEN 官方活動 XML",
         url: sourceUrl,
@@ -453,13 +464,15 @@ async function main() {
         name: "7-ELEVEN 支付工具優惠活動",
         url: paymentSourceUrl,
         officialSite: "https://www.7-11.com.tw/index.aspx",
-        status: paymentResponse.ok ? "ok" : `http-${paymentResponse.status}`,
+        status: !paymentResponse.ok ? `http-${paymentResponse.status}` : paymentDetailResult.detailPagesFailed ? "partial" : "ok",
+        ...(paymentDetailResult.detailPagesFailed ? { note: `${paymentDetailResult.detailPagesFailed} 筆活動明細無法讀取，仍保留可讀取的官方支付活動。` } : {}),
         detailPagesChecked: paymentDetailResult.detailPagesChecked,
         detailPagesFailed: paymentDetailResult.detailPagesFailed,
         checkedAt: new Date().toISOString(),
       },
     ],
     payments: [
+      ...(previousData.payments || []).filter((payment) => payment.name !== "7-ELEVEN 官方活動"),
       {
         name: "7-ELEVEN 官方活動",
         logo: "/logos/7-eleven.png",
@@ -477,7 +490,9 @@ async function main() {
   console.table(groupedCounts);
 }
 
-main().catch((error) => {
+try {
+  await main();
+} catch (error) {
   console.error(error);
-  process.exit(1);
-});
+  process.exitCode = 1;
+}

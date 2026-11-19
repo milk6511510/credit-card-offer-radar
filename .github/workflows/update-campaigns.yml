@@ -1,6 +1,11 @@
 name: Update official campaign data
 
 on:
+  push:
+    branches:
+      - main
+    paths-ignore:
+      - public/data/campaigns.json
   schedule:
     # Every hour. GitHub cron uses UTC; the hourly cadence is timezone-independent.
     - cron: "0 * * * *"
