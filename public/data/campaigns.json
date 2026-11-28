@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-27T23:02:33.936Z",
+  "updatedAt": "2026-11-28T05:10:59.110Z",
   "history": [
     {
       "platform": "OPEN錢包",
@@ -3101,7 +3101,7 @@
       "segment": "daily",
       "officialSite": "https://web-tw-pay.line.me/cms/event",
       "sourceUrl": "https://web-tw-pay.line.me/cms/event",
-      "checkedAt": "2026-11-27T23:02:33.936Z"
+      "checkedAt": "2026-11-28T05:10:59.110Z"
     },
     {
       "name": "街口支付",
@@ -3111,7 +3111,7 @@
       "segment": "daily",
       "officialSite": "https://mkt.jkopay.com/zh-TW/event",
       "sourceUrl": "https://mkt.jkopay.com/sitemap.xml",
-      "checkedAt": "2026-11-27T23:02:33.936Z"
+      "checkedAt": "2026-11-28T05:10:59.110Z"
     },
     {
       "name": "悠遊付",
@@ -3121,7 +3121,7 @@
       "segment": "daily",
       "officialSite": "https://easywallet.easycard.com.tw/benefit/",
       "sourceUrl": "https://easywallet.easycard.com.tw/benefit/?page=1",
-      "checkedAt": "2026-11-27T23:02:33.936Z"
+      "checkedAt": "2026-11-28T05:10:59.110Z"
     },
     {
       "name": "iPASS MONEY",
@@ -3131,7 +3131,7 @@
       "segment": "daily",
       "officialSite": "https://www.i-pass.com.tw/Preferential",
       "sourceUrl": "https://www.i-pass.com.tw/Preferential?page=1&type=0",
-      "checkedAt": "2026-11-27T23:02:33.936Z"
+      "checkedAt": "2026-11-28T05:10:59.110Z"
     },
     {
       "name": "icash Pay",
@@ -3141,7 +3141,7 @@
       "segment": "daily",
       "officialSite": "https://www.icashpay.com.tw/",
       "sourceUrl": "https://www.icashpay.com.tw/advertMessage/index?page=1",
-      "checkedAt": "2026-11-27T23:02:33.936Z"
+      "checkedAt": "2026-11-28T05:10:59.110Z"
     },
     {
       "name": "Pi 拍錢包",
@@ -3151,7 +3151,7 @@
       "segment": "merchant",
       "officialSite": "https://web.piapp.com.tw/events/",
       "sourceUrl": "https://web.piapp.com.tw/events/",
-      "checkedAt": "2026-11-27T23:02:33.936Z"
+      "checkedAt": "2026-11-28T05:10:59.110Z"
     },
     {
       "name": "全盈+PAY",
@@ -3161,7 +3161,7 @@
       "segment": "merchant",
       "officialSite": "https://event2023.pluspay.com.tw/",
       "sourceUrl": "https://event2023.pluspay.com.tw/",
-      "checkedAt": "2026-11-27T23:02:33.936Z"
+      "checkedAt": "2026-11-28T05:10:59.110Z"
     },
     {
       "name": "OPEN錢包",
@@ -3171,7 +3171,7 @@
       "segment": "merchant",
       "officialSite": "https://www.7-11.com.tw/service/Pay.aspx#tab1",
       "sourceUrl": "https://www.7-11.com.tw/service/Pay.aspx#tab1",
-      "checkedAt": "2026-11-27T23:02:33.936Z"
+      "checkedAt": "2026-11-28T05:10:59.110Z"
     },
     {
       "name": "7-ELEVEN",
@@ -3181,7 +3181,7 @@
       "segment": "merchant",
       "officialSite": "https://www.7-11.com.tw/index.aspx",
       "sourceUrl": "https://www.7-11.com.tw/index.aspx",
-      "checkedAt": "2026-11-27T23:02:33.936Z"
+      "checkedAt": "2026-11-28T05:10:59.110Z"
     },
     {
       "name": "台灣 Pay",
@@ -3191,7 +3191,7 @@
       "segment": "cross-network",
       "officialSite": "https://taiwanpay.firstbank.com.tw/sites/twpay/latestOffers",
       "sourceUrl": "https://taiwanpay.firstbank.com.tw/sites/twpay/latestOffers",
-      "checkedAt": "2026-11-27T23:02:33.936Z"
+      "checkedAt": "2026-11-28T05:10:59.110Z"
     },
     {
       "name": "全支付",
@@ -3201,7 +3201,7 @@
       "segment": "merchant",
       "officialSite": "https://www.pxpayplus.com.tw/",
       "sourceUrl": "https://www.pxpayplus.com.tw/",
-      "checkedAt": "2026-11-27T23:02:33.936Z"
+      "checkedAt": "2026-11-28T05:10:59.110Z"
     },
     {
       "name": "橘子支付",
@@ -3211,7 +3211,7 @@
       "segment": "cross-network",
       "officialSite": "https://www.gamapay.com.tw/news_list.html",
       "sourceUrl": "https://www.gamapay.com.tw/news_list.html",
-      "checkedAt": "2026-11-27T23:02:33.936Z"
+      "checkedAt": "2026-11-28T05:10:59.110Z"
     },
     {
       "name": "歐付寶 O'Pay",
@@ -3221,7 +3221,7 @@
       "segment": "cross-network",
       "officialSite": "https://www.opay.tw/banner/event",
       "sourceUrl": "https://www.opay.tw/banner/event",
-      "checkedAt": "2026-11-27T23:02:33.936Z"
+      "checkedAt": "2026-11-28T05:10:59.110Z"
     },
     {
       "name": "ezPay 簡單付",
@@ -3231,7 +3231,7 @@
       "segment": "cross-network",
       "officialSite": "https://www.ezpay.com.tw/",
       "sourceUrl": "https://www.ezpay.com.tw/",
-      "checkedAt": "2026-11-27T23:02:33.936Z"
+      "checkedAt": "2026-11-28T05:10:59.110Z"
     }
   ],
   "source": {
@@ -3272,8 +3272,8 @@
       "officialSite": "https://www.7-11.com.tw/index.aspx",
       "status": "ok",
       "detailPagesChecked": 35,
-      "detailPagesFailed": 4,
-      "checkedAt": "2026-11-27T23:02:13.766Z"
+      "detailPagesFailed": 3,
+      "checkedAt": "2026-11-28T05:10:42.511Z"
     },
     {
       "name": "7-ELEVEN 支付工具優惠活動",
@@ -3283,7 +3283,7 @@
       "note": "2 筆活動明細無法讀取，仍保留可讀取的官方支付活動。",
       "detailPagesChecked": 16,
       "detailPagesFailed": 2,
-      "checkedAt": "2026-11-27T23:02:13.766Z"
+      "checkedAt": "2026-11-28T05:10:42.511Z"
     },
     {
       "name": "iPASS MONEY 官方優惠活動",
@@ -3293,7 +3293,7 @@
       "note": "1 筆活動明細無法讀取，保留官方列表資料。",
       "detailPagesChecked": 48,
       "detailPagesFailed": 1,
-      "checkedAt": "2026-11-27T23:02:33.913Z"
+      "checkedAt": "2026-11-28T05:10:59.086Z"
     },
     {
       "name": "聯邦銀行 iPASS MONEY 額滿公告",
@@ -3302,7 +3302,7 @@
       "status": "ok",
       "note": "官方公告：7月活動已額滿、8月活動已額滿、9月活動已額滿、10月活動已額滿、11月活動已額滿、5月活動已額滿、6月活動已額滿",
       "detailPagesChecked": 1,
-      "checkedAt": "2026-11-27T23:02:33.898Z"
+      "checkedAt": "2026-11-28T05:10:59.082Z"
     },
     {
       "name": "LINE Pay 官方活動",
@@ -3310,7 +3310,7 @@
       "officialSite": "https://web-tw-pay.line.me/cms/event",
       "status": "ok",
       "detailPagesChecked": 81,
-      "checkedAt": "2026-11-27T23:02:33.936Z"
+      "checkedAt": "2026-11-28T05:10:59.110Z"
     },
     {
       "name": "LINE Pay 官方活動",
@@ -3318,7 +3318,7 @@
       "officialSite": "https://web-tw-pay.line.me/cms/event",
       "status": "ok",
       "detailPagesChecked": 81,
-      "checkedAt": "2026-11-27T23:02:33.936Z"
+      "checkedAt": "2026-11-28T05:10:59.110Z"
     },
     {
       "name": "LINE Pay 官方活動",
@@ -3326,7 +3326,7 @@
       "officialSite": "https://web-tw-pay.line.me/cms/event",
       "status": "ok",
       "detailPagesChecked": 81,
-      "checkedAt": "2026-11-27T23:02:33.936Z"
+      "checkedAt": "2026-11-28T05:10:59.110Z"
     },
     {
       "name": "LINE Pay 官方活動",
@@ -3334,7 +3334,7 @@
       "officialSite": "https://web-tw-pay.line.me/cms/event",
       "status": "ok",
       "detailPagesChecked": 81,
-      "checkedAt": "2026-11-27T23:02:33.936Z"
+      "checkedAt": "2026-11-28T05:10:59.110Z"
     },
     {
       "name": "LINE Pay 官方活動",
@@ -3342,7 +3342,7 @@
       "officialSite": "https://web-tw-pay.line.me/cms/event",
       "status": "ok",
       "detailPagesChecked": 81,
-      "checkedAt": "2026-11-27T23:02:33.936Z"
+      "checkedAt": "2026-11-28T05:10:59.110Z"
     },
     {
       "name": "LINE Pay 官方活動",
@@ -3364,7 +3364,7 @@
       "officialSite": "https://mkt.jkopay.com/zh-TW/event",
       "status": "ok",
       "detailPagesChecked": 95,
-      "checkedAt": "2026-11-27T23:02:33.936Z"
+      "checkedAt": "2026-11-28T05:10:59.110Z"
     },
     {
       "name": "悠遊付 官方活動",
@@ -3372,7 +3372,7 @@
       "officialSite": "https://easywallet.easycard.com.tw/benefit/",
       "status": "ok",
       "detailPagesChecked": 74,
-      "checkedAt": "2026-11-27T23:02:33.936Z"
+      "checkedAt": "2026-11-28T05:10:59.110Z"
     },
     {
       "name": "悠遊付 官方活動",
@@ -3387,7 +3387,7 @@
       "officialSite": "https://www.icashpay.com.tw/",
       "status": "ok",
       "detailPagesChecked": 45,
-      "checkedAt": "2026-11-27T23:02:33.936Z"
+      "checkedAt": "2026-11-28T05:10:59.110Z"
     },
     {
       "name": "icash Pay 官方活動",
@@ -3395,7 +3395,7 @@
       "officialSite": "https://www.icashpay.com.tw/",
       "status": "ok",
       "detailPagesChecked": 45,
-      "checkedAt": "2026-11-27T23:02:33.936Z"
+      "checkedAt": "2026-11-28T05:10:59.110Z"
     },
     {
       "name": "icash Pay 官方活動",
@@ -3403,7 +3403,7 @@
       "officialSite": "https://www.icashpay.com.tw/",
       "status": "ok",
       "detailPagesChecked": 45,
-      "checkedAt": "2026-11-27T23:02:33.936Z"
+      "checkedAt": "2026-11-28T05:10:59.110Z"
     },
     {
       "name": "icash Pay 官方活動",
@@ -3411,7 +3411,7 @@
       "officialSite": "https://www.icashpay.com.tw/",
       "status": "ok",
       "detailPagesChecked": 45,
-      "checkedAt": "2026-11-27T23:02:33.936Z"
+      "checkedAt": "2026-11-28T05:10:59.110Z"
     },
     {
       "name": "icash Pay 官方活動",
@@ -3419,7 +3419,7 @@
       "officialSite": "https://www.icashpay.com.tw/",
       "status": "ok",
       "detailPagesChecked": 45,
-      "checkedAt": "2026-11-27T23:02:33.936Z"
+      "checkedAt": "2026-11-28T05:10:59.110Z"
     },
     {
       "name": "icash Pay 官方活動",
@@ -3427,7 +3427,7 @@
       "officialSite": "https://www.icashpay.com.tw/",
       "status": "ok",
       "detailPagesChecked": 45,
-      "checkedAt": "2026-11-27T23:02:33.936Z"
+      "checkedAt": "2026-11-28T05:10:59.110Z"
     },
     {
       "name": "icash Pay 官方活動",
@@ -3435,7 +3435,7 @@
       "officialSite": "https://www.icashpay.com.tw/",
       "status": "ok",
       "detailPagesChecked": 45,
-      "checkedAt": "2026-11-27T23:02:33.936Z"
+      "checkedAt": "2026-11-28T05:10:59.110Z"
     },
     {
       "name": "Pi 拍錢包 官方活動",
@@ -3443,7 +3443,7 @@
       "officialSite": "https://web.piapp.com.tw/events/",
       "status": "ok",
       "detailPagesChecked": 36,
-      "checkedAt": "2026-11-27T23:02:33.936Z"
+      "checkedAt": "2026-11-28T05:10:59.110Z"
     },
     {
       "name": "全盈+PAY 官方活動",
@@ -3451,7 +3451,7 @@
       "officialSite": "https://event2023.pluspay.com.tw/",
       "status": "ok",
       "detailPagesChecked": 508,
-      "checkedAt": "2026-11-27T23:02:33.936Z"
+      "checkedAt": "2026-11-28T05:10:59.110Z"
     },
     {
       "name": "全盈+PAY 官方活動",
@@ -3459,7 +3459,7 @@
       "officialSite": "https://event2023.pluspay.com.tw/",
       "status": "ok",
       "detailPagesChecked": 508,
-      "checkedAt": "2026-11-27T23:02:33.936Z"
+      "checkedAt": "2026-11-28T05:10:59.110Z"
     },
     {
       "name": "台灣 Pay 官方活動",
@@ -3467,7 +3467,7 @@
       "officialSite": "https://taiwanpay.firstbank.com.tw/sites/twpay/latestOffers",
       "status": "ok",
       "detailPagesChecked": 71,
-      "checkedAt": "2026-11-27T23:02:33.936Z"
+      "checkedAt": "2026-11-28T05:10:59.110Z"
     },
     {
       "name": "全支付 官方活動",
@@ -3476,7 +3476,7 @@
       "status": "no-current-campaigns",
       "note": "官方頁可讀；目前唯一可確認的活動期間為 2026/08/01至2026/10/31，已結束。未找到可讀取的全支付官方總活動清單，故不推定平台沒有其他活動。",
       "detailPagesChecked": 1,
-      "checkedAt": "2026-11-27T23:02:33.936Z"
+      "checkedAt": "2026-11-28T05:10:59.110Z"
     },
     {
       "name": "全支付 官方活動",
@@ -3492,7 +3492,7 @@
       "status": "stale-preserved",
       "note": "fetch failed",
       "detailPagesChecked": 80,
-      "checkedAt": "2026-11-27T23:02:33.936Z"
+      "checkedAt": "2026-11-28T05:10:59.110Z"
     },
     {
       "name": "橘子支付 官方活動",
@@ -3507,7 +3507,7 @@
       "officialSite": "https://www.opay.tw/banner/event",
       "status": "ok",
       "detailPagesChecked": 13,
-      "checkedAt": "2026-11-27T23:02:33.936Z"
+      "checkedAt": "2026-11-28T05:10:59.110Z"
     },
     {
       "name": "ezPay 簡單付 官方活動",
@@ -3515,7 +3515,7 @@
       "officialSite": "https://www.ezpay.com.tw/",
       "status": "blocked",
       "note": "官方網站對本次自動化讀取回覆 401/403；尊重網站限制，不嘗試繞過。",
-      "checkedAt": "2026-11-27T23:02:33.936Z"
+      "checkedAt": "2026-11-28T05:10:59.110Z"
     },
     {
       "name": "ezPay 簡單付 官方活動",
@@ -3523,7 +3523,7 @@
       "officialSite": "https://www.ezpay.com.tw/",
       "status": "blocked",
       "note": "官方網站對本次自動化讀取回覆 401/403；尊重網站限制，不嘗試繞過。",
-      "checkedAt": "2026-11-27T23:02:33.936Z"
+      "checkedAt": "2026-11-28T05:10:59.110Z"
     }
   ],
   "payments": [
@@ -10157,7 +10157,7 @@
           "sourceUrl": "https://www.7-11.com.tw/form/0218food.pdf",
           "officialId": "",
           "image": "https://www.7-11.com.tw/2week/250219/2025/muslim.jpg",
-          "rawText": "Friendly Choice: Over 50 products are free from pork-based ingredients and alcohol.",
+          "rawText": "Friendly Choice: Over 50 products are free from pork-based ingredients and alcohol.；官方活動詳情：%PDF-1.5 %���� 1 0 obj >>> endobj 2 0 obj > endobj 3 0 obj endobj 4 0 obj >/Font >/ProcSet[/PDF/Text/ImageB/ImageC/ImageI] >>/MediaBox[ 0 0 595.32 841.92] /Contents 5 0 R/Group >/Tabs/S/StructParents 0>> endobj 5 0 obj > stream x��[�n��\u0011� �?�h/0��|�\u0003\u0018\b�sa� ��\u0000>,���� }������ OO�8O�\u001e\u001f4���D}.��R{�]&�c�~����\u001f?t_\u001f\u001f>����}���C�B/\u001a�t���C_J���i��r\u0017�Ǳ�ӿ����Ǉn�i꺫�Ǐ���/�\u001f���뿿���[49kO;�\u0018�������g����}���\u0001p��WX{ŇsO�}����e�\u001ei\u0003\u001f�\u001f\u001f\u001f~�D�W�i|�����Ǉ��}��`��]aT�\u0003H�\u0003R���O#^�� \u00062\\��N�� '���\u001d��@ĵ��8*�\u0007\"��\u001c �Z k 4�)հʊ���^��eHi�8/Ł.\u000et�}�f�\\��\u000eЅ+�hNK\u0012��(QU�H\u000eTu�\u0012�55C�lT���\u0012 ꪜ�D5\u0006.kM�@)Vf\u001a9-ur`'\u0007v4�7Î��?��c�\u0004 Ө\u0013���,k T�B\u0014� ��A\u001d� 9�\u0018�\u0019A�K3o�O��팠|�u��\u0004E�1+pw&|\u0015�U� Q��9&�:7\u00137቏��c\u0016��¬a\u0006�\u001cΆ���\u0004%��h!��\u000ec+�qԴ�S� 5�N�w ss1&\u0010�t$�s#�hD � ���1\u0004��\u0005�!���\"\u0012\u0002��eޅv/�N6\u001f�\u001bCls�\b0�6�\u0011�4m�= ܘF�g�:��\u0010Xj\u0016\u0003���Q 6��u/�tօx^�Q0�chl7\u0005�E��\"�ǖ��P��u��\u001e쎩1\u0004��\u0005\u0004��1�`jffk\u0016�2��*���\u001bC�K;\u0017!���f\\�X�5S\u0015�1��o�ܛ����1@��s;?!�t�'��(�lA�%.3�d�3��\u0010�\u0019%Z&�)����A�s�K;g���N�|�_��֜~��;�c�\u0004M�f�\u00124���E��r�,��7�$�u_��0;�I����Y��\u0017��&.��N�\u001c��������'Aߥ��\u0004}�\u0013\u0005�v�\b\u0005�=�\u001f����x(��6s\u0014�m 9�~!�\u0003��\u0007��� �\u0016��\u001a�K-�6-�x*.c/��$����~S�-͔up���,Q�C;W���oxo�*�xM�8\u001e�>�������r��k]h�t�;�K/\u000f�)�d����\u0019�q��B�C�\u0003 �R����\u001alu������[ ��,�\u000f9�\u0005���9\u0017��\u000efA|�\u0013gA|X�s!>�Ì��\u0013gF|�7\u0006��6\u001eF|�3/F|Ĺ\u0016��Tg^�������-\u00053�7��vL�����\u0010��\u0019����}.B|Rt��@����$u�����A|Rr΅����q�-�Nx���\u00019cl��8����\u000e�h�ڋ3\u0006�q2#ڿXx�m���=�� 'gZ��8��V2�2f�`�\u000f�I� endstream endobj 6 0 obj > endobj 7 0 obj > endobj 8 0 obj [ 9 0 R] endobj 9 0 obj endobj 10 0 obj > endobj 11 0 obj > endobj 12 0 obj > endobj 13 0 obj > endobj 14 0 obj [ 15 0 R] endobj 15 0 obj endobj 16 0 obj > endobj 17 0 obj > endobj 26 0 obj > stream x���ۊ\u001cG\u0012�� ~�|���\u0001�aY��\",�f`/�^��Zi�hZ�[`���ѓ13ލ��\u0002i��3��Ȉ��\"+f�]\u001c�\u0004\u0017� >��\\(�%\u001c��\u0012~��%�\u001f�Kť\u001e\\�.�=%�;zvW2z6W\u0006zVW ڃk!��]��9\\\u000f���z��u\u0003���FGO���\u001d�\b~D�� !C�w!z�\u001e�,�\u000ey)dW\u0012>[p%��c$�!7�}��\u0005���&\u0017*N�k �U`��#N\u0015:�AV赻 �\u0011��\u0018o�\u0006�.z\\a��츚\u0004G@2���ѯ�\u0013���b�\u0003��O|i�c\u000e8��g+����K �\u0005����Jn�}\u001d\u001d~��q��\u001a�o�þcP\\J\u001c�|�x\u0003�=����\u001b=���\u00039�&gT� MMw\u0018\"%_\u001c�H���\u0005)\u0007�8>!\u0012�M\u0005s J\u0011E&Kd\u0015M�-R���Ȥ����&�\u0014[�:k+�U\u00159,�]4�Ȣ��J��v�h�\u001c�I�E���\u0010YԵ�\u0014Kd�M�U�ӶR�.^�F�Ȝb3��eNQW�j2'�Щ6t�^�Tu��&t�H�jS��NUׯjR'�ة6v�^�Tu\u0001k&v�ȝjs���NSW�fr'��i6x�^�4u k&x�H�f���%OS��f�'��i6z�^�4u �&z�Ȟn���eOW��n�'���6{�^�tu �&{�Ȟn���eOW��a?��\u00196{�^� u \u001b&{�Ȟa�g�e�P��a�'��\u00196{�^� u ���%S�ϰ�C�}:�\u001aY�ɟ(򇊉�ҽ\u0004�r�AM\u0006E�AT����Д#\u000fjr(�\u001c�R��4�%є#\u000e\u001aL\u0016E�ET����є#\u000fj�(� �&��t/��\u001cq�d\"*�� q�(���R�tF%�QIfTZ0J/�.��J&��̨�`�^Y]*�\u0019�LF%�Qi�(���T�3*��J2��Qz�u�4��&��̨�`�^h]*�\u0019�MFe�Qy�(�ںT�3����2�ʂQz�u���z���JeF�\u0005����R�Ψb�\u001aɌ* F�ץR�Q�dT�\u0019U\u0016��˯+�UgT5\u0019�eF�\u0005��\u0012�R�Ψj2*ˌ� F�eإR�Q�dT�\u0019U\u0017��K�K�:��ɨ,3�-\u0018��cWJ�Ψf2�Ȍj F�%٥R�Q�dT�\u0019�\u0016��˲K�:��ɨ\"3�/\u0018��fWJ�Ψ� ��TfT_0J/�.���&��̨�`�^�]*�\u00195��\u001bdF�\u0005��2�J��\u00195LF\u0015�Qc�(�T�T�3j��*2�ƂQz�v�Tg�0\u0019UdF �Q�z�^���m�2Y\u0019�6Os|��\u0005w�1�!�oi����F�]����|\u001fe��1ߩ�/-̷\u0002���מ\u001b�sgvn}νŹy7w�����ߙ\u001b(s�bn\u0001�\u0012;\u0017�� \\\u000e�؎\u001f���1���?\u001f��\u001e���GRH?��\u0001g8^�N\u000f���r��#\u000e�ߞ.���÷/���{\u0010y9�r�p>��������������Ӌ\u001fn��>n/�>��n���/���>};o�Z�|�����\bW3���|��\u0019�3:gp�؜�9#s\u0006��\u0019�3*gPΘ�!9#r\u0006��\u0019�3\u001ag0�X��8#q\u0006����#ޗ�]\u000f�S��=�ù�̵\\��r\u001d��|\\C� \u0015���µ � �s7?��3#?���\u000e?M�:� �}&���=\u0012߁0ߙ��&^��\u0013���� /un, endstream endobj 202 0 obj > stream x�]�Mj�0\u0010��:�,�E���t#\u0004�C���P�\u0007���+�%!� ߾#%��\u0001 \u001e����;u�&�\u001f��\u001e\u0013�֙��_�F\u0018p���\u0015\u0018��M�_�*0Np�- �΍� \u0001���K�\u001b��\u000f�g�=\u001a��M��n{��\u001a�\u0005gt *&%\u0018\u001ciЫ ojF�\u0005;t��6m\u0007b�\u001c_[@h���a�7�\u0004�1*7!\u0013\u0015�\u0004q�� ���o��0�\u001f\u0015�h����O��I�zx>\u0017�օ����=�^c�t�\"%V\u000ed\u001dޏ\u0016|�T~���r6 endstream endobj 203 0 obj > stream x��� |\u0014����gv7��d�l.\u001b�,�]�\u0000�@ \u0001\u0004\u001a!\u0012�-�\u0001�M��$�H@.1�b��U^0⭭ֻ��ZmuA�ЋRk����K[k�׊W,m�Z����� $\u001a�'�m����}�̙sfΜ��\u0004?�q�\u0010�BM\u001e�l���i���h�� \u0001�\u001d6���yO?���%�˻ER��>o�� ~W\u0012���\u001e��玮�7����O�Q�_�����s�K�\u0018�_�K��y�e�������@�\u001b��:���5������\u0017\u0016.kj;��5#$u�[��ą����^3k���\u001f�}n9�mѲ+��\u0015I�1CS����mR 1I;��_p��3O)�k\u001d-�_|ZO૭��� M?�P���z,\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000�\u0005����z ��\u0015���Y�\u0001\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000>_�w 1 џ\u0003���=����!\u0001\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000��\u000f�b9h\u001c�c\u0006\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000��?�Y_h�$ ��M���TI3?�4I7�H��\u0003\u0012М!\u0019�3%Ss�di\u000eJ��P�%[s��hΕ\\�y��9$!���o~ ����\u0002)0�)�R��H�4�%l�/����\u00012@�@\u0019��X�5G$�9*Q�=9L\u000e�\u001c���� �A�K�D�`\u0019�y� � \\\u000e7�!�d����wd� � ���r���n�$�d��ղZ��v>CN7_�5r��3�L�_���|Y�d>/gɗ5�-gi>G�ѼV�sr���|����+�\u0015��k��\\ �k^'\u0017h�_Y�y��7�� v�P6h� 5_$\u001d�\u001fe�l�|��/���g�R�D�er�����U�\\����\u001f���5�W�\u0015����7�J�i�J���j�J�5r��k�\u001a��r�\\��z�N� r��\u001b�\u0006�wr�ܨ��r��o�7�����-ͷ�͚o�[4�&�j�]n3��o�횿#��|�|G�r���|W���=����{��'$!wk�$ ͛e��{d��{�\u001e�q��ܫ�>���C��4o��5o�-� [5�P~��G�C�7�c���\u0007�ǚ\u001f�\u0007�_�6yP�Od���'�*\u000f���a����Ú.?����\\���+yL\u001e5)���4�R�䗚�˯�_ȯe���ȯ5�ߘ���C�\u0013��'� �Oɓ��[yJ��䷚/������|D� Ok~F������g����O����O����4� ϛ?�\u0017�\u0005�/ɋ�_��4�Y^6\u001f�W�Ϛw�+�_���_�W͟����7�u�o�\u001b�ߒ7͇d����m٥�/����\u0017�'�W٭�o�W���i~G�nn��;�ߕh~O�����g>(���5 ����|�y�|h> \u001f�\u001e͝�fS:5�>�����t�\u0016SR\u000e�\u0017Cz�վ\u001ek�O�{\u0007\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000�_��h�A�P\u001c3\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000*\u0010������C�ޫ�=���\u001d�\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000�c?\u001fM9�\u001d�c\u0006\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000@ed�J߾�2��j��\u0012\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000���|4�v(�\u0019\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000�������C�ޫ�z���;2\u0001\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000�~>�rP;\u0014� \u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000� \u0006�5����ޫ�NK\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000�����\u0000>��g=\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000>���f��\u000f=z�N�և��\u0004\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u001c��h�A�P\u001c3\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000*77Csjj\u001fz�^\u001d�և��\u0004\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u001c��h�A�P\u001c3\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000*\u0014�Ҝ�և\u001e�Wg�X�;-\u0001\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000�w��h�A�P\u001c3\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000�� [s �\u000f=z�\u000e�XK��\u0003\u0002\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000���~>�rP;\u0014� \u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000� �s5g\u0004�У���\u001ek}��L\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000�����\u001c�\u000e�1\u0003\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000�\u0006 �Ӝ�ч\u001e�W��X�;-\u0001\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000�w��h�A�P\u001c3\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000*\u0012�ל�Շ\u001e�W�z���;2\u0001\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000G�\u001e��\u0010��\u0007\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000��\u0013���\u001c��wZF{��;-\u0001\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000����GS\u000ej��\u0001\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000P%%E�s��У��\u001ek}��L\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000�����\u001c�\u000e�1\u0003\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000�� \u001b�9/�\u000f=z�\u000e�X��wd\u0002\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000��|4�v(�\u0019\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u00005rdDs~�\u000f=z�\u001e�c-�S\u000f\b\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000�_��h�A�P\u001c3\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000��,���_\u001fz�^\u001d鱖��\u0007\u0004\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000�ϯ�|4�v(�\u0019\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000�$���b}\u000f�[ {�\u0019��\u0014�n��a2[���.��'�����������\u0003�~���M�1usg\u001f]3k��Ӫ�\u001cU9yґ\u0015_�8a�\u0011�Ǝ)/\u001b=�t���a�\u000f\u001d2�dP�h�x����~���ܜ�`VfF =-���x�.C�\u001b\u0005�����%�ª�D 65\u0016�$\u0002��]���p4�\u001d)/m\u0018�J��\u0013�[�ȫ��$��\u001b\u0012��Ǜ\u001c�p�\u0004�\u0016�γÑꄧDb���\u0013C��Gc�߅�no�>����h4�p���Lݤ?��\"͉`��G�ɚ� ���^[̗�k���6h�[�\u0018ص���� ����>6�c���@a�Ԅ�m��K Y�v���T$��u A-�{�҄������0B�u�=\u000fau{a|/sPݼ$VݼXg��qߜ�N�h4�\u0011�[�]�E{�5�G��oJO��U��i��\u0015�)-]kҭ �E�&#0",
           "startsAt": "20230208",
           "endsAt": "20261231",
           "officialOrder": 49
@@ -10246,7 +10246,7 @@
           "sourceUrl": "https://www.7-11.com.tw/form/1015cup.pdf",
           "officialId": "",
           "image": "https://www.7-11.com.tw/2week/260429/2026/0427cup.jpg",
-          "rawText": "杯杯現打 現場製作! 限定門市販售中",
+          "rawText": "杯杯現打 現場製作! 限定門市販售中；官方活動詳情：%PDF-1.5 %���� 1 0 obj >>> endobj 2 0 obj > endobj 3 0 obj /ExtGState >/ProcSet[/PDF/Text/ImageB/ImageC/ImageI] >>/MediaBox[ 0 0 595.32 841.92] /Contents 4 0 R/Group >/Tabs/S/StructParents 0>> endobj 4 0 obj > stream x���I�츕�� ����V##�I\u0003\u00100\u0010c�\u001ae� �F-�Z4\u001a�{�\u0006���@I\"\u000fE��D�f.2��8\"_\u001d |��:���}]�����/ϯ�w���?\u001f_�����-���`���0���_�7��~���?��\u001f���������~}�/3~��/?���v_�k����k��V_��s�?�����_s�_�5����O�v�����p�\u0018ׇ��O;����=\u001e�����e\u001f��=\u001e�������������������������b?̯����ׯo��/��߿����)���.\u0014;��J܁o_�yE�7Qd¥\u001b\bE�&Hr��$k.ޡ��~�[�s�������� ��o�o�\u00173��L'� ����]\u0002u�I�� E�3���kN��h�M\u0014\u0019{��9\u001f\u0004E�\u000f��y;\\��E\\]�[���p��~����\u0019�;�w!=��m4M\u0017�\u0014�n��$\u0011sS\u0017?���8��1�0�\u0017�ͻj���_������w�qU��J��]���w����h.��\u001b�;0�X\u0017�mݖ5M��\u0004��\u0001t�K�󦶻�q͚Y�f�\u0019f�a�� w2�$\u0002[�ú��!\u001c�L�z&�� ӥ��1\u0004����H\u001c� eǃ8:Z�� NI�5�e\u0018@���e���(�\u001e\u000f��r'���a\u001e�\u0006� Z��J�3q\u0010���\u0001��\u0010��e�[��[��*�\u001d\u000e� �V�9�\u0016nU~p\u0017�o\u0007�Mo��1�#�C�s\u0017�%\u001f�aFD���-K�^��\u0017:{�z�\u001a �)L�-\u001d> ���\u000eG/؞\u0016�:zC\u001e\u0019��0�\u0017��Ĺ�>� �c�\u0017�W�=�\b��8\"�\u0002�ۍ\u001b�\u0006�v\u0014O��]�r�۩l���1d�\u001cbH�\u001cv\u0011~���g\u001b��\u0012C�A�\u0005�� ��O�4��!��x�ן��4d� ��l\u0001˾�c`�\u0018\u0010�cV� ��\u001f�����8�i��~\u001c��� !4�\u001b!T\u0004�ԥ�d��\u0000H�� \u0006{��b���6��;(�-PO�z�$�a� r �e�w?$���w\"B���zjx?����'E)�d�Rv�zi�g���\u0004\u0017���X��\u0014����$�2�բ\u001d�%U��i�{.���\b�*��i.!\u001bȏ�Np��\u0016(.I! �p�d\u000et����As�z�hW��\u001d�5�N�J\\\b\b�\u0010��4?�\\�^\u001a빆\u0004(�US�����Y�\u0005���zH?!\u0014�\u0004\u0017*SI�R�*���G��\u0002�����f���\u0018��@X}�QF�Im*�J�}*\\�\u001ey�g7\u0016ЄHe\u001f����� X� ��0R��za$���\u0011.��K��6\u001e�j�� ������k�� ���}Y�@�_�_N\u0001����K!�d\\Lt9s*\u0011�x\\�ՒC@\\ � �s�5�BV���M� *�`\u0015+\u0015\u00034���� %� �\u0019D#U\bkў��.�{U�\u0007��g\u0018k���\u0019�\u001a(��\u0005{nk���\u0018�a/�H���s� \u0012{�A��9: �m\u0011@�slL\u0012����\\�G�='���\u001a\u0012�w�3ʞ�כ�WgD�{5\b\u0005�Ņ�������^��\u0002��z�������\u0007���B\u0019I����!i�Rc�!��؍\u0005��3���^�ۿ�aaޥRD�\u001e�b��� {)T�ȋ�.P�\u0017\u0007*��WK\u0016�x�,jHN��Ք�\u0004���G�t4��r�OK� \"7\u001a��j{5�f\\��W_�\u00000k� �R*��5�C\u001c�|��\u0011�|�m�'͸v�9V��W�t`����Kx,\u0004 �/�Ǖ\u0007>0.�d���dt���&��{���L8�Á \u0015~(Y�J�\u0012�{��=�\u0005�al\u001er �M��az��H�v�����U�\u001f�\u0017�u\u0013yRz�Oڋ!��v\u0019�A�n&{'kH1�]\u0006e������g����F\u0015��eP�\"�� �k�6�]�dr���l�.M)��x2�(\u0019\u0000;�\u0005Ц(\u0017\u0003zs��\u00165�� d> )M$s- �g-�d]�^�V�5dA�\u0013J\u0001�p�2��.5�=ˊa��\u0005�C\u0015_��\u001fz�>�`Ȳa\u0015�HЫM&\\��O�bO��\u0018��\u0000zD2 �[��L|/�i@O�>��N�\u001e&�pD�\u001f�� 1�[����C�D25�'�\"kK� \u0006�:�2� Ⱥ��ď\u0011\u0010��0\u001fY0�Lv�on-&q�5 �l�S��q�&���x�õ\u0013�PRm���F5 N\u0016�:�\u001d��*�{U\u001f/\u001a/|�&��b\b�|L3� �&���v8�Q\u0002��M\u0015��&��rK,����,r$\u0003`�\u0000z�#\u0017\u0003zs�b�cg���(M/s- ��\u0005�\u0019f[?�_����p�\u0006� ��|�R��b�\u001aso o1M��s���c�3\u0010U�L\u0012\u0004�>e��v¢4�%\u0016H �{ ͕QM��W�\\���oɂY'�' �K�^U�\u0001�3�Hn[ ၔi�x.�ݶ�\u001d\u000eHc�\u0000�|S�c���8 MǓv�耴�E\u0000鶱1I�\u0016#�m��tn�%K�iZ\u0012�t��\u0003��!`�]���m'��ܢ\u0014�\u0014W*\u0003i�R��n:\u0012\u001f�5�ኯ�y\u001f�c��+�d�� i��V�L\u0018�b� ��\u001a�\u0012ح\u0005\u0018%��YNg��\u0005F�a �.��\u0014N�5\u0012M(�S%�Q�;(\u0015G5s��nJ�\u001b�%�TB\u001fw���%�f�J��-��R�����8\u001bݔ'� �\u0019B�I��dA�3y�fZ^:����}b��%i��N�m�'@\\��\u0000�g�C~�\";��1b� Y'�\u0003\u0001V%~����X~ �%�BX\u0002���E�-ɢ\u001d�\u0000S\u0014O�BS�ÃhIn-�\u0004\u0018�'mI�\u0001��[\u0000iI�1�7�(,��t��%+�iZ\u0012\b0��%���~+^*\\yVxG�E)\u0010 �T&�إ����,~k�\u0000Q��Ŏ\\�\\��� ���H# �6�p��>\u0015v�������\u0002\u0001\u0012�$\bpI�}:�\u0016�Y�[\u001f��\u0002ɂi\u0015�@ͷ��P|y\u001d簛r��[��j�� ��my�\u0002-K6~�q6�);����gG��Βյ�dǛaE��K\u0017��ا��s�l4�\u0012�~�v\u0004�\u001c�?�`C���N� 5V{�\u0004~k�\u0012�d�O\u0013�\u0013�s��#��| �l���ܔ�RNGfX�A\u0016�:�9o���էj\u001a^R� �t\u0010p�m�E\u001dB;�:\u0003�N\u00077�A�J\u0011Y����:u�߫�(��;�\u001d= ub\b�:L3�bq��#�:[;\u001c��(\u0001u��2p��¦P'�ġN:��yJ\u0007��/\u0002H�Iz�\u0018� H�\\1��s\u0007Y)MՔ\u0000;��xbIi�) \u0003�#>f ��OMR�vp�2��> (`R}��-l.�\u000e���G����T�ǒu�j���S�O\u0018�b���E�s \u0006jǣ%ݖ��r\u0011�R �\u0005�Υ*�]D����?\u001e���, �ӧ�#�p����^y0��/�O�t�\u001f��\u0015����x ���kw�[�`���~��,�uF �w/���I�\u0014�r �L�p�I��\u001d�\u0003S\u0014ρBS\u0005�{a\u0012}k���x@a�(�\u0016&\u0002v�HkG�O��A�9\u0007)>��m4߬�d�4MK\u0002 ���\u00113�a��eҼ]D�I;�\u0014H\u0010W*�`�R�{M� ���\u0002\u0007����m^�� �v\u0012*xk��\u0018X�L�\u0007�>5��t\\��o-@ ��\u0012\u0002]\u001f��7��~���\"�uU�'\u0019\u0010�_0`0b����tSB\u0001\u0001��S��d\u0019�S�J\u0004����ȏ��j�\u000e\u0000 q�)\u0000P��Ք\u001d���\u0016\u0006�ا�\u0004��*�lK g�5n\\K\u0002��@Ey}\u0003��\u0013��Ҳ\u001bGVO;�\u0014�\u000fW*3_�R�|\u0006Y��n-0\u001f�����\u0019�~��C\u001caɚh\u0015�H�M(�\u0002b�\u001a�3�:7vk�����o��3���[ޠ\u0019^\u000f �ź*d�̇�.�z�H5\u0016Y�֒H`> \u001f 2�W7u�R�R\u001a� \u0015PC\u0016�Ҵ�C �\u001d�s�\u0000j�K&Ne����Nh\u0007��J�^�ǜ�2\u0000 �Z a��k�x�\u0015͵�\u001d\u0006jR\u0014\u000f5BS\u0005ZJ���\u0012 5�x��\u001a\u001d\u0000;�\u0005��\u001a\u001b\u0003zs��\\ Ai����4- P3�����_�R-8�9�\u0016�\u00005�R\u0019jb�\u001a�\u0019�s���\u0002Ԡ��~�\u000f6 5X ;��V�Wʼ� t�v@����U}�\u0002� Ӓ#\u0019Cx�b�)� ّ����+F ��7U\u0000��H�X�Ǔq$�\u0000��-�v$�\u0018Лc\u0014���JGr\u0012^�f[\u0012����\u0013. 5�5!��n-�\u0017�L\u001c�� ���A�Hz�JZ�lґ�d\u0017����w�tuK\u001e����� ��Af�[�4��V�\"N;y��\u001biV�%Mޚ��u�� �n�S��d�-MK ~���+\u001d�� \u0010� � \u0018Cx\u0004d��fAP؀[;\u001c\u0002�(\u0001\u0001��2�\u0007�\u0006�-q\b�\u000ehv��C�����E\u0004�|�a����y �V`\u0011�Ɂs.TV�\u0013\u0016�q 8��-��n,���u��,��.\u0014\b\u0010\u0017*\u0013�ڣ�\u0007t�j7�%�� !��܋w��i� �� .��������\u0011N��nIU*�R}�aP]��ؓ\u000e!\u0005nc�H�L���O�g\u0017����\u000e��k,K�����,��WM�(���QgD��ǩ�4�We�4jp� 3�Mi�o�\u0010'c��(����tS��2g�$LK�$)\u0015宾b���.\u0015�$Y�K�\u0010O���.z��{ �V�,�o�� �� �� f�\u0017\\qc�G�\u0018w a�qs�\u0014V�\u001c�\u0017�.�a�q�(�\u0018��T�40G�Ÿ���b��p�F$�;�z���!�\u0010� ! \u0013r>�;;�����h�%\u0001?��Y(��\u000e\u0016�\u00143��5'LD�(\u0005�ĕ��\u0019��\u0000h\u0010J��M \u0004�˯!�p�\u001e�F\u0011������38)\u00104\b߃nJ\u00160h���\u001bS�S\u0003�\u0001\u0001\u0003vk�B�d�\u0014\u001a�a�ϻ� $�輽i(�,�V!��PLv�����\u0004�anI$p(�H b\u0005�@nJT\u0002Q��t�\u0004�$\u000e���ҔH�D�$��%M���\u0017.`@�S��A�`f[�a\u0014׾��\u0007\u0006uے�47'\u000e�dծ\u0013��F�r�W��-h3,T��h �i�i&\u001b\u0014k�@�[;\u001c��(�F���#�\u001a��hn���x 5|7 3���\u0002����\u0001\u001e�yY��\u001aB�������V!�4�0��[��hS�ȜrK\"���\u0013��Q�TnJT\u001f!����\u0001$���\u0018�\\��%\u001ecp�\u001b�8xs�CŖ O�퓌v�\u0015*��\u001c��f'�&�%�����T�o�/-�[���+����V��\u0006��Y�4 ������ԧ��Cw\\K�o�#0��\u0012��ә����;*����[� �$�\u000f�����*��\u0004��YŮ T�r1�+\u0005\u0017� �m�;�@kJ�7��G$WAƁ,�u&Qޮ�^�Y�\u0006�ԧL6�,��i�E\u001bB�~�2����hc\u0014�^0� �\u0016ىm�r�W��\u0002��Eo/��l�4���^��m�pl\u0013�\u0004��ʀ���^n�c�t > endobj 6 0 obj [ 7 0 R] endobj 7 0 obj endobj 8 0 obj > endobj 9 0 obj > endobj 10 0 obj > endobj 11 0 obj > endobj 12 0 obj > endobj 13 0 obj > endobj 14 0 obj > endobj 15 0 obj > endobj 16 0 obj /ExtGState >/ProcSet[/PDF/Text/ImageB/ImageC/ImageI] >>/MediaBox[ 0 0 595.32 841.92] /Contents 17 0 R/Group >/Tabs/S/StructParents 1>> endobj 17 0 obj > stream x��]]��r}\u001f���\u001fg\u0002����\u00074\u0017���\u001d\u0012\u0012HȄ \u001e�}:���a��� \u0001=\u0001��� ��XnN;�\u0019��\u001cC��7���w\u0017�\u0007�\u000e:B\u0012�&1$^�]@\b��:�4L��\u001cB��K���]��16�\b�\u0002�s����J1\u00046Ǭ`�1�\u001dT��n~\u001e�p??�G��\u001a$\u001c�D@����k\u000f����ɬk|���q���?\u001e()�:P,q�&I �,���\u0010\u000f\u0006\u0012� �\u001e���'7���x r\u0014�X��J%=\u0011�6i@\u0013� ��P âWz�Bߛn�$�6q��[ ؖ��\u0002 �b�t�4��/��\u0007�R&$\u000e΀�\u001fe�\u0001��� ,�:�h� �C\u00049r?�[�,L\u001c�Uȅ�G7\u0013�jy�\u001do�qqj�4��Mb�i�\u0018E\u001eY�Ձ�\\~'��쌊\u001d�\u0013�\u0004n\u0007MB���\u001d��M�\u0005'�N�wA�q �K�C�Ӗ�\u0015r1D\u0012rB�,�\u001d�r\u000e^ȭ�L���\\���$�\u0010P Q�N��|��\u001b�5�������\u0002�Y�ԫ`�\u00164�{\u0002(ɸ:P,�b� ��t�Q/�G�J. �*�U��Y�اG���Q�\u0001^E�M���J(��ئ�u2]e-�x4�tuB����a�tDl�~ at�Y2����Т/\u0005|V�� G �~�cXts��`��Ath��)v�g\u0003�\u000e�?2�q/�9v�~����\u000eؠ{�\u001d�\u0019\u001e\u0016T���\u0018�g�Y�d`�Q̫�\u000e9��رk)��G\u0019���&v+�\u0001\u001bs�L�ȭc�D�@k��A�º�l\u0001� �I�6q�G��5w�L�a\u0019\u0017t.��p=�a�e`un �t���x�� ˜�׹� �%\u001b@g�\u0005���\u0014C`s�°�ʰ4\u0006�͕\u0012\u0001�ۍ��ܑ\u001c˼�\u0003��l���@I�ցb�����,�9��\u0015\u000f\u0006�e\u0015�=��c?M��0l1.=2ִle�:�ڤ´4�Z]��@�2L\u0016\u0012we5 :�]n\u0019XM\u0017C$M'$�\"�\u0003�e��k��� �%�;�k���.�\u0010\u0002J!ػ ��.�\u00053�b&YЅɰ�w{�fF;\u0005m� [\u0017�&E� ��.5�q/�q��|�������-s�pX\u0000\u001bx5�8Q�Lf���M�s鎋��eYǐYʺ�\u0016фE�-$�/� ì�\u0001�l�\u0006؜���.u\u001d|GrG\u0007�\u0014�ί6\u0018�cg� ɖ|���R�[�\u0013t1���=��0\u001f���s\u000ex��x�\u001f�=� ��Km*|:�ғ&�(�\u0018�{I\u0017hV�潽�s\u0007�t��� ���8ߣz�ݻ�\u0003ѧ�� ��KP��\u0003�n��j�",
           "startsAt": "20230116",
           "endsAt": "20261231",
           "officialOrder": 57
@@ -10290,7 +10290,7 @@
           "sourceUrl": "https://www.7-11.com.tw/form/0718sala.pdf",
           "officialId": "",
           "image": "https://www.7-11.com.tw/2week/231227/2023/1222sala.jpg",
-          "rawText": "以水耕生菜及芝麻葉等生菜食材，搭配新鮮高價值主食，沙拉醬則是使用義大利PURE純橄欖油，讓您享受生活從莎拉開始~；官方活動詳情：%PDF-1.5 %���� 1 0 obj >>> endobj 2 0 obj > endobj 3 0 obj endobj 4 0 obj >/Font >/ProcSet[/PDF/Text/ImageB/ImageC/ImageI] >>/MediaBox[ 0 0 595.32 841.92] /Contents 5 0 R/Group >/Tabs/S/StructParents 0>> endobj 5 0 obj > stream x���M��\u0011��\u0003��qm ZV\u0015?��\u0002��0b�@ /��\"� � \u0004�\u0003;���(�[��\u001e~岳[3�W$\u001fR���^_ �d'\u001bf�z���\u0016'\u0007nv��?�������ח�㟧���w�?�&��Ӵ����o~����~}Q���\u0001��@O��̒j�~r\u000eX$*:=��?�*��ׯ/0�~��l��\u001cf�\u001fp g\b�����\u001d'yu�����������_���Uj������\u0005�0}�)�s�&� α\u0015v���_�\u0007��\u0001pm1L߼�|9XMg �$���n�\u0003�.�¹l���ͻ�a�M�u��>����ɺ�P�.�3�Y'�P���*]�N�%��\"�Kq���$��\u0003�ݷ\u0007D�\u0015\u000e�7Fi�z�>���n_}�ڷ����\u000f�J�X�;޳Ot�b��Q̡�tN\u0013&Y�N���T��F��6��\u001d}���n9\u0016�K��sSm��)��Tlc\u00186U���ƠB�ҥY�\u001dSe\u0017���N�\u0017ZM�9 ߻ĵ���]�τ�5�Z�˒���\u0018{�\u0017g����ey�� ^� ^B��\u0007ox�F\b%i=\u0000^� �\u001b��! F�=H���dg݌Y�w�� \u0013]��� �\u001eO��.�B��n�$tg�c(*�~H2>tC�i�$�~\u001d�T � �z��z?��\u001f�0u�f�1G�'�\u001c��\u00070Gv�~8\u001f���R� ��V�сvб�.�����AG\u0007� :�\u0019t��6��+K\u000f���Bٺ\u001b� �q�0�]�\u0019� 3B}�y\u0000�Gq��\u0007`Fv�q�\u001f߼=,|oC�I�J;ڢ�� �������\\7��f�\u0011��v�9[$T?@:� ]���M�׭�\u0013�[���V��\u0005e7�A�\u0016��\u0015 �\u001fp��݀�\u0001G��G=�9*\u0002�\u001f\u0000\u001cمʓ���ȱ��C �\u0005������@�4\u0019s��;���qH�G?�7M\u0019�`�|Zv��gJ���|yl R�-;�=��씂vcu>�?9Z�\u0012���N��Y\u0005>��!�>���\u0016>�k\u0011��/�= �麹z�G�\u000e��\u0014�\u001c�\u000f�`�|\u001c٦n\u0000l�\u001f\u0017��,c�����\u0014��NT> �)D��a��ZD:>?\u0007�����N�����KyR\u001a�\u0017G��)��`\\�GS�G]����qى��Q\u0018��\u001d圷\u0012!\u0003�N�\u0011]�\u0012�ct�n\u001c-�\u0013a{Ḑ߈�wi\u0015�\u0001\"��(�QBkc\u001a�hPL��IX�S&h.�F�\u0005���[\u0015�\u0007j�Q�~�k/�\u0016��iS>9\u0019��������kJ''�53f���bpD��[��PA�|\u0013\u0006���T?���� ��X�\u0019��Uu�\u001e\\vbh�&+]\u000ek\u000f�����q\u0004d/�ӧ�t6t)\u0016��@�8��]����tS_��ި,=BO{\u0017��IgO��\u0003:W���|\u001c���CV_��**\u000fف�q\ba�N#���w�u�B����H����00�}h\u000en��K�����>\u0010�T| ]V�G'�4w>h��R�]}; 5�r�=RJ.�0쪨*O�.���B\u0013X{��\u000f����;P=\u000e֥����fd�շ��[_~n #�� �I�����\u00120��\"ch.$�{x�U=j�\u0018\u0000�|y\"\u001f($� n�\u0005��B�]}�0�\u0002R,���Brхʺ�r���G\u001ez\u0004!1 W��� r�{� �Lh dB�\u0014�*D~�Lh dB�f� !\u0003L&�\u00052!^+]UH��do�LH�z�u� ��\u0016i��2�-� 12aU�0Ov dB\u0004 �\u0006{��-� q��l\u0005w��\u0002��R�d3 � �R@ 1\u001ey�+-r�5�w![ �l���� }�6��\u0003@&]� endstream endobj 6 0 obj > endobj 7 0 obj > endobj 8 0 obj [ 9 0 R] endobj 9 0 obj endobj 10 0 obj > endobj 11 0 obj > endobj 12 0 obj > endobj 13 0 obj > endobj 14 0 obj [ 15 0 R] endobj 15 0 obj endobj 16 0 obj > endobj 17 0 obj > endobj 18 0 obj > endobj 19 0 obj > endobj 20 0 obj >/Font >/ProcSet[/PDF/Text/ImageB/ImageC/ImageI] >>/MediaBox[ 0 0 595.32 841.92] /Contents 21 0 R/Group >/Tabs/S/StructParents 1>> endobj 21 0 obj > stream x���[�%�\u0011��\u0007�;���`�J�+ sn&&�\u0018/�a�C\b�!�\u000eN\u001e���R_N���H%\u0005c�N���HU]�����ߟ�\u001c(��O�x;Y�7S�����������������O�������L�ӧ�t9O\u001f���O���� �_HE�\u0018��7��\u0014Z;�D3���5�\\�?O\\ >���2}��7��󷟾ZuO���>�̔��?gqM����q �*?}���I�\u000f�!��Ǡ�o�����5�9���/������TS�T �+;��V�\u0006�/\u001f����!��ܥ�W�0�/\u001f��\u0010\"�����\u0019$� ��� �0D�!4���^\b�\u0014�!���~�d�M�Ew�����_����vyZ�铿_�/��m\u001eMU���|�[ \u0017Gӈ����h:�0���\u0000\u0013�) �z\u001ag\u001f�=�=�{*�\"��\b�$�Rf�hwf��\u0019�`UWY�g&����P�LL=\u0007Յd��\u001e ��*�� MHag���g��\u001c���TK�\u001f�\u0019>�V\u001a�F\u0004ʴr;�'��Rn0���ҍ3�~e��\u001b9��PU�\u001bGA\b��\u0015� S��@��\bP�@�\u0001��S�`Շ[��U��re�¢�ż����_6!�k�a�y\u0000��.��)g�]='.� ���a�y�\u0014��'���\u0000b�֘/�u�I#�A�D6!c\"K\u0017��RM���D6�n& b&b�9� \\���2 0\u0011�B�|�|h�����ض8�9 �n�2� �1\u0011Ռ�&T���Ȇ��DA�DL�ˇ\u0018�蒥ڋ0�D| ����ԇ3\u0002�;Y��I\u0010�(%$��NH[a�\u0017TU�����ݔ\u0014Ŕ��� �!\u001a�\u001e��\u0001J�S��\u001e�����Qly��s5�RLʝkwL��\u0014�� U�~L�6vcR\u0014c\u0012S���\u0000Uު�\u0000&�)4�.�o�ѿ{${z�`�����,��G��;Osh�l��#���GI�GL}IY$�U�\u0007��O��|�/#�����\u001cd/f�GWU\u001e� \b�\u001c��\u001c��/�#�tU�\u0011\u000ebS��n���X�������'�b\u0006�Z\u0001������X�AH\u0003 ���\u001bB9\u0003�깛\u0004B2�#Y�#\u0010�����\"'��n�$e_��܀�& \u001eF��\u0016��\u0018\u0012h��j�\u00011Zw\u00141z��������s\u0018-@�U�\u0005=@>|\u0012�V�Ս���z�\u0007�p�\\ �D�R�A\u001fUڂꝻ����9\u0018� ��\u0014�\u000e���������\u0003��'Q\u000ffvc�������\u0010�R�A����\u0006e^\u0011n�\u0003\u0002\u0018h�F����\u0004-�\u001a&��\u000f\u0004\u001b�1\u001ci��h\u001d��� �\\\u0013�Ý+�y���NJ5��~�\u0012��\u0015�]C�\u001fk\u0010�V�;�'�\u001a&�6\u0010WԵ\u0007��O�s\u001f�p*�u�Ч��k�;- n�& ܑ(_m�n����~i4�U���������{\u0001L��'�tL�I4⿺�P|�\u0003�\u001e�������i���L�s�锁�iԱ\u001f����L>\u0007�\\�Z�#��&�\u0018\\\u00024�-�ێ3���ةH��\u0006��\u0011��_s���\u0014�L�;d-G��&z\u0018�6��nȒ7_3��A 1B��\u0001F���$�:�΃\u0019-e-\u0013\u001cc-\u001b�ug\u001c\u0006��M\b��%o�f�s\u0003.e��\u001eC�H�5�����s�FV�Bm\\ڑ+C���j\u001f �P\u001b\u000f��%o�f�s:��t=\u001dG���$��1��E��(n�6�2z�Ƴ���?����u�\u0014%o�f�sHs�Q��Fz��$:\u001f�x8�\u000f%P՟Ӕ2�1qg&^\u001a����D,��M�j&�t���]*0�R�'����f�p�{\\Q�\u0015�U\u001b0����K��ƛ\u0015`��ڀU�7�r\b��/���֟\\���j6��ۥ��Ur�\u001b�}Ր��0k\u001b�:�@_5%���0���w���j�z�~���MA�t\u001a6e�e+������\\�'i��{�!�v������\u0003Ru�~:����\u001e �{�w��?���\u0003a�\u0007�M�q�H>|�Q�|q�5x�]�/y�n\u001e& 4^�\u000fk\u0019��v�97��˫���\u0001\bbS��f&V�_��?��e��#�T �7S3���\u0010-6tS�I4:P�Ӟ�-C\u000f��3��V�`��Gs����;\u0017���h�\u001b��|����7��5�I�'�xT��9\u001ez�\u00057�~x~����&e�D�l�[83��p�����yBt�D�\u0002;�g}��d��&��ߧ�bO�\u0010��~��y��ӒJ\u001f��\u001f�wqf��\u0016Q�\u0012� ��s��?�h{��%%O�%���B)-�\u000f-e�W��*`P�]d���ȦP׈�# ���}�B��� 9�(dSP��f��\u0010�m�\u00142G!\u0007�\u001a���K�nX����Ο���γ;�P~�Be1\u0014*��X�B�8�8���2���q.��6\u0018 J\u0017*��P���T���B��K� -�B�X����\u0014�Be1\u0014*:��U\\J�(�U� �\u0006.D\u0015�t�B!�n^ �P\b\u00077�� ���j(��)=��l(=�\u001a !Rp�\u0011!��^ �\u0010���o �?8{1\u0014B�\u0004������������&rRd݅VC!\u0014�\u0002(�̃\u0010�\u0005[\b-�B�G�15�\u0010\u0016B��\u0010��;5�0*S\b-�B\b�¦�!Z(�\u0016C!DkSh �pp�b(��o;�&(��\u001a��M��l\u001b\\���P\b���t6-饳WC!�R�����٫�\u0010��v�5�t�j(�L\u00148\u001b����P\b�i;\u001b��CbB�� a�y���\b#U�Bh1\u0014B\u0011�i y�~��b(��S>��FД ��P\b�I7���_!�\u0018 !��6� \u001d��\u0018 !\u0002�x\u0010zXi�{\u000f�^ �\u0010���6�y,��\u001a��!N::�aD�e*��\u001a !2��\\(��\u001a !�%�\u0014\"\u0016*��\u001a !���� mj g��B�x��l����q5\u0014B�L�7F\u0004�C� �\u0006.�M�7FD;��w��b(�\b�lsD�C�\u0010Z �\u0010�Ql��R�+�\u0016C!D�d�BhJg��B\bA�l�\u0007g/�B�Lmgk88{1\u0014BZ��M4\u0014 �Z \\��(z�\u0018Q��A� Y %g��u�Q�u��?\u0015�\u0002� endstream endobj 22 0 obj >/Font >/ProcSet[/PDF/Text/ImageB/ImageC/ImageI] >>/MediaBox[ 0 0 595.32 841.92] /Contents 23 0 R/Group >/Tabs/S/StructParents 2>> endobj 23 0 obj > stream x���]�$�\u0011��\u000f��Зk��*U� \u000e ��cbb��B.�\\�`/�x�����ԭ��zf��\u0004gs�d�i��*=R״�x}� �L� eh\"2¨ɂ\u0015v����/�v���2��iz{{���O�I~�0\u001dϧ�������^_`��*R8\u0017T�b\u0015/�hQqj���[\u0016� �u����������§��SA����F���wRH���z'�7�\u000f��\u001fr�VFH�hz�P;2\u0012K�ԑ3�J�M/_�KSx�J]fu�=�@x��BeC���>� �\u0016��OR\u0002}�o���?���[#�/�R�u5\u0003�R�wk\u0006�P{k�ٗ�M�F �� ��\u0006n��A�\u001e�))�\u0001\u0007�\u0001T, 0u�݌ �S���6k�o�T�\u0012��j����o��ax,E�~\b2�]k}���\u0019�\u0012�0W�v�\\��\u0000\b�C�8\u001b(\bx� Ϋ��C�j���Yw���I�ɍ��H�5�E�~P2Nu��j&�D=xL�\b|Qz\u0000��!���Y�\u0007\u001eӶ��\u001f�yL[��\u0019U�\u0001z�nE+c�V��\u000e�&��K\u0001��1�\u001b��\u0019�\u0012�P�y��d�r\u001c��t\b�-W'��F�e�� ��&'Z~�]��\u0010�Z��V�2����Wؑ���\u0016�ً�k7{a3{%��x\u0004�,=�^�\u0010j��dՑ��J\u001dI+��\u001apa+p\u0019� �½\u0017n��r?p\u0019����������\u001a�u���\u0013\u0003��\u000e�k�/�or����m��N�\u0000eQy����+j��M�ӻ� 2�\u0014�F�*\u0019�0]цU\u0011���{�+�ԌURmX��E�챨 ��G\u0000h\u001bB��o> �ᷙ��ne\u001d�V�62\u0017/�;Ձnl�^@����؛�r,�y\u0015/��H7v2�ʩ`�����I~9��\u0003\u000e�7�\u001bO�C�\u0010e�~�\u0001���� ��`o��A\u00129c��3҂� �25�Au \u0011��T\b� �u���q�˄�@&�@����� ��L�ha|mh M>\u0013Z\u0003�\u0010�dU\b��eBk \u0013B\u0012T\u0015\u0002�K�\u001aȄ\u0018��N�n�e��%{ dB���&[��1Kv �B�9i��+�\u001dS��\u0018Ȅ8$�W�m��\u0018Ȅ\u0018��*�,�%;\u00062!��j�\u0015�i�d�@&ļTO6p�K�1\u00062!F&c*W\u0004�C>\u0015��T(���\\\u0011o���7\u0011Z\u0003�\u0010#\u0013U��q�fBk \u0013b>r�+\"�~��\u001aȄ\u0018�TU\bU��\u0018Ȅ\u0010\u001a� f��5� q��l �d��LH�z���l\u0006Z1� 1\u001e9C�+��5�w!k ���_��\u0017�9n��\u000f,�\u001cG endstream endobj 24 0 obj >/Font >/ProcSet[/PDF/Text/ImageB/ImageC/ImageI] >>/MediaBox[ 0 0 595.32 841.92] /Contents 25 0 R/Group >/Tabs/S",
+          "rawText": "以水耕生菜及芝麻葉等生菜食材，搭配新鮮高價值主食，沙拉醬則是使用義大利PURE純橄欖油，讓您享受生活從莎拉開始~",
           "startsAt": "20230208",
           "endsAt": "20261231",
           "officialOrder": 59
